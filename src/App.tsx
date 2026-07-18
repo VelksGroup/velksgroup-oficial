@@ -246,7 +246,7 @@ export default function App() {
     {
       title: "Mestre das Obras Premium",
       category: "localservices",
-      image: "https://cdn.pixabay.com/photo/2023/11/20/12/05/crane-8400990_1280.jpg",
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600",
       stats: { pt: "Orçamentos solicitados cresceram 3x em Coimbra", en: "Project quotes inquiries grew 3x locally" },
       tech: ["SEO Local", "Portfolio Showcase Slider", "Direct Instant Lead Dispatcher"],
     }

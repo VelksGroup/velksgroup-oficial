@@ -14,6 +14,13 @@ export default defineConfig(() => {
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      proxy: {
+        '/orion/api': {
+          target: 'https://orion-capture-widget.vercel.app',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/orion\/api/, '/api')
+        }
+      }
     },
     build: {
       rollupOptions: {

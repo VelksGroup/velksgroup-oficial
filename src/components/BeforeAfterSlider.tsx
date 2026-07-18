@@ -309,10 +309,11 @@ export function BeforeAfterSlider({ currentLang }: BeforeAfterSliderProps) {
                     </div>
 
                     <div className="flex-1 relative w-full h-full bg-[#050505] overflow-hidden">
-                      <iframe 
-                        src="https://www.turnclean.pro/" 
-                        className="w-full h-full border-none pointer-events-none" 
-                        title="Turnclean Pro Premium Website"
+                      <img 
+                        src="/turnclean-premium-preview.png" 
+                        alt="Turnclean Pro Premium Website"
+                        loading="lazy"
+                        className="w-full h-full object-cover border-none pointer-events-none" 
                       />
                     </div>
                     
