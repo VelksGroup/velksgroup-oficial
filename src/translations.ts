@@ -1,0 +1,2031 @@
+export type Language = 'pt' | 'it' | 'en' | 'fr' | 'de' | 'es';
+
+export interface TranslationSchema {
+  nav: {
+    hero: string;
+    problem: string;
+    solution: string;
+    authority: string;
+    widget: string;
+    pricing: string;
+    demos: string;
+    faq: string;
+  };
+  hero: {
+    tracking: string;
+    badge: string;
+    title: string;
+    subtitle: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    trustPilot: string;
+  };
+  problem: {
+    title: string;
+    subtitle: string;
+    cards: {
+      invisible: { title: string; desc: string };
+      reviews: { title: string; desc: string };
+      contacts: { title: string; desc: string };
+      oldSite: { title: string; desc: string };
+      lostClients: { title: string; desc: string };
+    };
+  };
+  solution: {
+    title: string;
+    subtitle: string;
+    cards: {
+      gmaps: { title: string; desc: string };
+      website: { title: string; desc: string };
+      bot: { title: string; desc: string };
+      leads: { title: string; desc: string };
+      automation: { title: string; desc: string };
+    };
+  };
+  authority: {
+    title: string;
+    subtitle: string;
+    luxembourg: { name: string; tag: string; desc: string };
+    portugal: { name: string; tag: string; desc: string };
+    spain: { name: string; tag: string; desc: string };
+    metrics: {
+      clients: string;
+      delivered: string;
+      roi: string;
+      support: string;
+    };
+  };
+  widget: {
+    title: string;
+    subtitle: string;
+    steps: string[];
+    capabilitiesTitle: string;
+    capabilities: string[];
+    demoTitle: string;
+    demoSubtitle: string;
+    placeholderInput: string;
+    demoPresetRestaurante: string;
+    demoPresetImobiliaria: string;
+    demoPresetClinica: string;
+    demoPresetServicos: string;
+  };
+  testimonials: {
+    title: string;
+    subtitle: string;
+    list: {
+      name: string;
+      role: string;
+      text: string;
+      rating: number;
+    }[];
+  };
+  pricing: {
+    title: string;
+    subtitle: string;
+    singlePayment: string;
+    allPlansInclude: string;
+    allPlansIncludeDesc: string;
+    plans: {
+      gmaps: {
+        title: string;
+        price: string;
+        features: string[];
+        cta: string;
+        tracking: string;
+      };
+      website: {
+        title: string;
+        price: string;
+        features: string[];
+        cta: string;
+        tracking: string;
+      };
+      automacao: {
+        title: string;
+        price: string;
+        features: string[];
+        cta: string;
+        tracking: string;
+      };
+      ecommerce: {
+        title: string;
+        price: string;
+        features: string[];
+        cta: string;
+        tracking: string;
+      };
+      custom: {
+        title: string;
+        price: string;
+        features: string[];
+        cta: string;
+        tracking: string;
+      };
+    };
+  };
+  demos: {
+    demoTracking: string;
+    title: string;
+    subtitle: string;
+    categories: {
+      all: string;
+      restaurants: string;
+      realestate: string;
+      clinics: string;
+      localservices: string;
+    };
+    cta: string;
+    clickToSee: string;
+  };
+  faq: {
+    title: string;
+    questions: { q: string; a: string }[];
+  };
+  ctaFinal: {
+    tracking: string;
+    title: string;
+    subtitle: string;
+    cta: string;
+    microcopy: string;
+  };
+  footer: {
+    logoDesc: string;
+    hqMain: string;
+    hqSec: string;
+    policyPrivacy: string;
+    policyCookies: string;
+    terms: string;
+    compliance: string;
+    legal: string;
+    gdpr: string;
+    rights: string;
+  };
+  cookieConsent: {
+    text: string;
+    accept: string;
+    decline: string;
+  };
+}
+
+export const translations: Record<Language, TranslationSchema> = {
+  pt: {
+    nav: {
+      hero: "Início",
+      problem: "O Problema",
+      solution: "A Solução",
+      authority: "Presença",
+      widget: "Assistente IA",
+      pricing: "Pacotes",
+      demos: "Demonstrações",
+      faq: "FAQ",
+    },
+    hero: {
+      tracking: "Olá. Vi a vossa infraestrutura tecnológica no site e gostaria de verificar se a minha empresa se qualifica para implementar o vosso sistema comercial. Podem enviar-me a tabela de preços?",
+      badge: "★ DOMÍNIO ABSOLUTO DO MERCADO",
+      title: "O seu negócio merece aparecer antes dos seus concorrentes.",
+      subtitle: "Domine o Google, esmague a concorrência com um site implacável e deixe a nossa IA fechar negócios 24/7. Sem mensalidades recorrentes.",
+      ctaPrimary: "ATIVAR MÁQUINA DE VENDAS",
+      ctaSecondary: "Ver Demonstrações",
+      trustPilot: "Excelente 4.9/5 estrelas no Google & Redes de Negócios"
+    },
+    problem: {
+      title: "A Dor de Ser Invisível",
+      subtitle: "Se o seu negócio não é o primeiro a ser encontrado, você está a financiar o crescimento dos seus concorrentes. O mercado mudou e o amadorismo custa caro.",
+      cards: {
+        invisible: {
+          title: "Invisível no Google",
+          desc: "92% dos clientes escolhem empresas na primeira página. Se você não aparece, você simplesmente não existe para eles."
+        },
+        reviews: {
+          title: "Poucas Avaliações",
+          desc: "Negócios sem prova social ativa transmitem desconfiança. Clientes compram de quem os outros recomendam."
+        },
+        contacts: {
+          title: "Falta de Contactos",
+          desc: "Depender apenas de recomendações 'boca a boca' é uma roleta russa financeira. O seu negócio precisa de um fluxo constante."
+        },
+        oldSite: {
+          title: "Site Antigo ou Inexistente",
+          desc: "Um site lento ou feio afasta clientes premium. A sua presença digital é o espelho do seu profissionalismo."
+        },
+        lostClients: {
+          title: "Clientes Perdidos Fora d'Hora",
+          desc: "64% dos clientes chegam à noite ou no fim de semana. Sem atendimento automático imediato, eles vão para a concorrência."
+        }
+      }
+    },
+    solution: {
+      title: "O Método VELKS para Dominar o Mercado",
+      subtitle: "Não vendemos código nem tecnologia. Vendemos agendamentos cheios, clientes qualificados e processos automáticos que faturam por si.",
+      cards: {
+        gmaps: {
+          title: "Otimização Google Maps",
+          desc: "Posicionamos o seu negócio no topo das pesquisas locais para que seja a escolha óbvia na sua região."
+        },
+        website: {
+          title: "Websites de Alta Conversão",
+          desc: "Páginas desenhadas especificamente para telemóveis, focadas em fazer o visitante clicar e iniciar conversa."
+        },
+        bot: {
+          title: "Assistente IA 24/7",
+          desc: "Um assistente inteligente que responde em segundos, tira dúvidas e captura o contacto do cliente automaticamente."
+        },
+        leads: {
+          title: "Captação Ativa de Clientes",
+          desc: "Sistemas simples e diretos para recolher dados de contacto de potenciais clientes interessados nos seus serviços."
+        },
+        automation: {
+          title: "Automação Sem Complicações",
+          desc: "Sincronização imediata de pedidos para o seu WhatsApp ou Email, sem que precise de gerir painéis complexos."
+        }
+      }
+    },
+    authority: {
+      title: "Operamos entre Portugal, Espanha e Luxemburgo",
+      subtitle: "Aplicamos métodos e padrões utilizados em mercados europeus altamente competitivos e exigentes para ajudar pequenas empresas a crescer online de forma sólida.",
+      luxembourg: {
+        name: "Luxemburgo",
+        tag: "Sede Principal",
+        desc: "Onde gerimos a estratégia financeira, os padrões europeus de compliance e a engenharia de dados da VELKS Group."
+      },
+      portugal: {
+        name: "Portugal",
+        tag: "Centro de Desenvolvimento",
+        desc: "Equipa de design e desenvolvimento focada em converter visitantes em clientes premium."
+      },
+      spain: {
+        name: "Espanha",
+        tag: "Expansão de Mercado",
+        desc: "Operações dedicadas ao mercado Ibérico de alta densidade e comércio local dinâmico."
+      },
+      metrics: {
+        clients: "+240 Clientes Atendidos",
+        delivered: "+350 Projetos Entregues",
+        roi: "+320% ROI Médio Estimado",
+        support: "Suporte Total Sem Complicações"
+      }
+    },
+    widget: {
+      title: "Atendimento automático 24 horas por dia",
+      subtitle: "O seu novo assistente comercial trabalha enquanto você dorme, garantindo que nenhum cliente potencial seja ignorado.",
+      steps: [
+        "O visitante entra no seu site.",
+        "O assistente responde automaticamente em menos de 2 segundos.",
+        "Esclarece dúvidas comuns instantaneamente.",
+        "Recolhe dados como Nome, Telefone, Email e Interesse.",
+        "Agenda reuniões ou encaminha os dados consolidados.",
+        "Envia um resumo completo diretamente para o seu WhatsApp ou Email.",
+        "Modelo de Linguagem altamente treinado para soar natural e humanizado."
+      ],
+      capabilitiesTitle: "O que o assistente pode fazer por si:",
+      capabilities: [
+        "Responder a perguntas frequentes",
+        "Apresentar preços e pacotes de serviço",
+        "Captar leads qualificadas em tempo real",
+        "Agendar reuniões de diagnóstico",
+        "Encaminhar pedidos urgentes para o WhatsApp da sua equipa",
+        "Enviar resumos das conversas diretamente para o seu Email"
+      ],
+      demoTitle: "Simulador de Assistente Virtual VELKS",
+      demoSubtitle: "Selecione um nicho abaixo e teste em tempo real o poder da conversão automática:",
+      placeholderInput: "Escreva a sua mensagem aqui...",
+      demoPresetRestaurante: "Simulador Restaurante 🍔",
+      demoPresetImobiliaria: "Simulador Imobiliária 🏠",
+      demoPresetClinica: "Simulador Clínica Médica 🩺",
+      demoPresetServicos: "Simulador Construção/Serviços 🔨"
+    },
+    testimonials: {
+      title: "Quem confia na VELKS Group",
+      subtitle: "Histórias reais de empresários locais que saíram da invisibilidade e hoje dominam as pesquisas na sua região.",
+      list: [
+        {
+          name: "Carlos Silva",
+          role: "Gerente, Silva & Filhos Construções",
+          text: "O ecossistema completo da VELKS eliminou a nossa dependência de indicações. Com a máquina de vendas web, IA e o Google dominado, recebemos chamadas diárias de clientes prontos a fechar obra. O investimento pagou-se em semanas.",
+          rating: 5
+        },
+        {
+          name: "Dr.ª Mariana Costa",
+          role: "Diretora Clínica, OdontoArt Coimbra",
+          text: "A Inteligência Artificial da VELKS no site é fantástica. Os clientes entram à noite para tirar dúvidas sobre marcações, a IA recolhe o contacto e no dia seguinte a nossa secretária só tem de confirmar. Excelente!",
+          rating: 5
+        },
+        {
+          name: "Jean-Pierre Weber",
+          role: "Proprietário, Brasserie Gare Luxembourg",
+          text: "O trabalho da VELKS no nosso Google Maps criou um monopólio local. Agora, intercetamos dezenas de turistas todos os dias antes sequer de verem a concorrência. Tráfego diário garantido e um retorno brutal na nossa faturação.",
+          rating: 5
+        },
+        {
+          name: "Isabel Mendes",
+          role: "Imobiliária Mendes & Associados",
+          text: "Os nossos consultores agora recebem clientes qualificados prontos a falar. O sistema filtra quem realmente quer comprar ou vender e envia tudo direto para o WhatsApp. Recomendo a 100%.",
+          rating: 5
+        },
+        {
+          name: "Ricardo Martins",
+          role: "Stand Martins Automóveis",
+          text: "A loja online que a VELKS construiu transformou o nosso stand numa máquina de faturar. Agora vendemos viaturas para todo o país, 24 horas por dia, sem depender de visitas à porta. Escalaram as nossas vendas ao máximo.",
+          rating: 5
+        }
+      ]
+    },
+    pricing: {
+      title: "Sem Mensalidades. Sem Surpresas. Apenas Resultados.",
+      subtitle: "Não vendemos websites. Construímos máquinas digitais preparadas para gerar resultados.",
+      singlePayment: "PAGAMENTO ÚNICO",
+      allPlansInclude: "Todos os pacotes incluem:",
+      allPlansIncludeDesc: "Suporte premium, total conformidade RGPD, design mobile-first e otimização para velocidade máxima de carregamento.",
+      plans: {
+        gmaps: {
+          title: "Google Maps Profissional",
+          price: "90€",
+          features: [
+            "Configuração & Reivindicação Completa",
+            "Otimização SEO Local Avançada",
+            "Carregamento de Fotos Profissionais",
+            "Registo de Serviços & Produtos",
+            "Criação de Link Direto para Avaliações",
+            "Estratégia de Posicionamento Local",
+            "Ativação de Mensagens Diretas"
+          ],
+          cta: "DOMINAR TOP 3 LOCAL",
+          tracking: "Olá! Tenho interesse no pacote Google Maps Profissional. Os especialistas da VELKS poderiam me ajudar?"
+        },
+        website: {
+          title: "Website Profissional Premium",
+          price: "190€",
+          features: [
+            "Landing Page Ultra Rápida",
+            "Design Mobile-First Exclusivo",
+            "Otimização de SEO para Google",
+            "Integração Direta com WhatsApp",
+            "Configuração de Domínio Próprio",
+            "30 Dias de Suporte Gratuito",
+            "Conformidade RGPD & Segurança SSL"
+          ],
+          cta: "ATIVAR MÁQUINA DE VENDAS",
+          tracking: "Olá! Tenho interesse no pacote Website Profissional. Qual é o primeiro passo para construirmos a minha nova máquina de vendas?"
+        },
+        automacao: {
+          title: "Atendimento Automático IA",
+          price: "250€",
+          features: [
+            "Assistente Web Inteligente Personalizado",
+            "Ativação para WhatsApp & Instagram",
+            "Menu Inteligente de Conversão",
+            "Treino em 2 Idiomas Escolhidos",
+            "Bot Proativo com Respostas Humanizadas",
+            "Captação e Envio de Leads por Email",
+            "Integração no seu Site Atual"
+          ],
+          cta: "BLINDAR ATENDIMENTO 24/7",
+          tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com Atendimento Automático IA. Qual é o próximo passo para iniciarmos a integração?"
+        },
+        ecommerce: {
+          title: "E-commerce Completo",
+          price: "300€",
+          features: [
+            "Criação & Customização de Loja Online",
+            "Pronto para Print on Demand / Dropshipping",
+            "Ideal para Negócio Local, Digital ou Híbrido",
+            "Mapeamento dos Melhores Fornecedores",
+            "Integração de Pagamentos Seguros",
+            "Configuração de Portes e Stock",
+            "Painel de Gestão Super Simples"
+          ],
+          cta: "ESCALAR FATURAÇÃO ONLINE",
+          tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com o pacote E-Commerce Completo. Qual é o próximo passo para iniciarmos a integração?"
+        },
+        custom: {
+          title: "All-In-One Imperial",
+          price: "Sob Consulta",
+          features: [
+            "Google Maps + Website + Atendimento IA",
+            "Estratégia Completa de Domínio de Mercado",
+            "Copywriting Agressivo de Alta Conversão",
+            "Otimização Multi-idiomas Completa",
+            "Prioridade de Suporte Vitalício",
+            "Acompanhamento Estratégico Mensal",
+            "Desconto de Pack Integrado"
+          ],
+          cta: "AGENDAR AUDITORIA PRIVADA",
+          tracking: "Olá, Equipa VELKS. O meu negócio precisa de uma reestruturação digital profunda. Gostaria de agendar uma auditoria privada com um especialista da VELKS para discutir a solução All-In-One Imperial. Vocês poderiam me ajudar?"
+        }
+      }
+    },
+    demos: {
+      demoTracking: "Olá! Quero testar a demonstração interativa para {demoTitle} e ver na prática como esta tecnologia pode escalar os meus resultados. Podemos iniciar o teste?",
+      title: "Demonstrações Interativas",
+      subtitle: "Explore exemplos reais de como transformamos a presença online de negócios locais.",
+      categories: {
+        all: "Todos",
+        restaurants: "Restaurantes",
+        realestate: "Imobiliárias",
+        clinics: "Clínicas Médicas",
+        localservices: "Serviços Locais",
+      },
+      cta: "Falar com Consultor",
+      clickToSee: "Ver Demonstração Interativa"
+    },
+    faq: {
+      title: "Perguntas Frequentes",
+      questions: [
+        {
+          q: "Quanto custa o serviço?",
+          a: "Os nossos preços começam nos 90€ para otimização de Google Maps e 190€ para websites profissionais. São pagamentos únicos, sem quaisquer subscrições recorrentes ou mensalidades obrigatórias."
+        },
+        {
+          q: "Quanto tempo demora a entrega?",
+          a: "Otimizações de Google Maps demoram tipicamente entre 3 a 5 dias úteis. Websites profissionais premium e assistentes virtuais de atendimento automático são entregues e testados em 7 a 14 dias úteis."
+        },
+        {
+          q: "O site funciona bem em telemóvel?",
+          a: "Sim, absolutamente. Desenvolvemos com foco total em Mobile-First, porque mais de 85% dos contactos locais são feitos através de smartphones. O seu site será extremamente rápido e intuitivo em qualquer ecrã."
+        },
+        {
+          q: "Posso usar o meu domínio atual?",
+          a: "Sim. Se já tem um domínio próprio (ex: www.oseunegocio.com), configuramos tudo para apontar para o novo site premium sem custos extra. Se não tiver, ajudamos a escolher e registar o melhor domínio."
+        },
+        {
+          q: "Trabalham em Portugal, Espanha e Luxemburgo?",
+          a: "Sim! Operamos ativamente nestes três países, adaptando o design, a linguagem e a otimização SEO para as exigências locais de cada mercado europeu."
+        }
+      ]
+    },
+    ctaFinal: {
+      tracking: "Olá. Li toda a vossa página e percebi que estou a perder dinheiro para a concorrência. Quero perceber exatamente como a vossa tecnologia pode blindar o meu negócio de forma imediata. Podemos falar?",
+      title: "Pare de perder clientes para quem faz menos do que você.",
+      subtitle: "Enquanto lê isto, o seu concorrente está a receber chamadas. Vamos mudar isso hoje?",
+      cta: "BLINDAR O MEU NEGÓCIO AGORA",
+      microcopy: "Sem compromisso • Resposta imediata • Orçamento gratuito"
+    },
+    footer: {
+      logoDesc: "Transformamos negócios dependentes do dono em máquinas autónomas de lucro. O seu domínio no Google torna-se absoluto e a nossa IA fecha vendas 24/7. Resultados reais e sem mensalidades recorrentes, para que recupere o seu tempo e a sua liberdade.",
+      hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
+      hqSec: "Sede Secundária: Coimbra, Portugal",
+      policyPrivacy: "Política de Privacidade",
+      policyCookies: "Política de Cookies",
+      terms: "Termos e Condições",
+      compliance: "Compliance Europeu",
+      legal: "Avisos Legais",
+      gdpr: "Conformidade RGPD UE",
+      rights: "© 2026 VELKS Group. Todos os direitos reservados."
+    },
+    cookieConsent: {
+      text: "Utilizamos cookies e tecnologias semelhantes para garantir a melhor experiência de navegação e analisar o tráfego do nosso site, em total conformidade com o RGPD da UE.",
+      accept: "Aceitar Todos",
+      decline: "Recusar"
+    }
+  },
+  it: {
+    nav: {
+      hero: "Inizio",
+      problem: "Il Problema",
+      solution: "La Soluzione",
+      authority: "Presenza",
+      widget: "Assistente IA",
+      pricing: "Pacchetti",
+      demos: "Dimostrazioni",
+      faq: "FAQ",
+    },
+    hero: {
+      tracking: "Ciao. Ho visto la vostra infrastruttura tecnologica sul sito e vorrei verificare se la mia azienda si qualifica per implementare il vostro sistema commerciale. Potete inviarmi il listino prezzi?",
+      badge: "★ DOMINIO ASSOLUTO DEL MERCATO",
+      title: "La tua attività merita di apparire prima dei tuoi concorrenti.",
+      subtitle: "Creiamo siti web premium, profili Google Maps professionali e sistemi di risposta automatica per aiutarti a generare più contatti e chiudere più clienti ogni giorno. Senza abbonamenti mensili.",
+      ctaPrimary: "VERIFICA FATTIBILITÀ PER LA MIA AZIENDA",
+      ctaSecondary: "Guarda le Demo",
+      trustPilot: "Eccellente 4.9/5 stelle su Google & Business Networks"
+    },
+    problem: {
+      title: "Il Dolore di Essere Invisibili",
+      subtitle: "Se la tua attività non viene trovata per prima, stai finanziando la crescita dei tuoi concorrenti. Il mercato è cambiato e l'improvvisazione costa cara.",
+      cards: {
+        invisible: {
+          title: "Invisibile su Google",
+          desc: "Il 92% dei clienti sceglie attività sulla prima pagina. Se non appari, semplicemente non esisti per loro."
+        },
+        reviews: {
+          title: "Poche Recensioni",
+          desc: "Le attività senza una prova sociale attiva trasmettono diffidenza. I clienti acquistano da chi viene raccomandato dagli altri."
+        },
+        contacts: {
+          title: "Mancanza di Contatti",
+          desc: "Affidarsi solo al passaparola è una roulette russa finanziaria. La tua attività ha bisogno di un flusso costante."
+        },
+        oldSite: {
+          title: "Sito Vecchio o Inesistente",
+          desc: "Un sito lento o brutto allontana i clienti premium. La tua presenza digitale è lo specchio della tua professionalità."
+        },
+        lostClients: {
+          title: "Clienti Persi Fuori Orario",
+          desc: "Il 64% dei clienti arriva di sera o nel weekend. Senza una risposta automatica immediata, si rivolgono alla concorrenza."
+        }
+      }
+    },
+    solution: {
+      title: "Il Metodo VELKS per Dominare il Mercato",
+      subtitle: "Non vendiamo codice o tecnologia. Vendiamo appuntamenti, clienti qualificati e processi automatici che fatturano per te.",
+      cards: {
+        gmaps: {
+          title: "Ottimizzazione Google Maps",
+          desc: "Posizioniamo la tua attività in cima alle ricerche locali in modo che sia la scelta ovvia nella tua zona."
+        },
+        website: {
+          title: "Siti Web ad Alta Conversione",
+          desc: "Pagine progettate specificamente per smartphone, focalizzate sul far cliccare il visitatore per avviare una chat."
+        },
+        bot: {
+          title: "Assistente IA 24/7",
+          desc: "Un assistente intelligente che risponde in pochi secondi, risolve dubbi e cattura i dati del cliente automaticamente."
+        },
+        leads: {
+          title: "Generazione Attiva di Clienti",
+          desc: "Sistemi semplici e diretti per raccogliere i dati di contatto dei potenziali clienti interessati ai tuoi servizi."
+        },
+        automation: {
+          title: "Automazione Semplice",
+          desc: "Sincronizzazione immediata delle richieste sulla tua email o WhatsApp, senza dover gestire pannelli complessi."
+        }
+      }
+    },
+    authority: {
+      title: "Operiamo tra Portogallo, Spagna e Lussemburgo",
+      subtitle: "Applichiamo metodi e standard utilizzati nei mercati europei altamente competitivi ed esigenti per aiutare le piccole imprese a crescere online in modo solido.",
+      luxembourg: {
+        name: "Lussemburgo",
+        tag: "Sede Principale",
+        desc: "Dove gestiamo la strategia finanziaria, gli standard europei di conformità e l'ingegneria dei dati di VELKS Group."
+      },
+      portugal: {
+        name: "Portogallo",
+        tag: "Centro di Sviluppo",
+        desc: "Team di design e sviluppo focalizzato sulla conversione dei visitatori in clienti premium."
+      },
+      spain: {
+        name: "Spagna",
+        tag: "Espansione di Mercato",
+        desc: "Operazioni dedicate al mercato iberico ad alta densità e al dinamico commercio locale."
+      },
+      metrics: {
+        clients: "+240 Clienti Serviti",
+        delivered: "+350 Progetti Consegnati",
+        roi: "+320% ROI Medio Stimato",
+        support: "Supporto Totale Senza Complicazioni"
+      }
+    },
+    widget: {
+      title: "Risposta automatica 24 ore su 24",
+      subtitle: "Il tuo nuovo assistente commerciale lavora mentre dormi, assicurandoti che nessun cliente potenziale venga ignorato.",
+      steps: [
+        "Il visitatore entra nel tuo sito web.",
+        "L'assistente risponde automaticamente in meno di 2 secondi.",
+        "Risolve istantaneamente i dubbi più comuni.",
+        "Raccoglie dati come Nome, Telefono, Email e Interesse.",
+        "Fissa appuntamenti o inoltra i dati consolidati.",
+        "Invia un riepilogo completo direttamente sulla tua email o WhatsApp.",
+        "Modello di linguaggio altamente addestrato per suonare naturale e umano."
+      ],
+      capabilitiesTitle: "Cosa può fare l'assistente per te:",
+      capabilities: [
+        "Rispondere alle domande frequenti",
+        "Mostrare prezzi e pacchetti di servizi",
+        "Catturare lead qualificate in tempo reale",
+        "Fissare appuntamenti di consulenza",
+        "Inoltrare richieste urgenti al WhatsApp del tuo team",
+        "Inviare riepiloghi delle chat direttamente alla tua Email"
+      ],
+      demoTitle: "Simulatore di Assistente Virtuale VELKS",
+      demoSubtitle: "Seleziona un settore qui sotto e testa in tempo reale il potere della conversione automatica:",
+      placeholderInput: "Scrivi il tuo messaggio qui...",
+      demoPresetRestaurante: "Simulatore Ristorante 🍔",
+      demoPresetImobiliaria: "Simulatore Immobiliare 🏠",
+      demoPresetClinica: "Simulatore Clinica Medica 🩺",
+      demoPresetServicos: "Simulatore Costruzioni/Servizi 🔨"
+    },
+    testimonials: {
+      title: "Chi si fida di VELKS Group",
+      subtitle: "Storie reali di imprenditori locali usciti dall'invisibilità che oggi dominano le ricerche nella loro zona.",
+      list: [
+        {
+          name: "Carlo Silva",
+          role: "Titolare, Silva & Filhos Costruzioni",
+          text: "Il pacchetto Google Maps e il sito hanno cambiato la nostra direzione. Prima dipendevamo dai consigli, oggi riceviamo da 3 a 5 chiamate da nuovi clienti al giorno. L'investimento si è ripagato nel primo mese.",
+          rating: 5
+        },
+        {
+          name: "Dr.ssa Mariana Costa",
+          role: "Direttrice Sanitaria, OdontoArt Coimbra",
+          text: "L'assistente automatico sul sito è fantastico. I clienti entrano di notte per chiedere informazioni, il bot raccoglie il contatto e il giorno dopo la nostra segretaria deve solo confermare. Eccellente!",
+          rating: 5
+        },
+        {
+          name: "Jean-Pierre Weber",
+          role: "Proprietario, Brasserie Gare Lussemburgo",
+          text: "Avere Google Maps ottimizzato in tre lingue ci ha portato decine di turisti ogni giorno. VELKS è stata rapida, professionale e focalizzata sul nostro ritorno.",
+          rating: 5
+        },
+        {
+          name: "Isabel Mendes",
+          role: "Immobiliare Mendes & Associati",
+          text: "I nostri agenti ora ricevono clienti qualificati pronti per l'acquisto. Il sistema filtra chi vuole davvero comprare o vendere e invia tutto direttamente su WhatsApp. Lo consiglio al 100%.",
+          rating: 5
+        },
+        {
+          name: "Ricardo Martins",
+          role: "Stand Martins Automobili",
+          text: "Ottimo servizio di supporto. Nessun costo mensile costoso, abbiamo pagato una volta per il sito e Google Maps e i risultati sono stati costanti. Trasparenza assoluta.",
+          rating: 5
+        }
+      ]
+    },
+    pricing: {
+      title: "Pacchetti Trasparenti Senza Sorprese",
+      subtitle: "Pagamento unico. Nessun abbonamento obbligatorio, nessuna tassa nascosta. Puro investimento sulla tua crescita.",
+      singlePayment: "PAGAMENTO UNICO",
+      allPlansInclude: "Tutti i pacchetti includono:",
+      allPlansIncludeDesc: "Supporto premium, conformità totale GDPR, design mobile-first e ottimizzazione per la massima velocità di caricamento.",
+      plans: {
+        gmaps: {
+          title: "Google Maps Professionale",
+          price: "90€",
+          features: [
+            "Configurazione & Rivendicazione Completa",
+            "Ottimizzazione SEO Locale Avanzata",
+            "Caricamento di Foto Professionali",
+            "Inserimento di Servizi & Prodotti",
+            "Creazione Link Diretto per Recensioni",
+            "Strategia di Posizionamento Locale",
+            "Attivazione dei Messaggi Diretti"
+          ],
+          cta: "DOMINARE LA TOP 3 LOCALE",
+          tracking: "Ciao! Sono interessato al pacchetto Google Maps Professionale. Gli specialisti di VELKS potrebbero aiutarmi?"
+        },
+        website: {
+          title: "Sito Web Professionale Premium",
+          price: "190€",
+          features: [
+            "Landing Page Ultra Veloce",
+            "Design Mobile-First Esclusivo",
+            "Ottimizzazione SEO per Google",
+            "Integrazione Diretta con WhatsApp",
+            "Configurazione del Dominio Personale",
+            "30 Giorni di Supporto Gratuito",
+            "Conformità GDPR & Sicurezza SSL"
+          ],
+          cta: "ATTIVARE MACCHINA DELLE VENDITE",
+          tracking: "Ciao! Sono interessato al pacchetto Sito Web Professionale. Qual è il primo passo per costruire la mia nuova macchina per le vendite?"
+        },
+        automacao: {
+          title: "Assistente IA Automatico",
+          price: "250€",
+          features: [
+            "Assistente Web Intelligente Personalizzato",
+            "Integrazione WhatsApp & Instagram",
+            "Menu Intelligente di Conversione",
+            "Configurazione in 2 Lingue a Scelta",
+            "Bot Proattivo con Risposte Umane",
+            "Cattura e Invio dei Lead via Email",
+            "Integrazione nel tuo Sito Attuale"
+          ],
+          cta: "BLINDARE L'ASSISTENZA 24/7",
+          tracking: "Ciao, Team VELKS. Ho analizzato il listino prezzi sul sito e sono interessato ad andare avanti con l'Assistenza Automatica IA. Qual è il prossimo passo per iniziare l'integrazione?"
+        },
+        ecommerce: {
+          title: "E-commerce Completo",
+          price: "300€",
+          features: [
+            "Creazione & Personalizzazione Negozio Online",
+            "Pronto per Print on Demand / Dropshipping",
+            "Ideale per Attività Locale, Digitale o Ibrida",
+            "Mappa dei Migliori Fornitori sul Mercato",
+            "Integrazione di Pagamenti Sicuri",
+            "Configurazione Spedizioni e Stock",
+            "Pannello di Controllo Super Semplice"
+          ],
+          cta: "SCALARE IL FATTURATO ONLINE",
+          tracking: "Ciao, Team VELKS. Ho analizzato il listino prezzi sul sito e sono interessato ad andare avanti con il pacchetto E-Commerce Completo. Qual è il prossimo passo per iniziare l'integrazione?"
+        },
+        custom: {
+          title: "All-In-One Imperial",
+          price: "Su Richiesta",
+          features: [
+            "Google Maps + Sito Web + Assistente IA",
+            "Strategia Completa di Dominio del Mercato",
+            "Copywriting Aggressivo ad Alta Conversione",
+            "Ottimizzazione Multi-lingua Completa",
+            "Supporto Prioritario a Vita",
+            "Consulenza Strategica Mensile",
+            "Sconto Pacchetto Integrato"
+          ],
+          cta: "PRENOTA AUDIT PRIVATO",
+          tracking: "Ciao, Team VELKS. La mia attività necessita di una profonda ristrutturazione digitale. Vorrei prenotare un audit privato con uno specialista VELKS per discutere della soluzione All-In-One Imperial. Potreste aiutarmi?"
+        }
+      }
+    },
+    demos: {
+      demoTracking: "Ciao! Voglio testare la demo interattiva per {demoTitle} e vedere in pratica come questa tecnologia può far crescere i miei risultati. Possiamo iniziare il test?",
+      title: "Dimostrazioni Interattive",
+      subtitle: "Esplora esempi reali di come trasformiamo la presenza online delle attività locali.",
+      categories: {
+        all: "Tutti",
+        restaurants: "Ristoranti",
+        realestate: "Immobiliari",
+        clinics: "Cliniche Mediche",
+        localservices: "Servizi Locali",
+      },
+      cta: "Parla con un Consulente",
+      clickToSee: "Vedi Demo Interattiva"
+    },
+    faq: {
+      title: "Domande Frequenti",
+      questions: [
+        {
+          q: "Quanto costa il servizio?",
+          a: "I nostri prezzi partono da 90€ per l'ottimizzazione di Google Maps e 190€ per siti web professionali. Si tratta di pagamenti unici, senza abbonamenti ricorrenti o canoni mensili obbligatori."
+        },
+        {
+          q: "Quanto tempo richiede la consegna?",
+          a: "L'ottimizzazione di Google Maps richiede solitamente da 3 a 5 giorni lavorativi. I siti web premium e gli assistenti virtuali automatici vengono consegnati e testati in 7-14 giorni lavorativi."
+        },
+        {
+          q: "Il sito funziona bene da cellulare?",
+          a: "Sì, assolutamente. Sviluppiamo con focus totale sul Mobile-First, poiché oltre l'85% delle ricerche locali avviene tramite smartphone. Il tuo sito sarà velocissimo e reattivo su ogni schermo."
+        },
+        {
+          q: "Posso usare il mio dominio attuale?",
+          a: "Sì. Se hai già un dominio registrato (es: www.tuattivita.com), configureremo tutto per puntare al nuovo sito premium senza costi aggiuntivi. Se non ne hai uno, ti aiuteremo a sceglierlo e registrarlo."
+        },
+        {
+          q: "Lavorate in Portogallo, Spagna e Lussemburgo?",
+          a: "Sì! Operiamo attivamente in questi tre paesi, adattando il design, la lingua e la SEO alle specifiche esigenze locali di ciascun mercato europeo."
+        }
+      ]
+    },
+    ctaFinal: {
+      tracking: "Ciao. Ho letto tutta la vostra pagina e ho capito che sto perdendo soldi a favore della concorrenza. Voglio capire esattamente come la vostra tecnologia può blindare la mia attività immediatamente. Possiamo parlarne?",
+      title: "Smetti di perdere clienti a favore di chi offre meno di te.",
+      subtitle: "Mentre leggi questo, il tuo concorrente sta ricevendo chiamate. Cambiamo la situazione oggi?",
+      cta: "BLINDARE LA MIA AZIENDA ORA",
+      microcopy: "Nessun impegno • Risposta immediata • Preventivo gratuito"
+    },
+    footer: {
+      logoDesc: "Trasformiamo le imprese dipendenti dal proprietario in macchine da profitto autonome. Il tuo dominio su Google diventa assoluto e la nostra IA chiude le vendite 24/7. Risultati reali e zero abbonamenti ricorrenti, così puoi recuperare il tuo tempo e la tua libertà.",
+      hqMain: "Sede Principale: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Lussemburgo",
+      hqSec: "Sede Secondaria: Coimbra, Portogallo",
+      policyPrivacy: "Informativa sulla Privacy",
+      policyCookies: "Informativa sui Cookie",
+      terms: "Termini e Condizioni",
+      compliance: "Conformità Europea",
+      legal: "Note Legali",
+      gdpr: "Conformità GDPR UE",
+      rights: "© 2026 VELKS Group. Tutti i diritti riservati."
+    },
+    cookieConsent: {
+      text: "Utilizziamo cookie e tecnologie simili per garantire la migliore esperienza di navigazione e analizzare il traffico del nostro sito, in totale conformità con il GDPR dell'UE.",
+      accept: "Accetta Tutti",
+      decline: "Rifiuta"
+    }
+  },
+  en: {
+    nav: {
+      hero: "Home",
+      problem: "The Problem",
+      solution: "The Solution",
+      authority: "Presence",
+      widget: "AI Assistant",
+      pricing: "Packages",
+      demos: "Demos",
+      faq: "FAQ",
+    },
+    hero: {
+      tracking: "Hello. I saw your technological infrastructure on the website and would like to check if my company qualifies to implement your commercial system. Can you send me the pricing table?",
+      badge: "★ ABSOLUTE MARKET DOMINANCE",
+      title: "Your business deserves to appear before your competitors.",
+      subtitle: "We create premium websites, professional Google Maps profiles, and automated customer response systems to help you generate more leads and close more sales daily. No monthly subscriptions.",
+      ctaPrimary: "CHECK FEASIBILITY FOR MY BUSINESS",
+      ctaSecondary: "View Demos",
+      trustPilot: "Excellent 4.9/5 stars on Google & Business Networks"
+    },
+    problem: {
+      title: "The Cost of Being Invisible",
+      subtitle: "If your business isn't the first to be found, you are financing your competitors' growth. The market has changed and amateur digital presence is expensive.",
+      cards: {
+        invisible: {
+          title: "Invisible on Google",
+          desc: "92% of customers choose businesses on the first page. If you don't appear, you simply do not exist to them."
+        },
+        reviews: {
+          title: "Few Reviews",
+          desc: "Businesses with no active social proof trigger distrust. Customers buy from whoever is recommended by others."
+        },
+        contacts: {
+          title: "Lack of Leads",
+          desc: "Relying purely on 'word of mouth' is a financial Russian roulette. Your business needs a consistent, predictable stream of inquiries."
+        },
+        oldSite: {
+          title: "Old or Non-Existent Site",
+          desc: "A slow or outdated website drives premium customers away. Your digital presence reflects your professionalism."
+        },
+        lostClients: {
+          title: "Clients Lost After-Hours",
+          desc: "64% of customers arrive in the evening or on weekends. Without an instant automated response, they go to your competition."
+        }
+      }
+    },
+    solution: {
+      title: "The VELKS Framework for Market Dominance",
+      subtitle: "We do not sell code or tech. We deliver fully booked calendars, qualified customers, and automated processes that generate revenue for you.",
+      cards: {
+        gmaps: {
+          title: "Google Maps Optimization",
+          desc: "We position your business at the very top of local search results to make you the obvious choice in your region."
+        },
+        website: {
+          title: "High-Converting Websites",
+          desc: "Pages designed specifically for smartphones, fully optimized to make visitors click and start a chat instantly."
+        },
+        bot: {
+          title: "24/7 AI Assistant",
+          desc: "An intelligent web assistant that replies within seconds, answers common questions, and captures customer info."
+        },
+        leads: {
+          title: "Active Customer Capture",
+          desc: "Simple, highly focused systems to gather contact details of potential buyers actively seeking your services."
+        },
+        automation: {
+          title: "Frictionless Automation",
+          desc: "Immediate synchronization of inquiries directly to your WhatsApp or Email, without needing to manage complex software."
+        }
+      }
+    },
+    authority: {
+      title: "Operating across Portugal, Spain, and Luxembourg",
+      subtitle: "We apply methodologies and standards proven in highly demanding European markets to help local businesses scale online reliably.",
+      luxembourg: {
+        name: "Luxembourg",
+        tag: "Global Headquarters",
+        desc: "Where we manage financial strategy, European compliance standards, and core data systems for the VELKS Group."
+      },
+      portugal: {
+        name: "Portugal",
+        tag: "Development Center",
+        desc: "Our design and engineering hub focused entirely on converting web visitors into premium customers."
+      },
+      spain: {
+        name: "Spain",
+        tag: "Market Expansion",
+        desc: "Operations dedicated to the high-density Iberian market and dynamic local commerce."
+      },
+      metrics: {
+        clients: "+240 Local Clients Served",
+        delivered: "+350 Premium Projects",
+        roi: "+320% Average Estimated ROI",
+        support: "Total Support With Zero Headaches"
+      }
+    },
+    widget: {
+      title: "Automated Customer Response 24/7",
+      subtitle: "Your new digital sales assistant works while you sleep, ensuring no potential client is ever left waiting.",
+      steps: [
+        "A visitor lands on your website.",
+        "The AI assistant responds automatically in under 2 seconds.",
+        "It answers common questions and overcomes objections instantly.",
+        "It collects details: Name, Phone, Email, and what they need.",
+        "It books meetings or schedules consultations.",
+        "It forwards a polished summary directly to your Email or WhatsApp.",
+        "Language model highly trained to speak naturally and feel human."
+      ],
+      capabilitiesTitle: "What the assistant can do for you:",
+      capabilities: [
+        "Answer frequently asked questions instantly",
+        "Present pricing sheets and service packages",
+        "Capture qualified sales leads in real time",
+        "Book consultation appointments on your calendar",
+        "Forward urgent requests to your team's WhatsApp",
+        "Send conversation summaries directly to your Email inbox"
+      ],
+      demoTitle: "VELKS Virtual Assistant Simulator",
+      demoSubtitle: "Select a local industry below and test the power of automated lead generation in real time:",
+      placeholderInput: "Type your message here...",
+      demoPresetRestaurante: "Restaurant Simulator 🍔",
+      demoPresetImobiliaria: "Real Estate Simulator 🏠",
+      demoPresetClinica: "Medical Clinic Simulator 🩺",
+      demoPresetServicos: "Contractor/Services Simulator 🔨"
+    },
+    testimonials: {
+      title: "Trusted by Local Business Owners",
+      subtitle: "Real stories from local entrepreneurs who left digital invisibility to dominate search results in their areas.",
+      list: [
+        {
+          name: "Carlos Silva",
+          role: "Owner, Silva & Sons Construction",
+          text: "The Google Maps package and website changed everything. We used to rely entirely on references; now we receive 3 to 5 calls from new clients every day. The investment paid for itself in the first month.",
+          rating: 5
+        },
+        {
+          name: "Dr. Mariana Costa",
+          role: "Clinical Director, OdontoArt",
+          text: "The web assistant is incredible. Patients check our page late at night, the assistant answers their questions, captures their phone number, and our receptionist simply confirms the slot in the morning. Brilliant!",
+          rating: 5
+        },
+        {
+          name: "Jean-Pierre Weber",
+          role: "Proprietor, Brasserie Gare Luxembourg",
+          text: "Optimizing our Google Maps listing in English, German, and French brought us dozens of tourists daily. VELKS was incredibly fast, professional, and entirely focused on our bottom line.",
+          rating: 5
+        },
+        {
+          name: "Isabel Mendes",
+          role: "Mendes & Associates Real Estate",
+          text: "Our agents now receive highly qualified, pre-filtered customers. The system weeds out time-wasters and delivers real buyers straight to WhatsApp. Highly recommended.",
+          rating: 5
+        },
+        {
+          name: "Ricardo Martins",
+          role: "Martins Cars Dealership",
+          text: "Outstanding service. No expensive monthly fees; we paid a single fee for our site and Google Maps setup, and the return has been constant and reliable. Total transparency.",
+          rating: 5
+        }
+      ]
+    },
+    pricing: {
+      title: "No Monthly Fees. Zero Surprises. Just Results.",
+      subtitle: "We don't sell websites. We build digital machines engineered to generate real results.",
+      singlePayment: "ONE-TIME PAYMENT",
+      allPlansInclude: "All packages include:",
+      allPlansIncludeDesc: "Premium support, full EU GDPR compliance, mobile-first design, and optimization for blazing fast load speeds.",
+      plans: {
+        gmaps: {
+          title: "Professional Google Maps",
+          price: "90€",
+          features: [
+            "Full Setup & Ownership Claiming",
+            "Advanced Local SEO Optimization",
+            "Professional Photo & Logo Upload",
+            "Services & Products Showcase Setup",
+            "Direct Review-Generator Link",
+            "Local Authority Position Strategy",
+            "Direct Messaging Activation"
+          ],
+          cta: "DOMINATE LOCAL TOP 3",
+          tracking: "Hello! I am interested in the Professional Google Maps package. Could VELKS specialists help me?"
+        },
+        website: {
+          title: "Premium Professional Website",
+          price: "190€",
+          features: [
+            "Blazing Fast Premium Landing Page",
+            "Exclusive Mobile-First Design",
+            "Google SEO Structure & Keyword Ready",
+            "Direct WhatsApp Button Integration",
+            "Custom Domain Configuration",
+            "30 Days of Free Dedicated Support",
+            "GDPR compliant & Secure SSL Setup"
+          ],
+          cta: "ACTIVATE SALES MACHINE",
+          tracking: "Hello! I am interested in the Professional Website package. What is the first step to building my new sales machine?"
+        },
+        automacao: {
+          title: "AI Automated Customer Desk",
+          price: "250€",
+          features: [
+            "Custom-Trained Intelligent Web Bot",
+            "WhatsApp & Instagram Channel Activation",
+            "Intelligent Conversion Menu Tree",
+            "Setup in 2 Languages of Choice",
+            "Proactive Humanized Response Flow",
+            "Lead Capture and Instant Email Alerts",
+            "Seamless Integration with Current Site"
+          ],
+          cta: "BULLETPROOF 24/7 SUPPORT",
+          tracking: "Hello, VELKS Team. I reviewed the pricing table on the website and I am interested in moving forward with AI Automated Support. What is the next step to start the integration?"
+        },
+        ecommerce: {
+          title: "Complete E-commerce Suite",
+          price: "300€",
+          features: [
+            "Full Custom Online Store Creation",
+            "Print on Demand / Dropshipping Setup",
+            "Perfect for Local, Digital, or Hybrid Shops",
+            "Market-Leading Supplier Sourcing",
+            "Secure Payments Integration",
+            "Shipping Rules & Inventory Config",
+            "Blazing Simple Client Management Desk"
+          ],
+          cta: "SCALE ONLINE REVENUE",
+          tracking: "Hello, VELKS Team. I reviewed the pricing table on the website and I am interested in moving forward with the Complete E-Commerce package. What is the next step to start the integration?"
+        },
+        custom: {
+          title: "Imperial All-In-One",
+          price: "Custom",
+          features: [
+            "Google Maps + Website + AI Customer Desk",
+            "Complete Market Dominance Strategy",
+            "Aggressive High-Conversion Copywriting",
+            "Fully Configured Multi-Language Pack",
+            "Priority Lifetime Core Support",
+            "Monthly Strategic Consultation Call",
+            "Significant Bundled Discount"
+          ],
+          cta: "SCHEDULE PRIVATE AUDIT",
+          tracking: "Hello, VELKS Team. My business needs a deep digital restructuring. I would like to schedule a private audit with a VELKS specialist to discuss the All-In-One Imperial solution. Could you help me?"
+        }
+      }
+    },
+    demos: {
+      demoTracking: "Hello! I want to test the interactive demo for {demoTitle} and see in practice how this technology can scale my results. Can we start the test?",
+      title: "Interactive Demonstrations",
+      subtitle: "Explore live examples of how we revolutionize the digital presence of local shops.",
+      categories: {
+        all: "All",
+        restaurants: "Restaurants",
+        realestate: "Real Estate",
+        clinics: "Medical Clinics",
+        localservices: "Local Services",
+      },
+      cta: "Talk to a Consultant",
+      clickToSee: "Launch Interactive Preview"
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      questions: [
+        {
+          q: "How much does the service cost?",
+          a: "Our packages start at 90€ for Google Maps optimization and 190€ for professional websites. These are one-time payments with no monthly subscriptions or recurring fees."
+        },
+        {
+          q: "How long does delivery take?",
+          a: "Google Maps setups take 3 to 5 business days. Premium websites and automated virtual desks are fully built, optimized, and delivered in 7 to 14 business days."
+        },
+        {
+          q: "Will the website work on smartphones?",
+          a: "Yes, completely. We design with a strict mobile-first methodology. Since over 85% of local searches happen on phones, your page will be extremely fast and intuitive on mobile."
+        },
+        {
+          q: "Can I use my existing domain?",
+          a: "Absolutely. If you already own a domain (e.g., www.yourbusiness.com), we configure the DNS to point to your new high-converting landing page at no extra charge. If you don't have one, we guide you through it."
+        },
+        {
+          q: "Do you serve clients in Portugal, Spain, and Luxembourg?",
+          a: "Yes, we do. We operate actively in these three countries, aligning our copy, layouts, and search optimization to local consumer behaviors in each of these European markets."
+        }
+      ]
+    },
+    ctaFinal: {
+      tracking: "Hello. I read your entire page and realized I am losing money to the competition. I want to understand exactly how your technology can bulletproof my business immediately. Can we talk?",
+      title: "Stop losing customers to competitors who do less.",
+      subtitle: "While you read this, your rival is answering a prospect's call. Shall we shift the odds today?",
+      cta: "BULLETPROOF MY BUSINESS NOW",
+      microcopy: "No commitment • Instant reply • Free quote"
+    },
+    footer: {
+      logoDesc: "We transform owner-dependent businesses into autonomous profit machines. Your Google dominance becomes absolute and our AI closes sales 24/7. Real results and zero monthly fees, so you can reclaim your time and freedom.",
+      hqMain: "Main Headquarters: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
+      hqSec: "Secondary Office: Coimbra, Portugal",
+      policyPrivacy: "Privacy Policy",
+      policyCookies: "Cookies Policy",
+      terms: "Terms and Conditions",
+      compliance: "European Compliance",
+      legal: "Legal Notices",
+      gdpr: "EU GDPR Compliant",
+      rights: "© 2026 VELKS Group. All rights reserved."
+    },
+    cookieConsent: {
+      text: "We use cookies and similar technologies to ensure the best browsing experience and analyze site traffic in strict compliance with the EU GDPR.",
+      accept: "Accept All",
+      decline: "Decline"
+    }
+  },
+  fr: {
+    nav: {
+      hero: "Accueil",
+      problem: "Le Problème",
+      solution: "La Solution",
+      authority: "Présence",
+      widget: "Assistant IA",
+      pricing: "Tarifs",
+      demos: "Démos",
+      faq: "FAQ",
+    },
+    hero: {
+      tracking: "Bonjour. J'ai vu votre infrastructure technologique sur le site et j'aimerais vérifier si mon entreprise est qualifiée pour mettre en œuvre votre système commercial. Pouvez-vous m'envoyer la grille tarifaire ?",
+      badge: "★ DOMINATION ABSOLUE DU MARCHÉ",
+      title: "Votre entreprise mérite d'apparaître avant vos concurrents.",
+      subtitle: "Nous créons des sites web premium, des fiches Google Maps professionnelles et des systèmes de réponse client automatisés pour vous aider à générer plus de leads et fermer plus de ventes au quotidien. Sans abonnements.",
+      ctaPrimary: "VÉRIFIER LA FAISABILITÉ POUR MON ENTREPRISE",
+      ctaSecondary: "Voir les Démos",
+      trustPilot: "Excellent 4.9/5 étoiles sur Google & Réseaux Professionnels"
+    },
+    problem: {
+      title: "La Douleur d'Être Invisible",
+      subtitle: "Si votre entreprise n'est pas trouvée en premier, vous financez la croissance de vos concurrents. Le marché a changé, l'amateurisme digital coûte cher.",
+      cards: {
+        invisible: {
+          title: "Invisible sur Google",
+          desc: "92% des clients choisissent une entreprise sur la première page. Si vous n'apparaissez pas, vous n'existez tout simplement pas."
+        },
+        reviews: {
+          title: "Peu d'Avis Clients",
+          desc: "Les entreprises sans avis actifs inspirent la méfiance. Les clients achètent à ceux qui sont recommandés."
+        },
+        contacts: {
+          title: "Manque de Contacts",
+          desc: "Se fier uniquement au 'bouche-à-oreille' est une roulette russe financière. Votre activité a besoin d'un flux régulier de demandes."
+        },
+        oldSite: {
+          title: "Site Ancien ou Inexistant",
+          desc: "Un site web lent ou dépassé repousse les clients premium. Votre présence digitale est le miroir de votre professionnalisme."
+        },
+        lostClients: {
+          title: "Prospects Perdus Hors-Horaires",
+          desc: "64% des clients arrivent en soirée ou le week-end. Sans réponse automatisée instantanée, ils se tournent vers vos concurrents."
+        }
+      }
+    },
+    solution: {
+      title: "La Méthode VELKS pour Dominer le Marché",
+      subtitle: "Nous ne vendons pas de code ou de technologie. Nous vendons des rendez-vous qualifiés, des clients qualifiés et des processus automatiques qui génèrent du chiffre d'affaires.",
+      cards: {
+        gmaps: {
+          title: "Optimisation Google Maps",
+          desc: "Nous positionnons votre fiche au sommet des recherches locales pour devenir le choix évident dans votre région."
+        },
+        website: {
+          title: "Sites Web Haute Conversion",
+          desc: "Des pages conçues spécifiquement pour mobiles, optimisées pour inciter immédiatement le visiteur à cliquer et lancer un chat."
+        },
+        bot: {
+          title: "Assistant IA 24h/24",
+          desc: "Un assistant web intelligent qui répond en quelques secondes, répond aux questions courantes et capture les coordonnées."
+        },
+        leads: {
+          title: "Capture Active de Clients",
+          desc: "Des systèmes simples et directs pour collecter les données des clients intéressés par vos services."
+        },
+        automation: {
+          title: "Automatisations Fluides",
+          desc: "Synchronisation immédiate des demandes vers votre WhatsApp ou Email, sans devoir gérer de logiciels complexes."
+        }
+      }
+    },
+    authority: {
+      title: "Présents au Portugal, en Espagne et au Luxembourg",
+      subtitle: "Nous appliquons des méthodes et des standards éprouvés sur les marchés européens les plus exigeants pour propulser les entreprises locales en ligne.",
+      luxembourg: {
+        name: "Luxembourg",
+        tag: "Siège Social",
+        desc: "Où nous gérons la stratégie financière, les normes de conformité européennes et l'ingénierie des données du groupe VELKS."
+      },
+      portugal: {
+        name: "Portugal",
+        tag: "Centre de Développement",
+        desc: "Notre pôle de design et développement entièrement axé sur la conversion des visiteurs en clients premium."
+      },
+      spain: {
+        name: "Espagne",
+        tag: "Expansion Commerciale",
+        desc: "Opérations dédiées au marché ibérique à forte densité et au commerce local dynamique."
+      },
+      metrics: {
+        clients: "+240 Clients Locaux Accompagnés",
+        delivered: "+350 Projets Premium Livrés",
+        roi: "+320% ROI Moyen Estimé",
+        support: "Support Complet Sans Aucun Casse-Tête"
+      }
+    },
+    widget: {
+      title: "Accueil Client Automatique 24h/24",
+      subtitle: "Votre nouvel assistant commercial digital travaille pendant votre sommeil, garantissant qu'aucun client potentiel ne soit ignoré.",
+      steps: [
+        "Un visiteur arrive sur votre site.",
+        "L'assistant IA répond automatiquement en moins de 2 secondes.",
+        "Il répond instantanément aux questions fréquentes.",
+        "Il collecte les coordonnées : Nom, Téléphone, Email et besoin.",
+        "Il propose des créneaux de rendez-vous.",
+        "Il vous envoie un résumé propre directement par Email ou WhatsApp.",
+        "Modèle de langage entraîné pour parler naturellement et paraître humain."
+      ],
+      capabilitiesTitle: "Ce que l'assistant peut faire pour vous :",
+      capabilities: [
+        "Répondre instantanément aux questions fréquentes",
+        "Présenter vos tarifs et fiches de services",
+        "Capturer des leads qualifiés en temps réel",
+        "Réserver des rendez-vous de consultation sur votre agenda",
+        "Transférer les demandes urgentes sur le WhatsApp de votre équipe",
+        "Envoyer des résumés de chat directement dans votre boîte Email"
+      ],
+      demoTitle: "Simulateur d'Assistant Virtuel VELKS",
+      demoSubtitle: "Sélectionnez un secteur d'activité ci-dessous et testez la puissance de la conversion automatique :",
+      placeholderInput: "Écrivez votre message ici...",
+      demoPresetRestaurante: "Simulateur Restaurant 🍔",
+      demoPresetImobiliaria: "Simulateur Immobilier 🏠",
+      demoPresetClinica: "Simulateur Cabinet Médical 🩺",
+      demoPresetServicos: "Simulateur Artisans/BTP 🔨"
+    },
+    testimonials: {
+      title: "Ils font confiance à VELKS Group",
+      subtitle: "Histoires réelles d'entrepreneurs locaux qui sont sortis de l'invisibilité pour dominer les recherches de leur région.",
+      list: [
+        {
+          name: "Carlos Silva",
+          role: "Gérant, Silva & Fils Bâtiment",
+          text: "La formule Google Maps et le site ont tout changé. Avant, on dépendait du bouche-à-oreille. Aujourd'hui, on reçoit 3 à 5 appels de nouveaux clients par jour. L'investissement s'est rentabilisé le premier mois.",
+          rating: 5
+        },
+        {
+          name: "Dr. Mariana Costa",
+          role: "Directrice Clinique, OdontoArt Coimbra",
+          text: "L'assistant web est magique. Les patients se connectent tard le soir, posent des questions, l'IA prend leurs coordonnées et notre secrétaire n'a plus qu'à confirmer le matin. Brillant !",
+          rating: 5
+        },
+        {
+          name: "Jean-Pierre Weber",
+          role: "Propriétaire, Brasserie Gare Luxembourg",
+          text: "Optimiser notre fiche Google Maps en anglais, allemand et français nous a apporté des dizaines de touristes chaque jour. VELKS a été extrêmement rapide, professionnelle et orientée résultats.",
+          rating: 5
+        },
+        {
+          name: "Isabel Mendes",
+          role: "Mendes & Associés Immobilier",
+          text: "Nos agents reçoivent enfin des clients qualifiés et pré-filtrés. Le système élimine les curieux et nous envoie les vrais acheteurs directement sur WhatsApp. Recommandé à 100%.",
+          rating: 5
+        },
+        {
+          name: "Ricardo Martins",
+          role: "Martins Occasions",
+          text: "Excellent service de support. Pas d'abonnements mensuels coûteux, nous avons payé une fois pour le site et la configuration Maps et le retour a été continu et fiable. Transparence totale.",
+          rating: 5
+        }
+      ]
+    },
+    pricing: {
+      title: "Tarifs Transparents. Zéro Surprise.",
+      subtitle: "Paiement unique. Pas d'abonnements forcés, pas de frais cachés. Un investissement net pour votre croissance.",
+      singlePayment: "PAIEMENT UNIQUE",
+      allPlansInclude: "Toutes nos formules incluent :",
+      allPlansIncludeDesc: "Support premium, conformité totale RGPD UE, design mobile-first et optimisation pour une vitesse de chargement maximale.",
+      plans: {
+        gmaps: {
+          title: "Google Maps Professionnel",
+          price: "90€",
+          features: [
+            "Configuration & Récupération Complète",
+            "Optimisation SEO Locale Avancée",
+            "Mise en ligne de Photos Professionnelles",
+            "Ajout des Services & Produits",
+            "Génération d'un lien Direct d'Avis",
+            "Stratégie de Positionnement d'Autorité",
+            "Activation de la Messagerie Directe"
+          ],
+          cta: "DOMINER LE TOP 3 LOCAL",
+          tracking: "Bonjour ! Je suis intéressé par le forfait Google Maps Professionnel. Les spécialistes de VELKS pourraient-ils m'aider ?"
+        },
+        website: {
+          title: "Site Web Professionnel Premium",
+          price: "190€",
+          features: [
+            "Landing Page Ultra Rapide",
+            "Design Mobile-First Exclusif",
+            "Structure SEO Google & Mots-clés",
+            "Bouton WhatsApp Direct Intégré",
+            "Configuration du Domaine Propre",
+            "30 Jours de Support Dédié Offert",
+            "Conformité RGPD & Protocole SSL Sécurisé"
+          ],
+          cta: "ACTIVER LA MACHINE À VENTES",
+          tracking: "Bonjour ! Je suis intéressé par le forfait Site Web Professionnel. Quelle est la première étape pour construire ma nouvelle machine de vente ?"
+        },
+        automacao: {
+          title: "Accueil Client IA Automatique",
+          price: "250€",
+          features: [
+            "Assistant Web Intelligent Entraîné",
+            "Activation des canaux WhatsApp & Instagram",
+            "Arborescence d'Accueil de Conversion",
+            "Configuration en 2 Langues au Choix",
+            "Flux de Réponses Humanisées Proactif",
+            "Capture de Contacts & Alertes Email",
+            "Intégration Simple sur Votre Site Existant"
+          ],
+          cta: "BLINDER L'ASSISTANCE 24/7",
+          tracking: "Bonjour, l'équipe VELKS. J'ai analysé la grille tarifaire sur le site et je suis intéressé pour avancer avec l'Assistance Automatique par IA. Quelle est la prochaine étape pour commencer l'intégration ?"
+        },
+        ecommerce: {
+          title: "Suite E-commerce Complète",
+          price: "300€",
+          features: [
+            "Création & Personnalisation de Boutique",
+            "Prêt pour Print on Demand / Dropshipping",
+            "Idéal pour Commerces Locaux, Digitaus ou Hybrides",
+            "Sourcing Fournisseurs aux Meilleurs Prix",
+            "Intégration de Paiements Sécurisés",
+            "Règles d'Expédition & Gestion de Stock",
+            "Panneau de Gestion Simple et Ergonomique"
+          ],
+          cta: "FAIRE ÉVOLUER LE CA EN LIGNE",
+          tracking: "Bonjour, l'équipe VELKS. J'ai analysé la grille tarifaire sur le site et je suis intéressé pour avancer avec le forfait E-Commerce Complet. Quelle est la prochaine étape pour commencer l'intégration ?"
+        },
+        custom: {
+          title: "Pack Impérial All-In-One",
+          price: "Sur Mesure",
+          features: [
+            "Google Maps + Site Web + Accueil Client IA",
+            "Stratégie Globale de Domination Locale",
+            "Copywriting Agressif Haute Conversion",
+            "Configuration Multi-langue Complète",
+            "Support Prioritaire à Vie",
+            "Consultation Mensuelle de Suivi",
+            "Remise Importante sur le Pack Groupé"
+          ],
+          cta: "PLANIFIER UN AUDIT PRIVÉ",
+          tracking: "Bonjour, l'équipe VELKS. Mon entreprise a besoin d'une restructuration numérique profonde. J'aimerais planifier un audit privé avec un spécialiste VELKS pour discuter de la solution All-In-One Imperial. Pourriez-vous m'aider ?"
+        }
+      }
+    },
+    demos: {
+      demoTracking: "Bonjour ! Je veux tester la démo interactive pour {demoTitle} et voir en pratique comment cette technologie peut développer mes résultats. Pouvons-nous commencer le test ?",
+      title: "Démonstrations Interactives",
+      subtitle: "Explorez des exemples réels de la façon dont nous révolutionnons la présence en ligne des commerces locaux.",
+      categories: {
+        all: "Tous",
+        restaurants: "Restaurants",
+        realestate: "Immobilier",
+        clinics: "Cabinets Médicaux",
+        localservices: "Services Locaux",
+      },
+      cta: "Parler à un Conseiller",
+      clickToSee: "Lancer la Démo Interactive"
+    },
+    faq: {
+      title: "Foire Aux Questions",
+      questions: [
+        {
+          q: "Combien coûtent vos services ?",
+          a: "Nos formules commencent à 90€ pour l'optimisation Google Maps et 190€ pour un site web professionnel. Ce sont des paiements uniques, sans aucun abonnement ni frais récurrents."
+        },
+        {
+          q: "Quel est le délai de livraison ?",
+          a: "La configuration Google Maps prend entre 3 et 5 jours ouvrés. Les sites web premium et assistants IA automatiques sont livrés et testés sous 7 à 14 jours ouvrés."
+        },
+        {
+          q: "Le site est-il adapté aux smartphones ?",
+          a: "Oui, totalement. Nous concevons avec une approche stricte Mobile-First. Comme plus de 85% des recherches locales se font sur mobile, votre page sera ultra rapide et intuitive sur téléphone."
+        },
+        {
+          q: "Puis-je utiliser mon domaine actuel ?",
+          a: "Absolument. Si vous possédez déjà un nom de domaine (ex : www.votrecommerce.com), nous paramétrons les DNS pour pointer vers votre nouveau site premium, sans frais supplémentaires."
+        },
+        {
+          q: "Travaillez-vous au Portugal, en Espagne et au Luxembourg ?",
+          a: "Oui ! Nous opérons activement dans ces trois pays, en adaptant nos textes, nos designs et le SEO local aux spécificités de chaque marché européen."
+        }
+      ]
+    },
+    ctaFinal: {
+      tracking: "Bonjour. J'ai lu toute votre page et j'ai réalisé que je perdais de l'argent au profit de la concurrence. Je veux comprendre exactement comment votre technologie peut blinder mon entreprise immédiatement. Pouvons-nous parler ?",
+      title: "Arrêtez de perdre des clients au profit de concurrents qui en font moins.",
+      subtitle: "Pendant que vous lisez ces lignes, votre rival répond à un prospect. On inverse la tendance aujourd'hui ?",
+      cta: "BLINDER MON ENTREPRISE MAINTENANT",
+      microcopy: "Sans engagement • Réponse immédiate • Devis gratuit"
+    },
+    footer: {
+      logoDesc: "Nous transformons les entreprises dépendantes de leur propriétaire en machines à profit autonomes. Votre domination sur Google devient absolue et notre IA conclut des ventes 24/7. Des résultats réels et sans abonnements récurrents, pour que vous retrouviez votre temps et votre liberté.",
+      hqMain: "Siège Social : 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
+      hqSec: "Bureau Secondaire : Coimbra, Portugal",
+      policyPrivacy: "Politique de Confidentialité",
+      policyCookies: "Politique de Cookies",
+      terms: "Conditions Générales",
+      compliance: "Conformité Européenne",
+      legal: "Mentions Légales",
+      gdpr: "Conforme RGPD UE",
+      rights: "© 2026 VELKS Group. Tous droits réservés."
+    },
+    cookieConsent: {
+      text: "Nous utilisons des cookies pour vous offrir la meilleure expérience utilisateur et analyser le trafic, en stricte conformité avec le RGPD de l'UE.",
+      accept: "Tout Accepter",
+      decline: "Refuser"
+    }
+  },
+  de: {
+    nav: {
+      hero: "Start",
+      problem: "Das Problem",
+      solution: "Die Lösung",
+      authority: "Präsenz",
+      widget: "KI-Assistent",
+      pricing: "Pakete",
+      demos: "Demos",
+      faq: "FAQ",
+    },
+    hero: {
+      tracking: "Hallo. Ich habe Ihre technologische Infrastruktur auf der Website gesehen und möchte prüfen, ob sich mein Unternehmen für die Implementierung Ihres kommerziellen Systems qualifiziert. Können Sie mir die Preistabelle zusenden?",
+      badge: "★ ABSOLUTE MARKTDOMINANZ",
+      title: "Ihr Unternehmen verdient es, vor Ihren Konkurrenten zu erscheinen.",
+      subtitle: "Wir erstellen Premium-Websites, professionelle Google Maps-Einträge und automatische Kundensupportsysteme, damit Sie täglich mehr Anfragen generieren und mehr Abschlüsse erzielen. Ohne monatliche Abos.",
+      ctaPrimary: "MACHBARKEIT FÜR MEIN UNTERNEHMEN PRÜFEN",
+      ctaSecondary: "Demos ansehen",
+      trustPilot: "Hervorragend 4.9/5 Sterne bei Google & Business Networks"
+    },
+    problem: {
+      title: "Der Schmerz, unsichtbar zu sein",
+      subtitle: "Wenn Ihr Unternehmen nicht als erstes gefunden wird, finanzieren Sie das Wachstum Ihrer Konkurrenten. Der Markt hat sich verändert, und digitale Amateurschaft ist teuer.",
+      cards: {
+        invisible: {
+          title: "Unsichtbar bei Google",
+          desc: "92 % der Kunden wählen Unternehmen auf der ersten Seite. Wenn Sie dort nicht erscheinen, existieren Sie für sie einfach nicht."
+        },
+        reviews: {
+          title: "Zu wenige Bewertungen",
+          desc: "Unternehmen ohne aktiven sozialen Nachweis erwecken Misstrauen. Kunden kaufen dort, wo andere eine Empfehlung aussprechen."
+        },
+        contacts: {
+          title: "Mangel an Kontakten",
+          desc: "Sich nur auf Mundpropaganda zu verlassen, ist ein finanzielles russisches Roulette. Ihr Unternehmen braucht einen stetigen Fluss an Anfragen."
+        },
+        oldSite: {
+          title: "Alte oder nicht vorhandene Website",
+          desc: "Eine langsame oder veraltete Website vertreibt Premium-Kunden. Ihre digitale Präsenz ist der Spiegel Ihrer Professionalität."
+        },
+        lostClients: {
+          title: "Verlorene Kunden außerhalb der Geschäftszeiten",
+          desc: "64 % der Kunden treffen abends oder am Wochenende ein. Ohne sofortige automatische Beantwortung gehen sie zur Konkurrenz."
+        }
+      }
+    },
+    solution: {
+      title: "Das VELKS-System für Marktbeherrschung",
+      subtitle: "Wir verkaufen keinen Code oder Technologie. Wir verkaufen ausgebuchte Kalender, qualifizierte Kunden und automatische Prozesse, die für Sie Umsatz generieren.",
+      cards: {
+        gmaps: {
+          title: "Google Maps-Optimierung",
+          desc: "Wir positionieren Ihr Unternehmen ganz oben in den lokalen Suchergebnissen, damit Sie die logische Wahl in Ihrer Region sind."
+        },
+        website: {
+          title: "Konversionsstarke Websites",
+          desc: "Speziell für Mobilgeräte optimierte Seiten, die darauf ausgelegt sind, den Besucher sofort zum Klicken und Chatten zu animieren."
+        },
+        bot: {
+          title: "24/7 KI-Assistent",
+          desc: "Ein intelligenter Web-Assistent, der in Sekundenschnelle antwortet, häufige Fragen klärt und Kontaktdaten automatisch erfasst."
+        },
+        leads: {
+          title: "Aktive Kundenerfassung",
+          desc: "Einfache und direkte Systeme zur Erfassung der Kontaktdaten von potenziellen Kunden, die an Ihren Dienstleistungen interessiert sind."
+        },
+        automation: {
+          title: "Reibungslose Automatisierung",
+          desc: "Sofortige Weiterleitung von Anfragen direkt an Ihr WhatsApp oder Ihre E-Mail, ohne dass Sie komplexe Software bedienen müssen."
+        }
+      }
+    },
+    authority: {
+      title: "Tätig in Portugal, Spanien und Luxemburg",
+      subtitle: "Wir wenden Methoden und Standards an, die in anspruchsvollen europäischen Märkten erprobt sind, um lokalen Unternehmen ein solides Online-Wachstum zu ermöglichen.",
+      luxembourg: {
+        name: "Luxemburg",
+        tag: "Hauptsitz",
+        desc: "Hier verwalten wir die Finanzstrategie, europäische Compliance-Standards und die Kern-Datenarchitektur der VELKS Group."
+      },
+      portugal: {
+        name: "Portugal",
+        tag: "Entwicklungszentrum",
+        desc: "Unser Design- und Entwicklungsteam konzentriert sich voll und ganz darauf, Website-Besucher in Premium-Kunden zu verwandeln."
+      },
+      spain: {
+        name: "Spanien",
+        tag: "Marktexpansion",
+        desc: "Dienstleistungen für den dicht besiedelten iberischen Markt und den dynamischen lokalen Handel."
+      },
+      metrics: {
+        clients: "+240 Betreute lokale Kunden",
+        delivered: "+350 Gelieferte Premium-Projekte",
+        roi: "+320% Durchschnittlicher geschätzter ROI",
+        support: "Vollständiger Support ohne Kopfschmerzen"
+      }
+    },
+    widget: {
+      title: "Automatische Kundenbeantwortung rund um die Uhr",
+      subtitle: "Ihr neuer digitaler Vertriebsassistent arbeitet, während Sie schlafen, und sorgt dafür, dass kein potenzieller Kunde warten muss.",
+      steps: [
+        "Ein Besucher landet auf Ihrer Website.",
+        "Der KI-Assistent antwortet automatisch in weniger als 2 Sekunden.",
+        "Er beantwortet häufig gestellte Fragen und räumt Zweifel sofort aus.",
+        "Er erfasst Daten wie Name, Telefonnummer, E-Mail und Anliegen.",
+        "Er vereinbart Termine oder Beratungen.",
+        "Er leitet eine übersichtliche Zusammenfassung direkt an Ihre E-Mail oder WhatsApp weiter.",
+        "Sprachmodell darauf trainiert, vollkommen natürlich und menschlich zu klingen."
+      ],
+      capabilitiesTitle: "Was der Assistent für Sie tun kann:",
+      capabilities: [
+        "Häufig gestellte Fragen sofort beantworten",
+        "Preise und Leistungspakete präsentieren",
+        "Qualifizierte Sales-Leads in Echtzeit erfassen",
+        "Beratungstermine in Ihrem Kalender buchen",
+        "Dringende Anfragen an das WhatsApp Ihres Teams weiterleiten",
+        "Gesprächszusammenfassungen direkt an Ihr E-Mail-Postfach senden"
+      ],
+      demoTitle: "VELKS Virtueller Assistent-Simulator",
+      demoSubtitle: "Wählen Sie unten eine Branche aus und testen Sie die Power der automatischen Konversion in Echtzeit:",
+      placeholderInput: "Schreiben Sie Ihre Nachricht hier...",
+      demoPresetRestaurante: "Restaurant-Simulator 🍔",
+      demoPresetImobiliaria: "Immobilien-Simulator 🏠",
+      demoPresetClinica: "Praxis-Simulator 🩺",
+      demoPresetServicos: "Handwerker/Dienstleistungs-Simulator 🔨"
+    },
+    testimonials: {
+      title: "Wer der VELKS Group vertraut",
+      subtitle: "Echte Geschichten von lokalen Unternehmern, die aus der digitalen Unsichtbarkeit traten, um die Suche in ihrer Region zu dominieren.",
+      list: [
+        {
+          name: "Carlos Silva",
+          role: "Inhaber, Silva & Söhne Bau",
+          text: "Das Google Maps-Paket und die Website haben alles verändert. Früher verließen wir uns nur auf Empfehlungen, heute erhalten wir täglich 3 bis 5 Anrufe von Neukunden. Die Investition hat sich im ersten Monat amortisiert.",
+          rating: 5
+        },
+        {
+          name: "Dr. Mariana Costa",
+          role: "Ärztliche Leiterin, OdontoArt Coimbra",
+          text: "Der Web-Assistent ist einfach genial. Patienten besuchen unsere Seite spät in der Nacht, die KI beantwortet ihre Fragen, erfasst ihre Nummer und am Morgen muss unsere Sprechstundenhilfe den Termin nur noch bestätigen.",
+          rating: 5
+        },
+        {
+          name: "Jean-Pierre Weber",
+          role: "Eigentümer, Brasserie Gare Luxemburg",
+          text: "Die Optimierung unseres Google Maps-Eintrags in drei Sprachen (Französisch, Deutsch und Portugiesisch) brachte uns täglich Dutzende von Touristen. VELKS war extrem schnell, professionell und fokussiert auf unseren ROI.",
+          rating: 5
+        },
+        {
+          name: "Isabel Mendes",
+          role: "Mendes & Partner Immobilien",
+          text: "Unsere Makler erhalten jetzt hochqualifizierte, vorselektierte Kunden. Das System filtert Zeitdiebe heraus und liefert echte Käufer direkt an unser WhatsApp. Zu 100 % zu empfehlen.",
+          rating: 5
+        },
+        {
+          name: "Ricardo Martins",
+          role: "Martins Automobile",
+          text: "Herausragender Support. Keine teuren monatlichen Gebühren; wir haben einmalig für Website und Maps-Einrichtung bezahlt, und der Ertrag ist konstant geblieben. Absolute Transparenz.",
+          rating: 5
+        }
+      ]
+    },
+    pricing: {
+      title: "Transparente Preise. Keine bösen Überraschungen.",
+      subtitle: "Einmalzahlung. Keine verpflichtenden Abonnements, keine versteckten Kosten. Reine Investition in Ihr Wachstum.",
+      singlePayment: "EINMALIGE ZAHLUNG",
+      allPlansInclude: "Alle Pakete beinhalten:",
+      allPlansIncludeDesc: "Premium-Support, vollständige EU-DSGVO-Konformität, Mobile-First-Design und Optimierung für maximale Ladegeschwindigkeiten.",
+      plans: {
+        gmaps: {
+          title: "Google Maps Professionell",
+          price: "90€",
+          features: [
+            "Vollständige Einrichtung & Inhaberschaftsanspruch",
+            "Erweiterte lokale SEO-Optimierung",
+            "Professioneller Foto- & Logo-Upload",
+            "Präsentation von Dienstleistungen & Produkten",
+            "Direkter Bewertungs-Generator-Link",
+            "Lokale Positionierungsstrategie",
+            "Direktnachrichten-Aktivierung"
+          ],
+          cta: "LOKALE TOP 3 DOMINIEREN",
+          tracking: "Hallo! Ich interessiere mich für das Google Maps Professionell-Paket. Könnten mir die VELKS-Spezialisten helfen?"
+        },
+        website: {
+          title: "Premium Website Professionell",
+          price: "190€",
+          features: [
+            "Extrem schnelle Landing Page",
+            "Exklusives Mobile-First-Design",
+            "Google SEO-Struktur & Keyword-optimiert",
+            "Direkte WhatsApp-Button-Integration",
+            "Einrichtung der eigenen Domain",
+            "30 Tage kostenloser Premium-Support",
+            "DSGVO-konform & Sicheres SSL-Zertifikat"
+          ],
+          cta: "VERKAUFSMASCHINE AKTIVIEREN",
+          tracking: "Hallo! Ich interessiere mich für das Website Professionell-Paket. Was ist der erste Schritt zum Aufbau meiner neuen Verkaufsmaschine?"
+        },
+        automacao: {
+          title: "KI-Automatische Kundenannahme",
+          price: "250€",
+          features: [
+            "Maßgeschneiderter intelligenter Web-Bot",
+            "Kanal-Aktivierung für WhatsApp & Instagram",
+            "Intelligentes Konversionsmenü",
+            "Einrichtung in 2 Wunschsprachen",
+            "Proaktiver, humanisierter Antwortfluss",
+            "Lead-Erfassung und sofortige E-Mail-Meldung",
+            "Nahtlose Einbindung in Ihre aktuelle Website"
+          ],
+          cta: "24/7 SUPPORT ABSICHERN",
+          tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem KI-Automatisierten Support fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
+        },
+        ecommerce: {
+          title: "Komplettes E-Commerce-System",
+          price: "300€",
+          features: [
+            "Vollständige Erstellung & Anpassung des Onlineshops",
+            "Bereit für Print on Demand / Dropshipping",
+            "Ideal für lokale, digitale oder hybride Geschäfte",
+            "Marktführende Lieferantensuche",
+            "Sichere Zahlungsintegration",
+            "Versandregeln & Lagerbestandsverwaltung",
+            "Sehr einfache Verwaltungszentrale"
+          ],
+          cta: "ONLINE-UMSATZ SKALIEREN",
+          tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem kompletten E-Commerce-Paket fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
+        },
+        custom: {
+          title: "All-In-One Imperial",
+          price: "Auf Anfrage",
+          features: [
+            "Google Maps + Website + KI-Kundenservice",
+            "Umfassende Marktbeherrschungsstrategie",
+            "Aggressives, konversionsstarkes Copywriting",
+            "Vollständig konfiguriertes Mehrsprachenpaket",
+            "Priorisierter lebenslanger Support",
+            "Monatliches strategisches Beratungsgespräch",
+            "Erheblicher Paket-Rabatt"
+          ],
+          cta: "PRIVATES AUDIT VEREINBAREN",
+          tracking: "Hallo VELKS-Team. Mein Unternehmen benötigt eine tiefgreifende digitale Umstrukturierung. Ich möchte ein privates Audit mit einem VELKS-Spezialisten vereinbaren, um die All-In-One Imperial-Lösung zu besprechen. Könnten Sie mir helfen?"
+        }
+      }
+    },
+    demos: {
+      demoTracking: "Hallo! Ich möchte die interaktive Demo für {demoTitle} testen und in der Praxis sehen, wie diese Technologie meine Ergebnisse skalieren kann. Können wir den Test starten?",
+      title: "Interaktive Demonstrationen",
+      subtitle: "Erkunden Sie echte Beispiele dafür, wie wir die digitale Präsenz lokaler Geschäfte revolutionieren.",
+      categories: {
+        all: "Alle",
+        restaurants: "Restaurants",
+        realestate: "Immobilien",
+        clinics: "Praxen",
+        localservices: "Lokale Dienste",
+      },
+      cta: "Mit Berater sprechen",
+      clickToSee: "Interaktive Vorschau starten"
+    },
+    faq: {
+      title: "Häufig gestellte Fragen",
+      questions: [
+        {
+          q: "Wie viel kostet der Service?",
+          a: "Unsere Pakete beginnen bei 90€ für die Google Maps-Optimierung und 190€ für professionelle Websites. Es handelt sich um Einmalzahlungen ohne monatliche Abonnements oder versteckte Kosten."
+        },
+        {
+          q: "Wie lange dauert die Lieferung?",
+          a: "Google Maps-Einrichtungen dauern in der Regel 3 bis 5 Werktage. Premium-Websites und automatisierte KI-Kundenservices werden innerhalb von 7 bis 14 Werktagen fertiggestellt und getestet."
+        },
+        {
+          q: "Funktioniert die Website auf Smartphones?",
+          a: "Ja, absolut. Wir entwickeln nach einer strengen Mobile-First-Methodik. Da über 85 % der lokalen Suchanfragen über Mobiltelefone erfolgen, ist Ihre Seite auf allen Smartphones extrem schnell und intuitiv."
+        },
+        {
+          q: "Kann ich meine bestehende Domain verwenden?",
+          a: "Natürlich. Wenn Sie bereits eine Domain besitzen (z. B. www.ihrunternehmen.de), konfigurieren wir die DNS-Einträge so, dass sie ohne zusätzliche Kosten auf Ihre neue Website verweisen."
+        },
+        {
+          q: "Arbeiten Sie in Portugal, Spanien und Luxemburg?",
+          a: "Ja, das tun wir! Wir sind in diesen drei Ländern aktiv tätig und passen das Design, die Texte und die SEO-Optimierung an das Nutzerverhalten der jeweiligen europäischen Märkte an."
+        }
+      ]
+    },
+    ctaFinal: {
+      tracking: "Hallo. Ich habe Ihre gesamte Seite gelesen und festgestellt, dass ich Geld an die Konkurrenz verliere. Ich möchte genau verstehen, wie Ihre Technologie mein Unternehmen sofort absichern kann. Können wir sprechen?",
+      title: "Hören Sie auf, Kunden an Konkurrenten zu verlieren, die weniger bieten als Sie.",
+      subtitle: "Während Sie dies lesen, nimmt Ihr Mitbewerber den Anruf eines potenziellen Kunden entgegen. Sollen wir das heute ändern?",
+      cta: "MEIN UNTERNEHMEN JETZT ABSICHERN",
+      microcopy: "Unverbindlich • Sofortige Antwort • Kostenloses Angebot"
+    },
+    footer: {
+      logoDesc: "Wir verwandeln inhaberabhängige Unternehmen in autonome Gewinnmaschinen. Ihre Google-Dominanz wird absolut und unsere KI schließt Verkäufe rund um die Uhr ab. Echte Ergebnisse und keine monatlichen Gebühren, damit Sie Ihre Zeit und Freiheit zurückgewinnen.",
+      hqMain: "Hauptsitz: 57, Avenue de La Gare, L-1611 Luxemburg Gare, Luxemburg",
+      hqSec: "Zweiter Standort: Coimbra, Portugal",
+      policyPrivacy: "Datenschutzerklärung",
+      policyCookies: "Cookie-Richtlinie",
+      terms: "Allgemeine Geschäftsbedingungen",
+      compliance: "Europäische Compliance",
+      legal: "Rechtliche Hinweise",
+      gdpr: "EU-DSGVO-konform",
+      rights: "© 2026 VELKS Group. Alle Rechte vorbehalten."
+    },
+    cookieConsent: {
+      text: "Wir verwenden Cookies und ähnliche Technologien, um Ihnen das beste Web-Erlebnis zu bieten und den Datenverkehr in Übereinstimmung mit der EU-DSGVO zu analysieren.",
+      accept: "Alle akzeptieren",
+      decline: "Ablehnen"
+    }
+  },
+  es: {
+    nav: {
+      hero: "Inicio",
+      problem: "El Problema",
+      solution: "La Solución",
+      authority: "Presencia",
+      widget: "Asistente IA",
+      pricing: "Paquetes",
+      demos: "Demostraciones",
+      faq: "FAQ",
+    },
+    hero: {
+      tracking: "Hola. Vi su infraestructura tecnológica en el sitio web y me gustaría comprobar si mi empresa califica para implementar su sistema comercial. ¿Pueden enviarme la tabla de precios?",
+      badge: "★ DOMINIO ABSOLUTO DEL MERCADO",
+      title: "Tu negocio merece aparecer antes que tus competidores.",
+      subtitle: "Creamos sitios web premium, perfiles profesionales de Google Maps y sistemas automáticos de atención al cliente para ayudarte a generar más contactos y cerrar más clientes a diario. Sin cuotas mensuales.",
+      ctaPrimary: "VERIFICAR VIABILIDAD PARA MI NEGOCIO",
+      ctaSecondary: "Ver Demostraciones",
+      trustPilot: "Excelente 4.9/5 estrellas en Google & Redes de Negocio"
+    },
+    problem: {
+      title: "El Dolor de Ser Invisible",
+      subtitle: "Si tu negocio no es el primero en ser encontrado, estás financiando el crecimiento de tus competidores. El mercado ha cambiado y la informalidad digital sale cara.",
+      cards: {
+        invisible: {
+          title: "Invisible en Google",
+          desc: "El 92% de los clientes eligen negocios de la primera página. Si no apareces, simplemente no existes para ellos."
+        },
+        reviews: {
+          title: "Pocas Reseñas",
+          desc: "Los negocios sin prueba social activa generan desconfianza. Los clientes compran a quienes recomiendan los demás."
+        },
+        contacts: {
+          title: "Falta de Contactos",
+          desc: "Depender únicamente del 'boca a boca' es una ruleta rusa financiera. Tu negocio necesita un flujo continuo y predecible."
+        },
+        oldSite: {
+          title: "Sitio Web Antiguo o Inexistente",
+          desc: "Un sitio web lento o desactualizado ahuyenta a los clientes premium. Tu presencia digital refleja tu profesionalismo."
+        },
+        lostClients: {
+          title: "Clientes Perdidos Fuera de Horario",
+          desc: "El 64% de los clientes llegan por la noche o en el fin de semana. Sin una respuesta automática inmediata, se van a la competencia."
+        }
+      }
+    },
+    solution: {
+      title: "El Método VELKS para Dominar el Mercado",
+      subtitle: "No vendemos código ni tecnología. Te entregamos agendas llenas, clientes calificados y procesos automáticos que facturan por ti.",
+      cards: {
+        gmaps: {
+          title: "Optimización de Google Maps",
+          desc: "Posicionamos tu ficha en lo más alto de las búsquedas locales para ser la opción obvia en tu área."
+        },
+        website: {
+          title: "Sitios Web de Alta Conversión",
+          desc: "Páginas diseñadas específicamente para móviles, enfocadas en hacer que el visitante haga clic e inicie un chat."
+        },
+        bot: {
+          title: "Asistente IA 24/7",
+          desc: "Un asistente inteligente que responde en segundos, resuelve dudas comunes y captura los datos del cliente de forma automática."
+        },
+        leads: {
+          title: "Captura Activa de Clientes",
+          desc: "Sistemas simples y directos para recopilar los datos de los clientes interesados en tus servicios."
+        },
+        automation: {
+          title: "Automatización sin Complicaciones",
+          desc: "Sincronización instantánea de solicitudes directamente en tu WhatsApp o Email, sin necesidad de gestionar paneles complejos."
+        }
+      }
+    },
+    authority: {
+      title: "Operamos en Portugal, España y Luxemburgo",
+      subtitle: "Aplicamos metodologías y estándares probados en mercados europeos altamente competitivos y exigentes para ayudar a pequeños negocios a crecer de forma sólida.",
+      luxembourg: {
+        name: "Luxemburgo",
+        tag: "Sede Principal",
+        desc: "Donde gestionamos la estrategia financiera, las normas europeas de cumplimiento y la arquitectura de datos del grupo VELKS."
+      },
+      portugal: {
+        name: "Portugal",
+        tag: "Centro de Desarrollo",
+        desc: "Nuestro equipo de diseño y desarrollo enfocado en convertir visitantes en clientes premium."
+      },
+      spain: {
+        name: "España",
+        tag: "Expansión Comercial",
+        desc: "Operaciones dedicadas al mercado ibérico de alta densidad y al comercio local dinámico."
+      },
+      metrics: {
+        clients: "+240 Clientes Locales Atendidos",
+        delivered: "+350 Proyectos Premium Entregados",
+        roi: "+320% ROI Medio Estimado",
+        support: "Soporte Completo Sin Dolor de Cabeza"
+      }
+    },
+    widget: {
+      title: "Atención al Cliente Automática las 24 Horas",
+      subtitle: "Tu nuevo asistente comercial digital trabaja mientras duermes, asegurando que ningún cliente potencial quede esperando.",
+      steps: [
+        "Un visitante llega a tu sitio web.",
+        "El asistente de IA responde automáticamente en menos de 2 segundos.",
+        "Resuelve al instante las dudas frecuentes y supera objeciones.",
+        "Recopila datos de contacto: Nombre, Teléfono, Email y su interés.",
+        "Reserva citas de diagnóstico o consultas en tu calendario.",
+        "Envía un resumen completo directamente a tu Email o WhatsApp.",
+        "Modelo de lenguaje altamente entrenado para sonar natural y humano."
+      ],
+      capabilitiesTitle: "Lo que el asistente puede hacer por ti:",
+      capabilities: [
+        "Responder preguntas frecuentes al instante",
+        "Presentar tarifas y hojas de servicios",
+        "Capturar leads calificados en tiempo real",
+        "Reservar citas de asesoría directamente en tu agenda",
+        "Derivar solicitudes urgentes al WhatsApp de tu equipo",
+        "Enviar resúmenes de chats directamente a tu Email"
+      ],
+      demoTitle: "Simulador de Asistente Virtual VELKS",
+      demoSubtitle: "Selecciona un sector local a continuación y prueba el poder de la conversión automatizada en tiempo real:",
+      placeholderInput: "Escribe tu mensaje aquí...",
+      demoPresetRestaurante: "Simulador Restaurante 🍔",
+      demoPresetImobiliaria: "Simulador Inmobiliario 🏠",
+      demoPresetClinica: "Simulador Clínica Médica 🩺",
+      demoPresetServicos: "Simulador Contratista/Servicios 🔨"
+    },
+    testimonials: {
+      title: "Ellos confían en VELKS Group",
+      subtitle: "Historias reales de empresarios locales que salieron de la invisibilidad digital para dominar las búsquedas en su zona.",
+      list: [
+        {
+          name: "Carlos Silva",
+          role: "Propietario, Silva & Hijos Construcción",
+          text: "El paquete de Google Maps y la web lo cambiaron todo. Antes dependíamos de referencias de conocidos; ahora recibimos de 3 a 5 llamadas de clientes nuevos al día. El retorno se pagó en el primer mes.",
+          rating: 5
+        },
+        {
+          name: "Dra. Mariana Costa",
+          role: "Directora Clínica, OdontoArt Coimbra",
+          text: "El asistente web es sencillamente genial. Los pacientes entran tarde por la noche, resuelven sus dudas, el bot toma su número y por la mañana nuestra secretaria solo confirma la cita. ¡Brillante!",
+          rating: 5
+        },
+        {
+          name: "Jean-Pierre Weber",
+          role: "Propietario, Brasserie Gare Luxemburgo",
+          text: "Optimizar nuestra ficha de Google Maps en inglés, alemán y francés nos trajo decenas de turistas diariamente. VELKS fue sumamente rápida, profesional y totalmente enfocada en nuestros ingresos.",
+          rating: 5
+        },
+        {
+          name: "Isabel Mendes",
+          role: "Mendes & Asociados Inmobiliaria",
+          text: "Nuestros agentes por fin reciben clientes calificados listos para conversar. El sistema filtra a los curiosos y nos envía a los compradores reales directamente por WhatsApp. Muy recomendado.",
+          rating: 5
+        },
+        {
+          name: "Ricardo Martins",
+          role: "Martins Automóviles",
+          text: "Excelente servicio de soporte. Sin cuotas mensuales caras, pagamos una sola vez por el sitio y Google Maps y el resultado ha sido constante y fiable. Transparencia total.",
+          rating: 5
+        }
+      ]
+    },
+    pricing: {
+      title: "Precios Transparentes. Cero Sorpresas.",
+      subtitle: "Pago único. Sin suscripciones obligatorias, sin cargos ocultos. Inversión pura en tu crecimiento.",
+      singlePayment: "PAGO ÚNICO",
+      allPlansInclude: "Todos los paquetes incluyen:",
+      allPlansIncludeDesc: "Soporte premium, conformidad total con el RGPD de la UE, diseño mobile-first y optimización para la máxima velocidad de carga.",
+      plans: {
+        gmaps: {
+          title: "Google Maps Profesional",
+          price: "90€",
+          features: [
+            "Configuración y Reclamación Completa",
+            "Optimización Avanzada de SEO Local",
+            "Carga de Fotos y Logotipo de Calidad",
+            "Showcase Completo de Productos y Servicios",
+            "Crecimiento Orgánico con Enlace de Reseñas",
+            "Estrategia de Posicionamiento de Autoridad",
+            "Activación del Canal de Mensajería"
+          ],
+          cta: "DOMINAR EL TOP 3 LOCAL",
+          tracking: "¡Hola! Estoy interesado en el paquete Google Maps Profesional. ¿Los especialistas de VELKS podrían ayudarme?"
+        },
+        website: {
+          title: "Sitio Web Profesional Premium",
+          price: "190€",
+          features: [
+            "Landing Page de Carga Ultra Rápida",
+            "Diseño Mobile-First Exclusivo",
+            "SEO en Google y Keyword Structure",
+            "Botón de WhatsApp Directo Integrado",
+            "Configuración de Dominio Propio",
+            "30 Días de Soporte Dedicado Gratuito",
+            "Conforme a RGPD y Seguridad SSL"
+          ],
+          cta: "ACTIVAR MÁQUINA DE VENTAS",
+          tracking: "¡Hola! Estoy interesado en el paquete de Sitio Web Profesional. ¿Cuál es el primer paso para construir mi nueva máquina de ventas?"
+        },
+        automacao: {
+          title: "Atención IA Automática",
+          price: "250€",
+          features: [
+            "Asistente Web Inteligente Customizado",
+            "Activación de Canales WhatsApp e Instagram",
+            "Árbol de Conversión Inteligente",
+            "Configuración en 2 Idiomas a Elección",
+            "Flujo de Respuestas Humanizadas Proactivo",
+            "Captura de Leads y Avisos por Email",
+            "Integración Sencilla en tu Web Actual"
+          ],
+          cta: "BLINDAR ATENCIÓN 24/7",
+          tracking: "Hola, Equipo VELKS. Analicé la tabla de precios en el sitio y tengo interés en avanzar con Atención IA Automática. ¿Cuál es el próximo paso para iniciar la integración?"
+        },
+        ecommerce: {
+          title: "E-commerce Completo",
+          price: "300€",
+          features: [
+            "Creación y Personalización de Tienda Online",
+            "Listo para Print on Demand / Dropshipping",
+            "Ideal para Negocio Local, Digital o Híbrido",
+            "Mapeo de los Mejores Proveedores",
+            "Integración de Pasarelas de Pago Seguras",
+            "Configuración de Envíos e Inventario",
+            "Consola de Administración Ultra Sencilla"
+          ],
+          cta: "ESCALAR FACTURACIÓN ONLINE",
+          tracking: "Hola, Equipo VELKS. Analicé la tabla de precios en el sitio y tengo interés en avanzar con el paquete E-Commerce Completo. ¿Cuál es el próximo paso para iniciar la integración?"
+        },
+        custom: {
+          title: "All-In-One Imperial",
+          price: "A Consultar",
+          features: [
+            "Google Maps + Sitio Web + Atención IA",
+            "Estrategia Completa de Dominación Local",
+            "Copywriting Agresivo de Alta Conversión",
+            "Opciones Multi-idioma Completas",
+            "Soporte Prioritario de por Vida",
+            "Consultas Mensuales Estratégicas",
+            "Descuento de Pack Integrado"
+          ],
+          cta: "AGENDAR AUDITORÍA PRIVADA",
+          tracking: "Hola, Equipo VELKS. Mi negocio necesita una reestructuración digital profunda. Me gustaría programar una auditoría privada con un especialista de VELKS para discutir la solución All-In-One Imperial. ¿Podrían ayudarme?"
+        }
+      }
+    },
+    demos: {
+      demoTracking: "¡Hola! Quiero probar la demostración interactiva para {demoTitle} y ver en la práctica cómo esta tecnología puede escalar mis resultados. ¿Podemos iniciar la prueba?",
+      title: "Demostraciones Interactivas",
+      subtitle: "Explora ejemplos en vivo de cómo revolucionamos la presencia digital de los comercios de barrio.",
+      categories: {
+        all: "Todos",
+        restaurants: "Restaurantes",
+        realestate: "Inmobiliarias",
+        clinics: "Clínicas Médicas",
+        localservices: "Servicios Locales",
+      },
+      cta: "Hablar con un Asesor",
+      clickToSee: "Ver Demostración Interactiva"
+    },
+    faq: {
+      title: "Preguntas Frecuentes",
+      questions: [
+        {
+          q: "¿Cuánto cuesta el servicio?",
+          a: "Nuestros paquetes comienzan en 90€ para la optimización de Google Maps y 190€ para sitios web profesionales. Son pagos únicos, sin suscripciones mensuales recurrentes de ningún tipo."
+        },
+        {
+          q: "¿Cuánto tiempo tarda la entrega?",
+          a: "Los perfiles de Google Maps suelen demorar de 3 a 5 días hábiles. Los sitios web premium y los escritorios automáticos con IA se prueban y entregan en un plazo de 7 a 14 días hábiles."
+        },
+        {
+          q: "¿El sitio funciona bien en smartphones?",
+          a: "Sí, totalmente. Diseñamos con un enfoque estricto en Mobile-First. Dado que más del 85% de las búsquedas locales ocurren en teléfonos, tu página web será ultrarrápida e intuitiva en celulares."
+        },
+        {
+          q: "¿Puedo usar mi dominio actual?",
+          a: "Por supuesto. Si ya tienes un dominio propio (ej: www.tunegocio.com), configuramos los registros DNS para que apunten a tu nueva landing page sin coste adicional."
+        },
+        {
+          q: "¿Trabajan en Portugal, España y Luxemburgo?",
+          a: "¡Sí! Operamos activamente en estos tres países, adaptando la redacción, el diseño y el SEO local a los hábitos de compra de cada mercado europeo."
+        }
+      ]
+    },
+    ctaFinal: {
+      tracking: "Hola. Leí toda su página y me di cuenta de que estoy perdiendo dinero frente a la competencia. Quiero entender exactamente cómo su tecnología puede blindar mi negocio de forma inmediata. ¿Podemos hablar?",
+      title: "Deja de perder clientes frente a competidores que ofrecen menos que tú.",
+      subtitle: "Mientras lees esto, tu rival está atendiendo una llamada de venta. ¿Cambiamos la balanza hoy?",
+      cta: "BLINDAR MI NEGOCIO AHORA",
+      microcopy: "Sin compromisos • Respuesta inmediata • Presupuesto gratis"
+    },
+    footer: {
+      logoDesc: "Transformamos negocios dependientes del dueño en máquinas autónomas de ganancias. Tu dominio en Google se vuelve absoluto y nuestra IA cierra ventas 24/7. Resultados reales y sin cuotas mensuales recurrentes, para que recuperes tu tiempo y libertad.",
+      hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
+      hqSec: "Sede Secundaria: Coimbra, Portugal",
+      policyPrivacy: "Política de Privacidad",
+      policyCookies: "Política de Cookies",
+      terms: "Términos y Condiciones",
+      compliance: "Cumplimiento Europeo",
+      legal: "Avisos Legales",
+      gdpr: "Conforme a RGPD de la UE",
+      rights: "© 2026 VELKS Group. Todos los derechos reservados."
+    },
+    cookieConsent: {
+      text: "Utilizamos cookies y tecnologías similares para garantizar la mejor experiencia de usuario y analizar el tráfico en conformidad estricta con el RGPD de la UE.",
+      accept: "Aceptar Todo",
+      decline: "Rechazar"
+    }
+  }
+};

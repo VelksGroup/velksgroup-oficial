@@ -1,0 +1,6 @@
+{
+  "name": "VELKS Group",
+  "description": "Landing Page Premium da marca VELKS Group. Especialistas em crescimento, visibilidade local e automação de atendimento.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
