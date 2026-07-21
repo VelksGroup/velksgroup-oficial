@@ -125,7 +125,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ t, cur
               }}
               className="text-xs font-mono uppercase tracking-[6px] text-gold font-bold inline-block"
             >
-              {(currentLang === 'pt' ? 'DEPOIMENTOS VERIFICADOS' : 'INDEPENDENT VERIFICATION').split('').map((char, index) => (
+                            {(currentLang === 'pt' ? 'DEPOIMENTOS VERIFICADOS' : currentLang === 'es' ? 'TESTIMONIOS VERIFICADOS' : currentLang === 'it' ? 'TESTIMONIANZE VERIFICATE' : currentLang === 'fr' ? 'TÉMOIGNAGES VÉRIFIÉS' : currentLang === 'de' ? 'GEPRÜFTE BEWERTUNGEN' : 'INDEPENDENT VERIFICATION').split('').map((char, index) => (
                 <motion.span
                   key={index}
                   variants={{

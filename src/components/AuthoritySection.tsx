@@ -49,7 +49,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
   const yParallaxSlow = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section ref={containerRef} className="py-32 px-4 bg-obsidian-light relative overflow-hidden">
+    <section ref={containerRef} className="pt-16 pb-0 md:pt-24 md:pb-0 px-4 bg-obsidian-light relative overflow-hidden">
       
       {/* BACKGROUND EFFECTS */}
       {/* Glow behind */}
@@ -107,7 +107,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
             >
               <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold flex items-center gap-3">
                 <Globe size={16} className="text-gold animate-spin-slow drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
-                {currentLang === 'pt' ? 'PRESENÇA INTERNACIONAL REGULADA' : 'REGULATED EUROPEAN STATUS'}
+                {currentLang === 'pt' ? 'PRESENÇA INTERNACIONAL REGULADA' : currentLang === 'es' ? 'PRESENCIA INTERNACIONAL REGULADA' : currentLang === 'it' ? 'PRESENZA INTERNAZIONALE REGOLAMENTATA' : currentLang === 'fr' ? 'PRÉSENCE INTERNATIONALE RÉGLEMENTÉE' : currentLang === 'de' ? 'REGULIERTE INTERNATIONALE PRÄSENZ' : 'REGULATED EUROPEAN STATUS'}
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg">
                 {t.authority.title}
@@ -163,7 +163,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
               
               <span className="text-xs md:text-sm font-mono tracking-widest text-gold uppercase flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-                {currentLang === 'pt' ? 'MÉTRICAS AUDITADAS EM PORTAL CONSOLIDADO' : 'AUDITED PERFORMANCE METRICS'}
+                {currentLang === 'pt' ? 'MÉTRICAS AUDITADAS EM PORTAL CONSOLIDADO' : currentLang === 'es' ? 'MÉTRICAS AUDITADAS EN PORTAL CONSOLIDADO' : currentLang === 'it' ? 'METRICHE CERTIFICATE IN PORTALE CONSOLIDATO' : currentLang === 'fr' ? 'MÉTRIQUES AUDITÉES SUR PORTAIL CONSOLIDÉ' : currentLang === 'de' ? 'GEPRÜFTE METRIKEN IN EINEM KONSOLIDIERTEN PORTAL' : 'AUDITED PERFORMANCE METRICS'}
               </span>
               
               <div className="grid grid-cols-2 gap-4 md:gap-5">

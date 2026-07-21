@@ -56,6 +56,8 @@ export interface TranslationSchema {
     };
   };
   widget: {
+    resetTitle: string;
+    responseTime: string;
     title: string;
     subtitle: string;
     steps: string[];
@@ -137,6 +139,15 @@ export interface TranslationSchema {
     cta: string;
     clickToSee: string;
   };
+  aivision: {
+    badge: string;
+    title1: string;
+    titleHighlight: string;
+    title2: string;
+    subtitle: string;
+    cta: string;
+    microcopy: string;
+  };
   faq: {
     title: string;
     questions: { q: string; a: string }[];
@@ -150,6 +161,12 @@ export interface TranslationSchema {
   };
   footer: {
     logoDesc: string;
+    legalNoticeTitle: string;
+    legalNoticeText: string;
+    directContacts: string;
+    hqLocations: string;
+    legalDisclaimer: string;
+    europeanCompliance: string;
     hqMain: string;
     hqSec: string;
     policyPrivacy: string;
@@ -185,7 +202,7 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "O seu negócio merece aparecer antes dos seus concorrentes.",
       subtitle: "Domine o Google, esmague a concorrência com um site implacável e deixe a nossa IA fechar negócios 24/7. Sem mensalidades recorrentes.",
       ctaPrimary: "ATIVAR MÁQUINA DE VENDAS",
-      ctaSecondary: "Ver Demonstrações",
+      ctaSecondary: "Ver Pacotes",
       trustPilot: "Excelente 4.9/5 estrelas no Google & Redes de Negócios"
     },
     problem: {
@@ -206,7 +223,7 @@ export const translations: Record<Language, TranslationSchema> = {
         },
         oldSite: {
           title: "Site Antigo ou Inexistente",
-          desc: "Um site lento ou feio afasta clientes premium. A sua presença digital é o espelho do seu profissionalismo."
+          desc: "Um site lento ou desatualizado afasta clientes premium. A sua presença digital é o espelho do seu profissionalismo."
         },
         lostClients: {
           title: "Clientes Perdidos Fora d'Hora",
@@ -241,176 +258,160 @@ export const translations: Record<Language, TranslationSchema> = {
       }
     },
     authority: {
-      title: "Operamos entre Portugal, Espanha e Luxemburgo",
-      subtitle: "Aplicamos métodos e padrões utilizados em mercados europeus altamente competitivos e exigentes para ajudar pequenas empresas a crescer online de forma sólida.",
+      title: "Engenharia de Conversão de Elite",
+      subtitle: "Aplicamos metodologias e padrões comprovados em mercados europeus altamente competitivos e exigentes para ajudar pequenos negócios a crescer de forma sólida.",
       luxembourg: {
         name: "Luxemburgo",
         tag: "Sede Principal",
-        desc: "Onde gerimos a estratégia financeira, os padrões europeus de compliance e a engenharia de dados da VELKS Group."
+        desc: "Onde gerimos a estratégia financeira, normas europeias de compliance e arquitetura de dados do grupo VELKS."
       },
       portugal: {
         name: "Portugal",
         tag: "Centro de Desenvolvimento",
-        desc: "Equipa de design e desenvolvimento focada em converter visitantes em clientes premium."
+        desc: "A nossa equipa de design e desenvolvimento focada em converter visitantes em clientes premium."
       },
       spain: {
         name: "Espanha",
-        tag: "Expansão de Mercado",
-        desc: "Operações dedicadas ao mercado Ibérico de alta densidade e comércio local dinâmico."
+        tag: "Expansão Comercial",
+        desc: "Operações dedicadas ao mercado ibérico de alta densidade e comércio local dinâmico."
       },
       metrics: {
-        clients: "+240 Clientes Atendidos",
-        delivered: "+350 Projetos Entregues",
+        clients: "+240 Clientes Locais Atendidos",
+        delivered: "+350 Projetos Premium Entregues",
         roi: "+320% ROI Médio Estimado",
-        support: "Suporte Total Sem Complicações"
+        support: "Suporte Total Sem Dor de Cabeça"
       }
     },
     widget: {
-      title: "Atendimento automático 24 horas por dia",
-      subtitle: "O seu novo assistente comercial trabalha enquanto você dorme, garantindo que nenhum cliente potencial seja ignorado.",
+      resetTitle: "Reiniciar",
+      responseTime: "Resposta em 1.2s",
+      title: "Teste a nossa IA Agora",
+      subtitle: "Interaja com o Concierge IA abaixo. Escolha um cenário e veja como ele qualifica clientes e fecha vendas por si, a qualquer hora.",
       steps: [
-        "O visitante entra no seu site.",
-        "O assistente responde automaticamente em menos de 2 segundos.",
-        "Esclarece dúvidas comuns instantaneamente.",
-        "Recolhe dados como Nome, Telefone, Email e Interesse.",
-        "Agenda reuniões ou encaminha os dados consolidados.",
-        "Envia um resumo completo diretamente para o seu WhatsApp ou Email.",
-        "Modelo de Linguagem altamente treinado para soar natural e humanizado."
+        "1. Escolha o tipo de negócio",
+        "2. Interaja como se fosse um cliente",
+        "3. Imagine isto no seu próprio site"
       ],
-      capabilitiesTitle: "O que o assistente pode fazer por si:",
+      capabilitiesTitle: "O que o Concierge IA faz?",
       capabilities: [
-        "Responder a perguntas frequentes",
-        "Apresentar preços e pacotes de serviço",
-        "Captar leads qualificadas em tempo real",
-        "Agendar reuniões de diagnóstico",
-        "Encaminhar pedidos urgentes para o WhatsApp da sua equipa",
-        "Enviar resumos das conversas diretamente para o seu Email"
+        "Responde a perguntas complexas sobre os seus serviços em segundos",
+        "Qualifica clientes e recolhe contactos (Nome, Email, Telemóvel)",
+        "Agenda serviços e integra diretamente com o seu calendário",
+        "Fala múltiplos idiomas simultaneamente sem tradutores"
       ],
-      demoTitle: "Simulador de Assistente Virtual VELKS",
-      demoSubtitle: "Selecione um nicho abaixo e teste em tempo real o poder da conversão automática:",
+      demoTitle: "Simulador ao Vivo",
+      demoSubtitle: "Clique num dos perfis abaixo",
       placeholderInput: "Escreva a sua mensagem aqui...",
-      demoPresetRestaurante: "Simulador Restaurante 🍔",
-      demoPresetImobiliaria: "Simulador Imobiliária 🏠",
-      demoPresetClinica: "Simulador Clínica Médica 🩺",
-      demoPresetServicos: "Simulador Construção/Serviços 🔨"
+      demoPresetRestaurante: "Restaurante",
+      demoPresetImobiliaria: "Imobiliária",
+      demoPresetClinica: "Clínica",
+      demoPresetServicos: "Serviços"
     },
     testimonials: {
-      title: "Quem confia na VELKS Group",
-      subtitle: "Histórias reais de empresários locais que saíram da invisibilidade e hoje dominam as pesquisas na sua região.",
+      title: "O Que Dizem os Nossos Clientes",
+      subtitle: "Donos de negócios reais que transformaram a sua presença digital e dominaram o mercado local com a infraestrutura VELKS.",
       list: [
         {
-          name: "Carlos Silva",
-          role: "Gerente, Silva & Filhos Construções",
-          text: "O ecossistema completo da VELKS eliminou a nossa dependência de indicações. Com a máquina de vendas web, IA e o Google dominado, recebemos chamadas diárias de clientes prontos a fechar obra. O investimento pagou-se em semanas.",
+          name: "Ricardo Silva",
+          role: "Dono de Restaurante",
+          text: "Desde que implementámos o site da VELKS, as reservas aumentaram 40%. A IA responde aos clientes à noite enquanto nós descansamos. Impressionante.",
           rating: 5
         },
         {
-          name: "Dr.ª Mariana Costa",
-          role: "Diretora Clínica, OdontoArt Coimbra",
-          text: "A Inteligência Artificial da VELKS no site é fantástica. Os clientes entram à noite para tirar dúvidas sobre marcações, a IA recolhe o contacto e no dia seguinte a nossa secretária só tem de confirmar. Excelente!",
+          name: "Marta Sousa",
+          role: "Gestora Imobiliária",
+          text: "O nosso perfil no Google Maps estava invisível. Em 2 semanas fomos para o topo. Hoje recebemos chamadas diárias sem gastar 1 cêntimo em anúncios.",
           rating: 5
         },
         {
-          name: "Jean-Pierre Weber",
-          role: "Proprietário, Brasserie Gare Luxembourg",
-          text: "O trabalho da VELKS no nosso Google Maps criou um monopólio local. Agora, intercetamos dezenas de turistas todos os dias antes sequer de verem a concorrência. Tráfego diário garantido e um retorno brutal na nossa faturação.",
-          rating: 5
-        },
-        {
-          name: "Isabel Mendes",
-          role: "Imobiliária Mendes & Associados",
-          text: "Os nossos consultores agora recebem clientes qualificados prontos a falar. O sistema filtra quem realmente quer comprar ou vender e envia tudo direto para o WhatsApp. Recomendo a 100%.",
-          rating: 5
-        },
-        {
-          name: "Ricardo Martins",
-          role: "Stand Martins Automóveis",
-          text: "A loja online que a VELKS construiu transformou o nosso stand numa máquina de faturar. Agora vendemos viaturas para todo o país, 24 horas por dia, sem depender de visitas à porta. Escalaram as nossas vendas ao máximo.",
+          name: "João Ferreira",
+          role: "Diretor de Clínica",
+          text: "A qualidade do design é fenomenal. Passa exatamente o nível de excelência da nossa clínica. O assistente IA já agendou dezenas de consultas automaticamente.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Sem Mensalidades. Sem Surpresas. Apenas Resultados.",
-      subtitle: "Não vendemos websites. Construímos máquinas digitais preparadas para gerar resultados.",
+      title: "Soluções Transparentes. Pagamento Único.",
+      subtitle: "Esqueça mensalidades abusivas e plataformas que bloqueiam o seu acesso. Na VELKS paga apenas uma vez e a infraestrutura é 100% sua. Sem surpresas.",
       singlePayment: "PAGAMENTO ÚNICO",
       allPlansInclude: "Todos os pacotes incluem:",
-      allPlansIncludeDesc: "Suporte premium, total conformidade RGPD, design mobile-first e otimização para velocidade máxima de carregamento.",
+      allPlansIncludeDesc: "Suporte premium, total conformidade com o RGPD, design focado em telemóveis e otimização de velocidade máxima.",
       plans: {
         gmaps: {
           title: "Google Maps Profissional",
           price: "90€",
           features: [
-            "Configuração & Reivindicação Completa",
+            "Configuração e Reivindicação Completa",
             "Otimização SEO Local Avançada",
             "Carregamento de Fotos Profissionais",
-            "Registo de Serviços & Produtos",
-            "Criação de Link Direto para Avaliações",
+            "Inserção de Produtos e Serviços",
+            "Link Direto para Avaliações",
             "Estratégia de Posicionamento Local",
             "Ativação de Mensagens Diretas"
           ],
-          cta: "DOMINAR TOP 3 LOCAL",
-          tracking: "Olá! Tenho interesse no pacote Google Maps Profissional. Os especialistas da VELKS poderiam me ajudar?"
+          cta: "DOMINAR O TOP 3 LOCAL",
+          tracking: "Olá! Tenho interesse no pacote Google Maps Profissional. Os especialistas da VELKS podiam ajudar-me?"
         },
         website: {
-          title: "Website Profissional Premium",
+          title: "Site Profissional Premium",
           price: "190€",
           features: [
             "Landing Page Ultra Rápida",
             "Design Mobile-First Exclusivo",
-            "Otimização de SEO para Google",
+            "Otimização SEO para o Google",
             "Integração Direta com WhatsApp",
-            "Configuração de Domínio Próprio",
+            "Configuração do Domínio Pessoal",
             "30 Dias de Suporte Gratuito",
             "Conformidade RGPD & Segurança SSL"
           ],
           cta: "ATIVAR MÁQUINA DE VENDAS",
-          tracking: "Olá! Tenho interesse no pacote Website Profissional. Qual é o primeiro passo para construirmos a minha nova máquina de vendas?"
+          tracking: "Olá! Tenho interesse no pacote Site Profissional. Qual é o primeiro passo para construirmos a minha nova máquina de vendas?"
         },
         automacao: {
-          title: "Atendimento Automático IA",
+          title: "Assistente IA Automático",
           price: "250€",
           features: [
-            "Assistente Web Inteligente Personalizado",
-            "Ativação para WhatsApp & Instagram",
+            "Assistente Inteligente Personalizado",
+            "Integração WhatsApp & Instagram",
             "Menu Inteligente de Conversão",
-            "Treino em 2 Idiomas Escolhidos",
-            "Bot Proativo com Respostas Humanizadas",
-            "Captação e Envio de Leads por Email",
+            "Configuração em 2 Idiomas",
+            "Bot Proativo com Respostas Humanas",
+            "Captura e Envio de Leads por Email",
             "Integração no seu Site Atual"
           ],
-          cta: "BLINDAR ATENDIMENTO 24/7",
-          tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com Atendimento Automático IA. Qual é o próximo passo para iniciarmos a integração?"
+          cta: "BLINDAR O ATENDIMENTO 24/7",
+          tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com a Assistência Automática de IA. Qual é o próximo passo?"
         },
         ecommerce: {
-          title: "E-commerce Completo",
+          title: "E-Commerce Completo",
           price: "300€",
           features: [
-            "Criação & Customização de Loja Online",
+            "Criação & Personalização de Loja",
             "Pronto para Print on Demand / Dropshipping",
-            "Ideal para Negócio Local, Digital ou Híbrido",
-            "Mapeamento dos Melhores Fornecedores",
+            "Ideal para Negócios Locais, Digitais ou Híbridos",
+            "Mapa dos Melhores Fornecedores do Mercado",
             "Integração de Pagamentos Seguros",
-            "Configuração de Portes e Stock",
-            "Painel de Gestão Super Simples"
+            "Configuração de Envios e Stock",
+            "Painel de Controlo Super Simples"
           ],
-          cta: "ESCALAR FATURAÇÃO ONLINE",
-          tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com o pacote E-Commerce Completo. Qual é o próximo passo para iniciarmos a integração?"
+          cta: "ESCALAR A FATURAÇÃO ONLINE",
+          tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com o pacote E-Commerce Completo. Qual é o próximo passo?"
         },
         custom: {
           title: "All-In-One Imperial",
           price: "Sob Consulta",
           features: [
-            "Google Maps + Website + Atendimento IA",
-            "Estratégia Completa de Domínio de Mercado",
+            "Google Maps + Website + Assistente IA",
+            "Estratégia Completa de Domínio",
             "Copywriting Agressivo de Alta Conversão",
-            "Otimização Multi-idiomas Completa",
-            "Prioridade de Suporte Vitalício",
-            "Acompanhamento Estratégico Mensal",
-            "Desconto de Pack Integrado"
+            "Otimização Multi-idioma Completa",
+            "Suporte Prioritário Vitalício",
+            "Consultoria Estratégica Mensal",
+            "Desconto de Pacote Integrado"
           ],
           cta: "AGENDAR AUDITORIA PRIVADA",
-          tracking: "Olá, Equipa VELKS. O meu negócio precisa de uma reestruturação digital profunda. Gostaria de agendar uma auditoria privada com um especialista da VELKS para discutir a solução All-In-One Imperial. Vocês poderiam me ajudar?"
+          tracking: "Olá, Equipa VELKS. O meu negócio precisa de uma reestruturação digital profunda. Gostaria de agendar uma auditoria privada com um especialista da VELKS para discutir a solução All-In-One Imperial. Podem ajudar-me?"
         }
       }
     },
@@ -428,13 +429,18 @@ export const translations: Record<Language, TranslationSchema> = {
       cta: "Falar com Consultor",
       clickToSee: "Ver Demonstração Interativa"
     },
+    aivision: {
+      badge: "Desenvolvida pela equipa de Engenharia de IA da VELKS",
+      title1: "A sua empresa ",
+      titleHighlight: "não devia parar",
+      title2: " quando você para.",
+      subtitle: "A maioria dos empresários nunca a constrói. Por isso continuam presos ao telefone, às mensagens e aos mesmos problemas todos os dias.",
+      cta: "VER O QUE ESTÁ A PERDER",
+      microcopy: "Descubra em menos de 60 segundos porque algumas empresas crescem mais rápido do que outras."
+    },
     faq: {
       title: "Perguntas Frequentes",
       questions: [
-        {
-          q: "Quanto custa o serviço?",
-          a: "Os nossos preços começam nos 90€ para otimização de Google Maps e 190€ para websites profissionais. São pagamentos únicos, sem quaisquer subscrições recorrentes ou mensalidades obrigatórias."
-        },
         {
           q: "Quanto tempo demora a entrega?",
           a: "Otimizações de Google Maps demoram tipicamente entre 3 a 5 dias úteis. Websites profissionais premium e assistentes virtuais de atendimento automático são entregues e testados em 7 a 14 dias úteis."
@@ -445,22 +451,36 @@ export const translations: Record<Language, TranslationSchema> = {
         },
         {
           q: "Posso usar o meu domínio atual?",
-          a: "Sim. Se já tem um domínio próprio (ex: www.oseunegocio.com), configuramos tudo para apontar para o novo site premium sem custos extra. Se não tiver, ajudamos a escolher e registar o melhor domínio."
+          a: "Sim. Se já tem um domínio registado (ex: www.seunegocio.com), vamos configurar tudo para apontar para o novo site premium sem custos adicionais. Se não tem, ajudamos a escolher e a registar."
         },
         {
-          q: "Trabalham em Portugal, Espanha e Luxemburgo?",
-          a: "Sim! Operamos ativamente nestes três países, adaptando o design, a linguagem e a otimização SEO para as exigências locais de cada mercado europeu."
+          q: "A VELKS possui outros websites oficiais?",
+          a: "Sim.\nAlém do website institucional da VELKS Group, desenvolvemos produtos e soluções em domínios próprios para oferecer uma experiência mais focada e especializada.\nProjetos oficiais atualmente operados pela VELKS:\n• velks.space — Plataforma oficial da ORION AI e soluções de atendimento inteligente.\n• vgroup.space — Portfólio digital, demonstrações, estudos de caso e projetos desenvolvidos pela equipa VELKS.\nTodos os websites acima pertencem à VELKS Group e são mantidos pela nossa equipa de engenharia e desenvolvimento.\nPode navegar com total confiança."
+        },
+        {
+          q: "Como descubro quanto custaria implementar a ORION na minha empresa?",
+          a: "A forma mais rápida é falar diretamente com a ORION.\nO assistente consegue analisar o seu negócio, esclarecer dúvidas, apresentar funcionalidades e indicar a solução mais adequada para o seu caso.\nClique no ícone de conversa no canto inferior direito e receba orientação imediata."
+        },
+        {
+          q: "O que acontece se eu não responder aos meus clientes imediatamente?",
+          a: "Na maioria dos casos, eles entram em contacto com outra empresa.\nHoje a velocidade de resposta influencia diretamente a decisão de compra.\nA ORION ajuda a garantir que cada visitante recebe atenção imediata, mesmo quando a sua equipa está ocupada, fora do escritório ou a dormir."
         }
       ]
     },
     ctaFinal: {
-      tracking: "Olá. Li toda a vossa página e percebi que estou a perder dinheiro para a concorrência. Quero perceber exatamente como a vossa tecnologia pode blindar o meu negócio de forma imediata. Podemos falar?",
-      title: "Pare de perder clientes para quem faz menos do que você.",
+      tracking: "Olá. Li a vossa página toda e percebi que estou a perder dinheiro para a concorrência. Quero entender exatamente como a vossa tecnologia pode blindar o meu negócio imediatamente. Podemos falar?",
+      title: "Pare de perder clientes para quem oferece menos que você.",
       subtitle: "Enquanto lê isto, o seu concorrente está a receber chamadas. Vamos mudar isso hoje?",
       cta: "BLINDAR O MEU NEGÓCIO AGORA",
       microcopy: "Sem compromisso • Resposta imediata • Orçamento gratuito"
     },
     footer: {
+      legalNoticeTitle: "AVISO JURÍDICO & TITULARIDADE",
+      legalNoticeText: "A marca VELKS Group e todas as suas operações digitais são fundadas, detidas e geridas legalmente por Rosa Sofia Sousa Marques (Founder) e Lucca Farias Gagliardi (Co-Founder).",
+      directContacts: "CONTACTOS DIRETOS",
+      hqLocations: "ESCRITÓRIOS CENTRAIS",
+      legalDisclaimer: "Avisos Legais",
+      europeanCompliance: "Conformidade Europeia",
       logoDesc: "Transformamos negócios dependentes do dono em máquinas autónomas de lucro. O seu domínio no Google torna-se absoluto e a nossa IA fecha vendas 24/7. Resultados reais e sem mensalidades recorrentes, para que recupere o seu tempo e a sua liberdade.",
       hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
       hqSec: "Sede Secundária: Coimbra, Portugal",
@@ -494,8 +514,8 @@ export const translations: Record<Language, TranslationSchema> = {
       badge: "★ DOMINIO ASSOLUTO DEL MERCATO",
       title: "La tua attività merita di apparire prima dei tuoi concorrenti.",
       subtitle: "Creiamo siti web premium, profili Google Maps professionali e sistemi di risposta automatica per aiutarti a generare più contatti e chiudere più clienti ogni giorno. Senza abbonamenti mensili.",
-      ctaPrimary: "VERIFICA FATTIBILITÀ PER LA MIA AZIENDA",
-      ctaSecondary: "Guarda le Demo",
+      ctaPrimary: "ATTIVARE MACCHINA DELLE VENDITE",
+      ctaSecondary: "Vedi Pacchetti",
       trustPilot: "Eccellente 4.9/5 stelle su Google & Business Networks"
     },
     problem: {
@@ -576,6 +596,8 @@ export const translations: Record<Language, TranslationSchema> = {
       }
     },
     widget: {
+      resetTitle: "Riavvia Demo",
+      responseTime: "Risposta in 1.2s",
       title: "Risposta automatica 24 ore su 24",
       subtitle: "Il tuo nuovo assistente commerciale lavora mentre dormi, assicurandoti che nessun cliente potenziale venga ignorato.",
       steps: [
@@ -738,13 +760,18 @@ export const translations: Record<Language, TranslationSchema> = {
       cta: "Parla con un Consulente",
       clickToSee: "Vedi Demo Interattiva"
     },
+        aivision: {
+      badge: "Sviluppato dal team di Ingegneria IA di VELKS",
+      title1: "La tua azienda ",
+      titleHighlight: "non dovrebbe fermarsi",
+      title2: " quando ti fermi tu.",
+      subtitle: "La maggior parte degli imprenditori non la costruisce mai. Per questo rimangono bloccati al telefono, ai messaggi e agli stessi problemi ogni giorno.",
+      cta: "SCOPRI COSA TI STAI PERDENDO",
+      microcopy: "Scopri in meno di 60 secondi perché alcune aziende crescono più velocemente di altre."
+    },
     faq: {
       title: "Domande Frequenti",
       questions: [
-        {
-          q: "Quanto costa il servizio?",
-          a: "I nostri prezzi partono da 90€ per l'ottimizzazione di Google Maps e 190€ per siti web professionali. Si tratta di pagamenti unici, senza abbonamenti ricorrenti o canoni mensili obbligatori."
-        },
         {
           q: "Quanto tempo richiede la consegna?",
           a: "L'ottimizzazione di Google Maps richiede solitamente da 3 a 5 giorni lavorativi. I siti web premium e gli assistenti virtuali automatici vengono consegnati e testati in 7-14 giorni lavorativi."
@@ -758,8 +785,16 @@ export const translations: Record<Language, TranslationSchema> = {
           a: "Sì. Se hai già un dominio registrato (es: www.tuattivita.com), configureremo tutto per puntare al nuovo sito premium senza costi aggiuntivi. Se non ne hai uno, ti aiuteremo a sceglierlo e registrarlo."
         },
         {
-          q: "Lavorate in Portogallo, Spagna e Lussemburgo?",
-          a: "Sì! Operiamo attivamente in questi tre paesi, adattando il design, la lingua e la SEO alle specifiche esigenze locali di ciascun mercato europeo."
+          q: "VELKS ha altri siti web ufficiali?",
+          a: "Sì.\nOltre al sito istituzionale di VELKS Group, sviluppiamo prodotti e soluzioni su domini propri per offrire un'esperienza più mirata e specializzata.\nProgetti ufficiali attualmente operati da VELKS:\n• velks.space — Piattaforma ufficiale di ORION AI e soluzioni di assistenza intelligente.\n• vgroup.space — Portfolio digitale, demo, case study e progetti sviluppati dal team VELKS.\nTutti i siti web sopra citati appartengono a VELKS Group e sono gestiti dal nostro team di ingegneria e sviluppo.\nPuoi navigare in totale sicurezza."
+        },
+        {
+          q: "Come scopro quanto costerebbe implementare ORION nella mia azienda?",
+          a: "Il modo più veloce è parlare direttamente con ORION.\nL'assistente è in grado di analizzare la tua attività, chiarire dubbi, presentare le funzionalità e indicare la soluzione più adatta al tuo caso.\nClicca sull'icona della chat nell'angolo in basso a destra e ricevi assistenza immediata."
+        },
+        {
+          q: "Cosa succede se non rispondo immediatamente ai miei clienti?",
+          a: "Nella maggior parte dei casi, contattano un'altra azienda.\nOggi la velocità di risposta influenza direttamente la decisione di acquisto.\nORION ti aiuta a garantire che ogni visitatore riceva attenzione immediata, anche quando il tuo team è occupato, fuori ufficio o dorme."
         }
       ]
     },
@@ -767,10 +802,16 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Ciao. Ho letto tutta la vostra pagina e ho capito che sto perdendo soldi a favore della concorrenza. Voglio capire esattamente come la vostra tecnologia può blindare la mia attività immediatamente. Possiamo parlarne?",
       title: "Smetti di perdere clienti a favore di chi offre meno di te.",
       subtitle: "Mentre leggi questo, il tuo concorrente sta ricevendo chiamate. Cambiamo la situazione oggi?",
-      cta: "BLINDARE LA MIA AZIENDA ORA",
+      cta: "BLINDARE L'AZIENDA ORA",
       microcopy: "Nessun impegno • Risposta immediata • Preventivo gratuito"
     },
     footer: {
+      legalNoticeTitle: "AVVISO LEGALE & PROPRIETÀ",
+      legalNoticeText: "Il marchio VELKS Group e tutte le sue operazioni digitali sono fondate, possedute e gestite legalmente da Rosa Sofia Sousa Marques (Founder) e Lucca Farias Gagliardi (Co-Founder).",
+      directContacts: "CONTATTI DIRETTI",
+      hqLocations: "SEDI CENTRALI",
+      legalDisclaimer: "Note Legali",
+      europeanCompliance: "Conformità Europea",
       logoDesc: "Trasformiamo le imprese dipendenti dal proprietario in macchine da profitto autonome. Il tuo dominio su Google diventa assoluto e la nostra IA chiude le vendite 24/7. Risultati reali e zero abbonamenti ricorrenti, così puoi recuperare il tuo tempo e la tua libertà.",
       hqMain: "Sede Principale: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Lussemburgo",
       hqSec: "Sede Secondaria: Coimbra, Portogallo",
@@ -804,8 +845,8 @@ export const translations: Record<Language, TranslationSchema> = {
       badge: "★ ABSOLUTE MARKET DOMINANCE",
       title: "Your business deserves to appear before your competitors.",
       subtitle: "We create premium websites, professional Google Maps profiles, and automated customer response systems to help you generate more leads and close more sales daily. No monthly subscriptions.",
-      ctaPrimary: "CHECK FEASIBILITY FOR MY BUSINESS",
-      ctaSecondary: "View Demos",
+      ctaPrimary: "ACTIVATE SALES MACHINE",
+      ctaSecondary: "View Packages",
       trustPilot: "Excellent 4.9/5 stars on Google & Business Networks"
     },
     problem: {
@@ -886,6 +927,8 @@ export const translations: Record<Language, TranslationSchema> = {
       }
     },
     widget: {
+      resetTitle: "Restart Demo",
+      responseTime: "Response in 1.2s",
       title: "Automated Customer Response 24/7",
       subtitle: "Your new digital sales assistant works while you sleep, ensuring no potential client is ever left waiting.",
       steps: [
@@ -1048,28 +1091,41 @@ export const translations: Record<Language, TranslationSchema> = {
       cta: "Talk to a Consultant",
       clickToSee: "Launch Interactive Preview"
     },
+        aivision: {
+      badge: "Developed by the VELKS AI Engineering team",
+      title1: "Your company ",
+      titleHighlight: "shouldn't stop",
+      title2: " when you do.",
+      subtitle: "Most business owners never build it. That's why they stay glued to the phone, messages, and the same problems every day.",
+      cta: "SEE WHAT YOU'RE MISSING",
+      microcopy: "Discover in less than 60 seconds why some companies grow faster than others."
+    },
     faq: {
       title: "Frequently Asked Questions",
       questions: [
         {
-          q: "How much does the service cost?",
-          a: "Our packages start at 90€ for Google Maps optimization and 190€ for professional websites. These are one-time payments with no monthly subscriptions or recurring fees."
-        },
-        {
           q: "How long does delivery take?",
-          a: "Google Maps setups take 3 to 5 business days. Premium websites and automated virtual desks are fully built, optimized, and delivered in 7 to 14 business days."
+          a: "Google Maps optimization typically takes 3 to 5 business days. Premium professional websites and automated virtual assistants are delivered and tested in 7 to 14 business days."
         },
         {
-          q: "Will the website work on smartphones?",
-          a: "Yes, completely. We design with a strict mobile-first methodology. Since over 85% of local searches happen on phones, your page will be extremely fast and intuitive on mobile."
+          q: "Does the website work well on mobile?",
+          a: "Yes, absolutely. We develop with a total focus on Mobile-First, because over 85% of local searches are done via smartphones. Your site will be lightning-fast and highly responsive on any screen."
         },
         {
-          q: "Can I use my existing domain?",
-          a: "Absolutely. If you already own a domain (e.g., www.yourbusiness.com), we configure the DNS to point to your new high-converting landing page at no extra charge. If you don't have one, we guide you through it."
+          q: "Can I use my current domain?",
+          a: "Yes. If you already have a registered domain (e.g., www.yourbusiness.com), we will configure everything to point to the new premium site at no extra cost. If you don't have one, we will help you choose and register it."
         },
         {
-          q: "Do you serve clients in Portugal, Spain, and Luxembourg?",
-          a: "Yes, we do. We operate actively in these three countries, aligning our copy, layouts, and search optimization to local consumer behaviors in each of these European markets."
+          q: "Does VELKS have other official websites?",
+          a: "Yes.\nIn addition to the VELKS Group institutional website, we develop products and solutions on their own domains to offer a more focused and specialized experience.\nOfficial projects currently operated by VELKS:\n• velks.space — Official platform for ORION AI and intelligent customer service solutions.\n• vgroup.space — Digital portfolio, demos, case studies, and projects developed by the VELKS team.\nAll of the websites above belong to VELKS Group and are maintained by our engineering and development team.\nYou can browse with total confidence."
+        },
+        {
+          q: "How do I find out how much it would cost to implement ORION in my company?",
+          a: "The fastest way is to talk directly with ORION.\nThe assistant can analyze your business, answer questions, present features, and recommend the most suitable solution for your case.\nClick on the chat icon in the bottom right corner to receive immediate guidance."
+        },
+        {
+          q: "What happens if I don't respond to my customers immediately?",
+          a: "In most cases, they will contact another company.\nToday, response speed directly influences the purchasing decision.\nORION helps ensure that every visitor receives immediate attention, even when your team is busy, out of the office, or sleeping."
         }
       ]
     },
@@ -1081,6 +1137,12 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "No commitment • Instant reply • Free quote"
     },
     footer: {
+      legalNoticeTitle: "LEGAL NOTICE & OWNERSHIP",
+      legalNoticeText: "The VELKS Group brand and all its digital operations are founded, owned, and legally managed by Rosa Sofia Sousa Marques (Founder) and Lucca Farias Gagliardi (Co-Founder).",
+      directContacts: "DIRECT CONTACTS",
+      hqLocations: "HQ LOCATIONS",
+      legalDisclaimer: "Legal Disclaimer",
+      europeanCompliance: "European Compliance",
       logoDesc: "We transform owner-dependent businesses into autonomous profit machines. Your Google dominance becomes absolute and our AI closes sales 24/7. Real results and zero monthly fees, so you can reclaim your time and freedom.",
       hqMain: "Main Headquarters: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
       hqSec: "Secondary Office: Coimbra, Portugal",
@@ -1114,8 +1176,8 @@ export const translations: Record<Language, TranslationSchema> = {
       badge: "★ DOMINATION ABSOLUE DU MARCHÉ",
       title: "Votre entreprise mérite d'apparaître avant vos concurrents.",
       subtitle: "Nous créons des sites web premium, des fiches Google Maps professionnelles et des systèmes de réponse client automatisés pour vous aider à générer plus de leads et fermer plus de ventes au quotidien. Sans abonnements.",
-      ctaPrimary: "VÉRIFIER LA FAISABILITÉ POUR MON ENTREPRISE",
-      ctaSecondary: "Voir les Démos",
+      ctaPrimary: "ACTIVER LA MACHINE DE VENTE",
+      ctaSecondary: "Voir Forfaits",
       trustPilot: "Excellent 4.9/5 étoiles sur Google & Réseaux Professionnels"
     },
     problem: {
@@ -1196,6 +1258,8 @@ export const translations: Record<Language, TranslationSchema> = {
       }
     },
     widget: {
+      resetTitle: "Redémarrer la Démo",
+      responseTime: "Réponse en 1.2s",
       title: "Accueil Client Automatique 24h/24",
       subtitle: "Votre nouvel assistant commercial digital travaille pendant votre sommeil, garantissant qu'aucun client potentiel ne soit ignoré.",
       steps: [
@@ -1358,28 +1422,41 @@ export const translations: Record<Language, TranslationSchema> = {
       cta: "Parler à un Conseiller",
       clickToSee: "Lancer la Démo Interactive"
     },
+        aivision: {
+      badge: "Développé par l'équipe d'Ingénierie IA de VELKS",
+      title1: "Votre entreprise ",
+      titleHighlight: "ne devrait pas s'arrêter",
+      title2: " quand vous vous arrêtez.",
+      subtitle: "La plupart des entrepreneurs ne la construisent jamais. C'est pourquoi ils restent bloqués sur leur téléphone, leurs messages et les mêmes problèmes tous les jours.",
+      cta: "VOIR CE QUE VOUS MANQUEZ",
+      microcopy: "Découvrez en moins de 60 secondes pourquoi certaines entreprises se développent plus vite que d'autres."
+    },
     faq: {
-      title: "Foire Aux Questions",
+      title: "Questions Fréquentes",
       questions: [
         {
-          q: "Combien coûtent vos services ?",
-          a: "Nos formules commencent à 90€ pour l'optimisation Google Maps et 190€ pour un site web professionnel. Ce sont des paiements uniques, sans aucun abonnement ni frais récurrents."
+          q: "Combien de temps prend la livraison ?",
+          a: "L'optimisation de Google Maps prend généralement 3 à 5 jours ouvrables. Les sites web professionnels premium et les assistants virtuels automatisés sont livrés et testés en 7 à 14 jours ouvrables."
         },
         {
-          q: "Quel est le délai de livraison ?",
-          a: "La configuration Google Maps prend entre 3 et 5 jours ouvrés. Les sites web premium et assistants IA automatiques sont livrés et testés sous 7 à 14 jours ouvrés."
-        },
-        {
-          q: "Le site est-il adapté aux smartphones ?",
-          a: "Oui, totalement. Nous concevons avec une approche stricte Mobile-First. Comme plus de 85% des recherches locales se font sur mobile, votre page sera ultra rapide et intuitive sur téléphone."
+          q: "Le site fonctionne-t-il bien sur mobile ?",
+          a: "Oui, absolument. Nous développons avec une approche Mobile-First, car plus de 85 % des recherches locales sont effectuées via des smartphones. Votre site sera extrêmement rapide et réactif sur n'importe quel écran."
         },
         {
           q: "Puis-je utiliser mon domaine actuel ?",
-          a: "Absolument. Si vous possédez déjà un nom de domaine (ex : www.votrecommerce.com), nous paramétrons les DNS pour pointer vers votre nouveau site premium, sans frais supplémentaires."
+          a: "Oui. Si vous avez déjà un domaine enregistré (ex. : www.votreentreprise.com), nous configurerons tout pour pointer vers le nouveau site premium sans frais supplémentaires. Si vous n'en avez pas, nous vous aiderons à le choisir et à l'enregistrer."
         },
         {
-          q: "Travaillez-vous au Portugal, en Espagne et au Luxembourg ?",
-          a: "Oui ! Nous opérons activement dans ces trois pays, en adaptant nos textes, nos designs et le SEO local aux spécificités de chaque marché européen."
+          q: "VELKS possède-t-il d'autres sites web officiels ?",
+          a: "Oui.\nOutre le site institutionnel de VELKS Group, nous développons des produits et des solutions sur leurs propres domaines pour offrir une expérience plus ciblée et spécialisée.\nProjets officiels actuellement exploités par VELKS :\n• velks.space — Plateforme officielle pour ORION AI et solutions d'assistance intelligente.\n• vgroup.space — Portfolio numérique, démos, études de cas et projets développés par l'équipe VELKS.\nTous les sites web ci-dessus appartiennent à VELKS Group et sont gérés par notre équipe d'ingénierie et de développement.\nVous pouvez naviguer en toute confiance."
+        },
+        {
+          q: "Comment puis-je savoir combien coûterait la mise en œuvre d'ORION dans mon entreprise ?",
+          a: "Le moyen le plus rapide est de parler directement avec ORION.\nL'assistant peut analyser votre activité, clarifier vos doutes, présenter les fonctionnalités et indiquer la solution la plus adaptée à votre cas.\nCliquez sur l'icône de chat dans le coin inférieur droit et recevez des conseils immédiats."
+        },
+        {
+          q: "Que se passe-t-il si je ne réponds pas immédiatement à mes clients ?",
+          a: "Dans la plupart des cas, ils contactent une autre entreprise.\nAujourd'hui, la rapidité de réponse influence directement la décision d'achat.\nORION vous aide à garantir que chaque visiteur reçoive une attention immédiate, même lorsque votre équipe est occupée, hors du bureau ou en train de dormir."
         }
       ]
     },
@@ -1391,6 +1468,12 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sans engagement • Réponse immédiate • Devis gratuit"
     },
     footer: {
+      legalNoticeTitle: "AVIS LÉGAL & PROPRIÉTÉ",
+      legalNoticeText: "La marque VELKS Group et toutes ses opérations numériques sont fondées, détenues et gérées légalement par Rosa Sofia Sousa Marques (Founder) et Lucca Farias Gagliardi (Co-Founder).",
+      directContacts: "CONTACTS DIRECTS",
+      hqLocations: "SIÈGES SOCIAUX",
+      legalDisclaimer: "Mentions Légales",
+      europeanCompliance: "Conformité Européenne",
       logoDesc: "Nous transformons les entreprises dépendantes de leur propriétaire en machines à profit autonomes. Votre domination sur Google devient absolue et notre IA conclut des ventes 24/7. Des résultats réels et sans abonnements récurrents, pour que vous retrouviez votre temps et votre liberté.",
       hqMain: "Siège Social : 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
       hqSec: "Bureau Secondaire : Coimbra, Portugal",
@@ -1423,9 +1506,9 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Hallo. Ich habe Ihre technologische Infrastruktur auf der Website gesehen und möchte prüfen, ob sich mein Unternehmen für die Implementierung Ihres kommerziellen Systems qualifiziert. Können Sie mir die Preistabelle zusenden?",
       badge: "★ ABSOLUTE MARKTDOMINANZ",
       title: "Ihr Unternehmen verdient es, vor Ihren Konkurrenten zu erscheinen.",
-      subtitle: "Wir erstellen Premium-Websites, professionelle Google Maps-Einträge und automatische Kundensupportsysteme, damit Sie täglich mehr Anfragen generieren und mehr Abschlüsse erzielen. Ohne monatliche Abos.",
-      ctaPrimary: "MACHBARKEIT FÜR MEIN UNTERNEHMEN PRÜFEN",
-      ctaSecondary: "Demos ansehen",
+      subtitle: "Wir erstellen Premium-Websites, professionelle Google Maps-Einträge und automatische Kundensupport-Systeme, damit Sie täglich mehr Anfragen generieren und mehr Abschlüsse erzielen. Ohne monatliche Abos.",
+      ctaPrimary: "UMSATZ STEIGERN",
+      ctaSecondary: "Pakete ansehen",
       trustPilot: "Hervorragend 4.9/5 Sterne bei Google & Business Networks"
     },
     problem: {
@@ -1506,7 +1589,9 @@ export const translations: Record<Language, TranslationSchema> = {
       }
     },
     widget: {
-      title: "Automatische Kundenbeantwortung rund um die Uhr",
+      resetTitle: "Demo Neustarten",
+      responseTime: "Antwort in 1.2s",
+      title: "Automatischer Kundenservice rund um die Uhr",
       subtitle: "Ihr neuer digitaler Vertriebsassistent arbeitet, während Sie schlafen, und sorgt dafür, dass kein potenzieller Kunde warten muss.",
       steps: [
         "Ein Besucher landet auf Ihrer Website.",
@@ -1589,7 +1674,7 @@ export const translations: Record<Language, TranslationSchema> = {
             "Lokale Positionierungsstrategie",
             "Direktnachrichten-Aktivierung"
           ],
-          cta: "LOKALE TOP 3 DOMINIEREN",
+          cta: "TOP 3 DOMINIEREN",
           tracking: "Hallo! Ich interessiere mich für das Google Maps Professionell-Paket. Könnten mir die VELKS-Spezialisten helfen?"
         },
         website: {
@@ -1604,7 +1689,7 @@ export const translations: Record<Language, TranslationSchema> = {
             "30 Tage kostenloser Premium-Support",
             "DSGVO-konform & Sicheres SSL-Zertifikat"
           ],
-          cta: "VERKAUFSMASCHINE AKTIVIEREN",
+          cta: "JETZT STARTEN",
           tracking: "Hallo! Ich interessiere mich für das Website Professionell-Paket. Was ist der erste Schritt zum Aufbau meiner neuen Verkaufsmaschine?"
         },
         automacao: {
@@ -1619,7 +1704,7 @@ export const translations: Record<Language, TranslationSchema> = {
             "Lead-Erfassung und sofortige E-Mail-Meldung",
             "Nahtlose Einbindung in Ihre aktuelle Website"
           ],
-          cta: "24/7 SUPPORT ABSICHERN",
+          cta: "SUPPORT ABSICHERN",
           tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem KI-Automatisierten Support fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
         },
         ecommerce: {
@@ -1634,7 +1719,7 @@ export const translations: Record<Language, TranslationSchema> = {
             "Versandregeln & Lagerbestandsverwaltung",
             "Sehr einfache Verwaltungszentrale"
           ],
-          cta: "ONLINE-UMSATZ SKALIEREN",
+          cta: "UMSATZ SKALIEREN",
           tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem kompletten E-Commerce-Paket fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
         },
         custom: {
@@ -1649,7 +1734,7 @@ export const translations: Record<Language, TranslationSchema> = {
             "Monatliches strategisches Beratungsgespräch",
             "Erheblicher Paket-Rabatt"
           ],
-          cta: "PRIVATES AUDIT VEREINBAREN",
+          cta: "AUDIT VEREINBAREN",
           tracking: "Hallo VELKS-Team. Mein Unternehmen benötigt eine tiefgreifende digitale Umstrukturierung. Ich möchte ein privates Audit mit einem VELKS-Spezialisten vereinbaren, um die All-In-One Imperial-Lösung zu besprechen. Könnten Sie mir helfen?"
         }
       }
@@ -1668,28 +1753,41 @@ export const translations: Record<Language, TranslationSchema> = {
       cta: "Mit Berater sprechen",
       clickToSee: "Interaktive Vorschau starten"
     },
+        aivision: {
+      badge: "Entwickelt vom VELKS KI-Engineering-Team",
+      title1: "Ihr Unternehmen ",
+      titleHighlight: "sollte nicht stehen bleiben",
+      title2: ", wenn Sie es tun.",
+      subtitle: "Die meisten Unternehmer bauen sie nie. Deshalb hängen sie jeden Tag am Telefon, an Nachrichten und bei denselben Problemen fest.",
+      cta: "MEHR ERFAHREN",
+      microcopy: "Entdecken Sie in unter 60 Sekunden, warum einige Unternehmen schneller wachsen als andere."
+    },
     faq: {
       title: "Häufig gestellte Fragen",
       questions: [
         {
-          q: "Wie viel kostet der Service?",
-          a: "Unsere Pakete beginnen bei 90€ für die Google Maps-Optimierung und 190€ für professionelle Websites. Es handelt sich um Einmalzahlungen ohne monatliche Abonnements oder versteckte Kosten."
-        },
-        {
           q: "Wie lange dauert die Lieferung?",
-          a: "Google Maps-Einrichtungen dauern in der Regel 3 bis 5 Werktage. Premium-Websites und automatisierte KI-Kundenservices werden innerhalb von 7 bis 14 Werktagen fertiggestellt und getestet."
+          a: "Die Optimierung von Google Maps dauert in der Regel 3 bis 5 Werktage. Premium-Websites und automatisierte virtuelle Assistenten werden in 7 bis 14 Werktagen geliefert und getestet."
         },
         {
-          q: "Funktioniert die Website auf Smartphones?",
-          a: "Ja, absolut. Wir entwickeln nach einer strengen Mobile-First-Methodik. Da über 85 % der lokalen Suchanfragen über Mobiltelefone erfolgen, ist Ihre Seite auf allen Smartphones extrem schnell und intuitiv."
+          q: "Funktioniert die Website gut auf dem Handy?",
+          a: "Ja, absolut. Wir entwickeln mit vollem Fokus auf Mobile-First, da über 85 % der lokalen Suchanfragen über Smartphones erfolgen. Ihre Website wird auf jedem Bildschirm extrem schnell und reaktionsschnell sein."
         },
         {
-          q: "Kann ich meine bestehende Domain verwenden?",
-          a: "Natürlich. Wenn Sie bereits eine Domain besitzen (z. B. www.ihrunternehmen.de), konfigurieren wir die DNS-Einträge so, dass sie ohne zusätzliche Kosten auf Ihre neue Website verweisen."
+          q: "Kann ich meine aktuelle Domain nutzen?",
+          a: "Ja. Wenn Sie bereits eine registrierte Domain haben (z. B. www.ihrunternehmen.com), konfigurieren wir alles ohne zusätzliche Kosten so, dass es auf die neue Premium-Website verweist. Wenn Sie noch keine haben, helfen wir Ihnen bei der Auswahl und Registrierung."
         },
         {
-          q: "Arbeiten Sie in Portugal, Spanien und Luxemburg?",
-          a: "Ja, das tun wir! Wir sind in diesen drei Ländern aktiv tätig und passen das Design, die Texte und die SEO-Optimierung an das Nutzerverhalten der jeweiligen europäischen Märkte an."
+          q: "Hat VELKS noch andere offizielle Websites?",
+          a: "Ja.\nNeben der Unternehmenswebsite der VELKS Group entwickeln wir Produkte und Lösungen auf eigenen Domains, um ein gezielteres und spezialisierteres Erlebnis zu bieten.\nOffizielle Projekte, die derzeit von VELKS betrieben werden:\n• velks.space — Offizielle Plattform für ORION AI und intelligente Kundendienstlösungen.\n• vgroup.space — Digitales Portfolio, Demos, Fallstudien und von VELKS-Team entwickelte Projekte.\nAlle oben genannten Websites gehören zur VELKS Group und werden von unserem Engineering- und Entwicklungsteam gepflegt.\nSie können mit vollem Vertrauen browsen."
+        },
+        {
+          q: "Wie finde ich heraus, wie viel die Implementierung von ORION in meinem Unternehmen kosten würde?",
+          a: "Der schnellste Weg ist, direkt mit ORION zu sprechen.\nDer Assistent kann Ihr Unternehmen analysieren, Fragen beantworten, Funktionen präsentieren und die für Sie am besten geeignete Lösung aufzeigen.\nKlicken Sie auf das Chat-Symbol unten rechts, um sofortige Beratung zu erhalten."
+        },
+        {
+          q: "Was passiert, wenn ich meinen Kunden nicht sofort antworte?",
+          a: "In den meisten Fällen kontaktieren sie ein anderes Unternehmen.\nHeute beeinflusst die Reaktionsgeschwindigkeit direkt die Kaufentscheidung.\nORION hilft dabei sicherzustellen, dass jeder Besucher sofortige Aufmerksamkeit erhält, auch wenn Ihr Team beschäftigt, nicht im Büro ist oder schläft."
         }
       ]
     },
@@ -1697,10 +1795,16 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Hallo. Ich habe Ihre gesamte Seite gelesen und festgestellt, dass ich Geld an die Konkurrenz verliere. Ich möchte genau verstehen, wie Ihre Technologie mein Unternehmen sofort absichern kann. Können wir sprechen?",
       title: "Hören Sie auf, Kunden an Konkurrenten zu verlieren, die weniger bieten als Sie.",
       subtitle: "Während Sie dies lesen, nimmt Ihr Mitbewerber den Anruf eines potenziellen Kunden entgegen. Sollen wir das heute ändern?",
-      cta: "MEIN UNTERNEHMEN JETZT ABSICHERN",
+      cta: "JETZT ABSICHERN",
       microcopy: "Unverbindlich • Sofortige Antwort • Kostenloses Angebot"
     },
     footer: {
+      legalNoticeTitle: "RECHTLICHER HINWEIS & EIGENTUM",
+      legalNoticeText: "Die Marke VELKS Group und all ihre digitalen Aktivitäten werden legal von Rosa Sofia Sousa Marques (Founder) und Lucca Farias Gagliardi (Co-Founder) gegründet, besessen und verwaltet.",
+      directContacts: "DIREKTE KONTAKTE",
+      hqLocations: "HAUPTSITZE",
+      legalDisclaimer: "Rechtliche Hinweise",
+      europeanCompliance: "Europäische Konformität",
       logoDesc: "Wir verwandeln inhaberabhängige Unternehmen in autonome Gewinnmaschinen. Ihre Google-Dominanz wird absolut und unsere KI schließt Verkäufe rund um die Uhr ab. Echte Ergebnisse und keine monatlichen Gebühren, damit Sie Ihre Zeit und Freiheit zurückgewinnen.",
       hqMain: "Hauptsitz: 57, Avenue de La Gare, L-1611 Luxemburg Gare, Luxemburg",
       hqSec: "Zweiter Standort: Coimbra, Portugal",
@@ -1734,8 +1838,8 @@ export const translations: Record<Language, TranslationSchema> = {
       badge: "★ DOMINIO ABSOLUTO DEL MERCADO",
       title: "Tu negocio merece aparecer antes que tus competidores.",
       subtitle: "Creamos sitios web premium, perfiles profesionales de Google Maps y sistemas automáticos de atención al cliente para ayudarte a generar más contactos y cerrar más clientes a diario. Sin cuotas mensuales.",
-      ctaPrimary: "VERIFICAR VIABILIDAD PARA MI NEGOCIO",
-      ctaSecondary: "Ver Demostraciones",
+      ctaPrimary: "ACTIVAR MÁQUINA DE VENTAS",
+      ctaSecondary: "Ver Paquetes",
       trustPilot: "Excelente 4.9/5 estrellas en Google & Redes de Negocio"
     },
     problem: {
@@ -1816,6 +1920,8 @@ export const translations: Record<Language, TranslationSchema> = {
       }
     },
     widget: {
+      resetTitle: "Reiniciar Demo",
+      responseTime: "Respuesta en 1.2s",
       title: "Atención al Cliente Automática las 24 Horas",
       subtitle: "Tu nuevo asistente comercial digital trabaja mientras duermes, asegurando que ningún cliente potencial quede esperando.",
       steps: [
@@ -1978,28 +2084,41 @@ export const translations: Record<Language, TranslationSchema> = {
       cta: "Hablar con un Asesor",
       clickToSee: "Ver Demostración Interactiva"
     },
+        aivision: {
+      badge: "Desarrollado por el equipo de Ingeniería de IA de VELKS",
+      title1: "Tu empresa ",
+      titleHighlight: "no debería detenerse",
+      title2: " cuando tú lo haces.",
+      subtitle: "La mayoría de los empresarios nunca la construyen. Por eso siguen atados al teléfono, a los mensajes y a los mismos problemas todos los días.",
+      cta: "VER LO QUE TE PIERDES",
+      microcopy: "Descubre en menos de 60 segundos por qué algunas empresas crecen más rápido que otras."
+    },
     faq: {
       title: "Preguntas Frecuentes",
       questions: [
         {
-          q: "¿Cuánto cuesta el servicio?",
-          a: "Nuestros paquetes comienzan en 90€ para la optimización de Google Maps y 190€ para sitios web profesionales. Son pagos únicos, sin suscripciones mensuales recurrentes de ningún tipo."
-        },
-        {
           q: "¿Cuánto tiempo tarda la entrega?",
-          a: "Los perfiles de Google Maps suelen demorar de 3 a 5 días hábiles. Los sitios web premium y los escritorios automáticos con IA se prueban y entregan en un plazo de 7 a 14 días hábiles."
+          a: "La optimización de Google Maps suele tardar entre 3 y 5 días hábiles. Los sitios web profesionales premium y los asistentes virtuales automatizados se entregan y prueban en 7 a 14 días hábiles."
         },
         {
-          q: "¿El sitio funciona bien en smartphones?",
-          a: "Sí, totalmente. Diseñamos con un enfoque estricto en Mobile-First. Dado que más del 85% de las búsquedas locales ocurren en teléfonos, tu página web será ultrarrápida e intuitiva en celulares."
+          q: "¿El sitio funciona bien en el móvil?",
+          a: "Sí, absolutamente. Desarrollamos con un enfoque total en Mobile-First, ya que más del 85% de las búsquedas locales se realizan a través de teléfonos inteligentes. Su sitio será extremadamente rápido e intuitivo en cualquier pantalla."
         },
         {
           q: "¿Puedo usar mi dominio actual?",
-          a: "Por supuesto. Si ya tienes un dominio propio (ej: www.tunegocio.com), configuramos los registros DNS para que apunten a tu nueva landing page sin coste adicional."
+          a: "Sí. Si ya tiene un dominio registrado (por ejemplo, www.suempresa.com), configuraremos todo para apuntar al nuevo sitio premium sin costos adicionales. Si no tiene uno, le ayudaremos a elegirlo y registrarlo."
         },
         {
-          q: "¿Trabajan en Portugal, España y Luxemburgo?",
-          a: "¡Sí! Operamos activamente en estos tres países, adaptando la redacción, el diseño y el SEO local a los hábitos de compra de cada mercado europeo."
+          q: "¿VELKS tiene otros sitios web oficiales?",
+          a: "Sí.\nAdemás del sitio web institucional de VELKS Group, desarrollamos productos y soluciones en dominios propios para ofrecer una experiencia más enfocada y especializada.\nProyectos oficiales operados actualmente por VELKS:\n• velks.space — Plataforma oficial de ORION AI y soluciones de atención inteligente.\n• vgroup.space — Portafolio digital, demostraciones, casos de estudio y proyectos desarrollados por el equipo VELKS.\nTodos los sitios web anteriores pertenecen a VELKS Group y son mantenidos por nuestro equipo de ingeniería y desarrollo.\nPuede navegar con total confianza."
+        },
+        {
+          q: "¿Cómo descubro cuánto costaría implementar ORION en mi empresa?",
+          a: "La forma más rápida es hablar directamente con ORION.\nEl asistente puede analizar su negocio, aclarar dudas, presentar características e indicar la solución más adecuada para su caso.\nHaga clic en el icono de chat en la esquina inferior derecha y reciba orientación inmediata."
+        },
+        {
+          q: "¿Qué pasa si no respondo a mis clientes de inmediato?",
+          a: "En la mayoría de los casos, se ponen en contacto con otra empresa.\nHoy en día, la velocidad de respuesta influye directamente en la decisión de compra.\nORION ayuda a garantizar que cada visitante reciba atención inmediata, incluso cuando su equipo está ocupado, fuera de la oficina o durmiendo."
         }
       ]
     },
@@ -2011,6 +2130,12 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sin compromisos • Respuesta inmediata • Presupuesto gratis"
     },
     footer: {
+      legalNoticeTitle: "AVISO LEGAL & PROPIEDAD",
+      legalNoticeText: "La marca VELKS Group y todas sus operaciones digitales son fundadas, propiedad y administradas legalmente por Rosa Sofia Sousa Marques (Founder) y Lucca Farias Gagliardi (Co-Founder).",
+      directContacts: "CONTACTOS DIRECTOS",
+      hqLocations: "SEDES CENTRALES",
+      legalDisclaimer: "Avisos Legales",
+      europeanCompliance: "Cumplimiento Europeo",
       logoDesc: "Transformamos negocios dependientes del dueño en máquinas autónomas de ganancias. Tu dominio en Google se vuelve absoluto y nuestra IA cierra ventas 24/7. Resultados reales y sin cuotas mensuales recurrentes, para que recuperes tu tiempo y libertad.",
       hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
       hqSec: "Sede Secundaria: Coimbra, Portugal",

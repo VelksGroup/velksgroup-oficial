@@ -36,7 +36,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, 
       if (typeof problemRef === 'function') problemRef(node);
       else if (problemRef) (problemRef as any).current = node;
       (containerRef as any).current = node;
-    }} className="py-24 px-4 bg-obsidian-dark relative overflow-hidden">
+    }} className="pt-12 pb-12 md:pb-16 px-4 bg-obsidian-dark relative overflow-hidden">
       
       {/* Background Ambience (Quantum Red Obsidian) */}
       <motion.div 
@@ -100,7 +100,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, 
             className="text-xs font-mono uppercase tracking-[4px] text-red-500 font-bold flex items-center justify-center gap-2 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]"
           >
             <AlertTriangle size={16} className="text-red-500 animate-pulse" />
-            {currentLang === 'pt' ? 'REALIDADE SEM ENROLAÇÃO' : 'CRITICAL REALITY'}
+            {currentLang === 'pt' ? 'REALIDADE SEM ENROLAÇÃO' : currentLang === 'es' ? 'REALIDAD SIN RODEOS' : currentLang === 'it' ? 'REALTÀ SENZA GIRI DI PAROLE' : currentLang === 'fr' ? 'RÉALITÉ SANS DÉTOUR' : currentLang === 'de' ? 'KRITISCHE REALITÄT' : 'CRITICAL REALITY'}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -166,9 +166,20 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, 
         </div>
       </div>
       
-      {/* Separator to Gold (Next Section Transition) */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-obsidian pointer-events-none z-20 flex justify-center items-end pb-8">
-        <div className="w-px h-16 bg-gradient-to-b from-red-500/50 to-gold/50 mx-auto" />
+      {/* Neon Scroll Down Geometry */}
+      <div className="w-full mt-10 md:mt-14 mb-0 flex flex-col items-center justify-center relative z-20">
+        <div className="h-24 md:h-32 w-[2px] bg-gradient-to-b from-transparent via-red-500/80 to-red-500 relative shadow-[0_0_20px_rgba(239,68,68,0.5)]">
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2 w-2 h-2 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,1),0_0_40px_rgba(239,68,68,1)]"
+            animate={{ top: ['0%', '100%'], opacity: [0, 1, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeIn' }}
+          />
+        </div>
+        <motion.div 
+          className="w-4 h-4 border-b-[3px] border-r-[3px] border-red-500 rotate-45 -mt-2 drop-shadow-[0_0_15px_rgba(239,68,68,1)]"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </div>
     </section>
   );

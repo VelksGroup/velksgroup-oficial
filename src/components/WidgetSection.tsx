@@ -93,7 +93,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
         setChatStep(2);
         setBotIsTyping(false);
       } else if (chatStep === 2) {
-        setChatMessages(prev => [...prev, { sender: 'bot', text: currentLang === 'pt' ? 'Excelente. Recebemos os seus dados.' : 'Excellent. We received your details.', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }]);
+        setChatMessages(prev => [...prev, { sender: 'bot', text: currentLang === 'pt' ? 'Excelente. Recebemos os seus dados.' : currentLang === 'es' ? 'Excelente. Recibimos sus datos.' : currentLang === 'it' ? 'Eccellente. Abbiamo ricevuto i tuoi dati.' : currentLang === 'fr' ? 'Excellent. Nous avons reçu vos coordonnées.' : currentLang === 'de' ? 'Ausgezeichnet. Wir haben Ihre Daten erhalten.' : 'Excellent. We received your details.', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }]);
         setBotIsTyping(false);
         setChatStep(3);
         
@@ -102,7 +102,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
           setLeadCaptured(true);
         }, 800);
       } else {
-        setChatMessages(prev => [...prev, { sender: 'bot', text: currentLang === 'pt' ? 'Obrigado! A nossa equipa já foi notificada.' : 'Thank you! Our team has been notified.', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }]);
+        setChatMessages(prev => [...prev, { sender: 'bot', text: currentLang === 'pt' ? 'Obrigado! A nossa equipa já foi notificada.' : currentLang === 'es' ? '¡Gracias! Nuestro equipo ya ha sido notificado.' : currentLang === 'it' ? 'Grazie! Il nostro team è stato avvisato.' : currentLang === 'fr' ? 'Merci ! Notre équipe a été informée.' : currentLang === 'de' ? 'Danke! Unser Team wurde benachrichtigt.' : 'Thank you! Our team has been notified.', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }]);
         setBotIsTyping(false);
       }
     }, 1500);
@@ -133,7 +133,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
       if (typeof widgetRef === 'function') widgetRef(node);
       else if (widgetRef) (widgetRef as any).current = node;
       (containerRef as any).current = node;
-    }} id="velks-widget-demo" className="py-32 px-4 bg-obsidian relative overflow-hidden">
+    }} id="velks-widget-demo" className="pt-0 pb-16 md:pb-24 px-4 bg-obsidian relative overflow-hidden">
       
       {/* CINEMATIC BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -183,21 +183,30 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20 flex flex-col gap-6 items-center">
+        {/* Gold Downwards Arrow Only */}
+        <div className="w-full flex flex-col justify-center items-center relative z-20 mb-4 h-16">
+          <motion.div 
+            className="w-4 h-4 border-b-2 border-r-2 border-gold rotate-45"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </div>
+
+        <div className="text-center max-w-3xl mx-auto mb-8 flex flex-col gap-4 items-center">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-[10px] sm:text-xs font-mono uppercase tracking-[4px] text-gold font-bold px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)]"
           >
-            {currentLang === 'pt' ? 'PROVA DE AUTOMATIZAÇÃO INTERATIVA' : 'INTERACTIVE DEMO'}
+            {currentLang === 'pt' ? 'PROVA DE AUTOMATIZAÇÃO INTERATIVA' : currentLang === 'es' ? 'PRUEBA DE AUTOMATIZACIÓN INTERACTIVA' : currentLang === 'it' ? 'PROVA DI AUTOMAZIONE INTERATTIVA' : currentLang === 'fr' ? 'PREUVE D\'AUTOMATISATION INTERACTIVE' : currentLang === 'de' ? 'INTERAKTIVE AUTOMATISIERUNGS-DEMO' : 'INTERACTIVE DEMO'}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-tight drop-shadow-lg"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-tight drop-shadow-lg break-words"
           >
             {t.widget.title}
           </motion.h2>
@@ -229,6 +238,10 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
               </h3>
               <p className="text-sm md:text-base text-gray-400 font-light leading-relaxed">
                 {currentLang === 'pt' ? 'Veja como guiamos o utilizador desde a descoberta até ao agendamento sem que precise de responder a um único toque.' : 
+                 currentLang === 'es' ? 'Vea cómo guiamos al usuario desde el descubrimiento hasta la cita sin que tenga que escribir una sola palabra.' : 
+                 currentLang === 'it' ? 'Guarda come guidiamo l\'utente dalla scoperta all\'appuntamento senza che debba rispondere a un solo tocco.' : 
+                 currentLang === 'fr' ? 'Voyez comment nous guidons l\'utilisateur de la découverte au rendez-vous sans que vous n\'ayez à taper un seul mot.' : 
+                 currentLang === 'de' ? 'Sehen Sie, wie wir den Benutzer von der Entdeckung bis zur Terminbuchung führen, ohne dass Sie ein einziges Wort tippen müssen.' : 
                  currentLang === 'en' ? 'Observe how we guide the user from simple curiosity to a confirmed booking without you typing a single word.' : 
                  'Guarda come guidiamo l\'utente dalla curiosità alla prenotazione finale senza che tu muova un dito.'}
               </p>
@@ -313,7 +326,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                             exit={{ opacity: 0, x: -5 }}
                             className="flex items-center gap-1.5 border-l border-white/10 pl-2"
                           >
-                            <span className="text-[9px] text-gray-400 font-mono tracking-wide">{currentLang === 'pt' ? 'Resposta em 1.2s' : 'Response in 1.2s'}</span>
+                            <span className="text-[9px] text-gray-400 font-mono tracking-wide">{t.widget.responseTime}</span>
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -323,7 +336,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                 <button aria-label="Button" 
                   onClick={() => resetChatbot(selectedBotPreset, currentLang)}
                   className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold/30 hover:bg-gold/5 transition-all cursor-pointer group"
-                  title="Reiniciar Demonstração"
+                  title={t.widget.resetTitle}
                 >
                   <RotateCcw size={14} className="group-hover:-rotate-180 transition-transform duration-500" />
                 </button>
@@ -334,7 +347,15 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                 {['restaurante', 'imobiliaria', 'clinica', 'servicos'].map((preset) => {
                   const isActive = selectedBotPreset === preset;
                   const icons = { restaurante: '🍔', imobiliaria: '🏠', clinica: '🩺', servicos: '🔨' };
-                  const labels = { pt: { restaurante: 'Restaurante', imobiliaria: 'Imóveis', clinica: 'Clínica', servicos: 'Obras' }, en: { restaurante: 'Food', imobiliaria: 'Estate', clinica: 'Clinic', servicos: 'Build' }};
+                  const labels: Record<string, Record<string, string>> = { 
+                    pt: { restaurante: 'Restaurante', imobiliaria: 'Imóveis', clinica: 'Clínica', servicos: 'Obras' }, 
+                    en: { restaurante: 'Food', imobiliaria: 'Estate', clinica: 'Clinic', servicos: 'Build' },
+                    es: { restaurante: 'Restaurante', imobiliaria: 'Inmuebles', clinica: 'Clínica', servicos: 'Obras' },
+                    fr: { restaurante: 'Resto', imobiliaria: 'Immo', clinica: 'Clinique', servicos: 'BTP' },
+                    de: { restaurante: 'Gastro', imobiliaria: 'Immo', clinica: 'Klinik', servicos: 'Handwerk' },
+                    it: { restaurante: 'Ristorante', imobiliaria: 'Immobili', clinica: 'Clinica', servicos: 'Edilizia' }
+                  };
+                  const label = labels[currentLang]?.[preset] || labels.en[preset];
                   
                   return (
                     <button aria-label="Button" 
@@ -352,7 +373,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                         {(icons as any)[preset]}
                       </span>
                       <span className={`text-[9px] font-mono tracking-wide uppercase transition-colors duration-300 ${isActive ? 'text-gold font-bold' : 'text-gray-500 group-hover:text-gray-300'}`}>
-                        {currentLang === 'pt' ? (labels.pt as any)[preset] : (labels.en as any)[preset]}
+                        {label}
                       </span>
                     </button>
                   );
@@ -457,14 +478,14 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                         
                         <div className="flex flex-col gap-2">
                           <h4 className="text-base md:text-lg font-display font-bold text-white tracking-wide uppercase">
-                            {currentLang === 'pt' ? 'Pedido Entregue com Sucesso' : 'Request Delivered Successfully'}
+                            {currentLang === 'pt' ? 'Pedido Entregue com Sucesso' : currentLang === 'es' ? 'Pedido Entregado con Éxito' : currentLang === 'it' ? 'Richiesta Consegnata con Successo' : currentLang === 'fr' ? 'Demande Livrée avec Succès' : currentLang === 'de' ? 'Anfrage Erfolgreich Zugestellt' : 'Request Delivered Successfully'}
                           </h4>
                           <p className="text-xs md:text-sm text-gray-300 font-light leading-relaxed">
-                            {currentLang === 'pt' ? 'A equipa foi notificada e receberá este contacto imediatamente.' : 
+                            {currentLang === 'pt' ? 'A equipa foi notificada e receberá este contacto imediatamente.' : currentLang === 'es' ? 'El equipo ha sido notificado y recibirá este contacto de inmediato.' : currentLang === 'it' ? 'Il team è stato avvisato e riceverà questo contatto immediatamente.' : currentLang === 'fr' ? 'L\'équipe a été informée et recevra ce contact immédiatement.' : currentLang === 'de' ? 'Das Team wurde benachrichtigt und wird diesen Kontakt umgehend erhalten.' : 
                              'The team has been notified and will receive this contact immediately.'}
                             <br />
                             <span className="text-green-400/80 font-mono text-[10px] md:text-xs mt-1 block">
-                              {currentLang === 'pt' ? '✓ WhatsApp sincronizado. Lead registado.' : '✓ WhatsApp synced. Lead registered.'}
+                              {currentLang === 'pt' ? '✓ WhatsApp sincronizado. Lead registado.' : currentLang === 'es' ? '✓ WhatsApp sincronizado. Lead registrado.' : currentLang === 'it' ? '✓ WhatsApp sincronizzato. Lead registrato.' : currentLang === 'fr' ? '✓ WhatsApp synchronisé. Lead enregistré.' : currentLang === 'de' ? '✓ WhatsApp synchronisiert. Lead registriert.' : '✓ WhatsApp synced. Lead registered.'}
                             </span>
                           </p>
                         </div>

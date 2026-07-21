@@ -444,16 +444,16 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col items-center gap-3 mt-2 md:mt-4 mb-8"
           >
-            <div className="flex flex-wrap justify-center gap-2 text-[10px] md:text-xs font-mono tracking-[0.2em] text-gold-light/80 uppercase">
-              <span>Portugal</span> <span className="opacity-50">•</span> 
-              <span>Espanha</span> <span className="opacity-50">•</span> 
-              <span>Itália</span> <span className="opacity-50">•</span> 
-              <span>Luxemburgo</span>
+                        <div className="flex flex-wrap justify-center gap-2 text-[10px] md:text-xs font-mono tracking-[0.2em] text-gold-light/80 uppercase">
+              <span>{currentLang === 'pt' ? 'Portugal' : currentLang === 'es' ? 'Portugal' : currentLang === 'it' ? 'Portogallo' : currentLang === 'fr' ? 'Portugal' : currentLang === 'de' ? 'Portugal' : 'Portugal'}</span> <span className="opacity-50">•</span> 
+              <span>{currentLang === 'pt' ? 'Espanha' : currentLang === 'es' ? 'España' : currentLang === 'it' ? 'Spagna' : currentLang === 'fr' ? 'Espagne' : currentLang === 'de' ? 'Spanien' : 'Spain'}</span> <span className="opacity-50">•</span> 
+              <span>{currentLang === 'pt' ? 'Itália' : currentLang === 'es' ? 'Italia' : currentLang === 'it' ? 'Italia' : currentLang === 'fr' ? 'Italie' : currentLang === 'de' ? 'Italien' : 'Italy'}</span> <span className="opacity-50">•</span> 
+              <span>{currentLang === 'pt' ? 'Luxemburgo' : currentLang === 'es' ? 'Luxemburgo' : currentLang === 'it' ? 'Lussemburgo' : currentLang === 'fr' ? 'Luxembourg' : currentLang === 'de' ? 'Luxemburg' : 'Luxembourg'}</span>
             </div>
             <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm font-sans font-medium text-white/90">
-              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">Websites Premium</span>
+              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">{currentLang === 'pt' ? 'Websites Premium' : currentLang === 'es' ? 'Sitios Web Premium' : currentLang === 'it' ? 'Siti Web Premium' : currentLang === 'fr' ? 'Sites Web Premium' : currentLang === 'de' ? 'Premium-Websites' : 'Premium Websites'}</span>
               <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">Google Maps</span>
-              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">Atendimento IA 24/7</span>
+              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">{currentLang === 'pt' ? 'Atendimento IA 24/7' : currentLang === 'es' ? 'Atención IA 24/7' : currentLang === 'it' ? 'Assistenza IA 24/7' : currentLang === 'fr' ? 'Support IA 24/7' : currentLang === 'de' ? '24/7 KI-Support' : '24/7 AI Support'}</span>
             </div>
           </motion.div>
         </div>
@@ -465,7 +465,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => onCtaClick(t.hero.tracking)}
-              className="px-6 py-3 w-full rounded-xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-black font-display font-bold text-sm sm:text-base tracking-wider whitespace-nowrap hover:opacity-100 transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:shadow-[0_0_25px_rgba(212,175,55,0.8)] animate-pulse flex items-center justify-center cursor-pointer group"
+              className="px-4 py-3 w-full rounded-xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-black font-display font-bold text-xs sm:text-sm md:text-base tracking-wider hover:opacity-100 transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:shadow-[0_0_25px_rgba(212,175,55,0.8)] animate-pulse flex items-center justify-center text-center cursor-pointer group break-words whitespace-normal"
             >
               {t.hero.ctaPrimary}
             </motion.button>
@@ -541,26 +541,41 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
               </div>
 
               {/* Quick pillars showcase with micro badges */}
-              <div className="grid grid-cols-2 gap-3 w-full md:w-[320px] shrink-0">
+                            <div className="grid grid-cols-2 gap-3 w-full md:w-[320px] shrink-0">
                 <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">01. GOOGLE</span>
-                  <span className="text-xs font-semibold text-white">Monopólio Local</span>
+                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">
+                    01. GOOGLE
+                  </span>
+                  <span className="text-xs font-semibold text-white">
+                    {currentLang === 'pt' ? 'Monopólio Local' : currentLang === 'es' ? 'Monopolio Local' : currentLang === 'it' ? 'Monopolio Locale' : currentLang === 'fr' ? 'Monopole Local' : currentLang === 'de' ? 'Lokales Monopol' : 'Local Monopoly'}
+                  </span>
                 </div>
                 <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">02. WEBSITES</span>
-                  <span className="text-xs font-semibold text-white">Máquina de Vendas</span>
+                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">
+                    {currentLang === 'pt' ? '02. WEBSITES' : currentLang === 'es' ? '02. WEBSITES' : currentLang === 'it' ? '02. SITI WEB' : currentLang === 'fr' ? '02. SITES WEB' : currentLang === 'de' ? '02. WEBSITES' : '02. WEBSITES'}
+                  </span>
+                  <span className="text-xs font-semibold text-white">
+                    {currentLang === 'pt' ? 'Máquina de Vendas' : currentLang === 'es' ? 'Máquina de Ventas' : currentLang === 'it' ? 'Macchina Vendite' : currentLang === 'fr' ? 'Machine de Vente' : currentLang === 'de' ? 'Verkaufsmaschine' : 'Sales Machine'}
+                  </span>
                 </div>
                 <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
                   <span className="text-[10px] font-mono text-gold uppercase tracking-widest">03. IA VELKS</span>
-                  <span className="text-xs font-semibold text-white">Vendedor 24/7</span>
+                  <span className="text-xs font-semibold text-white">
+                    {currentLang === 'pt' ? 'Vendedor 24/7' : currentLang === 'es' ? 'Vendedor 24/7' : currentLang === 'it' ? 'Venditore 24/7' : currentLang === 'fr' ? 'Vendeur 24/7' : currentLang === 'de' ? 'Verkäufer 24/7' : '24/7 Salesman'}
+                  </span>
                 </div>
                 <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">04. CLIENTES</span>
-                  <span className="text-xs font-semibold text-white">Prontos a Comprar</span>
+                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">
+                    {currentLang === 'pt' ? '04. CLIENTES' : currentLang === 'es' ? '04. CLIENTES' : currentLang === 'it' ? '04. CLIENTI' : currentLang === 'fr' ? '04. CLIENTS' : currentLang === 'de' ? '04. KUNDEN' : '04. CLIENTS'}
+                  </span>
+                  <span className="text-xs font-semibold text-white">
+                    {currentLang === 'pt' ? 'Prontos a Comprar' : currentLang === 'es' ? 'Listos para Comprar' : currentLang === 'it' ? 'Pronti a Comprare' : currentLang === 'fr' ? 'Prêts à Acheter' : currentLang === 'de' ? 'Kaufbereit' : 'Ready to Buy'}
+                  </span>
                 </div>
               </div>
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
     </section>

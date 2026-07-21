@@ -13,7 +13,8 @@ import { AuthoritySection } from './components/AuthoritySection';
 import { WidgetSection } from './components/WidgetSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import PricingSection from './components/PricingSection';
-import { BeforeAfterSlider } from './components/BeforeAfterSlider';
+import { AIVisionSection } from './components/AIVisionSection';
+import { CTACanvasParticles } from './components/CTACanvasParticles';
 import { 
   Building2, 
   MapPin, 
@@ -47,9 +48,6 @@ export default function App() {
   
   // States for interactive FAQ
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
-  // States for active demo category
-  const [activeDemoCat, setActiveDemoCat] = useState<string>('restaurants');
 
   // States for cookie consent
   const [cookieConsent, setCookieConsent] = useState<boolean | null>(null);
@@ -93,7 +91,6 @@ export default function App() {
   const solutionRef = useRef<HTMLDivElement>(null);
   const widgetRef = useRef<HTMLDivElement>(null);
   const pricingRef = useRef<HTMLDivElement>(null);
-  const demosRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
 
   // Handle language switch
@@ -220,42 +217,6 @@ export default function App() {
     }
   };
 
-  // Demo showpiece lists
-  const demoList = [
-    {
-      title: "O Garfo Dourado",
-      category: "restaurants",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600",
-      stats: { pt: "Reservas de mesa aumentaram +145% no Maps", en: "Table bookings increased +145% on Google Maps" },
-      tech: ["Google Local SEO", "Custom Web Menu", "WhatsApp Automation"],
-    },
-    {
-      title: "Mendes Imóveis Prime",
-      category: "realestate",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=600",
-      stats: { pt: "38 leads qualificadas por semana sem pagar anúncios", en: "38 highly qualified leads weekly organically" },
-      tech: ["Responsive Landing Page", "Interactive Map Finder", "AI WhatsApp Filter"],
-    },
-    {
-      title: "Sorriso Clínicas Integradas",
-      category: "clinics",
-      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600",
-      stats: { pt: "Redução de 40% nas faltas às consultas", en: "40% reduction in appointment no-shows via automated SMS" },
-      tech: ["Medical Portal Design", "Automatic Scheduling Bot", "Direct Google Maps SEO"],
-    },
-    {
-      title: "Mestre das Obras Premium",
-      category: "localservices",
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600",
-      stats: { pt: "Orçamentos solicitados cresceram 3x em Coimbra", en: "Project quotes inquiries grew 3x locally" },
-      tech: ["SEO Local", "Portfolio Showcase Slider", "Direct Instant Lead Dispatcher"],
-    }
-  ];
-
-  const filteredDemos = activeDemoCat === 'all' 
-    ? demoList 
-    : demoList.filter(d => d.category === activeDemoCat);
-
   return (
     <div className="relative min-h-screen bg-obsidian text-gray-100 selection:bg-gold selection:text-black antialiased overflow-x-hidden font-sans">
       
@@ -283,7 +244,6 @@ export default function App() {
             <button aria-label="Button" onClick={() => scrollTo(solutionRef)} className="hover:text-gold transition-colors cursor-pointer">{t.nav.solution}</button>
             <button aria-label="Button" onClick={() => scrollTo(widgetRef)} className="hover:text-gold transition-colors cursor-pointer">{t.nav.widget}</button>
             <button aria-label="Button" onClick={() => scrollTo(pricingRef)} className="hover:text-gold transition-colors cursor-pointer">{t.nav.pricing}</button>
-            <button aria-label="Button" onClick={() => scrollTo(demosRef)} className="hover:text-gold transition-colors cursor-pointer">{t.nav.demos}</button>
             <button aria-label="Button" onClick={() => scrollTo(faqRef)} className="hover:text-gold transition-colors cursor-pointer">{t.nav.faq}</button>
           </nav>
 
@@ -340,7 +300,7 @@ export default function App() {
         currentLang={currentLang} 
         t={t} 
         onCtaClick={handleWhatsAppClick} 
-        onScrollToDemos={() => scrollTo(demosRef)} 
+        onScrollToDemos={() => scrollTo(pricingRef)} 
       />
       </React.Suspense>
 
@@ -380,8 +340,10 @@ export default function App() {
       {/* BLOCO 5 - WIDGET INTELIGENTE (ATENDIMENTO AUTOMÁTICO 24H) */}
       <WidgetSection t={t} currentLang={currentLang} widgetRef={widgetRef} />
 
+      {/* BLOCO 5.5 - AI VISION (CINEMATIC ENGINEERING) */}
+      <AIVisionSection t={t} />
+
       {/* BLOCO 6 - PROVA SOCIAL (TESTIMONIALS) */}
-      <BeforeAfterSlider currentLang={currentLang} />
       <TestimonialsSection t={t} currentLang={currentLang} />
 
       {/* BLOCO 7 - PACOTES (PRICING & BUNDLES) */}
@@ -414,7 +376,7 @@ export default function App() {
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.gmaps.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">A partir de</span>
+                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.gmaps.price}</span>
                   <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
                 </div>
@@ -447,7 +409,7 @@ export default function App() {
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.website.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">A partir de</span>
+                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.website.price}</span>
                   <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
                 </div>
@@ -477,7 +439,7 @@ export default function App() {
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.automacao.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">A partir de</span>
+                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.automacao.price}</span>
                   <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
                 </div>
@@ -507,7 +469,7 @@ export default function App() {
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.ecommerce.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">A partir de</span>
+                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.ecommerce.price}</span>
                   <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
                 </div>
@@ -540,7 +502,7 @@ export default function App() {
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.custom.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">Pack Integrado</span>
+                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'Pack Integrado' : currentLang === 'es' ? 'Paquete Integrado' : currentLang === 'it' ? 'Pacchetto Integrato' : currentLang === 'fr' ? 'Package Intégré' : currentLang === 'de' ? 'Integriertes Paket' : 'Integrated Package'}</span>
                   <span className="text-4xl font-display font-black text-gold glow-text">{t.pricing.plans.custom.price}</span>
                   <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
                 </div>
@@ -576,126 +538,34 @@ export default function App() {
               </div>
             </div>
             <div className="text-xs font-mono bg-gold/5 text-gold border border-gold/20 px-4 py-2 rounded uppercase tracking-widest font-semibold shrink-0">
-              {currentLang === 'pt' ? 'PAGAMENTO ÚNICO • SEM CONTRATOS RECORRENTES' : 'SINGLE PAYMENT • NO HIDDEN CONTRACTS'}
+              {currentLang === 'pt' ? 'PAGAMENTO ÚNICO • SEM CONTRATOS RECORRENTES' : currentLang === 'es' ? 'PAGO ÚNICO • SIN CONTRATOS RECURRENTES' : currentLang === 'it' ? 'PAGAMENTO UNICO • NESSUN CONTRATTO RICORRENTE' : currentLang === 'fr' ? 'PAIEMENT UNIQUE • SANS CONTRATS RÉCURRENTS' : currentLang === 'de' ? 'EINMALIGE ZAHLUNG • KEINE WIEDERKEHRENDEN VERTRÄGE' : 'SINGLE PAYMENT • NO HIDDEN CONTRACTS'}
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* BLOCO 8 - DEMONSTRAÇÕES (INTERACTIVE SHOWCASE) */}
-      <section ref={demosRef} className="py-24 px-4 bg-obsidian-dark relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-
-          <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-4">
-            <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold">{currentLang === 'pt' ? 'GALERIA CONVERTIDA' : 'CONVERSION LANDSCAPE'}</span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight">
-              {t.demos.title}
-            </h2>
-            <div className="h-[2px] w-16 bg-gold mx-auto" />
-            <p className="text-base md:text-lg text-gray-400 font-light leading-relaxed">
-              {t.demos.subtitle}
-            </p>
-          </div>
-
-          {/* Categories Tab switches */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {[
-              { id: 'all', label: t.demos.categories.all },
-              { id: 'restaurants', label: t.demos.categories.restaurants },
-              { id: 'realestate', label: t.demos.categories.realestate },
-              { id: 'clinics', label: t.demos.categories.clinics },
-              { id: 'localservices', label: t.demos.categories.localservices }
-            ].map(cat => (
-              <button aria-label="Button"
-                key={cat.id}
-                onClick={() => setActiveDemoCat(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider cursor-pointer transition-all border ${
-                  activeDemoCat === cat.id 
-                    ? 'bg-gold text-black border-gold font-bold shadow-[0_2px_12px_rgba(212,175,55,0.25)]' 
-                    : 'bg-white/5 text-gray-300 border-white/10 hover:border-gold/30'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Interactive filterable grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <AnimatePresence mode="popLayout">
-              {filteredDemos.map(demo => (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  key={demo.title}
-                  className="glass-premium rounded-3xl border border-gold/15 overflow-hidden flex flex-col relative group"
-                >
-                  {/* Category overlay badge */}
-                  <div className="absolute top-4 left-4 z-20 bg-black/75 border border-gold/30 px-3 py-1 rounded-full text-[10px] font-mono uppercase text-gold tracking-widest font-semibold backdrop-blur-md">
-                    {demo.category.toUpperCase()}
-                  </div>
-
-                  {/* Showcase Visual preview block */}
-                  <div className="h-56 relative overflow-hidden shrink-0">
-                    <img loading="lazy" 
-                      src={demo.image} 
-                      alt={demo.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-75 group-hover:brightness-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent" />
-                  </div>
-
-                  {/* Metadata and interactive metrics */}
-                  <div className="p-6 md:p-8 flex-1 flex flex-col justify-between gap-6">
-                    <div className="flex flex-col gap-3">
-                      <h3 className="text-xl font-display font-bold text-white tracking-tight">{demo.title}</h3>
-                      <div className="p-3 rounded-xl bg-gold/5 border border-gold/15 text-gold-light text-xs font-mono flex items-center gap-2">
-                        <Activity size={14} className="animate-pulse shrink-0" />
-                        <span>{currentLang === 'pt' ? demo.stats.pt : demo.stats.en}</span>
-                      </div>
-                      
-                      {/* Tech badges used */}
-                      <div className="flex flex-wrap gap-1.5 mt-2">
-                        {demo.tech.map((t, idx) => (
-                          <span key={idx} className="text-[10px] font-mono tracking-wider bg-white/5 text-gray-300 px-2 py-0.5 rounded">
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Launch simulated preview click handler */}
-                    <button aria-label="Button" 
-                      onClick={() => handleWhatsAppClick(t.demos.demoTracking.replace('{demoTitle}', demo.title))}
-                      className="w-full py-3 rounded-xl bg-black/40 hover:bg-gold hover:text-black border border-gold/25 text-gold font-display font-semibold text-xs tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 group-hover:border-gold"
-                    >
-                      <span>{t.demos.clickToSee}</span>
-                      <ExternalLink size={12} />
-                    </button>
-                  </div>
-
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-        </div>
-      </section>
-
       {/* BLOCO 9 - FAQ (ACCORDION OPTIMIZED FOR COGNITIVE RETRIEVAL) */}
-      <section ref={faqRef} className="py-24 px-4 bg-obsidian relative overflow-hidden">
-        <div className="absolute bottom-12 left-1/4 w-80 h-80 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+      <section ref={faqRef} className="py-24 px-4 bg-[#030304] relative overflow-hidden border-t border-white/5">
+        {/* Cinematic Software Engineering Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-blue-900/15 via-[#030304]/95 to-[#030304] pointer-events-none" />
+        
+        {/* Animated Tech Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+        
+        <div className="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+        <div className="absolute bottom-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
+        
+        {/* Deep blue engineering core glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-600/10 rounded-[100%] blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay pointer-events-none" />
+        
         <div className="max-w-4xl mx-auto relative z-10">
 
           <div className="text-center mb-16 flex flex-col gap-4">
-            <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold">{currentLang === 'pt' ? 'CONTRADIÇÕES E RESPOSTAS TRANSPARENTES' : 'FACT-BASED RETRIEVAL'}</span>
+            <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold">{currentLang === 'pt' ? 'CONTRADIÇÕES E RESPOSTAS TRANSPARENTES' : currentLang === 'es' ? 'CONTRADICCIONES Y RESPUESTAS TRANSPARENTES' : currentLang === 'it' ? 'CONTRADDIZIONI E RISPOSTE TRASPARENTI' : currentLang === 'fr' ? 'CONTRADICTIONS ET RÉPONSES TRANSPARENTES' : currentLang === 'de' ? 'WIDERSPRÜCHE UND TRANSPARENTE ANTWORTEN' : 'FACT-BASED RETRIEVAL'}</span>
             <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight">
               {t.faq.title}
             </h2>
@@ -731,8 +601,16 @@ export default function App() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="p-6 pt-0 text-sm text-gray-300 font-light leading-relaxed border-t border-white/5 bg-black/20">
-                          {faq.a}
+                        <div className="p-6 pt-0 text-sm text-gray-300 font-light leading-relaxed border-t border-white/5 bg-black/20 whitespace-pre-line">
+                          {faq.a.split(/(velks\.space|vgroup\.space)/g).map((part, i) => {
+                            if (part === 'velks.space') {
+                              return <a key={i} href="https://velks.space" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">{part}</a>;
+                            }
+                            if (part === 'vgroup.space') {
+                              return <a key={i} href="https://vgroup.space" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">{part}</a>;
+                            }
+                            return <span key={i}>{part}</span>;
+                          })}
                         </div>
                       </motion.div>
                     )}
@@ -747,6 +625,9 @@ export default function App() {
 
       {/* BLOCO 10 - CTA FINAL (EMOTIONAL CONVERSION BLOCK WITH ZERO FORMS) */}
       <section className="py-24 px-4 bg-gradient-to-b from-obsidian-dark to-obsidian relative overflow-hidden">
+        {/* High-Performance Canvas Particles (Neural Net / Gold Dust) */}
+        <CTACanvasParticles />
+        
         {/* Abstract volumetric glowing rays background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold/10 rounded-full blur-[150px] pointer-events-none" />
         
@@ -773,10 +654,10 @@ export default function App() {
             
             <button aria-label="Button"
               onClick={() => handleWhatsAppClick(t.ctaFinal.tracking)}
-              className="px-10 py-5 rounded-2xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-black font-display font-black tracking-widest uppercase hover:opacity-95 hover:scale-103 transition-all cursor-pointer shadow-[0_5px_30px_rgba(212,175,55,0.45)] flex items-center justify-center gap-3 w-full"
+              className="px-4 sm:px-10 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-black font-display font-black text-sm sm:text-base tracking-wide sm:tracking-widest uppercase hover:opacity-95 hover:scale-103 transition-all cursor-pointer shadow-[0_5px_30px_rgba(212,175,55,0.45)] flex items-center justify-center gap-2 sm:gap-3 w-full"
             >
-              <MessageSquare size={20} className="text-black" />
-              <span>{t.ctaFinal.cta}</span>
+              <MessageSquare size={20} className="text-black flex-shrink-0" />
+              <span className="break-words whitespace-normal text-center flex-1">{t.ctaFinal.cta}</span>
             </button>
 
             {/* Microcopy */}
@@ -823,7 +704,7 @@ export default function App() {
 
             {/* Address Columns */}
             <div className="md:col-span-4 flex flex-col gap-3 text-xs font-light">
-              <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{currentLang === 'pt' ? 'ESCRITÓRIOS CENTRAIS' : 'HQ LOCATIONS'}</h4>
+              <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{currentLang === 'pt' ? 'ESCRITÓRIOS CENTRAIS' : currentLang === 'es' ? 'OFICINAS CENTRALES' : currentLang === 'it' ? 'UFFICI CENTRALI' : currentLang === 'fr' ? 'BUREAUX CENTRAUX' : currentLang === 'de' ? 'ZENTRALBÜROS' : 'HQ LOCATIONS'}</h4>
               <p className="flex items-start gap-2">
                 <MapPin size={14} className="text-gold shrink-0 mt-0.5" />
                 <span>{t.footer.hqMain}</span>
@@ -836,7 +717,7 @@ export default function App() {
 
             {/* Contacts Column */}
             <div className="md:col-span-3 flex flex-col gap-3 text-xs font-light">
-              <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{currentLang === 'pt' ? 'CONTACTOS DIRETOS' : 'DIRECT CONTACTS'}</h4>
+              <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{t.footer.directContacts}</h4>
               <p className="flex items-center gap-2">
                 <Mail size={14} className="text-gold shrink-0" />
                 <a href="mailto:velksgroup@gmail.com" className="hover:text-gold transition-colors">velksgroup@gmail.com</a>
@@ -856,12 +737,10 @@ export default function App() {
           <div className="mt-12 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-3 text-xs text-gray-400 font-light leading-relaxed">
             <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs flex items-center gap-2">
               <Shield size={14} className="text-gold" />
-              {currentLang === 'pt' ? 'AVISO JURÍDICO & TITULARIDADE' : 'LEGAL NOTICE & OWNERSHIP'}
+              {t.footer.legalNoticeTitle}
             </h4>
             <p>
-              {currentLang === 'pt' 
-                ? 'A marca VELKS Group e todas as suas operações digitais são fundadas, detidas e geridas legalmente por Rosa Sofia Sousa Marques (Founder) e Lucca Farias Gagliardi (Co-Founder).'
-                : 'The VELKS Group brand and all its digital operations are founded, owned, and legally managed by Rosa Sofia Sousa Marques (Founder) and Lucca Farias Gagliardi (Co-Founder).'}
+              {t.footer.legalNoticeText}
             </p>
           </div>
 
@@ -961,46 +840,42 @@ export default function App() {
               {/* Modal copy */}
               <div className="text-xs text-gray-300 font-light leading-relaxed flex flex-col gap-4 font-sans">
                 
-                {modalType === 'privacy' && (
+                                {modalType === 'privacy' && (
                   <>
                     <h4 className="font-bold text-white font-display text-sm">1. Introdução / Introduction</h4>
-                    <p>A VELKS Group compromete-se a proteger a privacidade dos seus utilizadores. Em total conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia, garantimos que quaisquer dados pessoais recolhidos nas nossas demonstrações ou contactos são tratados de forma confidencial e com a máxima segurança.</p>
+                    <p>{currentLang === 'pt' ? 'A VELKS Group compromete-se a proteger a privacidade dos seus utilizadores. Em total conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia, garantimos que quaisquer dados pessoais recolhidos nas nossas demonstrações ou contactos são tratados de forma confidencial e com a máxima segurança.' : 'VELKS Group is committed to protecting your privacy. In full compliance with the European Union General Data Protection Regulation (GDPR), we ensure that any personal data collected in our demonstrations or contacts is treated confidentially and with maximum security.'}</p>
                     <h4 className="font-bold text-white font-display text-sm">2. Recolha de Dados / Data Collection</h4>
-                    <p>Recolhemos apenas os dados fornecidos voluntariamente por si (como Nome, Endereço de Email, e Número de WhatsApp) para fins de comunicação comercial direta, simulação interativa, ou processamento de encomendas dos pacotes especificados.</p>
+                    <p>{currentLang === 'pt' ? 'Recolhemos apenas os dados fornecidos voluntariamente por si (como Nome, Endereço de Email, e Número de WhatsApp) para fins de comunicação comercial direta, simulação interativa, ou processamento de encomendas dos pacotes especificados.' : 'We only collect data voluntarily provided by you (such as Name, Email Address, and WhatsApp Number) for direct commercial communication, interactive simulation, or order processing.'}</p>
                     <h4 className="font-bold text-white font-display text-sm">3. Retenção de Dados / Data Retention</h4>
-                    <p>Os seus dados não serão vendidos ou transferidos a terceiros. Serão apagados definitivamente mediante simples pedido por email enviado a velksgroup@gmail.com.</p>
+                    <p>{currentLang === 'pt' ? 'Os seus dados não serão vendidos ou transferidos a terceiros. Serão apagados definitivamente mediante simples pedido por email enviado a velksgroup@gmail.com.' : 'Your data will not be sold or transferred to third parties. It will be permanently deleted upon simple request by email sent to velksgroup@gmail.com.'}</p>
                   </>
                 )}
-
                 {modalType === 'cookies' && (
                   <>
                     <h4 className="font-bold text-white font-display text-sm">1. O que são Cookies? / What are Cookies?</h4>
-                    <p>Cookies são pequenos ficheiros de texto guardados no seu navegador para otimizar a experiência de carregamento do site e nos ajudar a analisar quais as secções que recebem maior tráfego.</p>
+                    <p>{currentLang === 'pt' ? 'Cookies são pequenos ficheiros de texto guardados no seu navegador para otimizar a experiência de carregamento do site e nos ajudar a analisar quais as secções que recebem maior tráfego.' : 'Cookies are small text files stored in your browser to optimize the site loading experience and help us analyze which sections receive the most traffic.'}</p>
                     <h4 className="font-bold text-white font-display text-sm">2. Uso de Cookies neste Site / Cookie Usage</h4>
-                    <p>Este site utiliza cookies funcionais mínimos e identificadores locais temporários (como localStorage) para persistir o seu idioma escolhido, simular as mensagens do assistente inteligente Concierge IA, e reter o seu próprio consentimento de cookies para que não veja o banner em visitas subsequentes.</p>
+                    <p>{currentLang === 'pt' ? 'Este site utiliza cookies funcionais mínimos e identificadores locais temporários (como localStorage) para persistir o seu idioma escolhido, simular as mensagens do assistente inteligente Concierge IA, e reter o seu próprio consentimento de cookies para que não veja o banner em visitas subsequentes.' : 'This site uses minimal functional cookies and temporary local identifiers (like localStorage) to persist your chosen language, simulate messages from the smart AI Concierge, and retain your cookie consent.'}</p>
                   </>
                 )}
-
                 {modalType === 'terms' && (
                   <>
                     <h4 className="font-bold text-white font-display text-sm">1. Termos de Utilização / Terms of Service</h4>
-                    <p>O conteúdo deste site tem fins meramente informativos e demonstrativos. A VELKS Group fornece soluções personalizadas e pacotes fechados de Google Maps e Websites com pagamentos únicos, sem subscrições recorrentes, sujeitos a contrato formal de prestação de serviços assinado bilateralmente antes da execução técnica.</p>
+                    <p>{currentLang === 'pt' ? 'O conteúdo deste site tem fins meramente informativos e demonstrativos. A VELKS Group fornece soluções personalizadas e pacotes fechados de Google Maps e Websites com pagamentos únicos, sem subscrições recorrentes, sujeitos a contrato formal de prestação de serviços assinado bilateralmente antes da execução técnica.' : 'The content of this site is for informational and demonstrative purposes only. VELKS Group provides customized solutions and fixed packages for Google Maps and Websites with single payments, no recurring subscriptions, subject to a formal service contract.'}</p>
                     <h4 className="font-bold text-white font-display text-sm">2. Propriedade Intelectual / Intellectual Property</h4>
-                    <p>O design, o motor de simulação de assistente IA 3D e todos os scripts integrados são propriedade intelectual da VELKS Group ou parceiros tecnológicos autorizados.</p>
+                    <p>{currentLang === 'pt' ? 'O design, o motor de simulação de assistente IA 3D e todos os scripts integrados são propriedade intelectual da VELKS Group ou parceiros tecnológicos autorizados.' : 'The design, the 3D AI assistant simulation engine, and all integrated scripts are the intellectual property of VELKS Group or authorized technology partners.'}</p>
                   </>
                 )}
-
                 {modalType === 'compliance' && (
                   <>
-                    <h4 className="font-bold text-white font-display text-sm">Conformidade e Regulação Europeia / European Compliance</h4>
-                    <p>A VELKS Group opera sob os rigorosos padrões corporativos do Grão-Ducado de Luxemburgo e da União Europeia. Alinhamos todos os nossos processos, servidores, processamento de formulários e integradores de pagamento aos regulamentos da UE aplicáveis ao comércio eletrónico, proteção do consumidor local e concorrência justa.</p>
+                    <h4 className="font-bold text-white font-display text-sm">{t.footer.europeanCompliance}</h4>
+                    <p>{currentLang === 'pt' ? 'A VELKS Group opera sob os rigorosos padrões corporativos do Grão-Ducado de Luxemburgo e da União Europeia. Alinhamos todos os nossos processos, servidores, processamento de formulários e integradores de pagamento aos regulamentos da UE aplicáveis ao comércio eletrónico, proteção do consumidor local e concorrência justa.' : 'VELKS Group operates under the strict corporate standards of the Grand Duchy of Luxembourg and the European Union. We align all our processes to applicable EU regulations.'}</p>
                   </>
                 )}
-
                 {modalType === 'legal' && (
                   <>
-                    <h4 className="font-bold text-white font-display text-sm">Avisos Legais / Legal Disclaimer</h4>
-                    <p>VELKS Group. Sede Principal em Luxembourg: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo. Sede secundária em Coimbra, Portugal. Contacto oficial: velksgroup@gmail.com. Telemóvel: +33 761 56 96 86.</p>
+                    <h4 className="font-bold text-white font-display text-sm">{t.footer.legalDisclaimer}</h4>
+                    <p>{currentLang === 'pt' ? 'VELKS Group. Sede Principal em Luxembourg: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo. Sede secundária em Coimbra, Portugal. Contacto oficial: velksgroup@gmail.com. Telemóvel: +33 761 56 96 86.' : 'VELKS Group. HQ: 57, Avenue de La Gare, L-1611 Luxembourg Gare. Secondary: Coimbra, Portugal. Contact: velksgroup@gmail.com. Phone: +33 761 56 96 86.'}</p>
                   </>
                 )}
 
@@ -1011,7 +886,7 @@ export default function App() {
                 onClick={() => setModalType(null)}
                 className="w-full mt-2 py-3 bg-gold hover:opacity-90 transition-opacity text-black font-display font-bold text-xs uppercase tracking-widest rounded-xl cursor-pointer"
               >
-                {currentLang === 'pt' ? 'Fechar Documento' : 'Close Document'}
+                {currentLang === 'pt' ? 'Fechar Documento' : currentLang === 'es' ? 'Cerrar Documento' : currentLang === 'it' ? 'Chiudi Documento' : currentLang === 'fr' ? 'Fermer le Document' : currentLang === 'de' ? 'Dokument Schließen' : 'Close Document'}
               </button>
 
             </motion.div>
