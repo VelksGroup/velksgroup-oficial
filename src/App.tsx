@@ -6,15 +6,15 @@ import {
   Language, 
   TranslationSchema 
 } from './translations';
-const ThreeHero = React.lazy(() => import('./components/ThreeHero').then(m => ({ default: m.ThreeHero })));
-import { ProblemSection } from './components/ProblemSection';
-import { SolutionSection } from './components/SolutionSection';
-import { AuthoritySection } from './components/AuthoritySection';
-import { WidgetSection } from './components/WidgetSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import PricingSection from './components/PricingSection';
-import { AIVisionSection } from './components/AIVisionSection';
-import { CTACanvasParticles } from './components/CTACanvasParticles';
+import { ThreeHero } from './components/ThreeHero';
+const ProblemSection = React.lazy(() => import('./components/ProblemSection').then(m => ({ default: m.ProblemSection })));
+const SolutionSection = React.lazy(() => import('./components/SolutionSection').then(m => ({ default: m.SolutionSection })));
+const AuthoritySection = React.lazy(() => import('./components/AuthoritySection').then(m => ({ default: m.AuthoritySection })));
+const WidgetSection = React.lazy(() => import('./components/WidgetSection').then(m => ({ default: m.WidgetSection })));
+const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
+const PricingSection = React.lazy(() => import('./components/PricingSection'));
+const AIVisionSection = React.lazy(() => import('./components/AIVisionSection').then(m => ({ default: m.AIVisionSection })));
+const CTACanvasParticles = React.lazy(() => import('./components/CTACanvasParticles').then(m => ({ default: m.CTACanvasParticles })));
 import { 
   Building2, 
   MapPin, 
@@ -221,7 +221,7 @@ export default function App() {
     <div className="relative min-h-screen bg-obsidian text-gray-100 selection:bg-gold selection:text-black antialiased overflow-x-hidden font-sans">
       
       {/* HEADER / TOP NAVIGATION */}
-      <header className="fixed top-0 left-0 w-full z-50 glass-premium border-b border-gold/10 backdrop-blur-md px-4 py-4 md:px-8">
+      <header className="fixed top-0 left-0 w-full z-50 glass-premium border-b border-gold/10 sm:backdrop-blur-md px-4 py-4 md:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Logo brand */}
@@ -296,13 +296,13 @@ export default function App() {
       </header>
 
       {/* THREE.JS CINEMATIC HERO */}
-      <React.Suspense fallback={<div className="h-screen bg-black"></div>}><ThreeHero 
+      <ThreeHero 
         currentLang={currentLang} 
         t={t} 
         onCtaClick={handleWhatsAppClick} 
         onScrollToDemos={() => scrollTo(pricingRef)} 
       />
-      </React.Suspense>
+      <React.Suspense fallback={<div className="min-h-screen bg-obsidian-dark flex items-center justify-center"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}>
 
       
 
@@ -349,8 +349,8 @@ export default function App() {
       {/* BLOCO 7 - PACOTES (PRICING & BUNDLES) */}
       <section ref={pricingRef} className="py-24 px-4 bg-obsidian relative overflow-hidden">
         {/* Shiny graphical accents */}
-        <div className="absolute top-12 left-12 w-80 h-80 bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-12 right-12 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-12 left-12 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute bottom-12 right-12 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
 
@@ -557,10 +557,10 @@ export default function App() {
         <div className="absolute bottom-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
         
         {/* Deep blue engineering core glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-600/10 rounded-[100%] blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-[100%] bg-[radial-gradient(circle,rgba(37,99,235,0.1)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.05)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10  pointer-events-none" />
         
         <div className="max-w-4xl mx-auto relative z-10">
 
@@ -629,7 +629,7 @@ export default function App() {
         <CTACanvasParticles />
         
         {/* Abstract volumetric glowing rays background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold/10 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.1)_0%,transparent_70%)] pointer-events-none" />
         
         <div className="max-w-5xl mx-auto relative z-10 text-center flex flex-col items-center gap-8">
           
@@ -767,6 +767,7 @@ export default function App() {
         </div>
       </footer>
 
+      </React.Suspense>
       {/* COOKIES POPUP CONSENT (EU COMPLIANT BANNER) */}
       <AnimatePresence>
         {cookieConsent === null && (
@@ -778,7 +779,7 @@ export default function App() {
           >
             <div className="max-w-4xl mx-auto glass-premium border border-gold/30 p-5 md:p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
               {/* Backlight flare inside banner */}
-              <div className="absolute top-0 left-0 w-32 h-32 bg-gold/5 rounded-full blur-[30px]" />
+              <div className="absolute top-0 left-0 w-32 h-32 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
               
               <div className="flex gap-4 items-start relative z-10">
                 <Shield size={24} className="text-gold shrink-0 mt-0.5" />
@@ -809,7 +810,7 @@ export default function App() {
       {/* POLICY & LEGAL TERMS DIALOG MODALS */}
       <AnimatePresence>
         {modalType !== null && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 sm:backdrop-blur-sm">
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

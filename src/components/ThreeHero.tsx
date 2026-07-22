@@ -19,9 +19,12 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  
+  
   const [showModule, setShowModule] = useState(false);
+  const orbitalRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
 
   // Smooth scroll tracking using LERP
   const targetScroll = useRef(0);
@@ -40,7 +43,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
       // Normalize mouse to -1 to +1
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = -(e.clientY / window.innerHeight) * 2 + 1;
-      setMousePos({ x, y });
+      mouseRef.current = { x, y };
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -241,11 +244,20 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
       // Smooth scroll progress using Lerp
       currentScroll.current += (targetScroll.current - currentScroll.current) * 0.08;
       const progress = currentScroll.current;
-      setScrollProgress(progress);
+      // Update DOM directly to avoid React state re-renders
+      if (orbitalRef.current) {
+        orbitalRef.current.style.transform = `translate(-150%, -50%) translate3d(${mouseRef.current.x * 20}px, ${-mouseRef.current.y * 20}px, 0) scale(${Math.max(1 - progress * 1.8, 0)})`;
+        orbitalRef.current.style.opacity = Math.max(1 - progress * 2.2, 0).toString();
+      }
+      if (contentRef.current) {
+        contentRef.current.style.opacity = Math.max(1 - progress * 2.5, 0).toString();
+        contentRef.current.style.transform = `translateY(${-progress * 100}px)`;
+        contentRef.current.style.visibility = progress > 0.4 ? 'hidden' : 'visible';
+      }
 
       // Smooth mouse lerp
-      localMouse.x += (mousePos.x - localMouse.x) * 0.05;
-      localMouse.y += (mousePos.y - localMouse.y) * 0.05;
+      localMouse.x += (mouseRef.current.x - localMouse.x) * 0.05;
+      localMouse.y += (mouseRef.current.y - localMouse.y) * 0.05;
 
       // Auto movement for mobile and extra life
       const autoRotateX = Math.sin(time * 0.5) * 0.05;
@@ -319,15 +331,17 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
 
     animate();
 
+    let lastWidth = containerRef.current?.clientWidth || 0;
     const handleResize = () => {
       if (!canvasRef.current || !containerRef.current) return;
       const w = containerRef.current.clientWidth;
-      const h = containerRef.current.clientHeight;
-
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-
-      renderer.setSize(w, h);
+      if (Math.abs(lastWidth - w) > 10) {
+        lastWidth = w;
+        const h = containerRef.current.clientHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -337,7 +351,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
     };
-  }, [mousePos]);
+  }, []);
 
   // Translate words for orbital wheel
   const getOrbitalWords = () => {
@@ -362,9 +376,9 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
         
         {/* Subtle radial flashlight gradient behind */}
         <div 
-          className="absolute inset-0 bg-radial pointer-events-none mix-blend-overlay transition-opacity duration-300"
+          className="absolute inset-0 bg-radial pointer-events-none  transition-opacity duration-300"
           style={{
-            background: `radial-gradient(circle 450px at ${(mousePos.x + 1) * 50}% ${(-mousePos.y + 1) * 50}%, rgba(212, 175, 55, 0.12), transparent 70%)`
+            background: `radial-gradient(circle 450px at ${(mouseRef.current.x + 1) * 50}% ${(-mouseRef.current.y + 1) * 50}%, rgba(212, 175, 55, 0.12), transparent 70%)`
           }}
         />
       </div>
@@ -372,10 +386,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
       {/* 2D Razor-Sharp Responsive Text Ring Overlay (Synchronized Rotation) */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] md:w-[460px] md:h-[460px] pointer-events-none z-10 select-none flex items-center justify-center transition-all duration-500"
-        style={{
-          transform: `translate(-150%, -50%) translate3d(${mousePos.x * 20}px, ${-mousePos.y * 20}px, 0) scale(${Math.max(1 - scrollProgress * 1.8, 0)})`,
-          opacity: Math.max(1 - scrollProgress * 2.2, 0)
-        }}
+        ref={orbitalRef} style={{ transform: "translate(-150%, -50%) scale(1)", opacity: 1 }}
       >
         {/* Curved Text Path using SVG */}
         <svg viewBox="0 0 400 400" className="w-full h-full animate-spin-slow">
@@ -389,11 +400,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
       {/* Screen 1 CONTENT (Initial Hero Section) */}
       <div 
         className="absolute top-0 left-0 w-full h-screen z-20 flex flex-col justify-between items-center px-4 py-24 pointer-events-auto"
-        style={{
-          opacity: Math.max(1 - scrollProgress * 2.5, 0),
-          transform: `translateY(${-scrollProgress * 100}px)`,
-          visibility: scrollProgress > 0.4 ? 'hidden' : 'visible'
-        }}
+        ref={contentRef} style={{ opacity: 1, transform: "translateY(0px)", visibility: "visible" }}
       >
         {/* Premium Top Badge */}
         <motion.div 

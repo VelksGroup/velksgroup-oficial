@@ -46,7 +46,7 @@ const PricingCanvasParticles = () => {
     if (!ctx) return;
 
     let width = window.innerWidth;
-    let height = window.innerHeight * 2.5; // Taller to ensure full coverage
+    let height = canvas.parentElement?.clientHeight || window.innerHeight;
     canvas.width = width;
     canvas.height = height;
 
@@ -110,11 +110,13 @@ const PricingCanvasParticles = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     
     const onResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight * 2.5;
-      canvas.width = width;
-      canvas.height = height;
-      createParticles();
+      if (Math.abs(width - window.innerWidth) > 10) {
+        width = window.innerWidth;
+        height = canvas.parentElement?.clientHeight || window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        createParticles();
+      }
     };
     window.addEventListener('resize', onResize);
 
@@ -178,8 +180,8 @@ const PricingCanvasParticles = () => {
         ctx.fillStyle = `rgba(${p.color}, ${p.alpha})`;
         
         // Intense Glow
-        ctx.shadowBlur = p.alpha > 0.8 ? 20 : 10;
-        ctx.shadowColor = `rgba(${p.color}, ${p.alpha * 1.5})`;
+        
+        
         ctx.fill();
       });
 
@@ -216,7 +218,7 @@ const PricingCanvasParticles = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-100 mix-blend-screen" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-100 " />;
 };
 
 export default function PricingSection({ t, currentLang, handleWhatsAppClick }: PricingSectionProps) {
@@ -252,16 +254,16 @@ export default function PricingSection({ t, currentLang, handleWhatsAppClick }: 
   const customPlan = { id: 'custom', ...t.pricing.plans.custom };
 
   return (
-    <section ref={sectionRef} className="py-32 relative overflow-hidden bg-[#030305] perspective-1000">
+    <section ref={sectionRef} className="py-32 relative overflow-hidden bg-[#030305] ">
       
       {/* LAYER 1: Deep Premium Darkness & Radial Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0f0f15] via-[#030305] to-[#010101] pointer-events-none" />
       
       {/* LAYER 5: Luminous Auroras (Background Lights) */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none mix-blend-screen opacity-40">
-        <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gold/10 blur-[120px] animate-aurora" />
-        <div className="absolute top-[40%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d4af37]/5 blur-[100px] animate-aurora-slow" />
-        <div className="absolute -bottom-[20%] left-[20%] w-[70vw] h-[40vw] rounded-full bg-gold/5 blur-[150px] animate-aurora" />
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.1)_0%,transparent_70%)] animate-aurora" />
+        <div className="absolute top-[40%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)] animate-aurora-slow" />
+        <div className="absolute -bottom-[20%] left-[20%] w-[70vw] h-[40vw] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)] animate-aurora" />
       </div>
 
       <motion.div 
@@ -279,13 +281,13 @@ export default function PricingSection({ t, currentLang, handleWhatsAppClick }: 
         <motion.div
           animate={{ rotate: 360, scale: [1, 1.05, 1] }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 right-[10%] w-[800px] h-[800px] opacity-[0.02] pointer-events-none mix-blend-screen"
+          className="absolute top-1/4 right-[10%] w-[800px] h-[800px] opacity-[0.02] pointer-events-none"
           style={{ backgroundImage: 'repeating-radial-gradient(circle at center, #D4AF37, transparent 1px, transparent 60px)' }}
         />
         <motion.div
           animate={{ rotate: -360, scale: [1, 1.1, 1] }}
           transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 left-[5%] w-[1000px] h-[1000px] opacity-[0.02] pointer-events-none mix-blend-screen"
+          className="absolute bottom-1/4 left-[5%] w-[1000px] h-[1000px] opacity-[0.02] pointer-events-none"
           style={{ backgroundImage: 'repeating-conic-gradient(from 0deg, #D4AF37 0deg 1deg, transparent 1deg 15deg)' }}
         />
 
@@ -297,7 +299,50 @@ export default function PricingSection({ t, currentLang, handleWhatsAppClick }: 
       {/* LAYER 4: High-Performance Canvas Gold Dust Particles */}
       <PricingCanvasParticles />
 
-      <div className="relative z-10<div className="relative z-10 flex flex-col gap-8">
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+            }}
+          >
+            <span className="text-gold font-mono tracking-[0.2em] text-sm uppercase mb-4 block">
+              {t.pricing.tag || "Investimento Estratégico"}
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 tracking-tight">
+              {t.pricing.title}
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+              {t.pricing.subtitle}
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Standard Plans Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-12">
+          {standardPlans.map((plan, index) => {
+            const isHovered = hoveredCard === index;
+            return (
+              <motion.div
+                key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
+                onHoverStart={() => setHoveredCard(index)}
+                onHoverEnd={() => setHoveredCard(null)}
+                className="group relative rounded-3xl bg-[#0b0b0d]/80 sm:backdrop-blur-md border border-white/5 hover:border-gold/30 transition-all duration-700 flex flex-col overflow-hidden h-full"
+              >
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/0 via-gold/0 to-gold/0 group-hover:from-gold/5 group-hover:via-transparent group-hover:to-gold/5 transition-all duration-700 pointer-events-none" />
+                
+                <div className="p-8 md:p-10 flex flex-col h-full z-10 relative">
+                  <div className="flex-1 flex flex-col gap-8">
                     <div>
                       <span className="inline-block text-[10px] font-mono uppercase tracking-[0.2em] px-3 py-1.5 rounded-md text-gray-400 bg-black/40 border border-white/5 group-hover:text-gold group-hover:border-gold/30 group-hover:bg-gold/10 transition-all duration-500 shadow-inner">
                         0{index + 1}. {plan.id.toUpperCase()}
@@ -351,6 +396,82 @@ export default function PricingSection({ t, currentLang, handleWhatsAppClick }: 
             );
           })}
         </div>
+
+        {/* Imperial Plan (Full Width) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+          className="relative rounded-3xl bg-gradient-to-b from-[#111116] to-[#0a0a0d] border border-gold/30 hover:border-gold/50 transition-all duration-700 overflow-hidden group shadow-[0_0_40px_rgba(212,175,55,0.05)] hover:shadow-[0_0_60px_rgba(212,175,55,0.1)]"
+        >
+          {/* Subtle animated background */}
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10  pointer-events-none" />
+          
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+          
+          <div className="p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start relative z-10">
+            {/* Left side: Header & Price */}
+            <div className="flex-1 flex flex-col gap-8 w-full">
+              <div className="flex justify-between items-start">
+                <span className="inline-block text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] px-3 py-1.5 rounded-md text-gold bg-gold/10 border border-gold/20 shadow-inner">
+                  05. IMPERIAL
+                </span>
+                <span className="inline-block text-[10px] font-mono uppercase tracking-[0.2em] px-4 py-1.5 rounded-full text-black bg-gold font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                  Ultimate Control
+                </span>
+              </div>
+              
+              <div className="flex flex-col gap-4">
+                <h3 className="text-4xl md:text-5xl font-display font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gold transition-all duration-500">
+                  {customPlan.title}
+                </h3>
+                <p className="text-gray-400 font-light text-sm md:text-base">Pack Integrado</p>
+              </div>
+              
+              <div className="flex flex-col gap-4 border-b border-white/5 pb-8 relative">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-5xl lg:text-7xl font-display font-black tracking-tighter text-gold drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                    {customPlan.price}
+                  </span>
+                </div>
+                <div className="inline-flex">
+                  <span className="text-xs text-gold/70 font-mono tracking-[0.2em] uppercase border border-gold/20 px-3 py-1 rounded-sm bg-gold/5">
+                    {currentLang === 'pt' ? 'Pagamento Único' : currentLang === 'es' ? 'Pago Único' : currentLang === 'it' ? 'Pagamento Unico' : currentLang === 'fr' ? 'Paiement Unique' : currentLang === 'de' ? 'Einmalige Zahlung' : 'One-Time Payment'}
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side: Features & CTA */}
+            <div className="flex-[1.5] flex flex-col gap-10 w-full">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                {customPlan.features.map((feature: string, i: number) => (
+                  <motion.li 
+                    key={i} 
+                    initial={false}
+                    className="flex items-start gap-4 text-sm md:text-base text-gray-300 font-light leading-relaxed group-hover:text-white transition-colors duration-300"
+                  >
+                    <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-gold bg-gold/10 shadow-[0_0_10px_rgba(212,175,55,0.2)]">
+                      <Check size={12} strokeWidth={3} />
+                    </div>
+                    {feature}
+                  </motion.li>
+                ))}
+              </ul>
+              
+              <button aria-label="Button" 
+                onClick={() => handleWhatsAppClick(customPlan.tracking)}
+                className="w-full py-5 md:py-6 px-4 rounded-xl font-display font-bold text-xs md:text-sm uppercase tracking-widest transition-all duration-500 flex items-center justify-center gap-3 relative overflow-hidden bg-gradient-to-r from-gold/80 to-gold text-black shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:scale-[1.02]"
+              >
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:animate-[shimmer_2s_infinite]" />
+                <MessageSquare size={20} className="flex-shrink-0" />
+                <span className="relative z-10 break-words text-center">{customPlan.cta}</span>
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

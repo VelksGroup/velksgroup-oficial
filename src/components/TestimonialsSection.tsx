@@ -187,7 +187,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ t, cur
               }}
               className="absolute inset-0 flex items-center justify-center w-full"
             >
-              <div className="w-full bg-[#0d0d0d]/80 backdrop-blur-xl p-10 md:p-12 rounded-3xl border border-gold/20 shadow-[0_30px_60px_rgba(0,0,0,0.8),_inset_0_1px_0_rgba(255,255,255,0.1)] flex flex-col justify-between gap-8 relative overflow-hidden group">
+              <div className="w-full bg-[#0d0d0d]/80 sm:backdrop-blur-xl p-10 md:p-12 rounded-3xl border border-gold/20 shadow-[0_30px_60px_rgba(0,0,0,0.8),_inset_0_1px_0_rgba(255,255,255,0.1)] flex flex-col justify-between gap-8 relative overflow-hidden group">
                 {/* Subtle glass reflection */}
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />

@@ -242,11 +242,13 @@ export function AIVisionSection({ t }: { t: any }) {
 
     const handleResize = () => {
       if (!containerRef.current) return;
-      width = containerRef.current.clientWidth;
-      height = containerRef.current.clientHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+      if (Math.abs(width - containerRef.current.clientWidth) > 10) {
+        width = containerRef.current.clientWidth;
+        height = containerRef.current.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -277,7 +279,7 @@ export function AIVisionSection({ t }: { t: any }) {
         className="relative z-10 max-w-5xl mx-auto px-4 flex flex-col items-center text-center"
       >
         {/* Engineering Badge */}
-        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-gold/30 backdrop-blur-xl mb-8 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-black/40 border border-gold/30 sm:backdrop-blur-xl mb-8 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
           <Hexagon size={18} className="text-gold animate-pulse-slow" />
           <span className="text-xs md:text-sm font-mono uppercase tracking-[0.25em] text-gold font-semibold text-center leading-tight">
             {t.aivision.badge}

@@ -139,11 +139,8 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Deep blue/gold blended core glow */}
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px] mix-blend-screen opacity-50"
-          style={{
-            y: yParallaxSlow,
-            background: 'radial-gradient(circle, rgba(14,24,43,0.8) 0%, rgba(212,175,55,0.1) 40%, transparent 70%)'
-          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px]  opacity-50"
+          style={{ y: yParallaxSlow, WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', background: 'radial-gradient(circle, rgba(14,24,43,0.8) 0%, rgba(212,175,55,0.1) 40%, transparent 70%)' }}
         />
         
         {/* Soft Golden Particles */}
@@ -152,6 +149,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
             key={i}
             className="absolute w-1 h-1 bg-gold rounded-full"
             style={{
+            
               left: `${(i * 17) % 100}%`,
               top: `${(i * 23) % 100}%`,
             }}
@@ -173,6 +171,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
         <motion.div 
           className="absolute inset-0 opacity-[0.03]"
           style={{
+          
             backgroundImage: `linear-gradient(rgba(212, 175, 55, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 1) 1px, transparent 1px)`,
             backgroundSize: '40px 40px',
             transform: 'perspective(1000px) rotateX(75deg) scale(3) translateY(-100px)'
@@ -197,7 +196,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-[10px] sm:text-xs font-mono uppercase tracking-[4px] text-gold font-bold px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+            className="text-[10px] sm:text-xs font-mono uppercase tracking-[4px] text-gold font-bold px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 sm:backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)]"
           >
             {currentLang === 'pt' ? 'PROVA DE AUTOMATIZAÇÃO INTERATIVA' : currentLang === 'es' ? 'PRUEBA DE AUTOMATIZACIÓN INTERACTIVA' : currentLang === 'it' ? 'PROVA DI AUTOMAZIONE INTERATTIVA' : currentLang === 'fr' ? 'PREUVE D\'AUTOMATISATION INTERACTIVE' : currentLang === 'de' ? 'INTERAKTIVE AUTOMATISIERUNGS-DEMO' : 'INTERACTIVE DEMO'}
           </motion.span>
@@ -263,7 +262,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                   initial={{ opacity: 0, x: -30 }}
                   animate={stepsInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: idx * 0.2 }}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/5 hover:border-gold/30 hover:bg-white/[0.05] hover:shadow-[0_0_15px_rgba(212,175,55,0.1)] transition-all duration-300 group"
+                  className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] sm:backdrop-blur-md border border-white/5 hover:border-gold/30 hover:bg-white/[0.05] hover:shadow-[0_0_15px_rgba(212,175,55,0.1)] transition-all duration-300 group"
                 >
                   <div className="w-8 h-8 rounded-full bg-[#0b0b0d] border border-gold/40 flex items-center justify-center font-mono text-sm text-gold font-bold shrink-0 group-hover:bg-gold group-hover:text-black transition-colors shadow-[0_0_10px_rgba(212,175,55,0.2)]">
                     {idx + 1}
@@ -277,7 +276,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
               initial={{ opacity: 0, y: 20 }}
               animate={stepsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 1.2 }}
-              className="p-5 rounded-xl border border-gold/40 bg-gold/10 backdrop-blur-md flex gap-4 items-center shadow-[0_0_20px_rgba(212,175,55,0.15)]"
+              className="p-5 rounded-xl border border-gold/40 bg-gold/10 sm:backdrop-blur-md flex gap-4 items-center shadow-[0_0_20px_rgba(212,175,55,0.15)]"
             >
               <div className="relative flex items-center justify-center">
                 <div className="absolute inset-0 bg-gold rounded-full animate-ping opacity-20" />
@@ -294,7 +293,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full max-w-md h-[600px] flex flex-col bg-[#0b0b0d]/80 backdrop-blur-2xl rounded-[2rem] border border-gold/20 shadow-[0_30px_60px_rgba(0,0,0,0.6),_0_0_40px_rgba(212,175,55,0.1)] overflow-hidden relative group"
+              className="w-full max-w-md h-[600px] flex flex-col bg-[#0b0b0d]/80 sm:backdrop-blur-2xl rounded-[2rem] border border-gold/20 shadow-[0_30px_60px_rgba(0,0,0,0.6),_0_0_40px_rgba(212,175,55,0.1)] overflow-hidden relative group"
             >
               {/* Dynamic glowing edges on desktop (simulated by a gradient border) */}
               <div className="absolute inset-0 rounded-[2rem] border-[1px] border-transparent bg-gradient-to-br from-gold/40 via-transparent to-blue-500/20 [mask-image:linear-gradient(#fff,transparent)] pointer-events-none" />
@@ -391,7 +390,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       className={`flex flex-col max-w-[85%] ${msg.sender === 'user' ? 'self-end items-end' : 'self-start items-start'}`}
                     >
-                      <div className={`p-3.5 rounded-2xl text-xs md:text-sm leading-relaxed shadow-lg backdrop-blur-sm ${
+                      <div className={`p-3.5 rounded-2xl text-xs md:text-sm leading-relaxed shadow-lg sm:backdrop-blur-sm ${
                         msg.sender === 'user' 
                           ? 'bg-gradient-to-br from-gold to-gold-dark text-black rounded-tr-none font-medium' 
                           : 'bg-[#16161a] border border-white/10 text-gray-200 rounded-tl-none font-light'
@@ -448,7 +447,7 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
                       initial={{ scale: 0.95, opacity: 0, y: 20 }}
                       animate={{ scale: 1, opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-full max-w-[650px] mx-auto mt-4 px-6 pt-6 pb-12 rounded-2xl bg-[#0b0b0d]/60 backdrop-blur-xl border border-green-500/30 relative shadow-[0_10px_40px_rgba(34,197,94,0.15)] flex flex-col gap-4 shrink-0 overflow-visible"
+                      className="w-full max-w-[650px] mx-auto mt-4 px-6 pt-6 pb-12 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-xl border border-green-500/30 relative shadow-[0_10px_40px_rgba(34,197,94,0.15)] flex flex-col gap-4 shrink-0 overflow-visible"
                     >
                       {/* Progress bar at the top */}
                       <motion.div 

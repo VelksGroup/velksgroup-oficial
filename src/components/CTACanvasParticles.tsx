@@ -30,7 +30,7 @@ export const CTACanvasParticles = () => {
 
     const createParticles = () => {
       particles = [];
-      const particleCount = width < 768 ? 100 : 250;
+      const particleCount = width < 768 ? 40 : 120;
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * width,
@@ -74,11 +74,13 @@ export const CTACanvasParticles = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     
     const onResize = () => {
-      width = window.innerWidth;
-      height = canvas.parentElement?.clientHeight || window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-      createParticles();
+      if (Math.abs(width - window.innerWidth) > 10) {
+        width = window.innerWidth;
+        height = canvas.parentElement?.clientHeight || window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        createParticles();
+      }
     };
     window.addEventListener('resize', onResize);
 
@@ -131,8 +133,8 @@ export const CTACanvasParticles = () => {
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.color}, ${p.alpha})`;
         
-        ctx.shadowBlur = p.alpha > 0.8 ? 15 : 5;
-        ctx.shadowColor = `rgba(${p.color}, ${p.alpha * 1.5})`;
+        
+        
         ctx.fill();
       });
 
@@ -168,5 +170,5 @@ export const CTACanvasParticles = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-100 mix-blend-screen" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-100 " />;
 };

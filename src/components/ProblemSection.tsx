@@ -60,7 +60,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, 
         }}
       />
 
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen animate-pulse-slow" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(127,29,29,0.2)_0%,transparent_70%)] pointer-events-none  animate-pulse-slow" />
 
       {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -140,7 +140,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`p-6 md:p-8 rounded-2xl bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/5 hover:border-red-500/50 active:border-red-500/60 transition-all duration-500 flex flex-col gap-4 relative overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_40px_rgba(239,68,68,0.15)] hover:-translate-y-3 active:-translate-y-3 active:scale-[1.03] cursor-pointer ${card.col}`}
+                className={`p-6 md:p-8 rounded-2xl bg-[#0a0a0c]/80 sm:backdrop-blur-xl border border-white/5 hover:border-red-500/50 active:border-red-500/60 transition-all duration-500 flex flex-col gap-4 relative overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_40px_rgba(239,68,68,0.15)] hover:-translate-y-3 active:-translate-y-3 active:scale-[1.03] cursor-pointer ${card.col}`}
               >
                 {/* Mobile specific active state simulation via active/focus ring */}
                 <div className="absolute inset-0 bg-gradient-to-b from-red-500/0 via-red-500/5 to-red-500/10 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 pointer-events-none" />

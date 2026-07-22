@@ -128,7 +128,7 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({ t, currentLang
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-[10px] sm:text-xs font-mono uppercase tracking-[4px] text-gold font-bold px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+            className="text-[10px] sm:text-xs font-mono uppercase tracking-[4px] text-gold font-bold px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 sm:backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)]"
           >
             {currentLang === 'pt' ? 'O MAPA DA MINERAÇÃO DE OURO' : currentLang === 'es' ? 'LA ESTRATEGIA DE LA MINA DE ORO' : currentLang === 'it' ? 'LA STRATEGIA DELLA MINIERA D\'ORO' : currentLang === 'fr' ? 'LA STRATÉGIE DE LA MINE D\'OR' : currentLang === 'de' ? 'DIE GOLDMINE-STRATEGIE' : 'THE GOLDMINE STRATEGY'}
           </motion.span>
@@ -183,7 +183,7 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({ t, currentLang
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className={`p-8 md:p-10 rounded-3xl bg-[#0b0b0d]/80 backdrop-blur-xl border border-gold/15 hover:border-gold/40 active:border-gold/50 transition-all duration-500 flex flex-col gap-6 relative overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:-translate-y-3 active:-translate-y-3 active:scale-[1.02] cursor-pointer ${card.col}`}
+                className={`p-8 md:p-10 rounded-3xl bg-[#0b0b0d]/80 sm:backdrop-blur-xl border border-gold/15 hover:border-gold/40 active:border-gold/50 transition-all duration-500 flex flex-col gap-6 relative overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:-translate-y-3 active:-translate-y-3 active:scale-[1.02] cursor-pointer ${card.col}`}
               >
                 {/* Glow effects inside card */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full blur-[40px]" />

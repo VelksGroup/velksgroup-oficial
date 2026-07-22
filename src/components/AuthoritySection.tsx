@@ -55,7 +55,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
       {/* Glow behind */}
       <motion.div 
         style={{ y: yParallaxSlow }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[140px] pointer-events-none" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)] pointer-events-none" 
       />
 
       {/* Translucent Geometric Lines */}
@@ -131,7 +131,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: idx * 0.15 + 0.3, ease: "easeOut" }}
-                  className="flex items-start gap-4 p-5 rounded-2xl bg-[#16161a]/80 backdrop-blur-md border border-white/5 hover:border-gold/30 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-2 hover:bg-[#1a1a1f] transition-all duration-300 cursor-default group"
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-[#16161a]/80 sm:backdrop-blur-md border border-white/5 hover:border-gold/30 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] hover:-translate-y-2 hover:bg-[#1a1a1f] transition-all duration-300 cursor-default group"
                 >
                   <div className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-xl shrink-0 group-hover:border-gold/40 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-300">
                     {country.icon}
@@ -167,26 +167,26 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
               </span>
               
               <div className="grid grid-cols-2 gap-4 md:gap-5">
-                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col gap-2 md:gap-3 group">
+                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col gap-2 md:gap-3 group">
                   <span className="text-3xl md:text-4xl font-display font-black text-white glow-text group-hover:scale-105 transition-transform origin-left">
                     <AnimatedCounter to={240} suffix="+" />
                   </span>
                   <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed">{t.authority.metrics.clients}</span>
                 </div>
-                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col gap-2 md:gap-3 group">
+                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col gap-2 md:gap-3 group">
                   <span className="text-3xl md:text-4xl font-display font-black text-white glow-text group-hover:scale-105 transition-transform origin-left">
                     <AnimatedCounter to={350} suffix="+" />
                   </span>
                   <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed">{t.authority.metrics.delivered}</span>
                 </div>
-                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 backdrop-blur-md border border-white/5 hover:border-gold/30 transition-colors flex flex-col gap-2 md:gap-3 group relative overflow-hidden">
+                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/30 transition-colors flex flex-col gap-2 md:gap-3 group relative overflow-hidden">
                   <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <span className="text-3xl md:text-4xl font-display font-black text-gold glow-text group-hover:scale-105 transition-transform origin-left drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]">
                     <AnimatedCounter to={320} suffix="%" />
                   </span>
                   <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed relative z-10">{t.authority.metrics.roi}</span>
                 </div>
-                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col justify-center gap-2 md:gap-3 group">
+                <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col justify-center gap-2 md:gap-3 group">
                   <div className="flex gap-1.5 text-gold text-base md:text-lg drop-shadow-[0_0_5px_rgba(212,175,55,0.5)]">
                     ★★★★★
                   </div>
@@ -199,7 +199,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-30" />
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold to-gold/20" />
                 
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 blur-[100px] rounded-full pointer-events-none transition-opacity duration-700 group-hover:opacity-100 opacity-50" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(circle,rgba(212,175,55,0.1)_0%,transparent_70%)] rounded-full pointer-events-none transition-opacity duration-700 group-hover:opacity-100 opacity-50" />
                 
                 <div className="relative z-10 flex flex-col gap-6">
                   <div className="flex items-center gap-3">
