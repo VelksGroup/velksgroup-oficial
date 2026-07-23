@@ -7,6 +7,7 @@ import {
   TranslationSchema 
 } from './translations';
 import { ThreeHero } from './components/ThreeHero';
+import { OrionWidgetLoader } from './components/OrionWidgetLoader';
 const ProblemSection = React.lazy(() => import('./components/ProblemSection').then(m => ({ default: m.ProblemSection })));
 const SolutionSection = React.lazy(() => import('./components/SolutionSection').then(m => ({ default: m.SolutionSection })));
 const AuthoritySection = React.lazy(() => import('./components/AuthoritySection').then(m => ({ default: m.AuthoritySection })));
@@ -895,6 +896,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
+          <OrionWidgetLoader cookieConsent={cookieConsent} />
     </div>
   );
 }
