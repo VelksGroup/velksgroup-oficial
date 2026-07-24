@@ -11,7 +11,7 @@ interface ThreeHeroProps {
   onScrollToDemos: () => void;
 }
 
-export const ThreeHero: React.FC<ThreeHeroProps> = ({
+export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
   currentLang,
   t,
   onCtaClick,
@@ -237,13 +237,27 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
     let localMouse = { x: 0, y: 0 };
     const startTime = Date.now();
 
+
+    let isVisible = true;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    });
+    if (containerRef.current) observer.observe(containerRef.current);
+
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const time = (Date.now() - startTime) * 0.001;
+      if (!isVisible) return;
 
+      
       // Smooth scroll progress using Lerp
       currentScroll.current += (targetScroll.current - currentScroll.current) * 0.08;
       const progress = currentScroll.current;
+      
+      // Disable invisible processing to save battery and performance when off-screen
+      if (progress > 1.05) return;
+      
+      const time = (Date.now() - startTime) * 0.001;
+
       // Update DOM directly to avoid React state re-renders
       if (orbitalRef.current) {
         orbitalRef.current.style.transform = `translate(-150%, -50%) translate3d(${mouseRef.current.x * 20}px, ${-mouseRef.current.y * 20}px, 0) scale(${Math.max(1 - progress * 1.8, 0)})`;
@@ -587,4 +601,4 @@ export const ThreeHero: React.FC<ThreeHeroProps> = ({
       </AnimatePresence>
     </section>
   );
-};
+});

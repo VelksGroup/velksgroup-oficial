@@ -9,7 +9,7 @@ interface ProblemSectionProps {
   problemRef: React.RefObject<HTMLDivElement>;
 }
 
-export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, problemRef }) => {
+export const ProblemSection: React.FC<ProblemSectionProps> = React.memo(({ t, currentLang, problemRef }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -183,4 +183,4 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ t, currentLang, 
       </div>
     </section>
   );
-};
+});

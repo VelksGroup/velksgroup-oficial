@@ -79,6 +79,7 @@ export interface TranslationSchema {
       role: string;
       text: string;
       rating: number;
+      isGoogle?: boolean;
     }[];
   };
   pricing: {
@@ -313,20 +314,33 @@ export const translations: Record<Language, TranslationSchema> = {
       list: [
         {
           name: "Ricardo Silva",
-          role: "Dono de Restaurante",
-          text: "Desde que implementámos o site da VELKS, as reservas aumentaram 40%. A IA responde aos clientes à noite enquanto nós descansamos. Impressionante.",
+          role: "Proprietário de Restaurante",
+          text: "Meu restaurante quase não aparecia nas pesquisas locais. Depois da otimização da VELKS, começamos a receber chamadas e reservas diariamente através do Google Maps. Hoje somos encontrados por clientes que antes iam diretamente para a concorrência.",
+          rating: 5,
+          isGoogle: true
+        },
+        {
+          name: "Maria Costa",
+          role: "Consultora Financeira",
+          text: "Eu perdia oportunidades porque o meu site não transmitia confiança. A VELKS criou uma presença profissional que aumentou a credibilidade da marca. Os clientes chegam mais preparados e as conversões cresceram significativamente.",
           rating: 5
         },
         {
-          name: "Marta Sousa",
-          role: "Gestora Imobiliária",
-          text: "O nosso perfil no Google Maps estava invisível. Em 2 semanas fomos para o topo. Hoje recebemos chamadas diárias sem gastar 1 cêntimo em anúncios.",
+          name: "Carlos Mendes",
+          role: "Diretor Comercial",
+          text: "Perdíamos contactos fora do horário comercial. Com a automação da VELKS, cada mensagem recebe resposta imediata. Hoje captamos oportunidades 24 horas por dia sem aumentar a equipa.",
+          rating: 5
+        },
+        {
+          name: "Ana Rodrigues",
+          role: "Empreendedora Digital",
+          text: "Gerir vendas manualmente consumia demasiado tempo. A VELKS automatizou toda a operação da nossa loja online. As vendas cresceram e conseguimos escalar sem aumentar a carga de trabalho.",
           rating: 5
         },
         {
           name: "João Ferreira",
-          role: "Diretor de Clínica",
-          text: "A qualidade do design é fenomenal. Passa exatamente o nível de excelência da nossa clínica. O assistente IA já agendou dezenas de consultas automaticamente.",
+          role: "CEO",
+          text: "Sabíamos que havia potencial de crescimento, mas faltava estratégia. A auditoria da VELKS identificou gargalos invisíveis e criou um plano claro de expansão. Hoje tomamos decisões com muito mais confiança.",
           rating: 5
         }
       ]
@@ -369,16 +383,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Olá! Tenho interesse no pacote Site Profissional. Qual é o primeiro passo para construirmos a minha nova máquina de vendas?"
         },
         automacao: {
-          title: "Assistente IA Automático",
+          title: "Automação de Atendimento",
           price: "250€",
           features: [
-            "Assistente Inteligente Personalizado",
-            "Integração WhatsApp & Instagram",
-            "Menu Inteligente de Conversão",
-            "Configuração em 2 Idiomas",
-            "Bot Proativo com Respostas Humanas",
-            "Captura e Envio de Leads por Email",
-            "Integração no seu Site Atual"
+            "Triagem automática e qualificação de clientes.",
+            "Integração direta com WhatsApp ou Instagram.",
+            "Menu estratégico de respostas imediatas (24/7).",
+            "Configuração de fluxos em 2 idiomas.",
+            "Captura e reencaminhamento de orçamentos.",
+            "Zero consumo de API e zero mensalidades."
           ],
           cta: "BLINDAR O ATENDIMENTO 24/7",
           tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com a Assistência Automática de IA. Qual é o próximo passo?"
@@ -399,16 +412,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com o pacote E-Commerce Completo. Qual é o próximo passo?"
         },
         custom: {
-          title: "All-In-One Imperial",
+          title: "Pack Imperial B2B",
           price: "Sob Consulta",
           features: [
-            "Google Maps + Website + Assistente IA",
-            "Estratégia Completa de Domínio",
-            "Copywriting Agressivo de Alta Conversão",
-            "Otimização Multi-idioma Completa",
-            "Suporte Prioritário Vitalício",
-            "Consultoria Estratégica Mensal",
-            "Desconto de Pacote Integrado"
+            "Google Maps + Website Premium + Automação de Atendimento.",
+            "Copywriting agressivo focado exclusivamente em ROI.",
+            "Suporte técnico e estratégico prioritário.",
+            "Otimização avançada de SEO Multi-idioma.",
+            "Posicionamento de Autoridade (Domínio de Nicho).",
+            "Consultoria estratégica de conversão."
           ],
           cta: "AGENDAR AUDITORIA PRIVADA",
           tracking: "Olá, Equipa VELKS. O meu negócio precisa de uma reestruturação digital profunda. Gostaria de agendar uma auditoria privada com um especialista da VELKS para discutir a solução All-In-One Imperial. Podem ajudar-me?"
@@ -631,33 +643,34 @@ export const translations: Record<Language, TranslationSchema> = {
       subtitle: "Storie reali di imprenditori locali usciti dall'invisibilità che oggi dominano le ricerche nella loro zona.",
       list: [
         {
-          name: "Carlo Silva",
-          role: "Titolare, Silva & Filhos Costruzioni",
-          text: "Il pacchetto Google Maps e il sito hanno cambiato la nostra direzione. Prima dipendevamo dai consigli, oggi riceviamo da 3 a 5 chiamate da nuovi clienti al giorno. L'investimento si è ripagato nel primo mese.",
+          name: "Ricardo Silva",
+          role: "Titolare di Ristorante",
+          text: "Il mio ristorante era invisibile nelle ricerche locali. Dopo l'ottimizzazione di VELKS, riceviamo chiamate e prenotazioni ogni giorno tramite Google Maps. Oggi ci trovano clienti che prima andavano dalla concorrenza.",
+          rating: 5,
+          isGoogle: true
+        },
+        {
+          name: "Maria Costa",
+          role: "Consulente Finanziaria",
+          text: "Perdevo opportunità perché il mio sito non ispirava fiducia. VELKS ha creato una presenza professionale che ha aumentato la credibilità del brand. I clienti arrivano più preparati e le conversioni sono cresciute.",
           rating: 5
         },
         {
-          name: "Dr.ssa Mariana Costa",
-          role: "Direttrice Sanitaria, OdontoArt Coimbra",
-          text: "L'assistente automatico sul sito è fantastico. I clienti entrano di notte per chiedere informazioni, il bot raccoglie il contatto e il giorno dopo la nostra segretaria deve solo confermare. Eccellente!",
+          name: "Carlos Mendes",
+          role: "Direttore Commerciale",
+          text: "Perdevamo contatti fuori orario. Con l'automazione di VELKS, ogni messaggio riceve una risposta immediata. Oggi catturiamo opportunità 24 ore su 24 senza aumentare il personale.",
           rating: 5
         },
         {
-          name: "Jean-Pierre Weber",
-          role: "Proprietario, Brasserie Gare Lussemburgo",
-          text: "Avere Google Maps ottimizzato in tre lingue ci ha portato decine di turisti ogni giorno. VELKS è stata rapida, professionale e focalizzata sul nostro ritorno.",
+          name: "Ana Rodrigues",
+          role: "Imprenditrice Digitale",
+          text: "Gestire le vendite manualmente portava via troppo tempo. VELKS ha automatizzato l'intero negozio online. Le vendite sono aumentate e siamo riusciti a scalare senza accrescere il carico di lavoro.",
           rating: 5
         },
         {
-          name: "Isabel Mendes",
-          role: "Immobiliare Mendes & Associati",
-          text: "I nostri agenti ora ricevono clienti qualificati pronti per l'acquisto. Il sistema filtra chi vuole davvero comprare o vendere e invia tutto direttamente su WhatsApp. Lo consiglio al 100%.",
-          rating: 5
-        },
-        {
-          name: "Ricardo Martins",
-          role: "Stand Martins Automobili",
-          text: "Ottimo servizio di supporto. Nessun costo mensile costoso, abbiamo pagato una volta per il sito e Google Maps e i risultati sono stati costanti. Trasparenza assoluta.",
+          name: "João Ferreira",
+          role: "CEO",
+          text: "Sapevamo di avere potenziale di crescita, ma mancava una strategia. L'audit di VELKS ha individuato colli di bottiglia invisibili e creato un piano di espansione chiaro. Oggi prendiamo decisioni con molta più fiducia.",
           rating: 5
         }
       ]
@@ -700,16 +713,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Ciao! Sono interessato al pacchetto Sito Web Professionale. Qual è il primo passo per costruire la mia nuova macchina per le vendite?"
         },
         automacao: {
-          title: "Assistente IA Automatico",
+          title: "Automazione dell'Assistenza",
           price: "250€",
           features: [
-            "Assistente Web Intelligente Personalizzato",
-            "Integrazione WhatsApp & Instagram",
-            "Menu Intelligente di Conversione",
-            "Configurazione in 2 Lingue a Scelta",
-            "Bot Proattivo con Risposte Umane",
-            "Cattura e Invio dei Lead via Email",
-            "Integrazione nel tuo Sito Attuale"
+            "Triage automatico e qualificazione dei clienti.",
+            "Integrazione diretta con WhatsApp o Instagram.",
+            "Menu strategico di risposte immediate (24/7).",
+            "Configurazione dei flussi in 2 lingue.",
+            "Acquisizione e inoltro di preventivi.",
+            "Zero consumo API e zero canoni mensili."
           ],
           cta: "BLINDARE L'ASSISTENZA 24/7",
           tracking: "Ciao, Team VELKS. Ho analizzato il listino prezzi sul sito e sono interessato ad andare avanti con l'Assistenza Automatica IA. Qual è il prossimo passo per iniziare l'integrazione?"
@@ -730,16 +742,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Ciao, Team VELKS. Ho analizzato il listino prezzi sul sito e sono interessato ad andare avanti con il pacchetto E-Commerce Completo. Qual è il prossimo passo per iniziare l'integrazione?"
         },
         custom: {
-          title: "All-In-One Imperial",
+          title: "Pack Imperial B2B",
           price: "Su Richiesta",
           features: [
-            "Google Maps + Sito Web + Assistente IA",
-            "Strategia Completa di Dominio del Mercato",
-            "Copywriting Aggressivo ad Alta Conversione",
-            "Ottimizzazione Multi-lingua Completa",
-            "Supporto Prioritario a Vita",
-            "Consulenza Strategica Mensile",
-            "Sconto Pacchetto Integrato"
+            "Google Maps + Sito Web Premium + Automazione dell'Assistenza.",
+            "Copywriting aggressivo focalizzato esclusivamente sul ROI.",
+            "Supporto tecnico e strategico prioritario.",
+            "Ottimizzazione SEO multilingua avanzata.",
+            "Posizionamento di Autorità (Dominio di Nicchia).",
+            "Consulenza strategica di conversione."
           ],
           cta: "PRENOTA AUDIT PRIVATO",
           tracking: "Ciao, Team VELKS. La mia attività necessita di una profonda ristrutturazione digitale. Vorrei prenotare un audit privato con uno specialista VELKS per discutere della soluzione All-In-One Imperial. Potreste aiutarmi?"
@@ -962,33 +973,34 @@ export const translations: Record<Language, TranslationSchema> = {
       subtitle: "Real stories from local entrepreneurs who left digital invisibility to dominate search results in their areas.",
       list: [
         {
-          name: "Carlos Silva",
-          role: "Owner, Silva & Sons Construction",
-          text: "The Google Maps package and website changed everything. We used to rely entirely on references; now we receive 3 to 5 calls from new clients every day. The investment paid for itself in the first month.",
+          name: "Ricardo Silva",
+          role: "Restaurant Owner",
+          text: "My restaurant barely showed up in local searches. After VELKS's optimization, we get daily calls and bookings through Google Maps. Today, customers find us instead of going straight to the competition.",
+          rating: 5,
+          isGoogle: true
+        },
+        {
+          name: "Maria Costa",
+          role: "Financial Consultant",
+          text: "I was losing opportunities because my website lacked trust. VELKS built a professional presence that boosted brand credibility. Clients arrive better prepared and our conversions have grown significantly.",
           rating: 5
         },
         {
-          name: "Dr. Mariana Costa",
-          role: "Clinical Director, OdontoArt",
-          text: "The web assistant is incredible. Patients check our page late at night, the assistant answers their questions, captures their phone number, and our receptionist simply confirms the slot in the morning. Brilliant!",
+          name: "Carlos Mendes",
+          role: "Commercial Director",
+          text: "We were losing leads after business hours. With VELKS's automation, every message gets an instant reply. Today, we capture opportunities 24/7 without growing our team.",
           rating: 5
         },
         {
-          name: "Jean-Pierre Weber",
-          role: "Proprietor, Brasserie Gare Luxembourg",
-          text: "Optimizing our Google Maps listing in English, German, and French brought us dozens of tourists daily. VELKS was incredibly fast, professional, and entirely focused on our bottom line.",
+          name: "Ana Rodrigues",
+          role: "Digital Entrepreneur",
+          text: "Managing sales manually took too much time. VELKS automated our entire online store operations. Sales increased and we scaled effortlessly without adding to our workload.",
           rating: 5
         },
         {
-          name: "Isabel Mendes",
-          role: "Mendes & Associates Real Estate",
-          text: "Our agents now receive highly qualified, pre-filtered customers. The system weeds out time-wasters and delivers real buyers straight to WhatsApp. Highly recommended.",
-          rating: 5
-        },
-        {
-          name: "Ricardo Martins",
-          role: "Martins Cars Dealership",
-          text: "Outstanding service. No expensive monthly fees; we paid a single fee for our site and Google Maps setup, and the return has been constant and reliable. Total transparency.",
+          name: "João Ferreira",
+          role: "CEO",
+          text: "We knew we had growth potential, but lacked a clear strategy. VELKS's audit found invisible bottlenecks and created a clear expansion plan. Today we make decisions with much more confidence.",
           rating: 5
         }
       ]
@@ -1031,16 +1043,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Hello! I am interested in the Professional Website package. What is the first step to building my new sales machine?"
         },
         automacao: {
-          title: "AI Automated Customer Desk",
+          title: "Customer Support Automation",
           price: "250€",
           features: [
-            "Custom-Trained Intelligent Web Bot",
-            "WhatsApp & Instagram Channel Activation",
-            "Intelligent Conversion Menu Tree",
-            "Setup in 2 Languages of Choice",
-            "Proactive Humanized Response Flow",
-            "Lead Capture and Instant Email Alerts",
-            "Seamless Integration with Current Site"
+            "Automatic triage and customer qualification.",
+            "Direct integration with WhatsApp or Instagram.",
+            "Strategic menu of immediate responses (24/7).",
+            "Flow configuration in 2 languages.",
+            "Capture and forwarding of quotes.",
+            "Zero API consumption and zero monthly fees."
           ],
           cta: "BULLETPROOF 24/7 SUPPORT",
           tracking: "Hello, VELKS Team. I reviewed the pricing table on the website and I am interested in moving forward with AI Automated Support. What is the next step to start the integration?"
@@ -1061,16 +1072,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Hello, VELKS Team. I reviewed the pricing table on the website and I am interested in moving forward with the Complete E-Commerce package. What is the next step to start the integration?"
         },
         custom: {
-          title: "Imperial All-In-One",
+          title: "Pack Imperial B2B",
           price: "Custom",
           features: [
-            "Google Maps + Website + AI Customer Desk",
-            "Complete Market Dominance Strategy",
-            "Aggressive High-Conversion Copywriting",
-            "Fully Configured Multi-Language Pack",
-            "Priority Lifetime Core Support",
-            "Monthly Strategic Consultation Call",
-            "Significant Bundled Discount"
+            "Google Maps + Premium Website + Customer Support Automation.",
+            "Aggressive copywriting focused exclusively on ROI.",
+            "Priority technical and strategic support.",
+            "Advanced multi-language SEO optimization.",
+            "Authority Positioning (Niche Domain).",
+            "Strategic conversion consulting."
           ],
           cta: "SCHEDULE PRIVATE AUDIT",
           tracking: "Hello, VELKS Team. My business needs a deep digital restructuring. I would like to schedule a private audit with a VELKS specialist to discuss the All-In-One Imperial solution. Could you help me?"
@@ -1293,33 +1303,34 @@ export const translations: Record<Language, TranslationSchema> = {
       subtitle: "Histoires réelles d'entrepreneurs locaux qui sont sortis de l'invisibilité pour dominer les recherches de leur région.",
       list: [
         {
-          name: "Carlos Silva",
-          role: "Gérant, Silva & Fils Bâtiment",
-          text: "La formule Google Maps et le site ont tout changé. Avant, on dépendait du bouche-à-oreille. Aujourd'hui, on reçoit 3 à 5 appels de nouveaux clients par jour. L'investissement s'est rentabilisé le premier mois.",
+          name: "Ricardo Silva",
+          role: "Propriétaire de Restaurant",
+          text: "Mon restaurant était invisible dans les recherches locales. Grâce à l'optimisation de VELKS, nous recevons des appels et réservations tous les jours via Google Maps. Les clients nous trouvent au lieu d'aller chez la concurrence.",
+          rating: 5,
+          isGoogle: true
+        },
+        {
+          name: "Maria Costa",
+          role: "Consultante Financière",
+          text: "Je perdais des opportunités car mon site manquait de confiance. VELKS a créé une présence professionnelle qui a boosté notre crédibilité. Les clients arrivent mieux préparés et nos conversions ont fortement augmenté.",
           rating: 5
         },
         {
-          name: "Dr. Mariana Costa",
-          role: "Directrice Clinique, OdontoArt Coimbra",
-          text: "L'assistant web est magique. Les patients se connectent tard le soir, posent des questions, l'IA prend leurs coordonnées et notre secrétaire n'a plus qu'à confirmer le matin. Brillant !",
+          name: "Carlos Mendes",
+          role: "Directeur Commercial",
+          text: "Nous perdions des contacts en dehors des heures d'ouverture. Avec l'automatisation de VELKS, chaque message reçoit une réponse immédiate. Aujourd'hui, nous captons des opportunités 24h/24 sans agrandir l'équipe.",
           rating: 5
         },
         {
-          name: "Jean-Pierre Weber",
-          role: "Propriétaire, Brasserie Gare Luxembourg",
-          text: "Optimiser notre fiche Google Maps en anglais, allemand et français nous a apporté des dizaines de touristes chaque jour. VELKS a été extrêmement rapide, professionnelle et orientée résultats.",
+          name: "Ana Rodrigues",
+          role: "Entrepreneuse Digitale",
+          text: "Gérer les ventes manuellement prenait trop de temps. VELKS a automatisé toute notre boutique en ligne. Les ventes ont augmenté et nous avons pu évoluer sans alourdir notre charge de travail.",
           rating: 5
         },
         {
-          name: "Isabel Mendes",
-          role: "Mendes & Associés Immobilier",
-          text: "Nos agents reçoivent enfin des clients qualifiés et pré-filtrés. Le système élimine les curieux et nous envoie les vrais acheteurs directement sur WhatsApp. Recommandé à 100%.",
-          rating: 5
-        },
-        {
-          name: "Ricardo Martins",
-          role: "Martins Occasions",
-          text: "Excellent service de support. Pas d'abonnements mensuels coûteux, nous avons payé une fois pour le site et la configuration Maps et le retour a été continu et fiable. Transparence totale.",
+          name: "João Ferreira",
+          role: "PDG",
+          text: "Nous savions qu'il y avait un potentiel de croissance, mais la stratégie manquait. L'audit de VELKS a identifié les blocages invisibles et créé un plan d'expansion clair. Aujourd'hui, nous décidons avec confiance.",
           rating: 5
         }
       ]
@@ -1362,16 +1373,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Bonjour ! Je suis intéressé par le forfait Site Web Professionnel. Quelle est la première étape pour construire ma nouvelle machine de vente ?"
         },
         automacao: {
-          title: "Accueil Client IA Automatique",
+          title: "Automatisation du Support",
           price: "250€",
           features: [
-            "Assistant Web Intelligent Entraîné",
-            "Activation des canaux WhatsApp & Instagram",
-            "Arborescence d'Accueil de Conversion",
-            "Configuration en 2 Langues au Choix",
-            "Flux de Réponses Humanisées Proactif",
-            "Capture de Contacts & Alertes Email",
-            "Intégration Simple sur Votre Site Existant"
+            "Triage automatique et qualification des clients.",
+            "Intégration directe avec WhatsApp ou Instagram.",
+            "Menu stratégique de réponses immédiates (24/7).",
+            "Configuration des flux en 2 langues.",
+            "Capture et transfert des devis.",
+            "Zéro consommation d'API et zéro frais mensuels."
           ],
           cta: "BLINDER L'ASSISTANCE 24/7",
           tracking: "Bonjour, l'équipe VELKS. J'ai analysé la grille tarifaire sur le site et je suis intéressé pour avancer avec l'Assistance Automatique par IA. Quelle est la prochaine étape pour commencer l'intégration ?"
@@ -1392,16 +1402,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Bonjour, l'équipe VELKS. J'ai analysé la grille tarifaire sur le site et je suis intéressé pour avancer avec le forfait E-Commerce Complet. Quelle est la prochaine étape pour commencer l'intégration ?"
         },
         custom: {
-          title: "Pack Impérial All-In-One",
-          price: "Sur Mesure",
+          title: "Pack Imperial B2B",
+          price: "Sur Demande",
           features: [
-            "Google Maps + Site Web + Accueil Client IA",
-            "Stratégie Globale de Domination Locale",
-            "Copywriting Agressif Haute Conversion",
-            "Configuration Multi-langue Complète",
-            "Support Prioritaire à Vie",
-            "Consultation Mensuelle de Suivi",
-            "Remise Importante sur le Pack Groupé"
+            "Google Maps + Site Web Premium + Automatisation du Support.",
+            "Copywriting agressif axé exclusivement sur le ROI.",
+            "Support technique et stratégique prioritaire.",
+            "Optimisation SEO multilingue avancée.",
+            "Positionnement d'Autorité (Domaine de Niche).",
+            "Conseil stratégique en conversion."
           ],
           cta: "PLANIFIER UN AUDIT PRIVÉ",
           tracking: "Bonjour, l'équipe VELKS. Mon entreprise a besoin d'une restructuration numérique profonde. J'aimerais planifier un audit privé avec un spécialiste VELKS pour discuter de la solution All-In-One Imperial. Pourriez-vous m'aider ?"
@@ -1624,33 +1633,34 @@ export const translations: Record<Language, TranslationSchema> = {
       subtitle: "Echte Geschichten von lokalen Unternehmern, die aus der digitalen Unsichtbarkeit traten, um die Suche in ihrer Region zu dominieren.",
       list: [
         {
-          name: "Carlos Silva",
-          role: "Inhaber, Silva & Söhne Bau",
-          text: "Das Google Maps-Paket und die Website haben alles verändert. Früher verließen wir uns nur auf Empfehlungen, heute erhalten wir täglich 3 bis 5 Anrufe von Neukunden. Die Investition hat sich im ersten Monat amortisiert.",
+          name: "Ricardo Silva",
+          role: "Restaurantbesitzer",
+          text: "Mein Restaurant war in lokalen Suchen unsichtbar. Nach der Optimierung durch VELKS erhalten wir täglich Anrufe und Buchungen über Google Maps. Heute finden uns Kunden, die früher direkt zur Konkurrenz gingen.",
+          rating: 5,
+          isGoogle: true
+        },
+        {
+          name: "Maria Costa",
+          role: "Finanzberaterin",
+          text: "Ich verlor Kunden, weil meine Website nicht vertrauenswürdig wirkte. VELKS schuf eine professionelle Präsenz, die unsere Glaubwürdigkeit steigerte. Kunden sind besser vorbereitet und die Conversions sind deutlich gestiegen.",
           rating: 5
         },
         {
-          name: "Dr. Mariana Costa",
-          role: "Ärztliche Leiterin, OdontoArt Coimbra",
-          text: "Der Web-Assistent ist einfach genial. Patienten besuchen unsere Seite spät in der Nacht, die KI beantwortet ihre Fragen, erfasst ihre Nummer und am Morgen muss unsere Sprechstundenhilfe den Termin nur noch bestätigen.",
+          name: "Carlos Mendes",
+          role: "Verkaufsleiter",
+          text: "Wir verloren Leads nach Geschäftsschluss. Mit der Automatisierung von VELKS wird jede Nachricht sofort beantwortet. Heute erfassen wir rund um die Uhr Chancen, ohne unser Team aufzustocken.",
           rating: 5
         },
         {
-          name: "Jean-Pierre Weber",
-          role: "Eigentümer, Brasserie Gare Luxemburg",
-          text: "Die Optimierung unseres Google Maps-Eintrags in drei Sprachen (Französisch, Deutsch und Portugiesisch) brachte uns täglich Dutzende von Touristen. VELKS war extrem schnell, professionell und fokussiert auf unseren ROI.",
+          name: "Ana Rodrigues",
+          role: "Digitale Unternehmerin",
+          text: "Verkäufe manuell zu verwalten kostete zu viel Zeit. VELKS hat unseren gesamten Onlineshop automatisiert. Die Verkäufe stiegen und wir konnten wachsen, ohne die Arbeitsbelastung zu erhöhen.",
           rating: 5
         },
         {
-          name: "Isabel Mendes",
-          role: "Mendes & Partner Immobilien",
-          text: "Unsere Makler erhalten jetzt hochqualifizierte, vorselektierte Kunden. Das System filtert Zeitdiebe heraus und liefert echte Käufer direkt an unser WhatsApp. Zu 100 % zu empfehlen.",
-          rating: 5
-        },
-        {
-          name: "Ricardo Martins",
-          role: "Martins Automobile",
-          text: "Herausragender Support. Keine teuren monatlichen Gebühren; wir haben einmalig für Website und Maps-Einrichtung bezahlt, und der Ertrag ist konstant geblieben. Absolute Transparenz.",
+          name: "João Ferreira",
+          role: "Geschäftsführer",
+          text: "Wir wussten, dass wir Wachstumspotenzial hatten, aber es fehlte an Strategie. Das Audit von VELKS fand unsichtbare Engpässe und schuf einen klaren Expansionsplan. Heute treffen wir Entscheidungen mit viel mehr Vertrauen.",
           rating: 5
         }
       ]
@@ -1693,16 +1703,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Hallo! Ich interessiere mich für das Website Professionell-Paket. Was ist der erste Schritt zum Aufbau meiner neuen Verkaufsmaschine?"
         },
         automacao: {
-          title: "KI-Automatische Kundenannahme",
+          title: "Support-Automatisierung",
           price: "250€",
           features: [
-            "Maßgeschneiderter intelligenter Web-Bot",
-            "Kanal-Aktivierung für WhatsApp & Instagram",
-            "Intelligentes Konversionsmenü",
-            "Einrichtung in 2 Wunschsprachen",
-            "Proaktiver, humanisierter Antwortfluss",
-            "Lead-Erfassung und sofortige E-Mail-Meldung",
-            "Nahtlose Einbindung in Ihre aktuelle Website"
+            "Automatische Triage und Kundenqualifizierung.",
+            "Direkte Integration mit WhatsApp oder Instagram.",
+            "Strategisches Menü für sofortige Antworten (24/7).",
+            "Flow-Konfiguration in 2 Sprachen.",
+            "Erfassung und Weiterleitung von Angeboten.",
+            "Null API-Verbrauch und null monatliche Gebühren."
           ],
           cta: "SUPPORT ABSICHERN",
           tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem KI-Automatisierten Support fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
@@ -1723,16 +1732,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem kompletten E-Commerce-Paket fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
         },
         custom: {
-          title: "All-In-One Imperial",
+          title: "Pack Imperial B2B",
           price: "Auf Anfrage",
           features: [
-            "Google Maps + Website + KI-Kundenservice",
-            "Umfassende Marktbeherrschungsstrategie",
-            "Aggressives, konversionsstarkes Copywriting",
-            "Vollständig konfiguriertes Mehrsprachenpaket",
-            "Priorisierter lebenslanger Support",
-            "Monatliches strategisches Beratungsgespräch",
-            "Erheblicher Paket-Rabatt"
+            "Google Maps + Premium-Website + Support-Automatisierung.",
+            "Aggressives Copywriting mit exklusivem Fokus auf ROI.",
+            "Prioritärer technischer und strategischer Support.",
+            "Erweiterte mehrsprachige SEO-Optimierung.",
+            "Autoritätspositionierung (Nischen-Domain).",
+            "Strategische Conversion-Beratung."
           ],
           cta: "AUDIT VEREINBAREN",
           tracking: "Hallo VELKS-Team. Mein Unternehmen benötigt eine tiefgreifende digitale Umstrukturierung. Ich möchte ein privates Audit mit einem VELKS-Spezialisten vereinbaren, um die All-In-One Imperial-Lösung zu besprechen. Könnten Sie mir helfen?"
@@ -1955,33 +1963,34 @@ export const translations: Record<Language, TranslationSchema> = {
       subtitle: "Historias reales de empresarios locales que salieron de la invisibilidad digital para dominar las búsquedas en su zona.",
       list: [
         {
-          name: "Carlos Silva",
-          role: "Propietario, Silva & Hijos Construcción",
-          text: "El paquete de Google Maps y la web lo cambiaron todo. Antes dependíamos de referencias de conocidos; ahora recibimos de 3 a 5 llamadas de clientes nuevos al día. El retorno se pagó en el primer mes.",
+          name: "Ricardo Silva",
+          role: "Propietario de Restaurante",
+          text: "Mi restaurante casi no aparecía en búsquedas locales. Tras la optimización de VELKS, recibimos llamadas y reservas a diario por Google Maps. Hoy nos encuentran clientes que antes iban a la competencia.",
+          rating: 5,
+          isGoogle: true
+        },
+        {
+          name: "Maria Costa",
+          role: "Consultora Financiera",
+          text: "Perdía oportunidades porque mi web no transmitía confianza. VELKS creó una presencia profesional que aumentó nuestra credibilidad. Los clientes llegan más preparados y las conversiones crecieron significativamente.",
           rating: 5
         },
         {
-          name: "Dra. Mariana Costa",
-          role: "Directora Clínica, OdontoArt Coimbra",
-          text: "El asistente web es sencillamente genial. Los pacientes entran tarde por la noche, resuelven sus dudas, el bot toma su número y por la mañana nuestra secretaria solo confirma la cita. ¡Brillante!",
+          name: "Carlos Mendes",
+          role: "Director Comercial",
+          text: "Perdíamos contactos fuera del horario comercial. Con la automatización de VELKS, cada mensaje recibe respuesta inmediata. Hoy captamos oportunidades las 24 horas sin aumentar el equipo.",
           rating: 5
         },
         {
-          name: "Jean-Pierre Weber",
-          role: "Propietario, Brasserie Gare Luxemburgo",
-          text: "Optimizar nuestra ficha de Google Maps en inglés, alemán y francés nos trajo decenas de turistas diariamente. VELKS fue sumamente rápida, profesional y totalmente enfocada en nuestros ingresos.",
+          name: "Ana Rodrigues",
+          role: "Emprendedora Digital",
+          text: "Gestionar ventas manualmente consumía mucho tiempo. VELKS automatizó toda nuestra tienda online. Las ventas crecieron y logramos escalar sin aumentar nuestra carga de trabajo.",
           rating: 5
         },
         {
-          name: "Isabel Mendes",
-          role: "Mendes & Asociados Inmobiliaria",
-          text: "Nuestros agentes por fin reciben clientes calificados listos para conversar. El sistema filtra a los curiosos y nos envía a los compradores reales directamente por WhatsApp. Muy recomendado.",
-          rating: 5
-        },
-        {
-          name: "Ricardo Martins",
-          role: "Martins Automóviles",
-          text: "Excelente servicio de soporte. Sin cuotas mensuales caras, pagamos una sola vez por el sitio y Google Maps y el resultado ha sido constante y fiable. Transparencia total.",
+          name: "João Ferreira",
+          role: "CEO",
+          text: "Sabíamos que había potencial de crecimiento, pero faltaba estrategia. La auditoría de VELKS identificó obstáculos invisibles y creó un plan de expansión claro. Hoy tomamos decisiones con más confianza.",
           rating: 5
         }
       ]
@@ -2024,16 +2033,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "¡Hola! Estoy interesado en el paquete de Sitio Web Profesional. ¿Cuál es el primer paso para construir mi nueva máquina de ventas?"
         },
         automacao: {
-          title: "Atención IA Automática",
+          title: "Automatización de Soporte",
           price: "250€",
           features: [
-            "Asistente Web Inteligente Customizado",
-            "Activación de Canales WhatsApp e Instagram",
-            "Árbol de Conversión Inteligente",
-            "Configuración en 2 Idiomas a Elección",
-            "Flujo de Respuestas Humanizadas Proactivo",
-            "Captura de Leads y Avisos por Email",
-            "Integración Sencilla en tu Web Actual"
+            "Triaje automático y calificación de clientes.",
+            "Integración directa con WhatsApp o Instagram.",
+            "Menú estratégico de respuestas inmediatas (24/7).",
+            "Configuración de flujos en 2 idiomas.",
+            "Captura y reenvío de presupuestos.",
+            "Cero consumo de API y cero cuotas mensuales."
           ],
           cta: "BLINDAR ATENCIÓN 24/7",
           tracking: "Hola, Equipo VELKS. Analicé la tabla de precios en el sitio y tengo interés en avanzar con Atención IA Automática. ¿Cuál es el próximo paso para iniciar la integración?"
@@ -2054,16 +2062,15 @@ export const translations: Record<Language, TranslationSchema> = {
           tracking: "Hola, Equipo VELKS. Analicé la tabla de precios en el sitio y tengo interés en avanzar con el paquete E-Commerce Completo. ¿Cuál es el próximo paso para iniciar la integración?"
         },
         custom: {
-          title: "All-In-One Imperial",
-          price: "A Consultar",
+          title: "Pack Imperial B2B",
+          price: "Bajo Consulta",
           features: [
-            "Google Maps + Sitio Web + Atención IA",
-            "Estrategia Completa de Dominación Local",
-            "Copywriting Agresivo de Alta Conversión",
-            "Opciones Multi-idioma Completas",
-            "Soporte Prioritario de por Vida",
-            "Consultas Mensuales Estratégicas",
-            "Descuento de Pack Integrado"
+            "Google Maps + Sitio Web Premium + Automatización de Soporte.",
+            "Copywriting agresivo enfocado exclusivamente en ROI.",
+            "Soporte técnico y estratégico prioritario.",
+            "Optimización SEO multilingüe avanzada.",
+            "Posicionamiento de Autoridad (Dominio de Nicho).",
+            "Consultoría estratégica de conversión."
           ],
           cta: "AGENDAR AUDITORÍA PRIVADA",
           tracking: "Hola, Equipo VELKS. Mi negocio necesita una reestructuración digital profunda. Me gustaría programar una auditoría privada con un especialista de VELKS para discutir la solución All-In-One Imperial. ¿Podrían ayudarme?"

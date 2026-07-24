@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import gsap from 'gsap';
 import { 
   translations, 
   Language, 
   TranslationSchema 
 } from './translations';
 import { ThreeHero } from './components/ThreeHero';
+import { ErrorBoundary } from './ErrorBoundary';
 import { OrionWidgetLoader } from './components/OrionWidgetLoader';
-const ProblemSection = React.lazy(() => import('./components/ProblemSection').then(m => ({ default: m.ProblemSection })));
-const SolutionSection = React.lazy(() => import('./components/SolutionSection').then(m => ({ default: m.SolutionSection })));
-const AuthoritySection = React.lazy(() => import('./components/AuthoritySection').then(m => ({ default: m.AuthoritySection })));
-const WidgetSection = React.lazy(() => import('./components/WidgetSection').then(m => ({ default: m.WidgetSection })));
-const TestimonialsSection = React.lazy(() => import('./components/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
-const PricingSection = React.lazy(() => import('./components/PricingSection'));
-const AIVisionSection = React.lazy(() => import('./components/AIVisionSection').then(m => ({ default: m.AIVisionSection })));
-const CTACanvasParticles = React.lazy(() => import('./components/CTACanvasParticles').then(m => ({ default: m.CTACanvasParticles })));
+import { ProblemSection } from './components/ProblemSection';
+import { SolutionSection } from './components/SolutionSection';
+import { AuthoritySection } from './components/AuthoritySection';
+import { WidgetSection } from './components/WidgetSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
+import PricingSection from './components/PricingSection';
+import { AIVisionSection } from './components/AIVisionSection';
+import { CTACanvasParticles } from './components/CTACanvasParticles';
 import { 
   Building2, 
   MapPin, 
@@ -57,35 +57,6 @@ export default function App() {
   const [modalType, setModalType] = useState<'privacy' | 'cookies' | 'terms' | 'compliance' | 'legal' | null>(null);
 
   // States & Refs for Testimonial Slider
-  const testimonialTrackRef = useRef<HTMLDivElement>(null);
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonialIndex((prev) => {
-      const max = t.testimonials.list.length - 1;
-      return prev < max ? prev + 1 : 0;
-    });
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonialIndex((prev) => {
-      const max = t.testimonials.list.length - 1;
-      return prev > 0 ? prev - 1 : max;
-    });
-  };
-
-  useEffect(() => {
-    if (testimonialTrackRef.current && testimonialTrackRef.current.children.length > 0) {
-      const card = testimonialTrackRef.current.children[0] as HTMLElement;
-      // offsetWidth + gap (24px for gap-6)
-      const cardWidth = card.offsetWidth + 24;
-      gsap.to(testimonialTrackRef.current, {
-        x: -currentTestimonialIndex * cardWidth,
-        duration: 0.8,
-        ease: "power3.inOut"
-      });
-    }
-  }, [currentTestimonialIndex, t.testimonials.list.length]);
 
   // References to scroll targets
   const problemRef = useRef<HTMLDivElement>(null);
@@ -193,30 +164,30 @@ export default function App() {
   }, [t, currentLang]);
 
   // Cookie Consent Handlers
-  const handleAcceptCookies = () => {
+  const handleAcceptCookies = React.useCallback(() => {
     localStorage.setItem('velks-cookie-consent', 'accepted');
     setCookieConsent(true);
-  };
+  }, []);
 
-  const handleDeclineCookies = () => {
+  const handleDeclineCookies = React.useCallback(() => {
     localStorage.setItem('velks-cookie-consent', 'declined');
     setCookieConsent(false);
-  };
+  }, []);
 
   // WhatsApp click triggers tracking & opens link with customized messages
-  const handleWhatsAppClick = (customMsg: string) => {
+  const handleWhatsAppClick = React.useCallback((customMsg: string) => {
     const encodedMsg = encodeURIComponent(customMsg);
     const phoneNumber = "33761569686"; // Formatted for WhatsApp API
     const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
     window.open(url, '_blank', 'noopener,noreferrer');
-  };
+  }, []);
 
     // Smooth scroll handler helper
-  const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
+  const scrollTo = React.useCallback((ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-obsidian text-gray-100 selection:bg-gold selection:text-black antialiased overflow-x-hidden font-sans">
@@ -229,7 +200,7 @@ export default function App() {
           <div className="flex items-center gap-2 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="relative w-10 h-10 flex items-center justify-center">
               <div className="w-10 h-10 rounded flex items-center justify-center bg-transparent relative">
-                <img loading="lazy" src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
+                <img src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
               </div>
               <span className="absolute -top-1.5 -right-0.5 text-[10px] text-gold animate-bounce drop-shadow-[0_0_5px_rgba(212,175,55,0.8)] z-20">👑</span>
             </div>
@@ -303,18 +274,18 @@ export default function App() {
         onCtaClick={handleWhatsAppClick} 
         onScrollToDemos={() => scrollTo(pricingRef)} 
       />
-      <React.Suspense fallback={<div className="min-h-screen bg-obsidian-dark flex items-center justify-center"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}>
+      
 
       
 
       {/* BLOCO 2 - PROBLEMA (THE PROBLEM) */}
-      <ProblemSection t={t} currentLang={currentLang} problemRef={problemRef} />
+      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><ProblemSection t={t} currentLang={currentLang} problemRef={problemRef} /></React.Suspense></ErrorBoundary>
 
       {/* BLOCO 3 - SOLUÇÃO (THE SOLUTION) */}
-      <SolutionSection t={t} currentLang={currentLang} solutionRef={solutionRef} />
+      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><SolutionSection t={t} currentLang={currentLang} solutionRef={solutionRef} /></React.Suspense></ErrorBoundary>
 
       {/* BLOCO 4 - AUTORIDADE LUXEMBURGO, ESPANHA, PORTUGAL */}
-      <AuthoritySection t={t} currentLang={currentLang} />
+      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><AuthoritySection t={t} currentLang={currentLang} /></React.Suspense></ErrorBoundary>
 
       {/* TRANSITION 4 -> 5 */}
       <div className="w-full h-32 bg-gradient-to-b from-obsidian-light to-obsidian relative overflow-hidden flex justify-center items-center">
@@ -339,13 +310,13 @@ export default function App() {
       </div>
 
       {/* BLOCO 5 - WIDGET INTELIGENTE (ATENDIMENTO AUTOMÁTICO 24H) */}
-      <WidgetSection t={t} currentLang={currentLang} widgetRef={widgetRef} />
+      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><WidgetSection t={t} currentLang={currentLang} widgetRef={widgetRef} /></React.Suspense></ErrorBoundary>
 
       {/* BLOCO 5.5 - AI VISION (CINEMATIC ENGINEERING) */}
-      <AIVisionSection t={t} />
+      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><AIVisionSection t={t} /></React.Suspense></ErrorBoundary>
 
       {/* BLOCO 6 - PROVA SOCIAL (TESTIMONIALS) */}
-      <TestimonialsSection t={t} currentLang={currentLang} />
+      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><TestimonialsSection t={t} currentLang={currentLang} /></React.Suspense></ErrorBoundary>
 
       {/* BLOCO 7 - PACOTES (PRICING & BUNDLES) */}
       <section ref={pricingRef} className="py-24 px-4 bg-obsidian relative overflow-hidden">
@@ -627,7 +598,7 @@ export default function App() {
       {/* BLOCO 10 - CTA FINAL (EMOTIONAL CONVERSION BLOCK WITH ZERO FORMS) */}
       <section className="py-24 px-4 bg-gradient-to-b from-obsidian-dark to-obsidian relative overflow-hidden">
         {/* High-Performance Canvas Particles (Neural Net / Gold Dust) */}
-        <CTACanvasParticles />
+        <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><CTACanvasParticles /></React.Suspense></ErrorBoundary>
         
         {/* Abstract volumetric glowing rays background */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.1)_0%,transparent_70%)] pointer-events-none" />
@@ -639,7 +610,7 @@ export default function App() {
             whileInView={{ opacity: 1, scale: 1 }}
             className="relative w-20 h-20 flex items-center justify-center bg-transparent drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]"
           >
-            <img loading="lazy" src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
+            <img src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
             <span className="absolute -top-3 -right-2 text-xl text-gold animate-bounce drop-shadow-[0_0_8px_rgba(212,175,55,1)] z-20">👑</span>
           </motion.div>
 
@@ -681,7 +652,7 @@ export default function App() {
             <div className="md:col-span-5 flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <div className="relative w-8 h-8 flex items-center justify-center bg-transparent">
-                  <img loading="lazy" src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
+                  <img src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
                 </div>
                 <div className="flex flex-col">
                   <span className="font-display font-bold tracking-widest text-white text-sm leading-none">VELKS</span>
@@ -768,7 +739,6 @@ export default function App() {
         </div>
       </footer>
 
-      </React.Suspense>
       {/* COOKIES POPUP CONSENT (EU COMPLIANT BANNER) */}
       <AnimatePresence>
         {cookieConsent === null && (

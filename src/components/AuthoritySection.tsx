@@ -37,7 +37,7 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }: { from?: n
   return <span ref={ref}>{count}{suffix}</span>;
 };
 
-export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLang }) => {
+export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t, currentLang }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -225,4 +225,4 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = ({ t, currentLa
       </div>
     </section>
   );
-};
+});

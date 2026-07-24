@@ -13,7 +13,7 @@ interface WidgetSectionProps {
   widgetRef: React.RefObject<HTMLDivElement>;
 }
 
-export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, widgetRef }) => {
+export const WidgetSection: React.FC<WidgetSectionProps> = React.memo(({ t, currentLang, widgetRef }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Background parallax
@@ -528,4 +528,4 @@ export const WidgetSection: React.FC<WidgetSectionProps> = ({ t, currentLang, wi
       </div>
     </section>
   );
-};
+});

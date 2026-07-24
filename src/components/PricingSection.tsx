@@ -120,7 +120,17 @@ const PricingCanvasParticles = () => {
     };
     window.addEventListener('resize', onResize);
 
+
+    let isVisible = false;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    });
+    if (canvasRef.current) observer.observe(canvasRef.current);
+
     const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (!isVisible) return;
+      
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'screen'; // Add screen blend mode for vibrant glow
 
@@ -205,12 +215,11 @@ const PricingCanvasParticles = () => {
           }
         }
       }
-
-      animationFrameId = requestAnimationFrame(animate);
     };
     animate();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
@@ -221,7 +230,7 @@ const PricingCanvasParticles = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-100 " />;
 };
 
-export default function PricingSection({ t, currentLang, handleWhatsAppClick }: PricingSectionProps) {
+const PricingSection = ({ t, currentLang, handleWhatsAppClick }: PricingSectionProps) => {
   const controls = useAnimation();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -476,3 +485,5 @@ export default function PricingSection({ t, currentLang, handleWhatsAppClick }: 
     </section>
   );
 }
+
+export default React.memo(PricingSection);

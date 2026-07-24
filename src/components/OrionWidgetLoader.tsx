@@ -19,7 +19,7 @@ export const OrionWidgetLoader: React.FC<OrionWidgetLoaderProps> = ({ cookieCons
       script.src = 'https://orion-capture-widget.vercel.app/orion-widget.js';
       script.setAttribute('data-tenant-id', 'demo_tenant');
       script.setAttribute('data-public-key', 'demo_public_key');
-      script.setAttribute('data-api-base-url', '/orion');
+      script.setAttribute('data-api-base-url', 'https://orion-capture-widget.vercel.app');
       script.setAttribute('data-avatar-url', 'https://orion-capture-widget.vercel.app/orion-avatar.png');
       script.setAttribute('data-debug', 'true');
       document.body.appendChild(script);

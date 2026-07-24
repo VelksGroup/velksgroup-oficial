@@ -200,7 +200,16 @@ export function AIVisionSection({ t }: { t: any }) {
     let animationFrameId: number;
     let time = 0;
 
+
+    let isVisible = false;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    });
+    if (containerRef.current) observer.observe(containerRef.current);
+
     const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (!isVisible) return;
       time += 0.005;
       
       // Floating animation
@@ -235,7 +244,6 @@ export function AIVisionSection({ t }: { t: any }) {
       floatingGroup.rotation.y += 0.0005;
       
       renderer.render(scene, camera);
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
@@ -254,6 +262,7 @@ export function AIVisionSection({ t }: { t: any }) {
     window.addEventListener('resize', handleResize);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
       scene.clear();

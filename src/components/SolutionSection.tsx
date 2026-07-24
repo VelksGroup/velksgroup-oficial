@@ -9,7 +9,7 @@ interface SolutionSectionProps {
   solutionRef: React.RefObject<HTMLDivElement>;
 }
 
-export const SolutionSection: React.FC<SolutionSectionProps> = ({ t, currentLang, solutionRef }) => {
+export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, currentLang, solutionRef }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -222,4 +222,4 @@ export const SolutionSection: React.FC<SolutionSectionProps> = ({ t, currentLang
       </div>
     </section>
   );
-};
+});

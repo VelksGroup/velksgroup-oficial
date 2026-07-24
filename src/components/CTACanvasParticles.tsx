@@ -84,7 +84,17 @@ export const CTACanvasParticles = () => {
     };
     window.addEventListener('resize', onResize);
 
+
+    let isVisible = false;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    });
+    if (canvasRef.current) observer.observe(canvasRef.current);
+
     const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (!isVisible) return;
+      
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'screen';
 
@@ -157,12 +167,11 @@ export const CTACanvasParticles = () => {
           }
         }
       }
-
-      animationFrameId = requestAnimationFrame(animate);
     };
     animate();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
