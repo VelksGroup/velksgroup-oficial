@@ -178,6 +178,32 @@ export interface TranslationSchema {
     gdpr: string;
     rights: string;
   };
+    engineering: {
+    label: string;
+    title1: string;
+    title2: string;
+    desc: string;
+    metricsLabel: string;
+    metrics: {
+      automations: string;
+      aiProjects: string;
+      activeInfra: string;
+    };
+    cards: {
+      sys01: { title: string; desc: string; tags: string };
+      sys02: { title: string; desc: string; tags: string };
+      sys03: { title: string; desc: string; tags: string };
+      sys04: { title: string; desc: string; tags: string };
+    };
+    bottomHero: {
+      title1: string;
+      title2: string;
+      cta: string;
+      ctaTags: string[];
+      whatsappMsg: string;
+    };
+  };
+
   cookieConsent: {
     text: string;
     accept: string;
@@ -503,6 +529,47 @@ export const translations: Record<Language, TranslationSchema> = {
       legal: "Avisos Legais",
       gdpr: "Conformidade RGPD UE",
       rights: "© 2026 VELKS Group. Todos os direitos reservados."
+    },
+  engineering: {
+      label: "ANTES DE DECIDIR, VEJA O TIPO DE TECNOLOGIA QUE DESENVOLVEMOS PARA CLIENTES QUE EXIGEM MAIS DO QUE UM SIMPLES WEBSITE.",
+      title1: "NÃO SOMOS WEB DESIGNERS.",
+      title2: "SOMOS ENGENHEIROS DE PRODUTO.",
+      desc: "Enquanto o mercado vende templates, nós desenvolvemos sistemas capazes de operar aplicações, automações, agentes inteligentes e infraestruturas digitais preparadas para crescimento real.",
+      metricsLabel: "[ OPERATIONAL METRICS ]",
+      metrics: {
+        automations: "AUTOMAÇÕES",
+        aiProjects: "PROJETOS IA",
+        activeInfra: "INFRAESTRUTURA ATIVA"
+      },
+      cards: {
+        sys01: {
+          title: "ARQUITETURA DE AGENTES IA",
+          desc: "Orquestração multimodelo, memória contextual persistente, processamento de linguagem natural e integração de voz em tempo real para experiências conversacionais avançadas.",
+          tags: "LLM • STT • TTS • MEMORY"
+        },
+        sys02: {
+          title: "ENGENHARIA VISUAL EM TEMPO REAL",
+          desc: "Interfaces de alta performance desenvolvidas com renderização avançada, animações otimizadas e experiências digitais concebidas para retenção máxima.",
+          tags: "WEBGL • THREE.JS • GSAP • SCROLLYTELLING"
+        },
+        sys03: {
+          title: "INFRAESTRUTURA REATIVA DISTRIBUÍDA",
+          desc: "Bases de dados, eventos em tempo real e arquiteturas modernas preparadas para suportar aplicações vivas, automação intensiva e crescimento contínuo.",
+          tags: "SUPABASE • POSTGRESQL • REALTIME • EDGE"
+        },
+        sys04: {
+          title: "ARQUITETURA SaaS & PAYMENTS",
+          desc: "Sistemas de autenticação, subscrição, faturação e proteção de dados preparados para produtos digitais de escala internacional.",
+          tags: "STRIPE • AUTH • RGPD • BILLING"
+        }
+      },
+      bottomHero: {
+        title1: "A maioria dos clientes chega até nós à procura de um website.",
+        title2: "Muitos descobrem que o que realmente precisam é de uma infraestrutura capaz de acelerar todo o negócio.",
+        cta: "DISCUTIR ARQUITETURA TÉCNICA",
+        ctaTags: ["IA", "SAAS", "WEB APPS"],
+        whatsappMsg: "Olá, VELKS Team.\nGostaria de discutir uma arquitetura técnica para um projeto de IA, SaaS ou Web App. Vocês poderiam me ajudar ?"
+      }
     },
     cookieConsent: {
       text: "Utilizamos cookies e tecnologias semelhantes para garantir a melhor experiência de navegação e analisar o tráfego do nosso site, em total conformidade com o RGPD da UE.",
@@ -834,6 +901,47 @@ export const translations: Record<Language, TranslationSchema> = {
       gdpr: "Conformità GDPR UE",
       rights: "© 2026 VELKS Group. Tutti i diritti riservati."
     },
+  engineering: {
+      label: "PRIMA DI DECIDERE, SCOPRI IL TIPO DI TECNOLOGIA CHE SVILUPPIAMO PER I CLIENTI CHE ESIGONO PIÙ DI UN SEMPLICE SITO WEB.",
+      title1: "NON SIAMO WEB DESIGNER.",
+      title2: "SIAMO INGEGNERI DI PRODOTTO.",
+      desc: "Mentre il mercato vende modelli, noi sviluppiamo sistemi in grado di far funzionare applicazioni, automazioni, agenti intelligenti e infrastrutture digitali progettate per una crescita reale.",
+      metricsLabel: "[ METRICHE OPERATIVE ]",
+      metrics: {
+        automations: "AUTOMAZIONI",
+        aiProjects: "PROGETTI IA",
+        activeInfra: "INFRASTRUTTURA ATTIVA"
+      },
+      cards: {
+        sys01: {
+          title: "ARCHITETTURA DI AGENTI IA",
+          desc: "Orchestrazione multimodello, memoria contestuale persistente, elaborazione del linguaggio naturale e integrazione vocale in tempo reale per esperienze conversazionali avanzate.",
+          tags: "LLM • STT • TTS • MEMORY"
+        },
+        sys02: {
+          title: "INGEGNERIA VISIVA IN TEMPO REALE",
+          desc: "Interfacce ad alte prestazioni sviluppate con rendering avanzato, animazioni ottimizzate ed esperienze digitali progettate per la massima fidelizzazione.",
+          tags: "WEBGL • THREE.JS • GSAP • SCROLLYTELLING"
+        },
+        sys03: {
+          title: "INFRASTRUTTURA REATTIVA DISTRIBUITA",
+          desc: "Database, eventi in tempo reale e architetture moderne preparate per supportare applicazioni dal vivo, automazione intensiva e crescita continua.",
+          tags: "SUPABASE • POSTGRESQL • REALTIME • EDGE"
+        },
+        sys04: {
+          title: "ARCHITETTURA SaaS E PAGAMENTI",
+          desc: "Sistemi di autenticazione, abbonamento, fatturazione e protezione dei dati preparati per prodotti digitali su scala internazionale.",
+          tags: "STRIPE • AUTH • GDPR • BILLING"
+        }
+      },
+      bottomHero: {
+        title1: "La maggior parte dei clienti si rivolge a noi in cerca di un sito web.",
+        title2: "Molti scoprono che ciò di cui hanno realmente bisogno è un'infrastruttura in grado di accelerare l'intero business.",
+        cta: "DISCUTERE DI ARCHITETTURA TECNICA",
+        ctaTags: ["IA", "SAAS", "WEB APPS"],
+        whatsappMsg: "Ciao, VELKS Team.\nVorrei discutere un'architettura tecnica per un progetto IA, SaaS o Web App. Potreste aiutarmi?"
+      }
+    },
     cookieConsent: {
       text: "Utilizziamo cookie e tecnologie simili per garantire la migliore esperienza di navigazione e analizzare il traffico del nostro sito, in totale conformità con il GDPR dell'UE.",
       accept: "Accetta Tutti",
@@ -1163,6 +1271,47 @@ export const translations: Record<Language, TranslationSchema> = {
       legal: "Legal Notices",
       gdpr: "EU GDPR Compliant",
       rights: "© 2026 VELKS Group. All rights reserved."
+    },
+  engineering: {
+      label: "BEFORE DECIDING, SEE THE TYPE OF TECHNOLOGY WE DEVELOP FOR CLIENTS WHO DEMAND MORE THAN JUST A SIMPLE WEBSITE.",
+      title1: "WE ARE NOT WEB DESIGNERS.",
+      title2: "WE ARE PRODUCT ENGINEERS.",
+      desc: "While the market sells templates, we develop systems capable of operating applications, automations, intelligent agents, and digital infrastructures built for real growth.",
+      metricsLabel: "[ OPERATIONAL METRICS ]",
+      metrics: {
+        automations: "AUTOMATIONS",
+        aiProjects: "AI PROJECTS",
+        activeInfra: "ACTIVE INFRASTRUCTURE"
+      },
+      cards: {
+        sys01: {
+          title: "AI AGENTS ARCHITECTURE",
+          desc: "Multi-model orchestration, persistent contextual memory, natural language processing, and real-time voice integration for advanced conversational experiences.",
+          tags: "LLM • STT • TTS • MEMORY"
+        },
+        sys02: {
+          title: "REAL-TIME VISUAL ENGINEERING",
+          desc: "High-performance interfaces built with advanced rendering, optimized animations, and digital experiences designed for maximum retention.",
+          tags: "WEBGL • THREE.JS • GSAP • SCROLLYTELLING"
+        },
+        sys03: {
+          title: "DISTRIBUTED REACTIVE INFRASTRUCTURE",
+          desc: "Databases, real-time events, and modern architectures prepared to support live applications, intensive automation, and continuous growth.",
+          tags: "SUPABASE • POSTGRESQL • REALTIME • EDGE"
+        },
+        sys04: {
+          title: "SaaS & PAYMENTS ARCHITECTURE",
+          desc: "Authentication, subscription, billing, and data protection systems prepared for international-scale digital products.",
+          tags: "STRIPE • AUTH • GDPR • BILLING"
+        }
+      },
+      bottomHero: {
+        title1: "Most clients come to us looking for a website.",
+        title2: "Many discover that what they really need is an infrastructure capable of accelerating their entire business.",
+        cta: "DISCUSS TECHNICAL ARCHITECTURE",
+        ctaTags: ["AI", "SAAS", "WEB APPS"],
+        whatsappMsg: "Hello, VELKS Team.\nI would like to discuss a technical architecture for an AI, SaaS, or Web App project. Could you help me?"
+      }
     },
     cookieConsent: {
       text: "We use cookies and similar technologies to ensure the best browsing experience and analyze site traffic in strict compliance with the EU GDPR.",
@@ -1494,6 +1643,47 @@ export const translations: Record<Language, TranslationSchema> = {
       gdpr: "Conforme RGPD UE",
       rights: "© 2026 VELKS Group. Tous droits réservés."
     },
+  engineering: {
+      label: "AVANT DE DÉCIDER, DÉCOUVREZ LE TYPE DE TECHNOLOGIE QUE NOUS DÉVELOPPONS POUR LES CLIENTS QUI EXIGENT PLUS QU'UN SIMPLE SITE WEB.",
+      title1: "NOUS NE SOMMES PAS DES WEB DESIGNERS.",
+      title2: "NOUS SOMMES DES INGÉNIEURS PRODUIT.",
+      desc: "Pendant que le marché vend des modèles, nous développons des systèmes capables de faire fonctionner des applications, des automatisations, des agents intelligents et des infrastructures numériques conçues pour une croissance réelle.",
+      metricsLabel: "[ MÉTRIQUES OPÉRATIONNELLES ]",
+      metrics: {
+        automations: "AUTOMATISATIONS",
+        aiProjects: "PROJETS IA",
+        activeInfra: "INFRASTRUCTURE ACTIVE"
+      },
+      cards: {
+        sys01: {
+          title: "ARCHITECTURE D'AGENTS IA",
+          desc: "Orchestration multi-modèles, mémoire contextuelle persistente, traitement du langage naturel et intégration vocale en temps réel pour des expériences conversationnelles avancées.",
+          tags: "LLM • STT • TTS • MEMORY"
+        },
+        sys02: {
+          title: "INGÉNIERIE VISUELLE EN TEMPS RÉEL",
+          desc: "Interfaces hautes performances développées avec un rendu avancé, des animations optimisées et des expériences numériques conçues pour une rétention maximale.",
+          tags: "WEBGL • THREE.JS • GSAP • SCROLLYTELLING"
+        },
+        sys03: {
+          title: "INFRASTRUCTURE RÉACTIVE DISTRIBUÉE",
+          desc: "Bases de données, événements en temps réel et architectures modernes préparées pour prendre en charge des applications en direct, une automatisation intensive et une croissance continue.",
+          tags: "SUPABASE • POSTGRESQL • REALTIME • EDGE"
+        },
+        sys04: {
+          title: "ARCHITECTURE SaaS & PAIEMENTS",
+          desc: "Systèmes d'authentification, d'abonnement, de facturation et de protection des données préparés pour des produits numériques à l'échelle internationale.",
+          tags: "STRIPE • AUTH • RGPD • BILLING"
+        }
+      },
+      bottomHero: {
+        title1: "La plupart des clients viennent à nous à la recherche d'un site web.",
+        title2: "Beaucoup découvrent que ce dont ils ont réellement besoin est d'une infrastructure capable d'accélérer toute leur entreprise.",
+        cta: "DISCUTER D'ARCHITECTURE TECHNIQUE",
+        ctaTags: ["IA", "SAAS", "WEB APPS"],
+        whatsappMsg: "Bonjour l'équipe VELKS.\nJe souhaite discuter d'une architecture technique pour un projet IA, SaaS ou Web App. Pourriez-vous m'aider ?"
+      }
+    },
     cookieConsent: {
       text: "Nous utilisons des cookies pour vous offrir la meilleure expérience utilisateur et analyser le trafic, en stricte conformité avec le RGPD de l'UE.",
       accept: "Tout Accepter",
@@ -1824,6 +2014,47 @@ export const translations: Record<Language, TranslationSchema> = {
       gdpr: "EU-DSGVO-konform",
       rights: "© 2026 VELKS Group. Alle Rechte vorbehalten."
     },
+  engineering: {
+      label: "BEVOR SIE SICH ENTSCHEIDEN, SEHEN SIE SICH DIE ART DER TECHNOLOGIE AN, DIE WIR FÜR KUNDEN ENTWICKELN, DIE MEHR ALS NUR EINE EINFACHE WEBSITE VERLANGEN.",
+      title1: "WIR SIND KEINE WEB-DESIGNER.",
+      title2: "WIR SIND PRODUKTINGENIEURE.",
+      desc: "Während der Markt Vorlagen verkauft, entwickeln wir Systeme, die in der Lage sind, Anwendungen, Automatisierungen, intelligente Agenten und digitale Infrastrukturen zu betreiben, die für echtes Wachstum ausgelegt sind.",
+      metricsLabel: "[ OPERATIVE METRIKEN ]",
+      metrics: {
+        automations: "AUTOMATISIERUNGEN",
+        aiProjects: "KI-PROJEKTE",
+        activeInfra: "AKTIVE INFRASTRUKTUR"
+      },
+      cards: {
+        sys01: {
+          title: "KI-AGENTEN ARCHITEKTUR",
+          desc: "Multimodell-Orchestrierung, persistenter Kontextspeicher, Verarbeitung natürlicher Sprache und Echtzeit-Sprachintegration für fortgeschrittene konversationelle Erlebnisse.",
+          tags: "LLM • STT • TTS • MEMORY"
+        },
+        sys02: {
+          title: "VISUELLE ECHTZEIT-ENTWICKLUNG",
+          desc: "Hochleistungsschnittstellen, entwickelt mit fortschrittlichem Rendering, optimierten Animationen und digitalen Erlebnissen, die für maximale Kundenbindung konzipiert sind.",
+          tags: "WEBGL • THREE.JS • GSAP • SCROLLYTELLING"
+        },
+        sys03: {
+          title: "VERTEILTE REAKTIVE INFRASTRUKTUR",
+          desc: "Datenbanken, Echtzeit-Events und moderne Architekturen, die darauf vorbereitet sind, Live-Anwendungen, intensive Automatisierung und kontinuierliches Wachstum zu unterstützen.",
+          tags: "SUPABASE • POSTGRESQL • REALTIME • EDGE"
+        },
+        sys04: {
+          title: "SaaS & ZAHLUNGEN ARCHITEKTUR",
+          desc: "Authentifizierungs-, Abonnement-, Abrechnungs- und Datenschutzsysteme, die für digitale Produkte im internationalen Maßstab vorbereitet sind.",
+          tags: "STRIPE • AUTH • DSGVO • BILLING"
+        }
+      },
+      bottomHero: {
+        title1: "Die meisten Kunden kommen auf der Suche nach einer Website zu uns.",
+        title2: "Viele stellen fest, dass das, was sie wirklich brauchen, eine Infrastruktur ist, die ihr gesamtes Geschäft beschleunigen kann.",
+        cta: "TECHNISCHE ARCHITEKTUR BESPRECHEN",
+        ctaTags: ["KI", "SAAS", "WEB APPS"],
+        whatsappMsg: "Hallo, VELKS Team.\nIch würde gerne eine technische Architektur für ein KI-, SaaS- oder Web App-Projekt besprechen. Können Sie mir helfen?"
+      }
+    },
     cookieConsent: {
       text: "Wir verwenden Cookies und ähnliche Technologien, um Ihnen das beste Web-Erlebnis zu bieten und den Datenverkehr in Übereinstimmung mit der EU-DSGVO zu analysieren.",
       accept: "Alle akzeptieren",
@@ -2153,6 +2384,47 @@ export const translations: Record<Language, TranslationSchema> = {
       legal: "Avisos Legales",
       gdpr: "Conforme a RGPD de la UE",
       rights: "© 2026 VELKS Group. Todos los derechos reservados."
+    },
+  engineering: {
+      label: "ANTES DE DECIDIR, VEA EL TIPO DE TECNOLOGÍA QUE DESARROLLAMOS PARA CLIENTES QUE EXIGEN MÁS QUE UN SIMPLE SITIO WEB.",
+      title1: "NO SOMOS DISEÑADORES WEB.",
+      title2: "SOMOS INGENIEROS DE PRODUCTO.",
+      desc: "Mientras el mercado vende plantillas, nosotros desarrollamos sistemas capaces de operar aplicaciones, automatizaciones, agentes inteligentes e infraestructuras digitales preparadas para el crecimiento real.",
+      metricsLabel: "[ MÉTRICAS OPERATIVAS ]",
+      metrics: {
+        automations: "AUTOMATIZACIONES",
+        aiProjects: "PROYECTOS IA",
+        activeInfra: "INFRAESTRUCTURA ACTIVA"
+      },
+      cards: {
+        sys01: {
+          title: "ARQUITECTURA DE AGENTES IA",
+          desc: "Orquestación multimodelo, memoria contextual persistente, procesamiento de lenguaje natural e integración de voz en tiempo real para experiencias conversacionales avanzadas.",
+          tags: "LLM • STT • TTS • MEMORY"
+        },
+        sys02: {
+          title: "INGENIERÍA VISUAL EN TIEMPO REAL",
+          desc: "Interfaces de alto rendimiento desarrolladas con renderizado avanzado, animaciones optimizadas y experiencias digitales diseñadas para la máxima retención.",
+          tags: "WEBGL • THREE.JS • GSAP • SCROLLYTELLING"
+        },
+        sys03: {
+          title: "INFRAESTRUCTURA REACTIVA DISTRIBUIDA",
+          desc: "Bases de datos, eventos en tiempo real y arquitecturas modernas preparadas para soportar aplicaciones en vivo, automatización intensiva y crecimiento continuo.",
+          tags: "SUPABASE • POSTGRESQL • REALTIME • EDGE"
+        },
+        sys04: {
+          title: "ARQUITECTURA SaaS Y PAGOS",
+          desc: "Sistemas de autenticación, suscripción, facturación y protección de datos preparados para productos digitales a escala internacional.",
+          tags: "STRIPE • AUTH • RGPD • BILLING"
+        }
+      },
+      bottomHero: {
+        title1: "La mayoría de los clientes llegan a nosotros buscando un sitio web.",
+        title2: "Muchos descubren que lo que realmente necesitan es una infraestructura capaz de acelerar todo el negocio.",
+        cta: "DISCUTIR ARQUITECTURA TÉCNICA",
+        ctaTags: ["IA", "SAAS", "WEB APPS"],
+        whatsappMsg: "Hola, VELKS Team.\nMe gustaría discutir una arquitectura técnica para un proyecto de IA, SaaS o Web App. ¿Podrían ayudarme?"
+      }
     },
     cookieConsent: {
       text: "Utilizamos cookies y tecnologías similares para garantizar la mejor experiencia de usuario y analizar el tráfico en conformidad estricta con el RGPD de la UE.",

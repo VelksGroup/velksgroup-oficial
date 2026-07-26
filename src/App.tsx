@@ -12,6 +12,7 @@ import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { AuthoritySection } from './components/AuthoritySection';
 import { WidgetSection } from './components/WidgetSection';
+import { EngineeringSection } from './components/EngineeringSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import PricingSection from './components/PricingSection';
 import { AIVisionSection } from './components/AIVisionSection';
@@ -594,6 +595,9 @@ export default function App() {
 
         </div>
       </section>
+
+      {/* BLOCO NOVO - ENGENHARIA */}
+      <EngineeringSection handleWhatsAppClick={handleWhatsAppClick} currentLang={currentLang} t={t} />
 
       {/* BLOCO 10 - CTA FINAL (EMOTIONAL CONVERSION BLOCK WITH ZERO FORMS) */}
       <section className="py-24 px-4 bg-gradient-to-b from-obsidian-dark to-obsidian relative overflow-hidden">
