@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.velksgroup.com/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.velksgroup.com/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.velksgroup.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.velksgroup.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.velksgroup.com/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.velksgroup.com/?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.velksgroup.com/?lang=de"/>
   </url>
 </urlset>
