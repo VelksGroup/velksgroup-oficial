@@ -162,6 +162,11 @@ export interface TranslationSchema {
   };
   footer: {
     logoDesc: string;
+    velksNetworkTitle: string;
+    velksNetworkInstitutional: string;
+    velksNetworkAIInfrastructure: string;
+    velksNetworkCommercialAutomation: string;
+    velksNetworkDigitalExperiences: string;
     legalNoticeTitle: string;
     legalNoticeText: string;
     directContacts: string;
@@ -519,6 +524,11 @@ export const translations: Record<Language, TranslationSchema> = {
       hqLocations: "ESCRITÓRIOS CENTRAIS",
       legalDisclaimer: "Avisos Legais",
       europeanCompliance: "Conformidade Europeia",
+      velksNetworkTitle: "REDE OPERACIONAL VELKS",
+      velksNetworkInstitutional: "Institucional",
+      velksNetworkAIInfrastructure: "Infraestrutura IA",
+      velksNetworkCommercialAutomation: "Automação Comercial",
+      velksNetworkDigitalExperiences: "Experiências Digitais",
       logoDesc: "Transformamos negócios dependentes do dono em máquinas autónomas de lucro. O seu domínio no Google torna-se absoluto e a nossa IA fecha vendas 24/7. Resultados reais e sem mensalidades recorrentes, para que recupere o seu tempo e a sua liberdade.",
       hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
       hqSec: "Sede Secundária: Coimbra, Portugal",
@@ -890,6 +900,11 @@ export const translations: Record<Language, TranslationSchema> = {
       hqLocations: "SEDI CENTRALI",
       legalDisclaimer: "Note Legali",
       europeanCompliance: "Conformità Europea",
+      velksNetworkTitle: "RETE OPERATIVA VELKS",
+      velksNetworkInstitutional: "Istituzionale",
+      velksNetworkAIInfrastructure: "Infrastruttura IA",
+      velksNetworkCommercialAutomation: "Automazione Commerciale",
+      velksNetworkDigitalExperiences: "Esperienze Digitali",
       logoDesc: "Trasformiamo le imprese dipendenti dal proprietario in macchine da profitto autonome. Il tuo dominio su Google diventa assoluto e la nostra IA chiude le vendite 24/7. Risultati reali e zero abbonamenti ricorrenti, così puoi recuperare il tuo tempo e la tua libertà.",
       hqMain: "Sede Principale: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Lussemburgo",
       hqSec: "Sede Secondaria: Coimbra, Portogallo",
@@ -1261,6 +1276,11 @@ export const translations: Record<Language, TranslationSchema> = {
       hqLocations: "HQ LOCATIONS",
       legalDisclaimer: "Legal Disclaimer",
       europeanCompliance: "European Compliance",
+      velksNetworkTitle: "VELKS OPERATIONAL NETWORK",
+      velksNetworkInstitutional: "Institutional",
+      velksNetworkAIInfrastructure: "AI Infrastructure",
+      velksNetworkCommercialAutomation: "Commercial Automation",
+      velksNetworkDigitalExperiences: "Digital Experiences",
       logoDesc: "We transform owner-dependent businesses into autonomous profit machines. Your Google dominance becomes absolute and our AI closes sales 24/7. Real results and zero monthly fees, so you can reclaim your time and freedom.",
       hqMain: "Main Headquarters: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
       hqSec: "Secondary Office: Coimbra, Portugal",
@@ -1632,6 +1652,11 @@ export const translations: Record<Language, TranslationSchema> = {
       hqLocations: "SIÈGES SOCIAUX",
       legalDisclaimer: "Mentions Légales",
       europeanCompliance: "Conformité Européenne",
+      velksNetworkTitle: "RÉSEAU OPÉRATIONNEL VELKS",
+      velksNetworkInstitutional: "Institutionnel",
+      velksNetworkAIInfrastructure: "Infrastructure IA",
+      velksNetworkCommercialAutomation: "Automatisation Commerciale",
+      velksNetworkDigitalExperiences: "Expériences Numériques",
       logoDesc: "Nous transformons les entreprises dépendantes de leur propriétaire en machines à profit autonomes. Votre domination sur Google devient absolue et notre IA conclut des ventes 24/7. Des résultats réels et sans abonnements récurrents, pour que vous retrouviez votre temps et votre liberté.",
       hqMain: "Siège Social : 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
       hqSec: "Bureau Secondaire : Coimbra, Portugal",
@@ -2003,6 +2028,11 @@ export const translations: Record<Language, TranslationSchema> = {
       hqLocations: "HAUPTSITZE",
       legalDisclaimer: "Rechtliche Hinweise",
       europeanCompliance: "Europäische Konformität",
+      velksNetworkTitle: "VELKS OPERATIVES NETZWERK",
+      velksNetworkInstitutional: "Institutionell",
+      velksNetworkAIInfrastructure: "KI-Infrastruktur",
+      velksNetworkCommercialAutomation: "Kommerzielle Automatisierung",
+      velksNetworkDigitalExperiences: "Digitale Erlebnisse",
       logoDesc: "Wir verwandeln inhaberabhängige Unternehmen in autonome Gewinnmaschinen. Ihre Google-Dominanz wird absolut und unsere KI schließt Verkäufe rund um die Uhr ab. Echte Ergebnisse und keine monatlichen Gebühren, damit Sie Ihre Zeit und Freiheit zurückgewinnen.",
       hqMain: "Hauptsitz: 57, Avenue de La Gare, L-1611 Luxemburg Gare, Luxemburg",
       hqSec: "Zweiter Standort: Coimbra, Portugal",
@@ -2374,6 +2404,11 @@ export const translations: Record<Language, TranslationSchema> = {
       hqLocations: "SEDES CENTRALES",
       legalDisclaimer: "Avisos Legales",
       europeanCompliance: "Cumplimiento Europeo",
+      velksNetworkTitle: "RED OPERATIVA VELKS",
+      velksNetworkInstitutional: "Institucional",
+      velksNetworkAIInfrastructure: "Infraestructura IA",
+      velksNetworkCommercialAutomation: "Automatización Comercial",
+      velksNetworkDigitalExperiences: "Experiencias Digitales",
       logoDesc: "Transformamos negocios dependientes del dueño en máquinas autónomas de ganancias. Tu dominio en Google se vuelve absoluto y nuestra IA cierra ventas 24/7. Resultados reales y sin cuotas mensuales recurrentes, para que recuperes tu tiempo y libertad.",
       hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
       hqSec: "Sede Secundaria: Coimbra, Portugal",

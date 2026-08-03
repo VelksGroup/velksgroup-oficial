@@ -37,7 +37,7 @@ import {
   Phone, 
   Check, 
   Send,
-  ExternalLink,
+  ExternalLink, ArrowUpRight,
   Shield,
   FileText,
   Lock,
@@ -705,12 +705,104 @@ export default function App() {
               <div className="flex gap-3 mt-2 text-[10px] font-mono text-gold font-semibold uppercase">
                 <span>PORTUGAL • LUXEMBURGO</span>
               </div>
+
+              {/* Velks Operational Network */}
+              <div className="mt-10 flex flex-col gap-4 text-xs font-light">
+                <h4 className="font-display font-bold text-white uppercase tracking-wider text-[11px]">
+                  {t.footer.velksNetworkTitle}
+                </h4>
+              
+                <div className="flex flex-col gap-3">
+              
+                  <a
+                    href="https://velksgroup.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col relative"
+                  >
+                    <span className="text-gray-200 group-hover:text-white transition-colors font-medium">
+                      {t.footer.velksNetworkInstitutional}
+                    </span>
+              
+                    <span className="text-[#3b82f6] font-semibold flex items-center gap-1.5 tracking-wider mt-0.5 text-[11px]">
+                      VELKSGROUP.COM
+                      <ArrowUpRight
+                        size={14}
+                        strokeWidth={2}
+                        className="opacity-80 group-hover:opacity-100 transition-all duration-300 -ml-0.5"
+                      />
+                    </span>
+                  </a>
+              
+                  <a
+                    href="https://velksgroup.cloud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col relative"
+                  >
+                    <span className="text-gray-200 group-hover:text-white transition-colors font-medium">
+                      {t.footer.velksNetworkAIInfrastructure}
+                    </span>
+              
+                    <span className="text-[#3b82f6] font-semibold flex items-center gap-1.5 tracking-wider mt-0.5 text-[11px]">
+                      VELKSGROUP.CLOUD
+                      <ArrowUpRight
+                        size={14}
+                        strokeWidth={2}
+                        className="opacity-80 group-hover:opacity-100 transition-all duration-300 -ml-0.5"
+                      />
+                    </span>
+                  </a>
+              
+                  <a
+                    href="https://velks.space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col relative"
+                  >
+                    <span className="text-gray-200 group-hover:text-white transition-colors font-medium">
+                      {t.footer.velksNetworkCommercialAutomation}
+                    </span>
+              
+                    <span className="text-[#3b82f6] font-semibold flex items-center gap-1.5 tracking-wider mt-0.5 text-[11px]">
+                      VELKS.SPACE
+                      <ArrowUpRight
+                        size={14}
+                        strokeWidth={2}
+                        className="opacity-80 group-hover:opacity-100 transition-all duration-300 -ml-0.5"
+                      />
+                    </span>
+                  </a>
+              
+                  <a
+                    href="https://vgroup.space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col relative"
+                  >
+                    <span className="text-gray-200 group-hover:text-white transition-colors font-medium">
+                      {t.footer.velksNetworkDigitalExperiences}
+                    </span>
+              
+                    <span className="text-[#3b82f6] font-semibold flex items-center gap-1.5 tracking-wider mt-0.5 text-[11px]">
+                      VGROUP.SPACE
+                      <ArrowUpRight
+                        size={14}
+                        strokeWidth={2}
+                        className="opacity-80 group-hover:opacity-100 transition-all duration-300 -ml-0.5"
+                      />
+                    </span>
+                  </a>
+              
+                </div>
+              </div>
+
             </div>
 
           </div>
 
           {/* Legal / Founder Section for AI Indexing */}
-          <div className="mt-12 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-3 text-xs text-gray-400 font-light leading-relaxed">
+          <div className="mt-6 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-3 text-xs text-gray-400 font-light leading-relaxed">
             <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs flex items-center gap-2">
               <Shield size={14} className="text-gold" />
               {t.footer.legalNoticeTitle}
