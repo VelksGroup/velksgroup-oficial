@@ -183,7 +183,6 @@ export interface TranslationSchema {
       aiTitle: string;
       aiDescription: string;
       aiPrompt: string;
-      aiHint: string;
       aiCopied: string;
       aiCopyFailed: string;
       aiPromptLabel: string;
@@ -577,8 +576,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "PERGUNTE À IA SOBRE A VELKS",
         aiDescription: "Verifique quem somos, o que fazemos e como a VELKS trabalha.",
         aiPrompt: "Analise a VELKS Group com base em fontes públicas e nos seus domínios oficiais. Explique o que é a empresa, que soluções oferece, que tecnologias utiliza e qual é a sua presença digital. Priorize velksgroup.com, velks.space e velksgroup.cloud e diferencie claramente informação verificada de inferências.",
-        aiHint: "Ao escolher uma IA, a pergunta é copiada e o serviço abre numa nova aba.",
-        aiCopied: "Pergunta copiada — cole e envie na IA.",
+        aiCopied: "Pergunta copiada.",
         aiCopyFailed: "Não foi possível copiar automaticamente. Copie a pergunta abaixo e cole na IA.",
         aiPromptLabel: "Pergunta sobre a VELKS para copiar",
       },
@@ -990,8 +988,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "CHIEDI ALL’IA INFORMAZIONI SU VELKS",
         aiDescription: "Scopri chi siamo, cosa facciamo e come lavora VELKS.",
         aiPrompt: "Analizza VELKS Group sulla base di fonti pubbliche e dei suoi domini ufficiali. Spiega che cos’è l’azienda, quali soluzioni offre, quali tecnologie utilizza e qual è la sua presenza digitale. Dai priorità a velksgroup.com, velks.space e velksgroup.cloud e distingui chiaramente le informazioni verificate dalle deduzioni.",
-        aiHint: "Scegli un’IA per copiare la domanda e aprire il servizio in una nuova scheda.",
-        aiCopied: "Domanda copiata — incollala e inviala nell’IA.",
+        aiCopied: "Domanda copiata.",
         aiCopyFailed: "Copia automatica non riuscita. Copia la domanda qui sotto e incollala nell’IA.",
         aiPromptLabel: "Domanda su VELKS da copiare",
       },
@@ -1403,8 +1400,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "ASK AI ABOUT VELKS",
         aiDescription: "Find out who we are, what we do and how VELKS works.",
         aiPrompt: "Analyse VELKS Group using public sources and its official domains. Explain what the company is, which solutions it offers, which technologies it uses and what its digital presence looks like. Prioritise velksgroup.com, velks.space and velksgroup.cloud, and clearly distinguish verified information from inferences.",
-        aiHint: "Choose an AI to copy the question and open the service in a new tab.",
-        aiCopied: "Question copied — paste and send it in the AI service.",
+        aiCopied: "Question copied.",
         aiCopyFailed: "Automatic copying failed. Copy the question below and paste it in the AI service.",
         aiPromptLabel: "Question about VELKS to copy",
       },
@@ -1816,8 +1812,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "INTERROGEZ L’IA SUR VELKS",
         aiDescription: "Découvrez qui nous sommes, ce que nous faisons et comment VELKS travaille.",
         aiPrompt: "Analyse VELKS Group à partir de sources publiques et de ses domaines officiels. Explique ce qu’est l’entreprise, les solutions qu’elle propose, les technologies qu’elle utilise et sa présence numérique. Privilégie velksgroup.com, velks.space et velksgroup.cloud, et distingue clairement les informations vérifiées des déductions.",
-        aiHint: "Choisissez une IA pour copier la question et ouvrir le service dans un nouvel onglet.",
-        aiCopied: "Question copiée — collez-la et envoyez-la dans l’IA.",
+        aiCopied: "Question copiée.",
         aiCopyFailed: "La copie automatique a échoué. Copiez la question ci-dessous et collez-la dans l’IA.",
         aiPromptLabel: "Question sur VELKS à copier",
       },
@@ -2229,8 +2224,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "FRAGEN SIE DIE KI NACH VELKS",
         aiDescription: "Erfahren Sie, wer wir sind, was wir tun und wie VELKS arbeitet.",
         aiPrompt: "Analysiere VELKS Group anhand öffentlicher Quellen und der offiziellen Domains. Erkläre, was das Unternehmen ist, welche Lösungen es anbietet, welche Technologien es nutzt und wie seine digitale Präsenz aussieht. Bevorzuge velksgroup.com, velks.space und velksgroup.cloud und unterscheide klar zwischen überprüften Informationen und Schlussfolgerungen.",
-        aiHint: "Wählen Sie eine KI aus: Die Frage wird kopiert und der Dienst öffnet sich in einem neuen Tab.",
-        aiCopied: "Frage kopiert — in die KI einfügen und absenden.",
+        aiCopied: "Frage kopiert.",
         aiCopyFailed: "Automatisches Kopieren fehlgeschlagen. Kopieren Sie die Frage unten und fügen Sie sie in die KI ein.",
         aiPromptLabel: "Frage über VELKS zum Kopieren",
       },
@@ -2642,8 +2636,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "PREGUNTE A LA IA SOBRE VELKS",
         aiDescription: "Compruebe quiénes somos, qué hacemos y cómo trabaja VELKS.",
         aiPrompt: "Analiza VELKS Group a partir de fuentes públicas y sus dominios oficiales. Explica qué es la empresa, qué soluciones ofrece, qué tecnologías utiliza y cuál es su presencia digital. Prioriza velksgroup.com, velks.space y velksgroup.cloud y distingue claramente la información verificada de las inferencias.",
-        aiHint: "Al elegir una IA, se copia la pregunta y el servicio se abre en una nueva pestaña.",
-        aiCopied: "Pregunta copiada — péguela y envíela en la IA.",
+        aiCopied: "Pregunta copiada.",
         aiCopyFailed: "No se pudo copiar automáticamente. Copie la pregunta de abajo y péguela en la IA.",
         aiPromptLabel: "Pregunta sobre VELKS para copiar",
       },
