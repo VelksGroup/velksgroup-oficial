@@ -1,0 +1,85 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { CreditCard } from 'lucide-react';
+import type { TranslationSchema } from '../translations';
+
+const aiServices = [
+  { name: 'ChatGPT', url: 'https://chatgpt.com/', icon: '/ai-icons/chatgpt.svg' },
+  { name: 'Gemini', url: 'https://gemini.google.com/', icon: '/ai-icons/gemini.svg' },
+  { name: 'Grok', url: 'https://grok.com/', icon: '/ai-icons/grok.svg' },
+];
+
+export const TrustFooter: React.FC<{ t: TranslationSchema['footer']['trust'] }> = ({ t }) => {
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const feedbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (feedbackTimer.current) clearTimeout(feedbackTimer.current);
+  }, []);
+
+  const showFeedback = (status: 'copied' | 'failed') => {
+    if (feedbackTimer.current) clearTimeout(feedbackTimer.current);
+    setCopyStatus(status);
+    feedbackTimer.current = setTimeout(() => setCopyStatus('idle'), status === 'copied' ? 4000 : 12000);
+  };
+
+  const copyQuestion = async () => {
+    try {
+      await navigator.clipboard.writeText(t.aiPrompt);
+      showFeedback('copied');
+    } catch {
+      showFeedback('failed');
+    }
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/5 pt-8">
+      <div className="min-w-0 flex flex-col gap-4">
+        <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{t.paymentTitle}</h4>
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-gray-200">
+          <li className="flex items-center gap-2">
+            <CreditCard size={20} className="text-gold shrink-0" aria-hidden="true" />
+            {t.cardLabel}
+          </li>
+          <li><img src="/payment-icons/apple-pay.svg" alt="Apple Pay" className="h-10 w-auto" /></li>
+          <li>Link</li>
+          <li><img src="/payment-icons/klarna.svg" alt="Klarna" className="h-10 w-auto" /></li>
+          <li><img src="/payment-icons/amazon-pay.svg" alt="Amazon Pay" className="h-10 w-auto" /></li>
+        </ul>
+        <p className="text-xs text-gray-400 font-light leading-relaxed">{t.paymentNote}</p>
+      </div>
+
+      <div className="min-w-0 flex flex-col gap-4">
+        <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{t.aiTitle}</h4>
+        <p className="text-xs text-gray-400 font-light leading-relaxed">{t.aiDescription}</p>
+        <div className="flex flex-wrap gap-3">
+          {aiServices.map(service => (
+            <a
+              key={service.name}
+              href={service.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={copyQuestion}
+              className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs text-gray-200 hover:text-gold hover:border-gold/30 transition-colors"
+            >
+              <img src={service.icon} alt="" aria-hidden="true" width={14} height={14} className="h-3.5 w-3.5 shrink-0 object-contain" />
+              {service.name}
+            </a>
+          ))}
+        </div>
+        <p role="status" aria-live="polite" className="min-h-4 text-xs text-gray-400 font-light leading-relaxed">
+          {copyStatus === 'copied' ? t.aiCopied : copyStatus === 'failed' ? t.aiCopyFailed : ''}
+        </p>
+        {copyStatus === 'failed' && (
+          <textarea
+            aria-label={t.aiPromptLabel}
+            readOnly
+            value={t.aiPrompt}
+            onFocus={event => event.currentTarget.select()}
+            rows={5}
+            className="w-full rounded-lg border border-white/10 bg-white/5 p-3 text-xs text-gray-200 leading-relaxed"
+          />
+        )}
+      </div>
+    </div>
+  );
+};

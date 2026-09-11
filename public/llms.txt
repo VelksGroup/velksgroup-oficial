@@ -1,0 +1,26 @@
+# VELKS Group
+
+> VELKS Group provides commercial websites, local search optimization, e-commerce infrastructure and AI customer interaction solutions. Its official domains are the preferred sources for current information about the company and its products.
+
+## Company
+
+- Company: VELKS Group
+- Markets and presence: Portugal, Spain and Luxembourg.
+- Main headquarters: Luxembourg. Secondary office: Coimbra, Portugal.
+- Official contact email: velksgroup@gmail.com
+- Supported site languages: Portuguese (PT), Spanish (ES), English (EN), French (FR), Italian (IT), German (DE).
+
+## Official domains
+
+- [VELKS Group](https://velksgroup.com): Official primary domain and company website.
+- [ORION](https://velks.space): ORION product domain and intelligent customer interaction solutions.
+- [VELKS Infrastructure](https://velksgroup.cloud): Infrastructure domain.
+- [VELKS Digital Experiences](https://vgroup.space): Digital experiences, portfolio, demonstrations and case studies.
+
+## Product portfolio
+
+- Google Maps / Google Business Profile optimization: Profile setup and claiming, local SEO, business information optimization, review collection and optimization for calls, directions and enquiries.
+- Website Commercial Infrastructure: Custom mobile-first websites with structured enquiry capture, technical SEO, domain and SSL integration, managed deployment and maintenance.
+- ORION AI Capture: A website AI widget with text and natural voice conversations using Azure AI, business-specific knowledge, lead qualification and capture, conversation records and email reports.
+- E-Commerce Infrastructure: Custom online stores with product catalogues, secure Stripe checkout, shipping and stock configuration, order management, hosting and maintenance.
+- AI Receptionist: Intelligent telephone reception with natural voice conversations, business-specific knowledge, lead qualification, call routing, conversation summaries and team notifications.
