@@ -92,6 +92,9 @@ export interface TranslationSchema {
       gmaps: {
         title: string;
         price: string;
+        eyebrow: string;
+        priceLabel: string;
+        badge: string;
         features: string[];
         cta: string;
         tracking: string;
@@ -99,6 +102,9 @@ export interface TranslationSchema {
       website: {
         title: string;
         price: string;
+        eyebrow: string;
+        priceLabel: string;
+        badge: string;
         features: string[];
         cta: string;
         tracking: string;
@@ -106,6 +112,9 @@ export interface TranslationSchema {
       automacao: {
         title: string;
         price: string;
+        eyebrow: string;
+        priceLabel: string;
+        badge: string;
         features: string[];
         cta: string;
         tracking: string;
@@ -113,6 +122,9 @@ export interface TranslationSchema {
       ecommerce: {
         title: string;
         price: string;
+        eyebrow: string;
+        priceLabel: string;
+        badge: string;
         features: string[];
         cta: string;
         tracking: string;
@@ -120,6 +132,9 @@ export interface TranslationSchema {
       custom: {
         title: string;
         price: string;
+        eyebrow: string;
+        priceLabel: string;
+        badge: string;
         features: string[];
         cta: string;
         tracking: string;
@@ -161,6 +176,18 @@ export interface TranslationSchema {
     microcopy: string;
   };
   footer: {
+    trust: {
+      paymentTitle: string;
+      cardLabel: string;
+      paymentNote: string;
+      aiTitle: string;
+      aiDescription: string;
+      aiPrompt: string;
+      aiHint: string;
+      aiCopied: string;
+      aiCopyFailed: string;
+      aiPromptLabel: string;
+    };
     logoDesc: string;
     velksNetworkTitle: string;
     velksNetworkInstitutional: string;
@@ -232,7 +259,7 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Olá. Vi a vossa infraestrutura tecnológica no site e gostaria de verificar se a minha empresa se qualifica para implementar o vosso sistema comercial. Podem enviar-me a tabela de preços?",
       badge: "★ DOMÍNIO ABSOLUTO DO MERCADO",
       title: "O seu negócio merece aparecer antes dos seus concorrentes.",
-      subtitle: "Domine o Google, esmague a concorrência com um site implacável e deixe a nossa IA fechar negócios 24/7. Sem mensalidades recorrentes.",
+      subtitle: "Domine o Google, esmague a concorrência com um site implacável e deixe a nossa IA fechar negócios 24/7. Custos claros desde o início.",
       ctaPrimary: "ATIVAR MÁQUINA DE VENDAS",
       ctaSecondary: "Ver Pacotes",
       trustPilot: "Excelente 4.9/5 estrelas no Google & Redes de Negócios"
@@ -377,83 +404,108 @@ export const translations: Record<Language, TranslationSchema> = {
       ]
     },
     pricing: {
-      title: "Soluções Transparentes. Pagamento Único.",
-      subtitle: "Esqueça mensalidades abusivas e plataformas que bloqueiam o seu acesso. Na VELKS paga apenas uma vez e a infraestrutura é 100% sua. Sem surpresas.",
-      singlePayment: "PAGAMENTO ÚNICO",
+      title: "Soluções Transparentes. Custos Claros.",
+      subtitle: "Custos claros desde o início. Setup transparente e operação gerida quando a infraestrutura exige continuidade. Sem surpresas.",
+      singlePayment: "PREÇOS CLAROS · OPERAÇÃO GERIDA",
       allPlansInclude: "Todos os pacotes incluem:",
       allPlansIncludeDesc: "Suporte premium, total conformidade com o RGPD, design focado em telemóveis e otimização de velocidade máxima.",
       plans: {
         gmaps: {
           title: "Google Maps Profissional",
           price: "90€",
+          eyebrow: "01. GOOGLE BUSINESS",
+          priceLabel: "Preço",
+          badge: "PAGAMENTO ÚNICO",
           features: [
             "Configuração e Reivindicação Completa",
-            "Otimização SEO Local Avançada",
-            "Carregamento de Fotos Profissionais",
-            "Inserção de Produtos e Serviços",
-            "Link Direto para Avaliações",
-            "Estratégia de Posicionamento Local",
-            "Ativação de Mensagens Diretas"
+            "SEO Local e Categorias Estratégicas",
+            "Descrição, Serviços e Produtos Otimizados",
+            "Otimização de Fotos e Dados Comerciais",
+            "Estrutura Direta para Captação de Avaliações",
+            "Otimização para Chamadas, Rotas e Contactos",
+            "Posicionamento para Pesquisa Local"
           ],
-          cta: "DOMINAR O TOP 3 LOCAL",
+          cta: "OTIMIZAR PRESENÇA LOCAL",
           tracking: "Olá! Tenho interesse no pacote Google Maps Profissional. Os especialistas da VELKS podiam ajudar-me?"
         },
         website: {
-          title: "Site Profissional Premium",
-          price: "190€",
+          title: "Website Comercial",
+          price: "19€/mês",
+          eyebrow: "02. WEBSITES",
+          priceLabel: "Preço",
+          badge: "SETUP 300€",
           features: [
-            "Landing Page Ultra Rápida",
-            "Design Mobile-First Exclusivo",
-            "Otimização SEO para o Google",
-            "Integração Direta com WhatsApp",
-            "Configuração do Domínio Pessoal",
-            "30 Dias de Suporte Gratuito",
-            "Conformidade RGPD & Segurança SSL"
+            "Website Personalizado Mobile-First",
+            "Estrutura Comercial Adaptada ao Negócio",
+            "Captação Estruturada de Pedidos e Orçamentos",
+            "Recolha de Contacto, Necessidade e Observações",
+            "Envio Direto do Pedido para a Empresa",
+            "SEO Técnico + Google e Bing Search Console",
+            "Integração de Domínio, DNS e SSL",
+            "Infraestrutura, Deploy e Manutenção Geridos"
           ],
-          cta: "ATIVAR MÁQUINA DE VENDAS",
+          cta: "ATIVAR WEBSITE COMERCIAL",
           tracking: "Olá! Tenho interesse no pacote Site Profissional. Qual é o primeiro passo para construirmos a minha nova máquina de vendas?"
         },
         automacao: {
-          title: "Automação de Atendimento",
-          price: "250€",
+          title: "ORION AI Capture",
+          price: "29€/mês",
+          eyebrow: "03. ORION AI",
+          priceLabel: "Preço",
+          badge: "SETUP 297€",
           features: [
-            "Triagem automática e qualificação de clientes.",
-            "Integração direta com WhatsApp ou Instagram.",
-            "Menu estratégico de respostas imediatas (24/7).",
-            "Configuração de fluxos em 2 idiomas.",
-            "Captura e reencaminhamento de orçamentos.",
-            "Zero consumo de API e zero mensalidades."
+            "Widget de IA Proativo Integrado no Website",
+            "Conversação por Texto + Voz Natural com Azure AI",
+            "Identidade, Avatar, Cores e Mensagens Personalizadas",
+            "Conhecimento Configurado para o Seu Negócio",
+            "Qualificação Inteligente de Necessidade e Intenção",
+            "Captura de Nome, Contacto e Dados Comerciais",
+            "Registo Estruturado de Leads e Conversas",
+            "Relatório Automático por Email",
+            "Resumo e Transcrição da Conversa"
           ],
-          cta: "BLINDAR O ATENDIMENTO 24/7",
+          cta: "ATIVAR ORION AI",
           tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com a Assistência Automática de IA. Qual é o próximo passo?"
         },
         ecommerce: {
           title: "E-Commerce Completo",
-          price: "300€",
+          price: "39€/mês",
+          eyebrow: "04. E-COMMERCE",
+          priceLabel: "Preço",
+          badge: "SETUP 450€",
           features: [
-            "Criação & Personalização de Loja",
-            "Pronto para Print on Demand / Dropshipping",
-            "Ideal para Negócios Locais, Digitais ou Híbridos",
-            "Mapa dos Melhores Fornecedores do Mercado",
-            "Integração de Pagamentos Seguros",
+            "Loja Online Personalizada e Mobile-First",
+            "Catálogo de Produtos e Estrutura Comercial",
+            "Checkout e Pagamentos Seguros com Stripe",
             "Configuração de Envios e Stock",
-            "Painel de Controlo Super Simples"
+            "Gestão Estruturada de Encomendas",
+            "Painel de Administração Simplificado",
+            "SEO Técnico para Produtos e Pesquisa",
+            "Base de Dados e Operação Integradas",
+            "Hosting, SSL, Deploy e Manutenção Geridos"
           ],
-          cta: "ESCALAR A FATURAÇÃO ONLINE",
+          cta: "ATIVAR E-COMMERCE",
           tracking: "Olá, Equipa VELKS. Analisei a tabela de preços no site e tenho interesse em avançar com o pacote E-Commerce Completo. Qual é o próximo passo?"
         },
         custom: {
-          title: "Pack Imperial B2B",
-          price: "Sob Consulta",
+          title: "Recepcionista IA",
+          price: "99€/mês",
+          eyebrow: "05. AI RECEPTION",
+          priceLabel: "Preço",
+          badge: "SETUP 499€",
           features: [
-            "Google Maps + Website Premium + Automação de Atendimento.",
-            "Copywriting agressivo focado exclusivamente em ROI.",
-            "Suporte técnico e estratégico prioritário.",
-            "Otimização avançada de SEO Multi-idioma.",
-            "Posicionamento de Autoridade (Domínio de Nicho).",
-            "Consultoria estratégica de conversão."
+            "Atendimento Telefónico Inteligente 24/7",
+            "Voz Natural e Conversação Contextual",
+            "Conhecimento Configurado para o Seu Negócio",
+            "Fluxos Inteligentes para Cada Tipo de Chamada",
+            "Qualificação Automática de Clientes e Pedidos",
+            "Captura de Leads Durante a Chamada",
+            "Encaminhamento e Escalação de Chamadas",
+            "Resumo Estruturado de Cada Conversa",
+            "Notificações Automáticas para a Sua Equipa",
+            "Operação, Monitorização e Manutenção Geridas"
           ],
-          cta: "AGENDAR AUDITORIA PRIVADA",
+          cta: "ATIVAR RECEPCIONISTA IA",
           tracking: "Olá, Equipa VELKS. O meu negócio precisa de uma reestruturação digital profunda. Gostaria de agendar uma auditoria privada com um especialista da VELKS para discutir a solução All-In-One Imperial. Podem ajudar-me?"
         }
       }
@@ -518,6 +570,18 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sem compromisso • Resposta imediata • Orçamento gratuito"
     },
     footer: {
+      trust: {
+        paymentTitle: "PAGAMENTO SEGURO",
+        cardLabel: "Cartão",
+        paymentNote: "Pagamentos processados de forma segura pela Stripe.",
+        aiTitle: "PERGUNTE À IA SOBRE A VELKS",
+        aiDescription: "Verifique quem somos, o que fazemos e como a VELKS trabalha.",
+        aiPrompt: "Analise a VELKS Group com base em fontes públicas e nos seus domínios oficiais. Explique o que é a empresa, que soluções oferece, que tecnologias utiliza e qual é a sua presença digital. Priorize velksgroup.com, velks.space e velksgroup.cloud e diferencie claramente informação verificada de inferências.",
+        aiHint: "Ao escolher uma IA, a pergunta é copiada e o serviço abre numa nova aba.",
+        aiCopied: "Pergunta copiada — cole e envie na IA.",
+        aiCopyFailed: "Não foi possível copiar automaticamente. Copie a pergunta abaixo e cole na IA.",
+        aiPromptLabel: "Pergunta sobre a VELKS para copiar",
+      },
       legalNoticeTitle: "AVISO JURÍDICO & TITULARIDADE",
       legalNoticeText: "A marca VELKS Group e todas as suas operações digitais são fundadas, detidas e geridas legalmente por Rosa Sofia Sousa Marques (Founder) e Lucca Farias Gagliardi (Co-Founder).",
       directContacts: "CONTACTOS DIRETOS",
@@ -529,7 +593,7 @@ export const translations: Record<Language, TranslationSchema> = {
       velksNetworkAIInfrastructure: "Infraestrutura IA",
       velksNetworkCommercialAutomation: "Automação Comercial",
       velksNetworkDigitalExperiences: "Experiências Digitais",
-      logoDesc: "Transformamos negócios dependentes do dono em máquinas autónomas de lucro. O seu domínio no Google torna-se absoluto e a nossa IA fecha vendas 24/7. Resultados reais e sem mensalidades recorrentes, para que recupere o seu tempo e a sua liberdade.",
+      logoDesc: "Transformamos negócios dependentes do dono em máquinas autónomas de lucro. O seu domínio no Google torna-se absoluto e a nossa IA fecha vendas 24/7. Resultados reais e custos claros desde o início, para que recupere o seu tempo e a sua liberdade.",
       hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
       hqSec: "Sede Secundária: Coimbra, Portugal",
       policyPrivacy: "Política de Privacidade",
@@ -602,7 +666,7 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Ciao. Ho visto la vostra infrastruttura tecnologica sul sito e vorrei verificare se la mia azienda si qualifica per implementare il vostro sistema commerciale. Potete inviarmi il listino prezzi?",
       badge: "★ DOMINIO ASSOLUTO DEL MERCATO",
       title: "La tua attività merita di apparire prima dei tuoi concorrenti.",
-      subtitle: "Creiamo siti web premium, profili Google Maps professionali e sistemi di risposta automatica per aiutarti a generare più contatti e chiudere più clienti ogni giorno. Senza abbonamenti mensili.",
+      subtitle: "Creiamo siti web premium, profili Google Maps professionali e sistemi di risposta automatica per aiutarti a generare più contatti e chiudere più clienti ogni giorno. Costi chiari fin dall’inizio.",
       ctaPrimary: "ATTIVARE MACCHINA DELLE VENDITE",
       ctaSecondary: "Vedi Pacchetti",
       trustPilot: "Eccellente 4.9/5 stelle su Google & Business Networks"
@@ -754,82 +818,107 @@ export const translations: Record<Language, TranslationSchema> = {
     },
     pricing: {
       title: "Pacchetti Trasparenti Senza Sorprese",
-      subtitle: "Pagamento unico. Nessun abbonamento obbligatorio, nessuna tassa nascosta. Puro investimento sulla tua crescita.",
-      singlePayment: "PAGAMENTO UNICO",
+      subtitle: "Costi chiari fin dall’inizio. Configurazione iniziale trasparente e gestione continuativa quando l’infrastruttura lo richiede. Nessuna sorpresa.",
+      singlePayment: "PREZZI CHIARI · GESTIONE CONTINUATIVA",
       allPlansInclude: "Tutti i pacchetti includono:",
       allPlansIncludeDesc: "Supporto premium, conformità totale GDPR, design mobile-first e ottimizzazione per la massima velocità di caricamento.",
       plans: {
         gmaps: {
           title: "Google Maps Professionale",
           price: "90€",
+          eyebrow: "01. GOOGLE BUSINESS",
+          priceLabel: "Prezzo",
+          badge: "PAGAMENTO UNICO",
           features: [
-            "Configurazione & Rivendicazione Completa",
-            "Ottimizzazione SEO Locale Avanzata",
-            "Caricamento di Foto Professionali",
-            "Inserimento di Servizi & Prodotti",
-            "Creazione Link Diretto per Recensioni",
-            "Strategia di Posizionamento Locale",
-            "Attivazione dei Messaggi Diretti"
+            "Configurazione e Rivendicazione Completa del Profilo",
+            "SEO Locale e Categorie Strategiche",
+            "Descrizione, Servizi e Prodotti Ottimizzati",
+            "Ottimizzazione di Foto e Informazioni Aziendali",
+            "Sistema Diretto per Raccogliere Recensioni",
+            "Ottimizzazione di Chiamate, Indicazioni Stradali e Contatti",
+            "Posizionamento nelle Ricerche Locali"
           ],
-          cta: "DOMINARE LA TOP 3 LOCALE",
+          cta: "OTTIMIZZA LA PRESENZA LOCALE",
           tracking: "Ciao! Sono interessato al pacchetto Google Maps Professionale. Gli specialisti di VELKS potrebbero aiutarmi?"
         },
         website: {
-          title: "Sito Web Professionale Premium",
-          price: "190€",
+          title: "Sito Web Commerciale",
+          price: "19€/mese",
+          eyebrow: "02. WEBSITES",
+          priceLabel: "Prezzo",
+          badge: "CONFIGURAZIONE INIZIALE 300€",
           features: [
-            "Landing Page Ultra Veloce",
-            "Design Mobile-First Esclusivo",
-            "Ottimizzazione SEO per Google",
-            "Integrazione Diretta con WhatsApp",
-            "Configurazione del Dominio Personale",
-            "30 Giorni di Supporto Gratuito",
-            "Conformità GDPR & Sicurezza SSL"
+            "Sito Web su Misura con Approccio Mobile-First",
+            "Struttura Commerciale Adattata alla Tua Attività",
+            "Raccolta Strutturata di Richieste e Preventivi",
+            "Acquisizione di Contatti, Esigenze e Note",
+            "Invio Diretto delle Richieste alla Tua Azienda",
+            "SEO Tecnica + Google e Bing Search Console",
+            "Integrazione di Dominio, DNS e SSL",
+            "Infrastruttura, Pubblicazione e Manutenzione Gestite"
           ],
-          cta: "ATTIVARE MACCHINA DELLE VENDITE",
+          cta: "ATTIVA IL SITO COMMERCIALE",
           tracking: "Ciao! Sono interessato al pacchetto Sito Web Professionale. Qual è il primo passo per costruire la mia nuova macchina per le vendite?"
         },
         automacao: {
-          title: "Automazione dell'Assistenza",
-          price: "250€",
+          title: "ORION AI Capture",
+          price: "29€/mese",
+          eyebrow: "03. ORION AI",
+          priceLabel: "Prezzo",
+          badge: "CONFIGURAZIONE INIZIALE 297€",
           features: [
-            "Triage automatico e qualificazione dei clienti.",
-            "Integrazione diretta con WhatsApp o Instagram.",
-            "Menu strategico di risposte immediate (24/7).",
-            "Configurazione dei flussi in 2 lingue.",
-            "Acquisizione e inoltro di preventivi.",
-            "Zero consumo API e zero canoni mensili."
+            "Widget IA Proattivo Integrato nel Sito Web",
+            "Conversazioni Testuali e Voce Naturale con Azure AI",
+            "Identità, Avatar, Colori e Messaggi Personalizzati",
+            "Conoscenze Configurate per la Tua Attività",
+            "Qualificazione Intelligente di Esigenze e Intenzioni",
+            "Acquisizione di Nome, Contatti e Dati Commerciali",
+            "Registrazione Strutturata di Lead e Conversazioni",
+            "Report Automatico via Email",
+            "Riepilogo e Trascrizione della Conversazione"
           ],
-          cta: "BLINDARE L'ASSISTENZA 24/7",
+          cta: "ATTIVA ORION AI",
           tracking: "Ciao, Team VELKS. Ho analizzato il listino prezzi sul sito e sono interessato ad andare avanti con l'Assistenza Automatica IA. Qual è il prossimo passo per iniziare l'integrazione?"
         },
         ecommerce: {
-          title: "E-commerce Completo",
-          price: "300€",
+          title: "E-Commerce Completo",
+          price: "39€/mese",
+          eyebrow: "04. E-COMMERCE",
+          priceLabel: "Prezzo",
+          badge: "CONFIGURAZIONE INIZIALE 450€",
           features: [
-            "Creazione & Personalizzazione Negozio Online",
-            "Pronto per Print on Demand / Dropshipping",
-            "Ideale per Attività Locale, Digitale o Ibrida",
-            "Mappa dei Migliori Fornitori sul Mercato",
-            "Integrazione di Pagamenti Sicuri",
-            "Configurazione Spedizioni e Stock",
-            "Pannello di Controllo Super Semplice"
+            "Negozio Online su Misura con Approccio Mobile-First",
+            "Catalogo Prodotti e Struttura Commerciale",
+            "Checkout e Pagamenti Sicuri con Stripe",
+            "Configurazione di Spedizioni e Scorte",
+            "Gestione Strutturata degli Ordini",
+            "Pannello di Amministrazione Semplificato",
+            "SEO Tecnica per Prodotti e Ricerca",
+            "Database e Operatività Integrati",
+            "Hosting, SSL, Pubblicazione e Manutenzione Gestiti"
           ],
-          cta: "SCALARE IL FATTURATO ONLINE",
+          cta: "ATTIVA E-COMMERCE",
           tracking: "Ciao, Team VELKS. Ho analizzato il listino prezzi sul sito e sono interessato ad andare avanti con il pacchetto E-Commerce Completo. Qual è il prossimo passo per iniziare l'integrazione?"
         },
         custom: {
-          title: "Pack Imperial B2B",
-          price: "Su Richiesta",
+          title: "Receptionist IA",
+          price: "99€/mese",
+          eyebrow: "05. AI RECEPTION",
+          priceLabel: "Prezzo",
+          badge: "CONFIGURAZIONE INIZIALE 499€",
           features: [
-            "Google Maps + Sito Web Premium + Automazione dell'Assistenza.",
-            "Copywriting aggressivo focalizzato esclusivamente sul ROI.",
-            "Supporto tecnico e strategico prioritario.",
-            "Ottimizzazione SEO multilingua avanzata.",
-            "Posizionamento di Autorità (Dominio di Nicchia).",
-            "Consulenza strategica di conversione."
+            "Assistenza Telefonica Intelligente 24/7",
+            "Voce Naturale e Conversazioni Contestuali",
+            "Conoscenze Configurate per la Tua Attività",
+            "Flussi Intelligenti per Ogni Tipo di Chiamata",
+            "Qualificazione Automatica di Clienti e Richieste",
+            "Acquisizione di Lead Durante le Chiamate",
+            "Inoltro delle Chiamate e Passaggio al Team",
+            "Riepilogo Strutturato di Ogni Conversazione",
+            "Notifiche Automatiche per il Tuo Team",
+            "Operatività, Monitoraggio e Manutenzione Gestiti"
           ],
-          cta: "PRENOTA AUDIT PRIVATO",
+          cta: "ATTIVA RECEPTIONIST IA",
           tracking: "Ciao, Team VELKS. La mia attività necessita di una profonda ristrutturazione digitale. Vorrei prenotare un audit privato con uno specialista VELKS per discutere della soluzione All-In-One Imperial. Potreste aiutarmi?"
         }
       }
@@ -894,6 +983,18 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Nessun impegno • Risposta immediata • Preventivo gratuito"
     },
     footer: {
+      trust: {
+        paymentTitle: "PAGAMENTO SICURO",
+        cardLabel: "Carta",
+        paymentNote: "Pagamenti elaborati in modo sicuro da Stripe.",
+        aiTitle: "CHIEDI ALL’IA INFORMAZIONI SU VELKS",
+        aiDescription: "Scopri chi siamo, cosa facciamo e come lavora VELKS.",
+        aiPrompt: "Analizza VELKS Group sulla base di fonti pubbliche e dei suoi domini ufficiali. Spiega che cos’è l’azienda, quali soluzioni offre, quali tecnologie utilizza e qual è la sua presenza digitale. Dai priorità a velksgroup.com, velks.space e velksgroup.cloud e distingui chiaramente le informazioni verificate dalle deduzioni.",
+        aiHint: "Scegli un’IA per copiare la domanda e aprire il servizio in una nuova scheda.",
+        aiCopied: "Domanda copiata — incollala e inviala nell’IA.",
+        aiCopyFailed: "Copia automatica non riuscita. Copia la domanda qui sotto e incollala nell’IA.",
+        aiPromptLabel: "Domanda su VELKS da copiare",
+      },
       legalNoticeTitle: "AVVISO LEGALE & PROPRIETÀ",
       legalNoticeText: "Il marchio VELKS Group e tutte le sue operazioni digitali sono fondate, possedute e gestite legalmente da Rosa Sofia Sousa Marques (Founder) e Lucca Farias Gagliardi (Co-Founder).",
       directContacts: "CONTATTI DIRETTI",
@@ -905,7 +1006,7 @@ export const translations: Record<Language, TranslationSchema> = {
       velksNetworkAIInfrastructure: "Infrastruttura IA",
       velksNetworkCommercialAutomation: "Automazione Commerciale",
       velksNetworkDigitalExperiences: "Esperienze Digitali",
-      logoDesc: "Trasformiamo le imprese dipendenti dal proprietario in macchine da profitto autonome. Il tuo dominio su Google diventa assoluto e la nostra IA chiude le vendite 24/7. Risultati reali e zero abbonamenti ricorrenti, così puoi recuperare il tuo tempo e la tua libertà.",
+      logoDesc: "Trasformiamo le imprese dipendenti dal proprietario in macchine da profitto autonome. Il tuo dominio su Google diventa assoluto e la nostra IA chiude le vendite 24/7. Risultati reali e costi chiari fin dall’inizio, così puoi recuperare il tuo tempo e la tua libertà.",
       hqMain: "Sede Principale: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Lussemburgo",
       hqSec: "Sede Secondaria: Coimbra, Portogallo",
       policyPrivacy: "Informativa sulla Privacy",
@@ -978,7 +1079,7 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Hello. I saw your technological infrastructure on the website and would like to check if my company qualifies to implement your commercial system. Can you send me the pricing table?",
       badge: "★ ABSOLUTE MARKET DOMINANCE",
       title: "Your business deserves to appear before your competitors.",
-      subtitle: "We create premium websites, professional Google Maps profiles, and automated customer response systems to help you generate more leads and close more sales daily. No monthly subscriptions.",
+      subtitle: "We create premium websites, professional Google Maps profiles, and automated customer response systems to help you generate more leads and close more sales daily. Clear costs from the start.",
       ctaPrimary: "ACTIVATE SALES MACHINE",
       ctaSecondary: "View Packages",
       trustPilot: "Excellent 4.9/5 stars on Google & Business Networks"
@@ -1129,83 +1230,108 @@ export const translations: Record<Language, TranslationSchema> = {
       ]
     },
     pricing: {
-      title: "No Monthly Fees. Zero Surprises. Just Results.",
+      title: "Clear Pricing. Zero Surprises. Just Results.",
       subtitle: "We don't sell websites. We build digital machines engineered to generate real results.",
-      singlePayment: "ONE-TIME PAYMENT",
+      singlePayment: "CLEAR PRICING · MANAGED OPERATIONS",
       allPlansInclude: "All packages include:",
       allPlansIncludeDesc: "Premium support, full EU GDPR compliance, mobile-first design, and optimization for blazing fast load speeds.",
       plans: {
         gmaps: {
           title: "Professional Google Maps",
           price: "90€",
+          eyebrow: "01. GOOGLE BUSINESS",
+          priceLabel: "Price",
+          badge: "ONE-TIME PAYMENT",
           features: [
-            "Full Setup & Ownership Claiming",
-            "Advanced Local SEO Optimization",
-            "Professional Photo & Logo Upload",
-            "Services & Products Showcase Setup",
-            "Direct Review-Generator Link",
-            "Local Authority Position Strategy",
-            "Direct Messaging Activation"
+            "Complete Profile Setup and Claiming",
+            "Local SEO and Strategic Categories",
+            "Optimized Description, Services and Products",
+            "Photo and Business Information Optimization",
+            "Direct Review Collection System",
+            "Optimization for Calls, Directions and Enquiries",
+            "Local Search Positioning"
           ],
-          cta: "DOMINATE LOCAL TOP 3",
+          cta: "OPTIMIZE LOCAL PRESENCE",
           tracking: "Hello! I am interested in the Professional Google Maps package. Could VELKS specialists help me?"
         },
         website: {
-          title: "Premium Professional Website",
-          price: "190€",
+          title: "Business Website",
+          price: "19€/month",
+          eyebrow: "02. WEBSITES",
+          priceLabel: "Price",
+          badge: "SETUP 300€",
           features: [
-            "Blazing Fast Premium Landing Page",
-            "Exclusive Mobile-First Design",
-            "Google SEO Structure & Keyword Ready",
-            "Direct WhatsApp Button Integration",
-            "Custom Domain Configuration",
-            "30 Days of Free Dedicated Support",
-            "GDPR compliant & Secure SSL Setup"
+            "Custom Mobile-First Website",
+            "Sales-Focused Structure Tailored to Your Business",
+            "Structured Enquiry and Quote Request Capture",
+            "Collection of Contact Details, Requirements and Notes",
+            "Requests Sent Directly to Your Business",
+            "Technical SEO + Google and Bing Search Console",
+            "Domain, DNS and SSL Integration",
+            "Managed Infrastructure, Deployment and Maintenance"
           ],
-          cta: "ACTIVATE SALES MACHINE",
+          cta: "ACTIVATE BUSINESS WEBSITE",
           tracking: "Hello! I am interested in the Professional Website package. What is the first step to building my new sales machine?"
         },
         automacao: {
-          title: "Customer Support Automation",
-          price: "250€",
+          title: "ORION AI Capture",
+          price: "29€/month",
+          eyebrow: "03. ORION AI",
+          priceLabel: "Price",
+          badge: "SETUP 297€",
           features: [
-            "Automatic triage and customer qualification.",
-            "Direct integration with WhatsApp or Instagram.",
-            "Strategic menu of immediate responses (24/7).",
-            "Flow configuration in 2 languages.",
-            "Capture and forwarding of quotes.",
-            "Zero API consumption and zero monthly fees."
+            "Proactive AI Widget Integrated into Your Website",
+            "Text and Natural Voice Conversations with Azure AI",
+            "Custom Identity, Avatar, Colors and Messages",
+            "Knowledge Configured for Your Business",
+            "Intelligent Qualification of Needs and Intent",
+            "Name, Contact and Business Data Capture",
+            "Structured Lead and Conversation Records",
+            "Automated Email Report",
+            "Conversation Summary and Transcript"
           ],
-          cta: "BULLETPROOF 24/7 SUPPORT",
+          cta: "ACTIVATE ORION AI",
           tracking: "Hello, VELKS Team. I reviewed the pricing table on the website and I am interested in moving forward with AI Automated Support. What is the next step to start the integration?"
         },
         ecommerce: {
-          title: "Complete E-commerce Suite",
-          price: "300€",
+          title: "Complete E-Commerce",
+          price: "39€/month",
+          eyebrow: "04. E-COMMERCE",
+          priceLabel: "Price",
+          badge: "SETUP 450€",
           features: [
-            "Full Custom Online Store Creation",
-            "Print on Demand / Dropshipping Setup",
-            "Perfect for Local, Digital, or Hybrid Shops",
-            "Market-Leading Supplier Sourcing",
-            "Secure Payments Integration",
-            "Shipping Rules & Inventory Config",
-            "Blazing Simple Client Management Desk"
+            "Custom Mobile-First Online Store",
+            "Product Catalogue and Sales Structure",
+            "Secure Checkout and Payments with Stripe",
+            "Shipping and Stock Configuration",
+            "Structured Order Management",
+            "Simplified Administration Panel",
+            "Technical SEO for Products and Search",
+            "Integrated Database and Operations",
+            "Managed Hosting, SSL, Deployment and Maintenance"
           ],
-          cta: "SCALE ONLINE REVENUE",
+          cta: "ACTIVATE E-COMMERCE",
           tracking: "Hello, VELKS Team. I reviewed the pricing table on the website and I am interested in moving forward with the Complete E-Commerce package. What is the next step to start the integration?"
         },
         custom: {
-          title: "Pack Imperial B2B",
-          price: "Custom",
+          title: "AI Receptionist",
+          price: "99€/month",
+          eyebrow: "05. AI RECEPTION",
+          priceLabel: "Price",
+          badge: "SETUP 499€",
           features: [
-            "Google Maps + Premium Website + Customer Support Automation.",
-            "Aggressive copywriting focused exclusively on ROI.",
-            "Priority technical and strategic support.",
-            "Advanced multi-language SEO optimization.",
-            "Authority Positioning (Niche Domain).",
-            "Strategic conversion consulting."
+            "Intelligent 24/7 Call Handling",
+            "Natural Voice and Context-Aware Conversations",
+            "Knowledge Configured for Your Business",
+            "Intelligent Workflows for Every Call Type",
+            "Automatic Qualification of Customers and Requests",
+            "Lead Capture During Calls",
+            "Call Routing and Escalation",
+            "Structured Summary of Every Conversation",
+            "Automatic Notifications for Your Team",
+            "Managed Operations, Monitoring and Maintenance"
           ],
-          cta: "SCHEDULE PRIVATE AUDIT",
+          cta: "ACTIVATE AI RECEPTIONIST",
           tracking: "Hello, VELKS Team. My business needs a deep digital restructuring. I would like to schedule a private audit with a VELKS specialist to discuss the All-In-One Imperial solution. Could you help me?"
         }
       }
@@ -1270,6 +1396,18 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "No commitment • Instant reply • Free quote"
     },
     footer: {
+      trust: {
+        paymentTitle: "SECURE PAYMENT",
+        cardLabel: "Card",
+        paymentNote: "Payments securely processed by Stripe.",
+        aiTitle: "ASK AI ABOUT VELKS",
+        aiDescription: "Find out who we are, what we do and how VELKS works.",
+        aiPrompt: "Analyse VELKS Group using public sources and its official domains. Explain what the company is, which solutions it offers, which technologies it uses and what its digital presence looks like. Prioritise velksgroup.com, velks.space and velksgroup.cloud, and clearly distinguish verified information from inferences.",
+        aiHint: "Choose an AI to copy the question and open the service in a new tab.",
+        aiCopied: "Question copied — paste and send it in the AI service.",
+        aiCopyFailed: "Automatic copying failed. Copy the question below and paste it in the AI service.",
+        aiPromptLabel: "Question about VELKS to copy",
+      },
       legalNoticeTitle: "LEGAL NOTICE & OWNERSHIP",
       legalNoticeText: "The VELKS Group brand and all its digital operations are founded, owned, and legally managed by Rosa Sofia Sousa Marques (Founder) and Lucca Farias Gagliardi (Co-Founder).",
       directContacts: "DIRECT CONTACTS",
@@ -1281,7 +1419,7 @@ export const translations: Record<Language, TranslationSchema> = {
       velksNetworkAIInfrastructure: "AI Infrastructure",
       velksNetworkCommercialAutomation: "Commercial Automation",
       velksNetworkDigitalExperiences: "Digital Experiences",
-      logoDesc: "We transform owner-dependent businesses into autonomous profit machines. Your Google dominance becomes absolute and our AI closes sales 24/7. Real results and zero monthly fees, so you can reclaim your time and freedom.",
+      logoDesc: "We transform owner-dependent businesses into autonomous profit machines. Your Google dominance becomes absolute and our AI closes sales 24/7. Real results and clear costs from the start, so you can reclaim your time and freedom.",
       hqMain: "Main Headquarters: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
       hqSec: "Secondary Office: Coimbra, Portugal",
       policyPrivacy: "Privacy Policy",
@@ -1354,7 +1492,7 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Bonjour. J'ai vu votre infrastructure technologique sur le site et j'aimerais vérifier si mon entreprise est qualifiée pour mettre en œuvre votre système commercial. Pouvez-vous m'envoyer la grille tarifaire ?",
       badge: "★ DOMINATION ABSOLUE DU MARCHÉ",
       title: "Votre entreprise mérite d'apparaître avant vos concurrents.",
-      subtitle: "Nous créons des sites web premium, des fiches Google Maps professionnelles et des systèmes de réponse client automatisés pour vous aider à générer plus de leads et fermer plus de ventes au quotidien. Sans abonnements.",
+      subtitle: "Nous créons des sites web premium, des fiches Google Maps professionnelles et des systèmes de réponse client automatisés pour vous aider à générer plus de leads et fermer plus de ventes au quotidien. Des coûts clairs dès le départ.",
       ctaPrimary: "ACTIVER LA MACHINE DE VENTE",
       ctaSecondary: "Voir Forfaits",
       trustPilot: "Excellent 4.9/5 étoiles sur Google & Réseaux Professionnels"
@@ -1506,82 +1644,107 @@ export const translations: Record<Language, TranslationSchema> = {
     },
     pricing: {
       title: "Tarifs Transparents. Zéro Surprise.",
-      subtitle: "Paiement unique. Pas d'abonnements forcés, pas de frais cachés. Un investissement net pour votre croissance.",
-      singlePayment: "PAIEMENT UNIQUE",
+      subtitle: "Des coûts clairs dès le départ. Une mise en place transparente et une exploitation gérée lorsque votre infrastructure nécessite un suivi continu. Sans surprise.",
+      singlePayment: "TARIFS CLAIRS · EXPLOITATION GÉRÉE",
       allPlansInclude: "Toutes nos formules incluent :",
       allPlansIncludeDesc: "Support premium, conformité totale RGPD UE, design mobile-first et optimisation pour une vitesse de chargement maximale.",
       plans: {
         gmaps: {
           title: "Google Maps Professionnel",
           price: "90€",
+          eyebrow: "01. GOOGLE BUSINESS",
+          priceLabel: "Prix",
+          badge: "PAIEMENT UNIQUE",
           features: [
-            "Configuration & Récupération Complète",
-            "Optimisation SEO Locale Avancée",
-            "Mise en ligne de Photos Professionnelles",
-            "Ajout des Services & Produits",
-            "Génération d'un lien Direct d'Avis",
-            "Stratégie de Positionnement d'Autorité",
-            "Activation de la Messagerie Directe"
+            "Configuration et Revendication Complètes de la Fiche",
+            "SEO Local et Catégories Stratégiques",
+            "Description, Services et Produits Optimisés",
+            "Optimisation des Photos et des Informations Commerciales",
+            "Dispositif Direct de Collecte des Avis",
+            "Optimisation des Appels, Itinéraires et Prises de Contact",
+            "Positionnement dans les Recherches Locales"
           ],
-          cta: "DOMINER LE TOP 3 LOCAL",
+          cta: "OPTIMISER MA PRÉSENCE LOCALE",
           tracking: "Bonjour ! Je suis intéressé par le forfait Google Maps Professionnel. Les spécialistes de VELKS pourraient-ils m'aider ?"
         },
         website: {
-          title: "Site Web Professionnel Premium",
-          price: "190€",
+          title: "Site Web Commercial",
+          price: "19€/mois",
+          eyebrow: "02. WEBSITES",
+          priceLabel: "Prix",
+          badge: "MISE EN PLACE 300€",
           features: [
-            "Landing Page Ultra Rapide",
-            "Design Mobile-First Exclusif",
-            "Structure SEO Google & Mots-clés",
-            "Bouton WhatsApp Direct Intégré",
-            "Configuration du Domaine Propre",
-            "30 Jours de Support Dédié Offert",
-            "Conformité RGPD & Protocole SSL Sécurisé"
+            "Site Web sur Mesure, Pensé pour le Mobile",
+            "Structure Commerciale Adaptée à Votre Activité",
+            "Collecte Structurée des Demandes et Devis",
+            "Recueil des Coordonnées, Besoins et Commentaires",
+            "Envoi Direct des Demandes à Votre Entreprise",
+            "SEO Technique + Google et Bing Search Console",
+            "Intégration du Domaine, DNS et SSL",
+            "Infrastructure, Déploiement et Maintenance Gérés"
           ],
-          cta: "ACTIVER LA MACHINE À VENTES",
+          cta: "ACTIVER MON SITE COMMERCIAL",
           tracking: "Bonjour ! Je suis intéressé par le forfait Site Web Professionnel. Quelle est la première étape pour construire ma nouvelle machine de vente ?"
         },
         automacao: {
-          title: "Automatisation du Support",
-          price: "250€",
+          title: "ORION AI Capture",
+          price: "29€/mois",
+          eyebrow: "03. ORION AI",
+          priceLabel: "Prix",
+          badge: "MISE EN PLACE 297€",
           features: [
-            "Triage automatique et qualification des clients.",
-            "Intégration directe avec WhatsApp ou Instagram.",
-            "Menu stratégique de réponses immédiates (24/7).",
-            "Configuration des flux en 2 langues.",
-            "Capture et transfert des devis.",
-            "Zéro consommation d'API et zéro frais mensuels."
+            "Widget IA Proactif Intégré à Votre Site Web",
+            "Conversations par Texte et Voix Naturelle avec Azure AI",
+            "Identité, Avatar, Couleurs et Messages Personnalisés",
+            "Connaissances Configurées pour Votre Activité",
+            "Qualification Intelligente des Besoins et Intentions",
+            "Collecte du Nom, des Coordonnées et des Données Commerciales",
+            "Enregistrement Structuré des Prospects et Conversations",
+            "Rapport Automatique par Email",
+            "Résumé et Transcription de la Conversation"
           ],
-          cta: "BLINDER L'ASSISTANCE 24/7",
+          cta: "ACTIVER ORION AI",
           tracking: "Bonjour, l'équipe VELKS. J'ai analysé la grille tarifaire sur le site et je suis intéressé pour avancer avec l'Assistance Automatique par IA. Quelle est la prochaine étape pour commencer l'intégration ?"
         },
         ecommerce: {
-          title: "Suite E-commerce Complète",
-          price: "300€",
+          title: "E-Commerce Complet",
+          price: "39€/mois",
+          eyebrow: "04. E-COMMERCE",
+          priceLabel: "Prix",
+          badge: "MISE EN PLACE 450€",
           features: [
-            "Création & Personnalisation de Boutique",
-            "Prêt pour Print on Demand / Dropshipping",
-            "Idéal pour Commerces Locaux, Digitaus ou Hybrides",
-            "Sourcing Fournisseurs aux Meilleurs Prix",
-            "Intégration de Paiements Sécurisés",
-            "Règles d'Expédition & Gestion de Stock",
-            "Panneau de Gestion Simple et Ergonomique"
+            "Boutique en Ligne sur Mesure, Pensée pour le Mobile",
+            "Catalogue Produits et Structure Commerciale",
+            "Parcours de Commande et Paiements Sécurisés avec Stripe",
+            "Configuration des Livraisons et des Stocks",
+            "Gestion Structurée des Commandes",
+            "Interface d’Administration Simplifiée",
+            "SEO Technique pour les Produits et la Recherche",
+            "Base de Données et Exploitation Intégrées",
+            "Hébergement, SSL, Déploiement et Maintenance Gérés"
           ],
-          cta: "FAIRE ÉVOLUER LE CA EN LIGNE",
+          cta: "ACTIVER MON E-COMMERCE",
           tracking: "Bonjour, l'équipe VELKS. J'ai analysé la grille tarifaire sur le site et je suis intéressé pour avancer avec le forfait E-Commerce Complet. Quelle est la prochaine étape pour commencer l'intégration ?"
         },
         custom: {
-          title: "Pack Imperial B2B",
-          price: "Sur Demande",
+          title: "Réceptionniste IA",
+          price: "99€/mois",
+          eyebrow: "05. AI RECEPTION",
+          priceLabel: "Prix",
+          badge: "MISE EN PLACE 499€",
           features: [
-            "Google Maps + Site Web Premium + Automatisation du Support.",
-            "Copywriting agressif axé exclusivement sur le ROI.",
-            "Support technique et stratégique prioritaire.",
-            "Optimisation SEO multilingue avancée.",
-            "Positionnement d'Autorité (Domaine de Niche).",
-            "Conseil stratégique en conversion."
+            "Accueil Téléphonique Intelligent 24h/24 et 7j/7",
+            "Voix Naturelle et Conversations Contextuelles",
+            "Connaissances Configurées pour Votre Activité",
+            "Parcours Intelligents pour Chaque Type d’Appel",
+            "Qualification Automatique des Clients et Demandes",
+            "Collecte de Prospects Pendant les Appels",
+            "Transfert des Appels et Escalade vers Votre Équipe",
+            "Résumé Structuré de Chaque Conversation",
+            "Notifications Automatiques pour Votre Équipe",
+            "Exploitation, Supervision et Maintenance Gérées"
           ],
-          cta: "PLANIFIER UN AUDIT PRIVÉ",
+          cta: "ACTIVER MON RÉCEPTIONNISTE IA",
           tracking: "Bonjour, l'équipe VELKS. Mon entreprise a besoin d'une restructuration numérique profonde. J'aimerais planifier un audit privé avec un spécialiste VELKS pour discuter de la solution All-In-One Imperial. Pourriez-vous m'aider ?"
         }
       }
@@ -1646,6 +1809,18 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sans engagement • Réponse immédiate • Devis gratuit"
     },
     footer: {
+      trust: {
+        paymentTitle: "PAIEMENT SÉCURISÉ",
+        cardLabel: "Carte",
+        paymentNote: "Paiements traités de manière sécurisée par Stripe.",
+        aiTitle: "INTERROGEZ L’IA SUR VELKS",
+        aiDescription: "Découvrez qui nous sommes, ce que nous faisons et comment VELKS travaille.",
+        aiPrompt: "Analyse VELKS Group à partir de sources publiques et de ses domaines officiels. Explique ce qu’est l’entreprise, les solutions qu’elle propose, les technologies qu’elle utilise et sa présence numérique. Privilégie velksgroup.com, velks.space et velksgroup.cloud, et distingue clairement les informations vérifiées des déductions.",
+        aiHint: "Choisissez une IA pour copier la question et ouvrir le service dans un nouvel onglet.",
+        aiCopied: "Question copiée — collez-la et envoyez-la dans l’IA.",
+        aiCopyFailed: "La copie automatique a échoué. Copiez la question ci-dessous et collez-la dans l’IA.",
+        aiPromptLabel: "Question sur VELKS à copier",
+      },
       legalNoticeTitle: "AVIS LÉGAL & PROPRIÉTÉ",
       legalNoticeText: "La marque VELKS Group et toutes ses opérations numériques sont fondées, détenues et gérées légalement par Rosa Sofia Sousa Marques (Founder) et Lucca Farias Gagliardi (Co-Founder).",
       directContacts: "CONTACTS DIRECTS",
@@ -1657,7 +1832,7 @@ export const translations: Record<Language, TranslationSchema> = {
       velksNetworkAIInfrastructure: "Infrastructure IA",
       velksNetworkCommercialAutomation: "Automatisation Commerciale",
       velksNetworkDigitalExperiences: "Expériences Numériques",
-      logoDesc: "Nous transformons les entreprises dépendantes de leur propriétaire en machines à profit autonomes. Votre domination sur Google devient absolue et notre IA conclut des ventes 24/7. Des résultats réels et sans abonnements récurrents, pour que vous retrouviez votre temps et votre liberté.",
+      logoDesc: "Nous transformons les entreprises dépendantes de leur propriétaire en machines à profit autonomes. Votre domination sur Google devient absolue et notre IA conclut des ventes 24/7. Des résultats réels et des coûts clairs dès le départ, pour que vous retrouviez votre temps et votre liberté.",
       hqMain: "Siège Social : 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxembourg",
       hqSec: "Bureau Secondaire : Coimbra, Portugal",
       policyPrivacy: "Politique de Confidentialité",
@@ -1730,7 +1905,7 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Hallo. Ich habe Ihre technologische Infrastruktur auf der Website gesehen und möchte prüfen, ob sich mein Unternehmen für die Implementierung Ihres kommerziellen Systems qualifiziert. Können Sie mir die Preistabelle zusenden?",
       badge: "★ ABSOLUTE MARKTDOMINANZ",
       title: "Ihr Unternehmen verdient es, vor Ihren Konkurrenten zu erscheinen.",
-      subtitle: "Wir erstellen Premium-Websites, professionelle Google Maps-Einträge und automatische Kundensupport-Systeme, damit Sie täglich mehr Anfragen generieren und mehr Abschlüsse erzielen. Ohne monatliche Abos.",
+      subtitle: "Wir erstellen Premium-Websites, professionelle Google Maps-Einträge und automatische Kundensupport-Systeme, damit Sie täglich mehr Anfragen generieren und mehr Abschlüsse erzielen. Klare Kosten von Anfang an.",
       ctaPrimary: "UMSATZ STEIGERN",
       ctaSecondary: "Pakete ansehen",
       trustPilot: "Hervorragend 4.9/5 Sterne bei Google & Business Networks"
@@ -1882,82 +2057,107 @@ export const translations: Record<Language, TranslationSchema> = {
     },
     pricing: {
       title: "Transparente Preise. Keine bösen Überraschungen.",
-      subtitle: "Einmalzahlung. Keine verpflichtenden Abonnements, keine versteckten Kosten. Reine Investition in Ihr Wachstum.",
-      singlePayment: "EINMALIGE ZAHLUNG",
+      subtitle: "Klare Kosten von Anfang an. Transparente Einrichtung und betreuter Betrieb, wenn Ihre Infrastruktur laufende Betreuung benötigt. Keine Überraschungen.",
+      singlePayment: "KLARE PREISE · BETREUTER BETRIEB",
       allPlansInclude: "Alle Pakete beinhalten:",
       allPlansIncludeDesc: "Premium-Support, vollständige EU-DSGVO-Konformität, Mobile-First-Design und Optimierung für maximale Ladegeschwindigkeiten.",
       plans: {
         gmaps: {
-          title: "Google Maps Professionell",
+          title: "Google Maps Professional",
           price: "90€",
+          eyebrow: "01. GOOGLE BUSINESS",
+          priceLabel: "Preis",
+          badge: "EINMALZAHLUNG",
           features: [
-            "Vollständige Einrichtung & Inhaberschaftsanspruch",
-            "Erweiterte lokale SEO-Optimierung",
-            "Professioneller Foto- & Logo-Upload",
-            "Präsentation von Dienstleistungen & Produkten",
-            "Direkter Bewertungs-Generator-Link",
-            "Lokale Positionierungsstrategie",
-            "Direktnachrichten-Aktivierung"
+            "Vollständige Einrichtung und Inhaberschaftsbestätigung",
+            "Lokale SEO und Strategische Kategorien",
+            "Optimierte Beschreibung, Leistungen und Produkte",
+            "Optimierung von Fotos und Unternehmensdaten",
+            "Direktes System zum Sammeln von Bewertungen",
+            "Optimierung für Anrufe, Routen und Kontaktanfragen",
+            "Positionierung in der Lokalen Suche"
           ],
-          cta: "TOP 3 DOMINIEREN",
+          cta: "LOKALE PRÄSENZ OPTIMIEREN",
           tracking: "Hallo! Ich interessiere mich für das Google Maps Professionell-Paket. Könnten mir die VELKS-Spezialisten helfen?"
         },
         website: {
-          title: "Premium Website Professionell",
-          price: "190€",
+          title: "Business-Website",
+          price: "19€/Monat",
+          eyebrow: "02. WEBSITES",
+          priceLabel: "Preis",
+          badge: "EINRICHTUNG 300€",
           features: [
-            "Extrem schnelle Landing Page",
-            "Exklusives Mobile-First-Design",
-            "Google SEO-Struktur & Keyword-optimiert",
-            "Direkte WhatsApp-Button-Integration",
-            "Einrichtung der eigenen Domain",
-            "30 Tage kostenloser Premium-Support",
-            "DSGVO-konform & Sicheres SSL-Zertifikat"
+            "Individuelle Website mit Mobile-First-Ansatz",
+            "Vertriebsstruktur Passend zu Ihrem Unternehmen",
+            "Strukturierte Erfassung von Anfragen und Angebotswünschen",
+            "Erfassung von Kontaktdaten, Bedarf und Anmerkungen",
+            "Direkte Übermittlung der Anfrage an Ihr Unternehmen",
+            "Technische SEO + Google und Bing Search Console",
+            "Integration von Domain, DNS und SSL",
+            "Verwaltete Infrastruktur, Bereitstellung und Wartung"
           ],
-          cta: "JETZT STARTEN",
+          cta: "BUSINESS-WEBSITE AKTIVIEREN",
           tracking: "Hallo! Ich interessiere mich für das Website Professionell-Paket. Was ist der erste Schritt zum Aufbau meiner neuen Verkaufsmaschine?"
         },
         automacao: {
-          title: "Support-Automatisierung",
-          price: "250€",
+          title: "ORION AI Capture",
+          price: "29€/Monat",
+          eyebrow: "03. ORION AI",
+          priceLabel: "Preis",
+          badge: "EINRICHTUNG 297€",
           features: [
-            "Automatische Triage und Kundenqualifizierung.",
-            "Direkte Integration mit WhatsApp oder Instagram.",
-            "Strategisches Menü für sofortige Antworten (24/7).",
-            "Flow-Konfiguration in 2 Sprachen.",
-            "Erfassung und Weiterleitung von Angeboten.",
-            "Null API-Verbrauch und null monatliche Gebühren."
+            "Proaktives KI-Widget für Ihre Website",
+            "Textgespräche und Natürliche Stimme mit Azure AI",
+            "Individuelle Identität, Avatar, Farben und Nachrichten",
+            "Auf Ihr Unternehmen Abgestimmte Wissensbasis",
+            "Intelligente Qualifizierung von Bedarf und Absicht",
+            "Erfassung von Namen, Kontaktdaten und Geschäftsinformationen",
+            "Strukturierte Erfassung von Leads und Gesprächen",
+            "Automatischer Bericht per E-Mail",
+            "Gesprächszusammenfassung und Transkript"
           ],
-          cta: "SUPPORT ABSICHERN",
+          cta: "ORION AI AKTIVIEREN",
           tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem KI-Automatisierten Support fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
         },
         ecommerce: {
-          title: "Komplettes E-Commerce-System",
-          price: "300€",
+          title: "E-Commerce Komplett",
+          price: "39€/Monat",
+          eyebrow: "04. E-COMMERCE",
+          priceLabel: "Preis",
+          badge: "EINRICHTUNG 450€",
           features: [
-            "Vollständige Erstellung & Anpassung des Onlineshops",
-            "Bereit für Print on Demand / Dropshipping",
-            "Ideal für lokale, digitale oder hybride Geschäfte",
-            "Marktführende Lieferantensuche",
-            "Sichere Zahlungsintegration",
-            "Versandregeln & Lagerbestandsverwaltung",
-            "Sehr einfache Verwaltungszentrale"
+            "Individueller Onlineshop mit Mobile-First-Ansatz",
+            "Produktkatalog und Vertriebsstruktur",
+            "Sicherer Checkout und Zahlungen mit Stripe",
+            "Einrichtung von Versand und Lagerbestand",
+            "Strukturierte Bestellverwaltung",
+            "Einfaches Administrationspanel",
+            "Technische SEO für Produkte und Suche",
+            "Integrierte Datenbank und Betriebsabläufe",
+            "Verwaltetes Hosting, SSL, Bereitstellung und Wartung"
           ],
-          cta: "UMSATZ SKALIEREN",
+          cta: "E-COMMERCE AKTIVIEREN",
           tracking: "Hallo VELKS-Team. Ich habe die Preistabelle auf der Website analysiert und bin daran interessiert, mit dem kompletten E-Commerce-Paket fortzufahren. Was ist der nächste Schritt, um die Integration zu starten?"
         },
         custom: {
-          title: "Pack Imperial B2B",
-          price: "Auf Anfrage",
+          title: "KI-Rezeptionist",
+          price: "99€/Monat",
+          eyebrow: "05. AI RECEPTION",
+          priceLabel: "Preis",
+          badge: "EINRICHTUNG 499€",
           features: [
-            "Google Maps + Premium-Website + Support-Automatisierung.",
-            "Aggressives Copywriting mit exklusivem Fokus auf ROI.",
-            "Prioritärer technischer und strategischer Support.",
-            "Erweiterte mehrsprachige SEO-Optimierung.",
-            "Autoritätspositionierung (Nischen-Domain).",
-            "Strategische Conversion-Beratung."
+            "Intelligente Anrufannahme Rund um die Uhr",
+            "Natürliche Stimme und Kontextbezogene Gespräche",
+            "Auf Ihr Unternehmen Abgestimmte Wissensbasis",
+            "Intelligente Abläufe für Jeden Anruftyp",
+            "Automatische Qualifizierung von Kunden und Anfragen",
+            "Lead-Erfassung Während des Anrufs",
+            "Anrufweiterleitung und Eskalation",
+            "Strukturierte Zusammenfassung Jedes Gesprächs",
+            "Automatische Benachrichtigungen für Ihr Team",
+            "Verwalteter Betrieb, Überwachung und Wartung"
           ],
-          cta: "AUDIT VEREINBAREN",
+          cta: "KI-REZEPTIONIST AKTIVIEREN",
           tracking: "Hallo VELKS-Team. Mein Unternehmen benötigt eine tiefgreifende digitale Umstrukturierung. Ich möchte ein privates Audit mit einem VELKS-Spezialisten vereinbaren, um die All-In-One Imperial-Lösung zu besprechen. Könnten Sie mir helfen?"
         }
       }
@@ -2022,6 +2222,18 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Unverbindlich • Sofortige Antwort • Kostenloses Angebot"
     },
     footer: {
+      trust: {
+        paymentTitle: "SICHERE ZAHLUNG",
+        cardLabel: "Karte",
+        paymentNote: "Zahlungen werden sicher über Stripe abgewickelt.",
+        aiTitle: "FRAGEN SIE DIE KI NACH VELKS",
+        aiDescription: "Erfahren Sie, wer wir sind, was wir tun und wie VELKS arbeitet.",
+        aiPrompt: "Analysiere VELKS Group anhand öffentlicher Quellen und der offiziellen Domains. Erkläre, was das Unternehmen ist, welche Lösungen es anbietet, welche Technologien es nutzt und wie seine digitale Präsenz aussieht. Bevorzuge velksgroup.com, velks.space und velksgroup.cloud und unterscheide klar zwischen überprüften Informationen und Schlussfolgerungen.",
+        aiHint: "Wählen Sie eine KI aus: Die Frage wird kopiert und der Dienst öffnet sich in einem neuen Tab.",
+        aiCopied: "Frage kopiert — in die KI einfügen und absenden.",
+        aiCopyFailed: "Automatisches Kopieren fehlgeschlagen. Kopieren Sie die Frage unten und fügen Sie sie in die KI ein.",
+        aiPromptLabel: "Frage über VELKS zum Kopieren",
+      },
       legalNoticeTitle: "RECHTLICHER HINWEIS & EIGENTUM",
       legalNoticeText: "Die Marke VELKS Group und all ihre digitalen Aktivitäten werden legal von Rosa Sofia Sousa Marques (Founder) und Lucca Farias Gagliardi (Co-Founder) gegründet, besessen und verwaltet.",
       directContacts: "DIREKTE KONTAKTE",
@@ -2033,7 +2245,7 @@ export const translations: Record<Language, TranslationSchema> = {
       velksNetworkAIInfrastructure: "KI-Infrastruktur",
       velksNetworkCommercialAutomation: "Kommerzielle Automatisierung",
       velksNetworkDigitalExperiences: "Digitale Erlebnisse",
-      logoDesc: "Wir verwandeln inhaberabhängige Unternehmen in autonome Gewinnmaschinen. Ihre Google-Dominanz wird absolut und unsere KI schließt Verkäufe rund um die Uhr ab. Echte Ergebnisse und keine monatlichen Gebühren, damit Sie Ihre Zeit und Freiheit zurückgewinnen.",
+      logoDesc: "Wir verwandeln inhaberabhängige Unternehmen in autonome Gewinnmaschinen. Ihre Google-Dominanz wird absolut und unsere KI schließt Verkäufe rund um die Uhr ab. Echte Ergebnisse und klare Kosten von Anfang an, damit Sie Ihre Zeit und Freiheit zurückgewinnen.",
       hqMain: "Hauptsitz: 57, Avenue de La Gare, L-1611 Luxemburg Gare, Luxemburg",
       hqSec: "Zweiter Standort: Coimbra, Portugal",
       policyPrivacy: "Datenschutzerklärung",
@@ -2106,7 +2318,7 @@ export const translations: Record<Language, TranslationSchema> = {
       tracking: "Hola. Vi su infraestructura tecnológica en el sitio web y me gustaría comprobar si mi empresa califica para implementar su sistema comercial. ¿Pueden enviarme la tabla de precios?",
       badge: "★ DOMINIO ABSOLUTO DEL MERCADO",
       title: "Tu negocio merece aparecer antes que tus competidores.",
-      subtitle: "Creamos sitios web premium, perfiles profesionales de Google Maps y sistemas automáticos de atención al cliente para ayudarte a generar más contactos y cerrar más clientes a diario. Sin cuotas mensuales.",
+      subtitle: "Creamos sitios web premium, perfiles profesionales de Google Maps y sistemas automáticos de atención al cliente para ayudarte a generar más contactos y cerrar más clientes a diario. Costes claros desde el principio.",
       ctaPrimary: "ACTIVAR MÁQUINA DE VENTAS",
       ctaSecondary: "Ver Paquetes",
       trustPilot: "Excelente 4.9/5 estrellas en Google & Redes de Negocio"
@@ -2258,82 +2470,107 @@ export const translations: Record<Language, TranslationSchema> = {
     },
     pricing: {
       title: "Precios Transparentes. Cero Sorpresas.",
-      subtitle: "Pago único. Sin suscripciones obligatorias, sin cargos ocultos. Inversión pura en tu crecimiento.",
-      singlePayment: "PAGO ÚNICO",
+      subtitle: "Costes claros desde el principio. Configuración inicial transparente y operación gestionada cuando la infraestructura requiere continuidad. Sin sorpresas.",
+      singlePayment: "PRECIOS CLAROS · OPERACIÓN GESTIONADA",
       allPlansInclude: "Todos los paquetes incluyen:",
       allPlansIncludeDesc: "Soporte premium, conformidad total con el RGPD de la UE, diseño mobile-first y optimización para la máxima velocidad de carga.",
       plans: {
         gmaps: {
           title: "Google Maps Profesional",
           price: "90€",
+          eyebrow: "01. GOOGLE BUSINESS",
+          priceLabel: "Precio",
+          badge: "PAGO ÚNICO",
           features: [
-            "Configuración y Reclamación Completa",
-            "Optimización Avanzada de SEO Local",
-            "Carga de Fotos y Logotipo de Calidad",
-            "Showcase Completo de Productos y Servicios",
-            "Crecimiento Orgánico con Enlace de Reseñas",
-            "Estrategia de Posicionamiento de Autoridad",
-            "Activación del Canal de Mensajería"
+            "Configuración y Reclamación Completa del Perfil",
+            "SEO Local y Categorías Estratégicas",
+            "Descripción, Servicios y Productos Optimizados",
+            "Optimización de Fotos y Datos del Negocio",
+            "Sistema Directo para Conseguir Reseñas",
+            "Optimización de Llamadas, Rutas y Contactos",
+            "Posicionamiento en Búsquedas Locales"
           ],
-          cta: "DOMINAR EL TOP 3 LOCAL",
+          cta: "OPTIMIZAR PRESENCIA LOCAL",
           tracking: "¡Hola! Estoy interesado en el paquete Google Maps Profesional. ¿Los especialistas de VELKS podrían ayudarme?"
         },
         website: {
-          title: "Sitio Web Profesional Premium",
-          price: "190€",
+          title: "Web Comercial",
+          price: "19€/mes",
+          eyebrow: "02. WEBSITES",
+          priceLabel: "Precio",
+          badge: "CONFIGURACIÓN INICIAL 300€",
           features: [
-            "Landing Page de Carga Ultra Rápida",
-            "Diseño Mobile-First Exclusivo",
-            "SEO en Google y Keyword Structure",
-            "Botón de WhatsApp Directo Integrado",
-            "Configuración de Dominio Propio",
-            "30 Días de Soporte Dedicado Gratuito",
-            "Conforme a RGPD y Seguridad SSL"
+            "Web a Medida con Enfoque Mobile-First",
+            "Estructura Comercial Adaptada a su Negocio",
+            "Captación Organizada de Solicitudes y Presupuestos",
+            "Recogida de Datos de Contacto, Necesidades y Observaciones",
+            "Envío Directo de Solicitudes a su Empresa",
+            "SEO Técnico + Google y Bing Search Console",
+            "Integración de Dominio, DNS y SSL",
+            "Infraestructura, Despliegue y Mantenimiento Gestionados"
           ],
-          cta: "ACTIVAR MÁQUINA DE VENTAS",
+          cta: "ACTIVAR WEB COMERCIAL",
           tracking: "¡Hola! Estoy interesado en el paquete de Sitio Web Profesional. ¿Cuál es el primer paso para construir mi nueva máquina de ventas?"
         },
         automacao: {
-          title: "Automatización de Soporte",
-          price: "250€",
+          title: "ORION AI Capture",
+          price: "29€/mes",
+          eyebrow: "03. ORION AI",
+          priceLabel: "Precio",
+          badge: "CONFIGURACIÓN INICIAL 297€",
           features: [
-            "Triaje automático y calificación de clientes.",
-            "Integración directa con WhatsApp o Instagram.",
-            "Menú estratégico de respuestas inmediatas (24/7).",
-            "Configuración de flujos en 2 idiomas.",
-            "Captura y reenvío de presupuestos.",
-            "Cero consumo de API y cero cuotas mensuales."
+            "Widget de IA Proactivo Integrado en su Web",
+            "Conversación por Texto y Voz Natural con Azure AI",
+            "Identidad, Avatar, Colores y Mensajes Personalizados",
+            "Conocimiento Configurado para su Negocio",
+            "Identificación Inteligente de Necesidades e Intención",
+            "Captura de Nombre, Contacto y Datos Comerciales",
+            "Registro Estructurado de Leads y Conversaciones",
+            "Informe Automático por Email",
+            "Resumen y Transcripción de la Conversación"
           ],
-          cta: "BLINDAR ATENCIÓN 24/7",
+          cta: "ACTIVAR ORION AI",
           tracking: "Hola, Equipo VELKS. Analicé la tabla de precios en el sitio y tengo interés en avanzar con Atención IA Automática. ¿Cuál es el próximo paso para iniciar la integración?"
         },
         ecommerce: {
-          title: "E-commerce Completo",
-          price: "300€",
+          title: "E-Commerce Completo",
+          price: "39€/mes",
+          eyebrow: "04. E-COMMERCE",
+          priceLabel: "Precio",
+          badge: "CONFIGURACIÓN INICIAL 450€",
           features: [
-            "Creación y Personalización de Tienda Online",
-            "Listo para Print on Demand / Dropshipping",
-            "Ideal para Negocio Local, Digital o Híbrido",
-            "Mapeo de los Mejores Proveedores",
-            "Integración de Pasarelas de Pago Seguras",
+            "Tienda Online a Medida con Enfoque Mobile-First",
+            "Catálogo de Productos y Estructura Comercial",
+            "Checkout y Pagos Seguros con Stripe",
             "Configuración de Envíos e Inventario",
-            "Consola de Administración Ultra Sencilla"
+            "Gestión Organizada de Pedidos",
+            "Panel de Administración Simplificado",
+            "SEO Técnico para Productos y Búsquedas",
+            "Base de Datos y Operación Integradas",
+            "Alojamiento, SSL, Despliegue y Mantenimiento Gestionados"
           ],
-          cta: "ESCALAR FACTURACIÓN ONLINE",
+          cta: "ACTIVAR E-COMMERCE",
           tracking: "Hola, Equipo VELKS. Analicé la tabla de precios en el sitio y tengo interés en avanzar con el paquete E-Commerce Completo. ¿Cuál es el próximo paso para iniciar la integración?"
         },
         custom: {
-          title: "Pack Imperial B2B",
-          price: "Bajo Consulta",
+          title: "Recepcionista IA",
+          price: "99€/mes",
+          eyebrow: "05. AI RECEPTION",
+          priceLabel: "Precio",
+          badge: "CONFIGURACIÓN INICIAL 499€",
           features: [
-            "Google Maps + Sitio Web Premium + Automatización de Soporte.",
-            "Copywriting agresivo enfocado exclusivamente en ROI.",
-            "Soporte técnico y estratégico prioritario.",
-            "Optimización SEO multilingüe avanzada.",
-            "Posicionamiento de Autoridad (Dominio de Nicho).",
-            "Consultoría estratégica de conversión."
+            "Atención Telefónica Inteligente 24/7",
+            "Voz Natural y Conversación Contextual",
+            "Conocimiento Configurado para su Negocio",
+            "Flujos Inteligentes para Cada Tipo de Llamada",
+            "Calificación Automática de Clientes y Solicitudes",
+            "Captura de Leads Durante la Llamada",
+            "Transferencia y Escalado de Llamadas",
+            "Resumen Estructurado de Cada Conversación",
+            "Notificaciones Automáticas para su Equipo",
+            "Operación, Supervisión y Mantenimiento Gestionados"
           ],
-          cta: "AGENDAR AUDITORÍA PRIVADA",
+          cta: "ACTIVAR RECEPCIONISTA IA",
           tracking: "Hola, Equipo VELKS. Mi negocio necesita una reestructuración digital profunda. Me gustaría programar una auditoría privada con un especialista de VELKS para discutir la solución All-In-One Imperial. ¿Podrían ayudarme?"
         }
       }
@@ -2398,6 +2635,18 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sin compromisos • Respuesta inmediata • Presupuesto gratis"
     },
     footer: {
+      trust: {
+        paymentTitle: "PAGO SEGURO",
+        cardLabel: "Tarjeta",
+        paymentNote: "Pagos procesados de forma segura por Stripe.",
+        aiTitle: "PREGUNTE A LA IA SOBRE VELKS",
+        aiDescription: "Compruebe quiénes somos, qué hacemos y cómo trabaja VELKS.",
+        aiPrompt: "Analiza VELKS Group a partir de fuentes públicas y sus dominios oficiales. Explica qué es la empresa, qué soluciones ofrece, qué tecnologías utiliza y cuál es su presencia digital. Prioriza velksgroup.com, velks.space y velksgroup.cloud y distingue claramente la información verificada de las inferencias.",
+        aiHint: "Al elegir una IA, se copia la pregunta y el servicio se abre en una nueva pestaña.",
+        aiCopied: "Pregunta copiada — péguela y envíela en la IA.",
+        aiCopyFailed: "No se pudo copiar automáticamente. Copie la pregunta de abajo y péguela en la IA.",
+        aiPromptLabel: "Pregunta sobre VELKS para copiar",
+      },
       legalNoticeTitle: "AVISO LEGAL & PROPIEDAD",
       legalNoticeText: "La marca VELKS Group y todas sus operaciones digitales son fundadas, propiedad y administradas legalmente por Rosa Sofia Sousa Marques (Founder) y Lucca Farias Gagliardi (Co-Founder).",
       directContacts: "CONTACTOS DIRECTOS",
@@ -2409,7 +2658,7 @@ export const translations: Record<Language, TranslationSchema> = {
       velksNetworkAIInfrastructure: "Infraestructura IA",
       velksNetworkCommercialAutomation: "Automatización Comercial",
       velksNetworkDigitalExperiences: "Experiencias Digitales",
-      logoDesc: "Transformamos negocios dependientes del dueño en máquinas autónomas de ganancias. Tu dominio en Google se vuelve absoluto y nuestra IA cierra ventas 24/7. Resultados reales y sin cuotas mensuales recurrentes, para que recuperes tu tiempo y libertad.",
+      logoDesc: "Transformamos negocios dependientes del dueño en máquinas autónomas de ganancias. Tu dominio en Google se vuelve absoluto y nuestra IA cierra ventas 24/7. Resultados reales y costes claros desde el principio, para que recuperes tu tiempo y libertad.",
       hqMain: "Sede Principal: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo",
       hqSec: "Sede Secundaria: Coimbra, Portugal",
       policyPrivacy: "Política de Privacidad",

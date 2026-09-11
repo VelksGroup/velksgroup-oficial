@@ -8,6 +8,7 @@ import {
 import { ThreeHero } from './components/ThreeHero';
 import { ErrorBoundary } from './ErrorBoundary';
 import { OrionWidgetLoader } from './components/OrionWidgetLoader';
+import { TrustFooter } from './components/TrustFooter';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { AuthoritySection } from './components/AuthoritySection';
@@ -345,13 +346,13 @@ export default function App() {
             <div className="glass-premium p-8 rounded-3xl border border-gold/10 flex flex-col justify-between gap-8 relative hover:border-gold/30 transition-all duration-300">
               <div className="flex flex-col gap-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">01. GOOGLE</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">{t.pricing.plans.gmaps.eyebrow}</span>
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.gmaps.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
+                  <span className="text-xs text-gray-400 font-mono">{t.pricing.plans.gmaps.priceLabel}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.gmaps.price}</span>
-                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
+                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.plans.gmaps.badge}</span>
                 </div>
                 <ul className="flex flex-col gap-3">
                   {t.pricing.plans.gmaps.features.map((feature, i) => (
@@ -363,7 +364,7 @@ export default function App() {
                 </ul>
               </div>
               <button aria-label="Button" 
-                onClick={() => handleWhatsAppClick(t.pricing.plans.gmaps.tracking)}
+                onClick={() => window.open('https://buy.stripe.com/00w14n1gq365d6U2al2cg01', '_blank', 'noopener,noreferrer')}
                 className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <MessageSquare size={14} />
@@ -378,13 +379,13 @@ export default function App() {
               </div>
               <div className="flex flex-col gap-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">02. WEBSITES</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">{t.pricing.plans.website.eyebrow}</span>
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.website.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
+                  <span className="text-xs text-gray-400 font-mono">{t.pricing.plans.website.priceLabel}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.website.price}</span>
-                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
+                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.plans.website.badge}</span>
                 </div>
                 <ul className="flex flex-col gap-3">
                   {t.pricing.plans.website.features.map((feature, i) => (
@@ -396,7 +397,7 @@ export default function App() {
                 </ul>
               </div>
               <button aria-label="Button" 
-                onClick={() => handleWhatsAppClick(t.pricing.plans.website.tracking)}
+                onClick={() => window.open('https://buy.stripe.com/4gMdR93oy4a9aYM9CN2cg05', '_blank', 'noopener,noreferrer')}
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold to-gold-dark text-black font-display font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 hover:opacity-90 shadow-[0_4px_15px_rgba(212,175,55,0.3)]"
               >
                 <MessageSquare size={14} />
@@ -404,17 +405,17 @@ export default function App() {
               </button>
             </div>
 
-            {/* AI Assistant Plan */}
+            {/* ORION AI Capture Plan */}
             <div className="glass-premium p-8 rounded-3xl border border-gold/10 flex flex-col justify-between gap-8 relative hover:border-gold/30 transition-all duration-300">
               <div className="flex flex-col gap-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">03. IA VELKS</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">{t.pricing.plans.automacao.eyebrow}</span>
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.automacao.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
+                  <span className="text-xs text-gray-400 font-mono">{t.pricing.plans.automacao.priceLabel}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.automacao.price}</span>
-                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
+                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.plans.automacao.badge}</span>
                 </div>
                 <ul className="flex flex-col gap-3">
                   {t.pricing.plans.automacao.features.map((feature, i) => (
@@ -426,7 +427,7 @@ export default function App() {
                 </ul>
               </div>
               <button aria-label="Button" 
-                onClick={() => handleWhatsAppClick(t.pricing.plans.automacao.tracking)}
+                onClick={() => window.open('https://buy.stripe.com/9B68wP4sC4a9aYM5mx2cg07', '_blank', 'noopener,noreferrer')}
                 className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <MessageSquare size={14} />
@@ -438,13 +439,13 @@ export default function App() {
             <div className="glass-premium p-8 rounded-3xl border border-gold/10 flex flex-col justify-between gap-8 relative hover:border-gold/30 transition-all duration-300">
               <div className="flex flex-col gap-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">04. E-COMMERCE</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">{t.pricing.plans.ecommerce.eyebrow}</span>
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.ecommerce.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'A partir de' : currentLang === 'es' ? 'A partir de' : currentLang === 'it' ? 'A partire da' : currentLang === 'fr' ? 'À partir de' : currentLang === 'de' ? 'Ab' : 'Starting from'}</span>
+                  <span className="text-xs text-gray-400 font-mono">{t.pricing.plans.ecommerce.priceLabel}</span>
                   <span className="text-4xl font-display font-black text-white">{t.pricing.plans.ecommerce.price}</span>
-                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
+                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.plans.ecommerce.badge}</span>
                 </div>
                 <ul className="flex flex-col gap-3">
                   {t.pricing.plans.ecommerce.features.map((feature, i) => (
@@ -456,7 +457,7 @@ export default function App() {
                 </ul>
               </div>
               <button aria-label="Button" 
-                onClick={() => handleWhatsAppClick(t.pricing.plans.ecommerce.tracking)}
+                onClick={() => window.open('https://buy.stripe.com/aFa28r7EO9ut6Iw02d2cg06', '_blank', 'noopener,noreferrer')}
                 className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <MessageSquare size={14} />
@@ -464,20 +465,20 @@ export default function App() {
               </button>
             </div>
 
-            {/* Imperial All-In-One Custom */}
+            {/* AI Receptionist Plan */}
             <div className="glass-premium p-8 rounded-3xl border border-gold/10 flex flex-col justify-between gap-8 relative md:col-span-2 lg:col-span-2 hover:border-gold/30 transition-all duration-300">
               <div className="absolute top-0 right-6 -translate-y-1/2 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-black text-[9px] font-mono font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
                 ULTIMATE CONTROL
               </div>
               <div className="flex flex-col gap-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">05. IMPERIAL</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded">{t.pricing.plans.custom.eyebrow}</span>
                   <h3 className="text-2xl font-display font-bold text-white mt-4">{t.pricing.plans.custom.title}</h3>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-y-2 gap-x-2 border-b border-white/5 pb-4">
-                  <span className="text-xs text-gray-400 font-mono">{currentLang === 'pt' ? 'Pack Integrado' : currentLang === 'es' ? 'Paquete Integrado' : currentLang === 'it' ? 'Pacchetto Integrato' : currentLang === 'fr' ? 'Package Intégré' : currentLang === 'de' ? 'Integriertes Paket' : 'Integrated Package'}</span>
+                  <span className="text-xs text-gray-400 font-mono">{t.pricing.plans.custom.priceLabel}</span>
                   <span className="text-4xl font-display font-black text-gold glow-text">{t.pricing.plans.custom.price}</span>
-                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.singlePayment}</span>
+                  <span className="text-[10px] text-gold uppercase font-mono tracking-widest bg-gold/5 px-2 py-0.5 rounded border border-gold/10 whitespace-nowrap">{t.pricing.plans.custom.badge}</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
                   {t.pricing.plans.custom.features.map((feature, i) => (
@@ -489,7 +490,7 @@ export default function App() {
                 </div>
               </div>
               <button aria-label="Button" 
-                onClick={() => handleWhatsAppClick(t.pricing.plans.custom.tracking)}
+                onClick={() => window.open('https://buy.stripe.com/eVqaEX8ISfSRgj6cOZ2cg08', '_blank', 'noopener,noreferrer')}
                 className="w-full py-3.5 rounded-xl bg-gold text-black hover:opacity-90 font-display font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg"
               >
                 <MessageSquare size={14} />
@@ -511,7 +512,7 @@ export default function App() {
               </div>
             </div>
             <div className="text-xs font-mono bg-gold/5 text-gold border border-gold/20 px-4 py-2 rounded uppercase tracking-widest font-semibold shrink-0">
-              {currentLang === 'pt' ? 'PAGAMENTO ÚNICO • SEM CONTRATOS RECORRENTES' : currentLang === 'es' ? 'PAGO ÚNICO • SIN CONTRATOS RECURRENTES' : currentLang === 'it' ? 'PAGAMENTO UNICO • NESSUN CONTRATTO RICORRENTE' : currentLang === 'fr' ? 'PAIEMENT UNIQUE • SANS CONTRATS RÉCURRENTS' : currentLang === 'de' ? 'EINMALIGE ZAHLUNG • KEINE WIEDERKEHRENDEN VERTRÄGE' : 'SINGLE PAYMENT • NO HIDDEN CONTRACTS'}
+              {t.pricing.singlePayment}
             </div>
           </div>
 
@@ -801,6 +802,8 @@ export default function App() {
 
           </div>
 
+          <TrustFooter key={currentLang} t={t.footer.trust} />
+
           {/* Legal / Founder Section for AI Indexing */}
           <div className="mt-6 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-3 text-xs text-gray-400 font-light leading-relaxed">
             <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs flex items-center gap-2">
@@ -929,7 +932,7 @@ export default function App() {
                 {modalType === 'terms' && (
                   <>
                     <h4 className="font-bold text-white font-display text-sm">1. Termos de Utilização / Terms of Service</h4>
-                    <p>{currentLang === 'pt' ? 'O conteúdo deste site tem fins meramente informativos e demonstrativos. A VELKS Group fornece soluções personalizadas e pacotes fechados de Google Maps e Websites com pagamentos únicos, sem subscrições recorrentes, sujeitos a contrato formal de prestação de serviços assinado bilateralmente antes da execução técnica.' : 'The content of this site is for informational and demonstrative purposes only. VELKS Group provides customized solutions and fixed packages for Google Maps and Websites with single payments, no recurring subscriptions, subject to a formal service contract.'}</p>
+                    <p>{currentLang === 'pt' ? 'O conteúdo deste site tem fins meramente informativos e demonstrativos. A VELKS Group fornece soluções personalizadas e pacotes fechados de Google Maps e Websites com pagamento único ou setup e mensalidade, conforme a solução, sujeitos a contrato formal de prestação de serviços assinado bilateralmente antes da execução técnica.' : 'The content of this site is for informational and demonstrative purposes only. VELKS Group provides customized solutions and fixed packages for Google Maps and Websites with a one-time payment or setup and a monthly fee, depending on the solution, subject to a formal service contract.'}</p>
                     <h4 className="font-bold text-white font-display text-sm">2. Propriedade Intelectual / Intellectual Property</h4>
                     <p>{currentLang === 'pt' ? 'O design, o motor de simulação de assistente IA 3D e todos os scripts integrados são propriedade intelectual da VELKS Group ou parceiros tecnológicos autorizados.' : 'The design, the 3D AI assistant simulation engine, and all integrated scripts are the intellectual property of VELKS Group or authorized technology partners.'}</p>
                   </>
