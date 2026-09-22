@@ -12,7 +12,9 @@ import { TrustFooter } from './components/TrustFooter';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { AuthoritySection } from './components/AuthoritySection';
-import { WidgetSection } from './components/WidgetSection';
+import { ModuleTransition } from './components/ModuleTransition';
+import { LegalDocumentContent } from './components/LegalDocumentContent';
+import { legalContent, type LegalDocumentType } from './legalContent';
 import { EngineeringSection } from './components/EngineeringSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import PricingSection from './components/PricingSection';
@@ -56,7 +58,40 @@ export default function App() {
   const [cookieConsent, setCookieConsent] = useState<boolean | null>(null);
 
   // States for Policy Modals
-  const [modalType, setModalType] = useState<'privacy' | 'cookies' | 'terms' | 'compliance' | 'legal' | null>(null);
+  const [modalType, setModalType] = useState<LegalDocumentType | null>(null);
+
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!modalType) return;
+    const trigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const dialog = modalRef.current;
+    const focusable = (): HTMLElement[] => Array.from<HTMLElement>(dialog?.querySelectorAll('a[href], button:not([disabled]), textarea, [tabindex="0"]') ?? []);
+    focusable()[0]?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setModalType(null);
+      }
+      if (event.key === 'Tab') {
+        const elements = focusable();
+        const first = elements[0];
+        const last = elements[elements.length - 1];
+        if (event.shiftKey && (document.activeElement === first || !dialog?.contains(document.activeElement))) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && (document.activeElement === last || !dialog?.contains(document.activeElement))) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      trigger?.focus();
+    };
+  }, [modalType]);
 
   // States & Refs for Testimonial Slider
 
@@ -273,8 +308,7 @@ export default function App() {
       <ThreeHero 
         currentLang={currentLang} 
         t={t} 
-        onCtaClick={handleWhatsAppClick} 
-        onScrollToDemos={() => scrollTo(pricingRef)} 
+        onScrollToPricing={() => scrollTo(pricingRef)}
       />
       
 
@@ -289,33 +323,13 @@ export default function App() {
       {/* BLOCO 4 - AUTORIDADE LUXEMBURGO, ESPANHA, PORTUGAL */}
       <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><AuthoritySection t={t} currentLang={currentLang} /></React.Suspense></ErrorBoundary>
 
-      {/* TRANSITION 4 -> 5 */}
-      <div className="w-full h-32 bg-gradient-to-b from-obsidian-light to-obsidian relative overflow-hidden flex justify-center items-center">
-        <motion.div 
-          initial={{ height: 0, opacity: 0 }}
-          whileInView={{ height: '100%', opacity: 1 }}
-          viewport={{ once: false, margin: "-10%" }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-0 w-[2px] bg-gradient-to-b from-transparent via-gold to-gold shadow-[0_0_15px_rgba(212,175,55,0.8)]"
-        />
-        <div className="absolute inset-0 flex justify-center items-center">
-           {[...Array(6)].map((_, i) => (
-             <motion.div
-               key={i}
-               initial={{ y: -50, x: (i - 2.5) * 20, opacity: 0 }}
-               whileInView={{ y: 50, x: 0, opacity: [0, 1, 0] }}
-               transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
-               className="w-1 h-1 bg-gold rounded-full absolute"
-             />
-           ))}
-        </div>
-      </div>
+      <ModuleTransition />
 
-      {/* BLOCO 5 - WIDGET INTELIGENTE (ATENDIMENTO AUTOMÁTICO 24H) */}
-      <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><WidgetSection t={t} currentLang={currentLang} widgetRef={widgetRef} /></React.Suspense></ErrorBoundary>
-
+      <div ref={widgetRef} id="velks-widget-demo">
       {/* BLOCO 5.5 - AI VISION (CINEMATIC ENGINEERING) */}
       <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><AIVisionSection t={t} /></React.Suspense></ErrorBoundary>
+
+      </div>
 
       {/* BLOCO 6 - PROVA SOCIAL (TESTIMONIALS) */}
       <ErrorBoundary fallback={<div className="min-h-[200px] flex items-center justify-center text-gray-500">Failed to load section</div>}><React.Suspense fallback={<div className="min-h-[400px] bg-obsidian-dark flex items-center justify-center border border-white/5 rounded-xl m-4"><div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin"></div></div>}><TestimonialsSection t={t} currentLang={currentLang} /></React.Suspense></ErrorBoundary>
@@ -329,7 +343,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto relative z-10">
 
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-4">
-            <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold">{t.pricing.singlePayment}</span>
+            <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold">{t.pricing.eyebrow}</span>
             <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight">
               {t.pricing.title}
             </h2>
@@ -616,7 +630,6 @@ export default function App() {
             className="relative w-20 h-20 flex items-center justify-center bg-transparent drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]"
           >
             <img src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
-            <span className="absolute -top-3 -right-2 text-xl text-gold animate-bounce drop-shadow-[0_0_8px_rgba(212,175,55,1)] z-20">👑</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight text-white leading-tight max-w-4xl">
@@ -798,34 +811,37 @@ export default function App() {
                 </div>
               </div>
 
+              <div className="mt-6 flex flex-col gap-2 text-xs font-light">
+                <h4 className="font-display font-bold text-white tracking-wider text-[11px]">LinkedIn</h4>
+                <a href="https://www.linkedin.com/company/velks-group/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-gray-200 hover:text-white transition-colors">
+                  <img src="/linkedin.png" alt="" aria-hidden="true" width={24} height={24} className="h-6 w-6 shrink-0" />
+                  <span>{t.footer.followLinkedIn}</span>
+                  <ArrowUpRight size={14} aria-hidden="true" className="text-[#3b82f6] shrink-0" />
+                </a>
+              </div>
+
             </div>
 
           </div>
 
           <TrustFooter key={currentLang} t={t.footer.trust} />
 
-          {/* Legal / Founder Section for AI Indexing */}
-          <div className="mt-6 p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col gap-3 text-xs text-gray-400 font-light leading-relaxed">
-            <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs flex items-center gap-2">
-              <Shield size={14} className="text-gold" />
-              {t.footer.legalNoticeTitle}
-            </h4>
-            <p>
-              {t.footer.legalNoticeText}
-            </p>
-          </div>
-
-          {/* Legal Compliance Footer Line */}
-          <div className="border-t border-white/5 pt-8 mt-12 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-light text-gray-500">
+          {/* Compact copyright and legal documents */}
+          <div className="border-t border-white/5 pt-8 mt-8 flex flex-col items-center sm:items-start gap-4 text-xs font-light text-gray-500">
             <p className="text-center sm:text-left">{t.footer.rights}</p>
-            
-            {/* Quick legal anchors opening Modals */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-gray-400 font-mono text-[10px] uppercase tracking-wider">
-              <button aria-label="Button" onClick={() => setModalType('privacy')} className="hover:text-gold transition-colors cursor-pointer">{t.footer.policyPrivacy}</button>
-              <button aria-label="Button" onClick={() => setModalType('cookies')} className="hover:text-gold transition-colors cursor-pointer">{t.footer.policyCookies}</button>
-              <button aria-label="Button" onClick={() => setModalType('terms')} className="hover:text-gold transition-colors cursor-pointer">{t.footer.terms}</button>
-              <button aria-label="Button" onClick={() => setModalType('compliance')} className="hover:text-gold transition-colors cursor-pointer">{t.footer.compliance}</button>
-              <button aria-label="Button" onClick={() => setModalType('legal')} className="hover:text-gold transition-colors cursor-pointer">{t.footer.legal}</button>
+            <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-3 text-gray-400 font-mono text-[10px] uppercase tracking-wider">
+              {([
+                ['privacy', t.footer.policyPrivacy],
+                ['cookies', t.footer.policyCookies],
+                ['terms', t.footer.terms],
+                ['compliance', t.footer.compliance],
+                ['legal', t.footer.legal],
+                ['corporate', t.footer.corporate],
+              ] as const).map(([type, label]) => (
+                <button key={type} onClick={() => setModalType(type)} className="inline-flex items-center gap-1 hover:text-gold transition-colors cursor-pointer">
+                  {label}<ArrowUpRight size={11} aria-hidden="true" className="shrink-0" />
+                </button>
+              ))}
             </div>
           </div>
 
@@ -833,6 +849,12 @@ export default function App() {
           <div className="flex justify-center md:justify-end gap-2 items-center text-[9px] font-mono text-gray-600 tracking-widest uppercase">
             <Lock size={10} />
             <span>{t.footer.gdpr}</span>
+            <svg viewBox="0 0 40 40" width="18" height="18" aria-hidden="true" className="text-gold shrink-0">
+              {Array.from({ length: 12 }, (_, i) => {
+                const angle = i * Math.PI / 6 - Math.PI / 2;
+                return <path key={i} d="M0 -2.5L.56 -.77L2.38 -.77L.91 .29L1.47 2.02L0 .95L-1.47 2.02L-.91 .29L-2.38 -.77L-.56 -.77Z" fill="currentColor" transform={`translate(${20 + Math.cos(angle) * 15} ${20 + Math.sin(angle) * 15})`} />;
+              })}
+            </svg>
           </div>
 
         </div>
@@ -881,7 +903,11 @@ export default function App() {
       <AnimatePresence>
         {modalType !== null && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 sm:backdrop-blur-sm">
-            <motion.div 
+            <motion.div
+              ref={modalRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="legal-modal-title"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -890,74 +916,28 @@ export default function App() {
               
               {/* Modal header */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <FileText className="text-gold" size={18} />
-                  <span className="font-display font-bold text-white uppercase text-sm tracking-widest">
-                    {modalType === 'privacy' ? t.footer.policyPrivacy :
-                     modalType === 'cookies' ? t.footer.policyCookies :
-                     modalType === 'terms' ? t.footer.terms :
-                     modalType === 'compliance' ? t.footer.compliance :
-                     t.footer.legal}
+                <div className="flex items-center gap-2 min-w-0">
+                  <FileText className="text-gold shrink-0" size={18} />
+                  <span id="legal-modal-title" className="font-display font-bold text-white uppercase text-sm tracking-widest [overflow-wrap:anywhere]">
+                    {legalContent[currentLang][modalType].title}
                   </span>
                 </div>
-                <button aria-label="Button" 
+                <button aria-label={legalContent[currentLang][modalType].closeLabel}
                   onClick={() => setModalType(null)} 
-                  className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition-colors cursor-pointer"
+                  className="w-8 h-8 shrink-0 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
                   <X size={16} />
                 </button>
               </div>
 
-              {/* Modal copy */}
-              <div className="text-xs text-gray-300 font-light leading-relaxed flex flex-col gap-4 font-sans">
-                
-                                {modalType === 'privacy' && (
-                  <>
-                    <h4 className="font-bold text-white font-display text-sm">1. Introdução / Introduction</h4>
-                    <p>{currentLang === 'pt' ? 'A VELKS Group compromete-se a proteger a privacidade dos seus utilizadores. Em total conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) da União Europeia, garantimos que quaisquer dados pessoais recolhidos nas nossas demonstrações ou contactos são tratados de forma confidencial e com a máxima segurança.' : 'VELKS Group is committed to protecting your privacy. In full compliance with the European Union General Data Protection Regulation (GDPR), we ensure that any personal data collected in our demonstrations or contacts is treated confidentially and with maximum security.'}</p>
-                    <h4 className="font-bold text-white font-display text-sm">2. Recolha de Dados / Data Collection</h4>
-                    <p>{currentLang === 'pt' ? 'Recolhemos apenas os dados fornecidos voluntariamente por si (como Nome, Endereço de Email, e Número de WhatsApp) para fins de comunicação comercial direta, simulação interativa, ou processamento de encomendas dos pacotes especificados.' : 'We only collect data voluntarily provided by you (such as Name, Email Address, and WhatsApp Number) for direct commercial communication, interactive simulation, or order processing.'}</p>
-                    <h4 className="font-bold text-white font-display text-sm">3. Retenção de Dados / Data Retention</h4>
-                    <p>{currentLang === 'pt' ? 'Os seus dados não serão vendidos ou transferidos a terceiros. Serão apagados definitivamente mediante simples pedido por email enviado a velksgroup@gmail.com.' : 'Your data will not be sold or transferred to third parties. It will be permanently deleted upon simple request by email sent to velksgroup@gmail.com.'}</p>
-                  </>
-                )}
-                {modalType === 'cookies' && (
-                  <>
-                    <h4 className="font-bold text-white font-display text-sm">1. O que são Cookies? / What are Cookies?</h4>
-                    <p>{currentLang === 'pt' ? 'Cookies são pequenos ficheiros de texto guardados no seu navegador para otimizar a experiência de carregamento do site e nos ajudar a analisar quais as secções que recebem maior tráfego.' : 'Cookies are small text files stored in your browser to optimize the site loading experience and help us analyze which sections receive the most traffic.'}</p>
-                    <h4 className="font-bold text-white font-display text-sm">2. Uso de Cookies neste Site / Cookie Usage</h4>
-                    <p>{currentLang === 'pt' ? 'Este site utiliza cookies funcionais mínimos e identificadores locais temporários (como localStorage) para persistir o seu idioma escolhido, simular as mensagens do assistente inteligente Concierge IA, e reter o seu próprio consentimento de cookies para que não veja o banner em visitas subsequentes.' : 'This site uses minimal functional cookies and temporary local identifiers (like localStorage) to persist your chosen language, simulate messages from the smart AI Concierge, and retain your cookie consent.'}</p>
-                  </>
-                )}
-                {modalType === 'terms' && (
-                  <>
-                    <h4 className="font-bold text-white font-display text-sm">1. Termos de Utilização / Terms of Service</h4>
-                    <p>{currentLang === 'pt' ? 'O conteúdo deste site tem fins meramente informativos e demonstrativos. A VELKS Group fornece soluções personalizadas e pacotes fechados de Google Maps e Websites com pagamento único ou setup e mensalidade, conforme a solução, sujeitos a contrato formal de prestação de serviços assinado bilateralmente antes da execução técnica.' : 'The content of this site is for informational and demonstrative purposes only. VELKS Group provides customized solutions and fixed packages for Google Maps and Websites with a one-time payment or setup and a monthly fee, depending on the solution, subject to a formal service contract.'}</p>
-                    <h4 className="font-bold text-white font-display text-sm">2. Propriedade Intelectual / Intellectual Property</h4>
-                    <p>{currentLang === 'pt' ? 'O design, o motor de simulação de assistente IA 3D e todos os scripts integrados são propriedade intelectual da VELKS Group ou parceiros tecnológicos autorizados.' : 'The design, the 3D AI assistant simulation engine, and all integrated scripts are the intellectual property of VELKS Group or authorized technology partners.'}</p>
-                  </>
-                )}
-                {modalType === 'compliance' && (
-                  <>
-                    <h4 className="font-bold text-white font-display text-sm">{t.footer.europeanCompliance}</h4>
-                    <p>{currentLang === 'pt' ? 'A VELKS Group opera sob os rigorosos padrões corporativos do Grão-Ducado de Luxemburgo e da União Europeia. Alinhamos todos os nossos processos, servidores, processamento de formulários e integradores de pagamento aos regulamentos da UE aplicáveis ao comércio eletrónico, proteção do consumidor local e concorrência justa.' : 'VELKS Group operates under the strict corporate standards of the Grand Duchy of Luxembourg and the European Union. We align all our processes to applicable EU regulations.'}</p>
-                  </>
-                )}
-                {modalType === 'legal' && (
-                  <>
-                    <h4 className="font-bold text-white font-display text-sm">{t.footer.legalDisclaimer}</h4>
-                    <p>{currentLang === 'pt' ? 'VELKS Group. Sede Principal em Luxembourg: 57, Avenue de La Gare, L-1611 Luxembourg Gare, Luxemburgo. Sede secundária em Coimbra, Portugal. Contacto oficial: velksgroup@gmail.com. Telemóvel: +33 761 56 96 86.' : 'VELKS Group. HQ: 57, Avenue de La Gare, L-1611 Luxembourg Gare. Secondary: Coimbra, Portugal. Contact: velksgroup@gmail.com. Phone: +33 761 56 96 86.'}</p>
-                  </>
-                )}
-
-              </div>
+              <LegalDocumentContent language={currentLang} type={modalType} />
 
               {/* Close button inside modal */}
-              <button aria-label="Button" 
+              <button
                 onClick={() => setModalType(null)}
                 className="w-full mt-2 py-3 bg-gold hover:opacity-90 transition-opacity text-black font-display font-bold text-xs uppercase tracking-widest rounded-xl cursor-pointer"
               >
-                {currentLang === 'pt' ? 'Fechar Documento' : currentLang === 'es' ? 'Cerrar Documento' : currentLang === 'it' ? 'Chiudi Documento' : currentLang === 'fr' ? 'Fermer le Document' : currentLang === 'de' ? 'Dokument Schließen' : 'Close Document'}
+                {legalContent[currentLang][modalType].closeLabel}
               </button>
 
             </motion.div>

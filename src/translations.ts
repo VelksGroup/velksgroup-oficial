@@ -16,38 +16,44 @@ export interface TranslationSchema {
     badge: string;
     title: string;
     subtitle: string;
+    reinforcement: string;
+    pills: string[];
     ctaPrimary: string;
     ctaSecondary: string;
     trustPilot: string;
   };
   problem: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     cards: {
       invisible: { title: string; desc: string };
-      reviews: { title: string; desc: string };
       contacts: { title: string; desc: string };
       oldSite: { title: string; desc: string };
       lostClients: { title: string; desc: string };
     };
   };
   solution: {
+    eyebrow: string;
+    closing: string;
     title: string;
     subtitle: string;
     cards: {
-      gmaps: { title: string; desc: string };
-      website: { title: string; desc: string };
-      bot: { title: string; desc: string };
-      leads: { title: string; desc: string };
-      automation: { title: string; desc: string };
+      gmaps: { label: string; title: string; desc: string };
+      website: { label: string; title: string; desc: string };
+      bot: { label: string; title: string; desc: string };
+      automation: { label: string; title: string; desc: string };
     };
   };
   authority: {
+    eyebrow: string;
+    metricsLabel: string;
+    standard: string[];
     title: string;
     subtitle: string;
-    luxembourg: { name: string; tag: string; desc: string };
-    portugal: { name: string; tag: string; desc: string };
-    spain: { name: string; tag: string; desc: string };
+    luxembourg: { name: string; desc: string };
+    portugal: { name: string; desc: string };
+    spain: { name: string; desc: string };
     metrics: {
       clients: string;
       delivered: string;
@@ -83,6 +89,7 @@ export interface TranslationSchema {
     }[];
   };
   pricing: {
+    eyebrow: string;
     title: string;
     subtitle: string;
     singlePayment: string;
@@ -205,6 +212,9 @@ export interface TranslationSchema {
     policyCookies: string;
     terms: string;
     compliance: string;
+    followLinkedIn: string;
+    corporate: string;
+    closeDocument: string;
     legal: string;
     gdpr: string;
     rights: string;
@@ -255,89 +265,99 @@ export const translations: Record<Language, TranslationSchema> = {
       faq: "FAQ",
     },
     hero: {
+      pills: [
+        "Google Maps",
+        "Sites & Lojas",
+        "IA 24/7"
+      ],
+      reinforcement: "Custos claros desde o início.",
       tracking: "Olá. Vi a vossa infraestrutura tecnológica no site e gostaria de verificar se a minha empresa se qualifica para implementar o vosso sistema comercial. Podem enviar-me a tabela de preços?",
-      badge: "★ DOMÍNIO ABSOLUTO DO MERCADO",
-      title: "O seu negócio merece aparecer antes dos seus concorrentes.",
-      subtitle: "Domine o Google, esmague a concorrência com um site implacável e deixe a nossa IA fechar negócios 24/7. Custos claros desde o início.",
-      ctaPrimary: "ATIVAR MÁQUINA DE VENDAS",
+      badge: "★ SER ENCONTRADO É SÓ O PRIMEIRO PASSO",
+      title: "O seu negócio precisa aparecer antes dos seus concorrentes.",
+      subtitle: "Apareça no Google, transforme visitas em pedidos e responda clientes mesmo quando ninguém da sua equipa está disponível.",
+      ctaPrimary: "VER SOLUÇÕES E PREÇOS",
       ctaSecondary: "Ver Pacotes",
-      trustPilot: "Excelente 4.9/5 estrelas no Google & Redes de Negócios"
+      trustPilot: "5,0/5 no Google · 2 avaliações"
     },
     problem: {
-      title: "A Dor de Ser Invisível",
-      subtitle: "Se o seu negócio não é o primeiro a ser encontrado, você está a financiar o crescimento dos seus concorrentes. O mercado mudou e o amadorismo custa caro.",
+      eyebrow: "REALIDADE SEM ENROLAÇÃO",
+      title: "Onde o seu negócio perde clientes sem perceber.",
+      subtitle: "O problema nem sempre é falta de procura. Muitas vezes o cliente encontra outra empresa, desiste no site, fica sem resposta ou liga quando ninguém atende.",
       cards: {
         invisible: {
-          title: "Invisível no Google",
-          desc: "92% dos clientes escolhem empresas na primeira página. Se você não aparece, você simplesmente não existe para eles."
-        },
-        reviews: {
-          title: "Poucas Avaliações",
-          desc: "Negócios sem prova social ativa transmitem desconfiança. Clientes compram de quem os outros recomendam."
-        },
-        contacts: {
-          title: "Falta de Contactos",
-          desc: "Depender apenas de recomendações 'boca a boca' é uma roleta russa financeira. O seu negócio precisa de um fluxo constante."
+          title: "Não aparece quando procuram",
+          desc: "Quando alguém procura exatamente o que vende e a sua empresa não aparece, outra empresa recebe essa oportunidade."
         },
         oldSite: {
-          title: "Site Antigo ou Inexistente",
-          desc: "Um site lento ou desatualizado afasta clientes premium. A sua presença digital é o espelho do seu profissionalismo."
+          title: "O site não transforma visitas em pedidos",
+          desc: "O cliente entra, mas não percebe rapidamente por que deve escolher a sua empresa ou qual é o próximo passo."
+        },
+        contacts: {
+          title: "Mensagens ficam sem resposta",
+          desc: "Pedidos chegam, dúvidas aparecem e oportunidades perdem força quando ninguém consegue responder a tempo."
         },
         lostClients: {
-          title: "Clientes Perdidos Fora d'Hora",
-          desc: "64% dos clientes chegam à noite ou no fim de semana. Sem atendimento automático imediato, eles vão para a concorrência."
+          title: "Chamadas ficam por atender",
+          desc: "O cliente liga à noite, ao fim de semana ou quando a equipa está ocupada. Se ninguém atende, muitas vezes procura outra opção."
         }
       }
     },
     solution: {
-      title: "O Método VELKS para Dominar o Mercado",
-      subtitle: "Não vendemos código nem tecnologia. Vendemos agendamentos cheios, clientes qualificados e processos automáticos que faturam por si.",
+      eyebrow: "DA PROCURA AO CONTACTO",
+      title: "Quatro pontos. Um único sistema.",
+      subtitle: "Cada solução resolve um ponto diferente do caminho do cliente. Juntas, ajudam a transformar procura em pedidos sem deixar oportunidades pelo caminho.",
       cards: {
         gmaps: {
-          title: "Otimização Google Maps",
-          desc: "Posicionamos o seu negócio no topo das pesquisas locais para que seja a escolha óbvia na sua região."
+          label: "GOOGLE BUSINESS",
+          title: "Seja encontrado quando o cliente já está à procura.",
+          desc: "Organizamos e otimizamos a presença da sua empresa no Google para melhorar informação, relevância local e capacidade de descoberta."
         },
         website: {
-          title: "Websites de Alta Conversão",
-          desc: "Páginas desenhadas especificamente para telemóveis, focadas em fazer o visitante clicar e iniciar conversa."
+          label: "WEBSITE & E-COMMERCE",
+          title: "Transforme visitas em pedidos e vendas.",
+          desc: "Sites e lojas online rápidos, claros e pensados para levar o visitante ao próximo passo."
         },
         bot: {
-          title: "Assistente IA 24/7",
-          desc: "Um assistente inteligente que responde em segundos, tira dúvidas e captura o contacto do cliente automaticamente."
-        },
-        leads: {
-          title: "Captação Ativa de Clientes",
-          desc: "Sistemas simples e diretos para recolher dados de contacto de potenciais clientes interessados nos seus serviços."
+          label: "ORION AI CAPTURE",
+          title: "Responda mesmo quando ninguém está disponível.",
+          desc: "ORION conversa por texto e voz, tira dúvidas, percebe o que o cliente precisa, recolhe contactos e entrega o contexto à sua equipa."
         },
         automation: {
-          title: "Automação Sem Complicações",
-          desc: "Sincronização imediata de pedidos para o seu WhatsApp ou Email, sem que precise de gerir painéis complexos."
+          label: "RECEPCIONISTA IA",
+          title: "Não deixe chamadas importantes sem resposta.",
+          desc: "A IA atende, compreende o pedido, recolhe informações, qualifica a chamada e encaminha quando é necessário falar com uma pessoa."
         }
-      }
+      },
+      closing: "Quando estes quatro pontos trabalham juntos, menos oportunidades se perdem entre pesquisa, visita, mensagem e chamada."
     },
     authority: {
-      title: "Engenharia de Conversão de Elite",
-      subtitle: "Aplicamos metodologias e padrões comprovados em mercados europeus altamente competitivos e exigentes para ajudar pequenos negócios a crescer de forma sólida.",
+      eyebrow: "PRESENÇA INTERNACIONAL",
+      title: "Engenharia comercial para mercados europeus.",
+      subtitle: "Criamos sistemas digitais para empresas que precisam de ser encontradas, gerar confiança e responder clientes sem depender de processos manuais.",
+      metricsLabel: "CAPACIDADE OPERACIONAL",
+      metrics: {
+        clients: "IDIOMAS",
+        delivered: "MERCADOS EUROPEUS",
+        roi: "SOLUÇÕES COMERCIAIS",
+        support: "CAPACIDADE IA"
+      },
+      standard: [
+        "O cliente não espera por segunda-feira.",
+        "Se procura a sua empresa, faz uma pergunta ou liga à noite, ao fim de semana ou enquanto você está com a família, a oportunidade continua a existir.",
+        "A VELKS cria a estrutura para responder, captar e encaminhar esse interesse sem o obrigar a estar sempre ao telefone.",
+        "O seu negócio continua a trabalhar mesmo quando você não está."
+      ],
       luxembourg: {
         name: "Luxemburgo",
-        tag: "Sede Principal",
-        desc: "Onde gerimos a estratégia financeira, normas europeias de compliance e arquitetura de dados do grupo VELKS."
+        desc: "Estrutura empresarial e contexto transfronteiriço."
       },
       portugal: {
         name: "Portugal",
-        tag: "Centro de Desenvolvimento",
-        desc: "A nossa equipa de design e desenvolvimento focada em converter visitantes em clientes premium."
+        desc: "Desenvolvimento, implementação e operação digital."
       },
       spain: {
         name: "Espanha",
-        tag: "Expansão Comercial",
-        desc: "Operações dedicadas ao mercado ibérico de alta densidade e comércio local dinâmico."
-      },
-      metrics: {
-        clients: "+240 Clientes Locais Atendidos",
-        delivered: "+350 Projetos Premium Entregues",
-        roi: "+320% ROI Médio Estimado",
-        support: "Suporte Total Sem Dor de Cabeça"
+        desc: "Expansão comercial e contexto ibérico."
       }
     },
     widget: {
@@ -372,39 +392,40 @@ export const translations: Record<Language, TranslationSchema> = {
         {
           name: "Ricardo Silva",
           role: "Proprietário de Restaurante",
-          text: "Meu restaurante quase não aparecia nas pesquisas locais. Depois da otimização da VELKS, começamos a receber chamadas e reservas diariamente através do Google Maps. Hoje somos encontrados por clientes que antes iam diretamente para a concorrência.",
+          text: "O meu restaurante quase não aparecia nas pesquisas locais. Depois da otimização da VELKS, começámos a receber mais chamadas e reservas pelo Google Maps. Hoje somos encontrados por clientes que antes acabavam na concorrência.",
           rating: 5,
           isGoogle: true
         },
         {
           name: "Maria Costa",
           role: "Consultora Financeira",
-          text: "Eu perdia oportunidades porque o meu site não transmitia confiança. A VELKS criou uma presença profissional que aumentou a credibilidade da marca. Os clientes chegam mais preparados e as conversões cresceram significativamente.",
+          text: "O meu site não transmitia confiança. A VELKS criou uma presença muito mais profissional e os contactos começaram a chegar mais preparados. A credibilidade aumentou e as conversões cresceram.",
           rating: 5
         },
         {
           name: "Carlos Mendes",
           role: "Diretor Comercial",
-          text: "Perdíamos contactos fora do horário comercial. Com a automação da VELKS, cada mensagem recebe resposta imediata. Hoje captamos oportunidades 24 horas por dia sem aumentar a equipa.",
+          text: "Perdíamos contactos fora do horário. Com a automação da VELKS, as mensagens recebem resposta e as oportunidades ficam registadas. Hoje conseguimos captar procura 24/7 sem aumentar a equipa.",
           rating: 5
         },
         {
           name: "Ana Rodrigues",
           role: "Empreendedora Digital",
-          text: "Gerir vendas manualmente consumia demasiado tempo. A VELKS automatizou toda a operação da nossa loja online. As vendas cresceram e conseguimos escalar sem aumentar a carga de trabalho.",
+          text: "Gerir as vendas manualmente consumia demasiado tempo. A VELKS automatizou a operação da nossa loja online. Conseguimos vender mais sem aumentar a carga de trabalho.",
           rating: 5
         },
         {
           name: "João Ferreira",
           role: "CEO",
-          text: "Sabíamos que havia potencial de crescimento, mas faltava estratégia. A auditoria da VELKS identificou gargalos invisíveis e criou um plano claro de expansão. Hoje tomamos decisões com muito mais confiança.",
+          text: "Sabíamos que havia potencial, mas faltava direção. A auditoria da VELKS identificou os gargalos e definiu prioridades claras. Hoje tomamos decisões com muito mais confiança.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Soluções Transparentes. Custos Claros.",
-      subtitle: "Custos claros desde o início. Setup transparente e operação gerida quando a infraestrutura exige continuidade. Sem surpresas.",
+      eyebrow: "ESCOLHA O QUE O SEU NEGÓCIO PRECISA",
+      title: "Comece agora, sem pedir orçamento primeiro.",
+      subtitle: "Veja os preços, escolha o que o seu negócio precisa e ative antes que o próximo cliente escolha a concorrência.",
       singlePayment: "PREÇOS CLAROS · OPERAÇÃO GERIDA",
       allPlansInclude: "Todos os pacotes incluem:",
       allPlansIncludeDesc: "Suporte premium, total conformidade com o RGPD, design focado em telemóveis e otimização de velocidade máxima.",
@@ -536,28 +557,44 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Perguntas Frequentes",
       questions: [
         {
-          q: "Quanto tempo demora a entrega?",
-          a: "Otimizações de Google Maps demoram tipicamente entre 3 a 5 dias úteis. Websites profissionais premium e assistentes virtuais de atendimento automático são entregues e testados em 7 a 14 dias úteis."
+          q: "Quanto tempo demora a implementação?",
+          a: "Depende da solução e do material disponível. Antes de começarmos, recebe um prazo definido para o seu projeto. Google Business tende a ser mais rápido; websites, ORION, e-commerce e telefonia IA precisam de configuração e testes."
         },
         {
-          q: "O site funciona bem em telemóvel?",
-          a: "Sim, absolutamente. Desenvolvemos com foco total em Mobile-First, porque mais de 85% dos contactos locais são feitos através de smartphones. O seu site será extremamente rápido e intuitivo em qualquer ecrã."
+          q: "O domínio, site e dados ficam meus?",
+          a: "O domínio, conteúdos e dados da empresa permanecem sob controlo do cliente conforme o serviço contratado. Antes da implementação explicamos claramente o que pertence ao cliente e o que depende da infraestrutura gerida pela VELKS."
         },
         {
-          q: "Posso usar o meu domínio atual?",
-          a: "Sim. Se já tem um domínio registado (ex: www.seunegocio.com), vamos configurar tudo para apontar para o novo site premium sem custos adicionais. Se não tem, ajudamos a escolher e a registar."
+          q: "O que está incluído na mensalidade?",
+          a: "A mensalidade corresponde a operação contínua real: infraestrutura, hosting/deploy quando aplicável, monitorização, manutenção e operação técnica da solução contratada."
         },
         {
-          q: "A VELKS possui outros websites oficiais?",
-          a: "Sim.\nAlém do website institucional da VELKS Group, desenvolvemos produtos e soluções em domínios próprios para oferecer uma experiência mais focada e especializada.\nProjetos oficiais atualmente operados pela VELKS:\n• velks.space — Plataforma oficial da ORION AI e soluções de atendimento inteligente.\n• vgroup.space — Portfólio digital, demonstrações, estudos de caso e projetos desenvolvidos pela equipa VELKS.\nTodos os websites acima pertencem à VELKS Group e são mantidos pela nossa equipa de engenharia e desenvolvimento.\nPode navegar com total confiança."
+          q: "Já tenho website. Preciso fazer outro?",
+          a: "Não necessariamente. Podemos implementar Google Business, ORION, integrações, e-commerce ou melhorias sobre uma estrutura existente quando tecnicamente adequado."
         },
         {
-          q: "Como descubro quanto custaria implementar a ORION na minha empresa?",
-          a: "A forma mais rápida é falar diretamente com a ORION.\nO assistente consegue analisar o seu negócio, esclarecer dúvidas, apresentar funcionalidades e indicar a solução mais adequada para o seu caso.\nClique no ícone de conversa no canto inferior direito e receba orientação imediata."
+          q: "O que exatamente faz o ORION?",
+          a: "ORION conversa por texto e voz, utiliza as informações da sua empresa, responde dúvidas, percebe intenção, qualifica oportunidades, recolhe dados e entrega contexto estruturado à equipa."
         },
         {
-          q: "O que acontece se eu não responder aos meus clientes imediatamente?",
-          a: "Na maioria dos casos, eles entram em contacto com outra empresa.\nHoje a velocidade de resposta influencia diretamente a decisão de compra.\nA ORION ajuda a garantir que cada visitante recebe atenção imediata, mesmo quando a sua equipa está ocupada, fora do escritório ou a dormir."
+          q: "Como funciona a Recepcionista IA?",
+          a: "A IA atende chamadas, compreende o pedido, recolhe informação, qualifica e encaminha ou escala a chamada de acordo com as regras definidas para a empresa."
+        },
+        {
+          q: "O que está incluído no E-commerce?",
+          a: "A implementação pode incluir estrutura da loja, catálogo, checkout, pagamentos, gestão de encomendas e as integrações previstas no escopo. Stock, transportadoras ou sistemas externos são definidos antes do início."
+        },
+        {
+          q: "Conseguem colocar a minha empresa em primeiro no Google?",
+          a: "Não prometemos posições que ninguém controla. Trabalhamos estrutura técnica, Google Business Profile, relevância, indexabilidade e otimização para melhorar a capacidade de descoberta."
+        },
+        {
+          q: "Trabalham em vários idiomas?",
+          a: "Sim. Websites, interfaces e agentes podem ser implementados em vários idiomas de acordo com o projeto."
+        },
+        {
+          q: "Quais são os domínios oficiais da VELKS?",
+          a: "Está em velksgroup.com, o website institucional. Também operamos velks.space, velksgroup.cloud e vgroup.space."
         }
       ]
     },
@@ -569,6 +606,9 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sem compromisso • Resposta imediata • Orçamento gratuito"
     },
     footer: {
+      closeDocument: "FECHAR DOCUMENTO",
+      corporate: "Informação Corporativa",
+      followLinkedIn: "Seguir a VELKS Group",
       trust: {
         paymentTitle: "PAGAMENTO SEGURO",
         cardLabel: "Cartão",
@@ -576,7 +616,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "PERGUNTE À IA SOBRE A VELKS",
         aiDescription: "Verifique quem somos, o que fazemos e como a VELKS trabalha.",
         aiPrompt: "Analise a VELKS Group com base em fontes públicas e nos seus domínios oficiais. Explique o que é a empresa, que soluções oferece, que tecnologias utiliza e qual é a sua presença digital. Priorize velksgroup.com, velks.space e velksgroup.cloud e diferencie claramente informação verificada de inferências.",
-        aiCopied: "Pergunta copiada.",
+        aiCopied: "PERGUNTA COPIADA · COLE NO CHAT",
         aiCopyFailed: "Não foi possível copiar automaticamente. Copie a pergunta abaixo e cole na IA.",
         aiPromptLabel: "Pergunta sobre a VELKS para copiar",
       },
@@ -598,13 +638,13 @@ export const translations: Record<Language, TranslationSchema> = {
       policyCookies: "Política de Cookies",
       terms: "Termos e Condições",
       compliance: "Compliance Europeu",
-      legal: "Avisos Legais",
-      gdpr: "Conformidade RGPD UE",
+      legal: "Jurídico",
+      gdpr: "CONFORMIDADE RGPD · UE",
       rights: "© 2026 VELKS Group. Todos os direitos reservados."
     },
   engineering: {
       label: "ANTES DE DECIDIR, VEJA O TIPO DE TECNOLOGIA QUE DESENVOLVEMOS PARA CLIENTES QUE EXIGEM MAIS DO QUE UM SIMPLES WEBSITE.",
-      title1: "NÃO SOMOS WEB DESIGNERS.",
+      title1: "NÃO SOMOS APENAS WEB DESIGNERS.",
       title2: "SOMOS ENGENHEIROS DE PRODUTO.",
       desc: "Enquanto o mercado vende templates, nós desenvolvemos sistemas capazes de operar aplicações, automações, agentes inteligentes e infraestruturas digitais preparadas para crescimento real.",
       metricsLabel: "[ OPERATIONAL METRICS ]",
@@ -661,89 +701,99 @@ export const translations: Record<Language, TranslationSchema> = {
       faq: "FAQ",
     },
     hero: {
+      pills: [
+        "Google Maps",
+        "Siti & negozi",
+        "IA 24/7"
+      ],
+      reinforcement: "Costi chiari fin dall’inizio.",
       tracking: "Ciao. Ho visto la vostra infrastruttura tecnologica sul sito e vorrei verificare se la mia azienda si qualifica per implementare il vostro sistema commerciale. Potete inviarmi il listino prezzi?",
-      badge: "★ DOMINIO ASSOLUTO DEL MERCATO",
-      title: "La tua attività merita di apparire prima dei tuoi concorrenti.",
-      subtitle: "Creiamo siti web premium, profili Google Maps professionali e sistemi di risposta automatica per aiutarti a generare più contatti e chiudere più clienti ogni giorno. Costi chiari fin dall’inizio.",
-      ctaPrimary: "ATTIVARE MACCHINA DELLE VENDITE",
+      badge: "★ FARSI TROVARE È SOLO IL PRIMO PASSO",
+      title: "La tua azienda deve comparire prima dei concorrenti.",
+      subtitle: "Fatti trovare su Google, trasforma le visite in richieste e rispondi ai clienti anche quando il team non è disponibile.",
+      ctaPrimary: "VEDI SOLUZIONI E PREZZI",
       ctaSecondary: "Vedi Pacchetti",
-      trustPilot: "Eccellente 4.9/5 stelle su Google & Business Networks"
+      trustPilot: "5,0/5 su Google · 2 recensioni"
     },
     problem: {
-      title: "Il Dolore di Essere Invisibili",
-      subtitle: "Se la tua attività non viene trovata per prima, stai finanziando la crescita dei tuoi concorrenti. Il mercato è cambiato e l'improvvisazione costa cara.",
+      eyebrow: "LA REALTÀ, SENZA GIRI DI PAROLE",
+      title: "Dove la tua azienda perde clienti senza accorgersene.",
+      subtitle: "Il problema non è sempre la mancanza di domanda. Spesso il cliente trova un’altra azienda, abbandona il sito, non riceve risposta o chiama quando nessuno risponde.",
       cards: {
         invisible: {
-          title: "Invisibile su Google",
-          desc: "Il 92% dei clienti sceglie attività sulla prima pagina. Se non appari, semplicemente non esisti per loro."
-        },
-        reviews: {
-          title: "Poche Recensioni",
-          desc: "Le attività senza una prova sociale attiva trasmettono diffidenza. I clienti acquistano da chi viene raccomandato dagli altri."
-        },
-        contacts: {
-          title: "Mancanza di Contatti",
-          desc: "Affidarsi solo al passaparola è una roulette russa finanziaria. La tua attività ha bisogno di un flusso costante."
+          title: "Non compari quando i clienti cercano",
+          desc: "Quando qualcuno cerca esattamente ciò che vendi e la tua azienda non compare, un’altra azienda riceve quell’opportunità."
         },
         oldSite: {
-          title: "Sito Vecchio o Inesistente",
-          desc: "Un sito lento o brutto allontana i clienti premium. La tua presenza digitale è lo specchio della tua professionalità."
+          title: "Il sito non trasforma le visite in richieste",
+          desc: "Il cliente entra, ma non capisce subito perché dovrebbe scegliere la tua azienda o quale sia il passo successivo."
+        },
+        contacts: {
+          title: "I messaggi restano senza risposta",
+          desc: "Arrivano richieste, emergono dubbi e le opportunità perdono forza quando nessuno riesce a rispondere in tempo."
         },
         lostClients: {
-          title: "Clienti Persi Fuori Orario",
-          desc: "Il 64% dei clienti arriva di sera o nel weekend. Senza una risposta automatica immediata, si rivolgono alla concorrenza."
+          title: "Le chiamate restano senza risposta",
+          desc: "Il cliente chiama di sera, nel fine settimana o quando il team è occupato. Se nessuno risponde, spesso cerca un’alternativa."
         }
       }
     },
     solution: {
-      title: "Il Metodo VELKS per Dominare il Mercato",
-      subtitle: "Non vendiamo codice o tecnologia. Vendiamo appuntamenti, clienti qualificati e processi automatici che fatturano per te.",
+      eyebrow: "DALLA RICERCA AL CONTATTO",
+      title: "Quattro punti. Un unico sistema.",
+      subtitle: "Ogni soluzione interviene su un punto diverso del percorso del cliente. Insieme, aiutano a trasformare la domanda in richieste senza perdere opportunità lungo il cammino.",
       cards: {
         gmaps: {
-          title: "Ottimizzazione Google Maps",
-          desc: "Posizioniamo la tua attività in cima alle ricerche locali in modo che sia la scelta ovvia nella tua zona."
+          label: "GOOGLE BUSINESS",
+          title: "Fatti trovare quando il cliente sta già cercando.",
+          desc: "Organizziamo e ottimizziamo la presenza della tua azienda su Google per migliorare le informazioni, la rilevanza locale e la possibilità di essere trovata."
         },
         website: {
-          title: "Siti Web ad Alta Conversione",
-          desc: "Pagine progettate specificamente per smartphone, focalizzate sul far cliccare il visitatore per avviare una chat."
+          label: "SITI WEB & E-COMMERCE",
+          title: "Trasforma le visite in richieste e vendite.",
+          desc: "Siti e negozi online veloci, chiari e pensati per guidare il visitatore al passo successivo."
         },
         bot: {
-          title: "Assistente IA 24/7",
-          desc: "Un assistente intelligente che risponde in pochi secondi, risolve dubbi e cattura i dati del cliente automaticamente."
-        },
-        leads: {
-          title: "Generazione Attiva di Clienti",
-          desc: "Sistemi semplici e diretti per raccogliere i dati di contatto dei potenziali clienti interessati ai tuoi servizi."
+          label: "ORION AI CAPTURE",
+          title: "Rispondi anche quando nessuno è disponibile.",
+          desc: "ORION conversa via testo e voce, chiarisce i dubbi, comprende le esigenze del cliente, raccoglie i contatti e trasmette il contesto al tuo team."
         },
         automation: {
-          title: "Automazione Semplice",
-          desc: "Sincronizzazione immediata delle richieste sulla tua email o WhatsApp, senza dover gestire pannelli complessi."
+          label: "RECEPTIONIST IA",
+          title: "Non lasciare senza risposta le chiamate importanti.",
+          desc: "L’IA risponde, comprende la richiesta, raccoglie le informazioni, qualifica la chiamata e la inoltra quando è necessario parlare con una persona."
         }
-      }
+      },
+      closing: "Quando questi quattro punti lavorano insieme, si perdono meno opportunità tra ricerca, visita, messaggio e chiamata."
     },
     authority: {
-      title: "Operiamo tra Portogallo, Spagna e Lussemburgo",
-      subtitle: "Applichiamo metodi e standard utilizzati nei mercati europei altamente competitivi ed esigenti per aiutare le piccole imprese a crescere online in modo solido.",
+      eyebrow: "PRESENZA INTERNAZIONALE",
+      title: "Ingegneria commerciale per i mercati europei.",
+      subtitle: "Creiamo sistemi digitali per aziende che devono farsi trovare, generare fiducia e rispondere ai clienti senza dipendere da processi manuali.",
+      metricsLabel: "CAPACITÀ OPERATIVA",
+      metrics: {
+        clients: "LINGUE",
+        delivered: "MERCATI EUROPEI",
+        roi: "SOLUZIONI COMMERCIALI",
+        support: "CAPACITÀ IA"
+      },
+      standard: [
+        "Il cliente non aspetta lunedì.",
+        "Se cerca la tua azienda, fa una domanda o chiama di sera, nel fine settimana o mentre sei con la famiglia, l’opportunità continua a esistere.",
+        "VELKS crea la struttura per rispondere, raccogliere e indirizzare questo interesse senza costringerti a stare sempre al telefono.",
+        "La tua attività continua a lavorare anche quando tu non ci sei."
+      ],
       luxembourg: {
         name: "Lussemburgo",
-        tag: "Sede Principale",
-        desc: "Dove gestiamo la strategia finanziaria, gli standard europei di conformità e l'ingegneria dei dati di VELKS Group."
+        desc: "Struttura aziendale e contesto transfrontaliero."
       },
       portugal: {
         name: "Portogallo",
-        tag: "Centro di Sviluppo",
-        desc: "Team di design e sviluppo focalizzato sulla conversione dei visitatori in clienti premium."
+        desc: "Sviluppo, implementazione e operatività digitale."
       },
       spain: {
         name: "Spagna",
-        tag: "Espansione di Mercato",
-        desc: "Operazioni dedicate al mercato iberico ad alta densità e al dinamico commercio locale."
-      },
-      metrics: {
-        clients: "+240 Clienti Serviti",
-        delivered: "+350 Progetti Consegnati",
-        roi: "+320% ROI Medio Stimato",
-        support: "Supporto Totale Senza Complicazioni"
+        desc: "Espansione commerciale e contesto iberico."
       }
     },
     widget: {
@@ -784,39 +834,40 @@ export const translations: Record<Language, TranslationSchema> = {
         {
           name: "Ricardo Silva",
           role: "Titolare di Ristorante",
-          text: "Il mio ristorante era invisibile nelle ricerche locali. Dopo l'ottimizzazione di VELKS, riceviamo chiamate e prenotazioni ogni giorno tramite Google Maps. Oggi ci trovano clienti che prima andavano dalla concorrenza.",
+          text: "Il mio ristorante compariva a malapena nelle ricerche locali. Dopo l’ottimizzazione di VELKS, abbiamo iniziato a ricevere più chiamate e prenotazioni tramite Google Maps. Oggi ci trovano clienti che prima finivano dalla concorrenza.",
           rating: 5,
           isGoogle: true
         },
         {
           name: "Maria Costa",
           role: "Consulente Finanziaria",
-          text: "Perdevo opportunità perché il mio sito non ispirava fiducia. VELKS ha creato una presenza professionale che ha aumentato la credibilità del brand. I clienti arrivano più preparati e le conversioni sono cresciute.",
+          text: "Il mio sito non trasmetteva fiducia. VELKS ha creato una presenza molto più professionale e i contatti hanno iniziato ad arrivare più preparati. La credibilità è aumentata e le conversioni sono cresciute.",
           rating: 5
         },
         {
           name: "Carlos Mendes",
           role: "Direttore Commerciale",
-          text: "Perdevamo contatti fuori orario. Con l'automazione di VELKS, ogni messaggio riceve una risposta immediata. Oggi catturiamo opportunità 24 ore su 24 senza aumentare il personale.",
+          text: "Perdevamo contatti fuori orario. Con l’automazione di VELKS, i messaggi ricevono risposta e le opportunità vengono registrate. Oggi possiamo intercettare la domanda 24/7 senza ampliare il team.",
           rating: 5
         },
         {
           name: "Ana Rodrigues",
           role: "Imprenditrice Digitale",
-          text: "Gestire le vendite manualmente portava via troppo tempo. VELKS ha automatizzato l'intero negozio online. Le vendite sono aumentate e siamo riusciti a scalare senza accrescere il carico di lavoro.",
+          text: "Gestire le vendite manualmente richiedeva troppo tempo. VELKS ha automatizzato l’operatività del nostro negozio online. Siamo riusciti a vendere di più senza aumentare il carico di lavoro.",
           rating: 5
         },
         {
           name: "João Ferreira",
           role: "CEO",
-          text: "Sapevamo di avere potenziale di crescita, ma mancava una strategia. L'audit di VELKS ha individuato colli di bottiglia invisibili e creato un piano di espansione chiaro. Oggi prendiamo decisioni con molta più fiducia.",
+          text: "Sapevamo che c’era potenziale, ma mancava una direzione. L’audit di VELKS ha individuato i colli di bottiglia e definito priorità chiare. Oggi prendiamo decisioni con molta più fiducia.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Pacchetti Trasparenti Senza Sorprese",
-      subtitle: "Costi chiari fin dall’inizio. Configurazione iniziale trasparente e gestione continuativa quando l’infrastruttura lo richiede. Nessuna sorpresa.",
+      eyebrow: "SCEGLI CIÒ CHE SERVE ALLA TUA AZIENDA",
+      title: "Inizia ora, senza dover chiedere prima un preventivo.",
+      subtitle: "Consulta i prezzi, scegli ciò che serve alla tua azienda e attivalo prima che il prossimo cliente scelga un concorrente.",
       singlePayment: "PREZZI CHIARI · GESTIONE CONTINUATIVA",
       allPlansInclude: "Tutti i pacchetti includono:",
       allPlansIncludeDesc: "Supporto premium, conformità totale GDPR, design mobile-first e ottimizzazione per la massima velocità di caricamento.",
@@ -948,28 +999,44 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Domande Frequenti",
       questions: [
         {
-          q: "Quanto tempo richiede la consegna?",
-          a: "L'ottimizzazione di Google Maps richiede solitamente da 3 a 5 giorni lavorativi. I siti web premium e gli assistenti virtuali automatici vengono consegnati e testati in 7-14 giorni lavorativi."
+          q: "Quanto tempo richiede l’implementazione?",
+          a: "Dipende dalla soluzione e dal materiale disponibile. Prima di iniziare, ricevi una tempistica definita per il progetto. Google Business tende a essere più rapido; siti web, ORION, e-commerce e telefonia IA richiedono configurazione e test."
         },
         {
-          q: "Il sito funziona bene da cellulare?",
-          a: "Sì, assolutamente. Sviluppiamo con focus totale sul Mobile-First, poiché oltre l'85% delle ricerche locali avviene tramite smartphone. Il tuo sito sarà velocissimo e reattivo su ogni schermo."
+          q: "Il dominio, il sito e i dati restano miei?",
+          a: "Il dominio, i contenuti e i dati aziendali restano sotto il controllo del cliente secondo il servizio acquistato. Prima dell’implementazione spieghiamo chiaramente ciò che appartiene al cliente e ciò che dipende dall’infrastruttura gestita da VELKS."
         },
         {
-          q: "Posso usare il mio dominio attuale?",
-          a: "Sì. Se hai già un dominio registrato (es: www.tuattivita.com), configureremo tutto per puntare al nuovo sito premium senza costi aggiuntivi. Se non ne hai uno, ti aiuteremo a sceglierlo e registrarlo."
+          q: "Cosa comprende il canone mensile?",
+          a: "Il canone corrisponde a un’operatività continuativa reale: infrastruttura, hosting e deploy ove applicabili, monitoraggio, manutenzione e gestione tecnica della soluzione acquistata."
         },
         {
-          q: "VELKS ha altri siti web ufficiali?",
-          a: "Sì.\nOltre al sito istituzionale di VELKS Group, sviluppiamo prodotti e soluzioni su domini propri per offrire un'esperienza più mirata e specializzata.\nProgetti ufficiali attualmente operati da VELKS:\n• velks.space — Piattaforma ufficiale di ORION AI e soluzioni di assistenza intelligente.\n• vgroup.space — Portfolio digitale, demo, case study e progetti sviluppati dal team VELKS.\nTutti i siti web sopra citati appartengono a VELKS Group e sono gestiti dal nostro team di ingegneria e sviluppo.\nPuoi navigare in totale sicurezza."
+          q: "Ho già un sito. Devo crearne un altro?",
+          a: "Non necessariamente. Possiamo implementare Google Business, ORION, integrazioni, e-commerce o miglioramenti su una struttura esistente quando tecnicamente adeguato."
         },
         {
-          q: "Come scopro quanto costerebbe implementare ORION nella mia azienda?",
-          a: "Il modo più veloce è parlare direttamente con ORION.\nL'assistente è in grado di analizzare la tua attività, chiarire dubbi, presentare le funzionalità e indicare la soluzione più adatta al tuo caso.\nClicca sull'icona della chat nell'angolo in basso a destra e ricevi assistenza immediata."
+          q: "Cosa fa esattamente ORION?",
+          a: "ORION conversa via testo e voce, utilizza le informazioni aziendali, risponde ai dubbi, comprende le intenzioni, qualifica le opportunità, raccoglie dati e trasmette un contesto strutturato al team."
         },
         {
-          q: "Cosa succede se non rispondo immediatamente ai miei clienti?",
-          a: "Nella maggior parte dei casi, contattano un'altra azienda.\nOggi la velocità di risposta influenza direttamente la decisione di acquisto.\nORION ti aiuta a garantire che ogni visitatore riceva attenzione immediata, anche quando il tuo team è occupato, fuori ufficio o dorme."
+          q: "Come funziona la Receptionist IA?",
+          a: "L’IA risponde alle chiamate, comprende la richiesta, raccoglie informazioni, qualifica e inoltra la chiamata o la passa a un livello superiore secondo le regole definite per l’azienda."
+        },
+        {
+          q: "Cosa comprende l’E-commerce?",
+          a: "L’implementazione può includere struttura del negozio, catalogo, checkout, pagamenti, gestione degli ordini e integrazioni previste nell’ambito concordato. Stock, corrieri e sistemi esterni vengono definiti prima dell’inizio."
+        },
+        {
+          q: "Potete portare la mia azienda al primo posto su Google?",
+          a: "Non promettiamo posizioni che nessuno controlla. Lavoriamo su struttura tecnica, Google Business Profile, rilevanza, indicizzabilità e ottimizzazione per migliorare la possibilità di essere trovati."
+        },
+        {
+          q: "Lavorate in più lingue?",
+          a: "Sì. Siti web, interfacce e agenti possono essere implementati in più lingue a seconda del progetto."
+        },
+        {
+          q: "Quali sono i domini ufficiali di VELKS?",
+          a: "Ti trovi su velksgroup.com, il sito istituzionale. Gestiamo anche velks.space, velksgroup.cloud e vgroup.space."
         }
       ]
     },
@@ -981,6 +1048,9 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Nessun impegno • Risposta immediata • Preventivo gratuito"
     },
     footer: {
+      closeDocument: "CHIUDI DOCUMENTO",
+      corporate: "Informazioni Aziendali",
+      followLinkedIn: "Segui VELKS Group",
       trust: {
         paymentTitle: "PAGAMENTO SICURO",
         cardLabel: "Carta",
@@ -988,7 +1058,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "CHIEDI ALL’IA INFORMAZIONI SU VELKS",
         aiDescription: "Scopri chi siamo, cosa facciamo e come lavora VELKS.",
         aiPrompt: "Analizza VELKS Group sulla base di fonti pubbliche e dei suoi domini ufficiali. Spiega che cos’è l’azienda, quali soluzioni offre, quali tecnologie utilizza e qual è la sua presenza digitale. Dai priorità a velksgroup.com, velks.space e velksgroup.cloud e distingui chiaramente le informazioni verificate dalle deduzioni.",
-        aiCopied: "Domanda copiata.",
+        aiCopied: "DOMANDA COPIATA · INCOLLALA NELLA CHAT",
         aiCopyFailed: "Copia automatica non riuscita. Copia la domanda qui sotto e incollala nell’IA.",
         aiPromptLabel: "Domanda su VELKS da copiare",
       },
@@ -1010,13 +1080,13 @@ export const translations: Record<Language, TranslationSchema> = {
       policyCookies: "Informativa sui Cookie",
       terms: "Termini e Condizioni",
       compliance: "Conformità Europea",
-      legal: "Note Legali",
-      gdpr: "Conformità GDPR UE",
+      legal: "Informazioni Legali",
+      gdpr: "CONFORMITÀ GDPR · UE",
       rights: "© 2026 VELKS Group. Tutti i diritti riservati."
     },
   engineering: {
       label: "PRIMA DI DECIDERE, SCOPRI IL TIPO DI TECNOLOGIA CHE SVILUPPIAMO PER I CLIENTI CHE ESIGONO PIÙ DI UN SEMPLICE SITO WEB.",
-      title1: "NON SIAMO WEB DESIGNER.",
+      title1: "NON SIAMO SOLO WEB DESIGNER.",
       title2: "SIAMO INGEGNERI DI PRODOTTO.",
       desc: "Mentre il mercato vende modelli, noi sviluppiamo sistemi in grado di far funzionare applicazioni, automazioni, agenti intelligenti e infrastrutture digitali progettate per una crescita reale.",
       metricsLabel: "[ METRICHE OPERATIVE ]",
@@ -1073,89 +1143,99 @@ export const translations: Record<Language, TranslationSchema> = {
       faq: "FAQ",
     },
     hero: {
+      pills: [
+        "Google Maps",
+        "Sites & Shops",
+        "AI 24/7"
+      ],
+      reinforcement: "Clear costs from the start.",
       tracking: "Hello. I saw your technological infrastructure on the website and would like to check if my company qualifies to implement your commercial system. Can you send me the pricing table?",
-      badge: "★ ABSOLUTE MARKET DOMINANCE",
-      title: "Your business deserves to appear before your competitors.",
-      subtitle: "We create premium websites, professional Google Maps profiles, and automated customer response systems to help you generate more leads and close more sales daily. Clear costs from the start.",
-      ctaPrimary: "ACTIVATE SALES MACHINE",
+      badge: "★ BEING FOUND IS ONLY THE FIRST STEP",
+      title: "Your business needs to show up before your competitors.",
+      subtitle: "Show up on Google, turn visits into enquiries and answer customers even when no one on your team is available.",
+      ctaPrimary: "SEE SOLUTIONS & PRICING",
       ctaSecondary: "View Packages",
-      trustPilot: "Excellent 4.9/5 stars on Google & Business Networks"
+      trustPilot: "5.0/5 on Google · 2 reviews"
     },
     problem: {
-      title: "The Cost of Being Invisible",
-      subtitle: "If your business isn't the first to be found, you are financing your competitors' growth. The market has changed and amateur digital presence is expensive.",
+      eyebrow: "NO-NONSENSE REALITY",
+      title: "Where your business loses customers without noticing.",
+      subtitle: "The problem is not always a lack of demand. Often, customers find another business, leave the website, get no reply or call when no one can answer.",
       cards: {
         invisible: {
-          title: "Invisible on Google",
-          desc: "92% of customers choose businesses on the first page. If you don't appear, you simply do not exist to them."
-        },
-        reviews: {
-          title: "Few Reviews",
-          desc: "Businesses with no active social proof trigger distrust. Customers buy from whoever is recommended by others."
-        },
-        contacts: {
-          title: "Lack of Leads",
-          desc: "Relying purely on 'word of mouth' is a financial Russian roulette. Your business needs a consistent, predictable stream of inquiries."
+          title: "You do not appear when customers search",
+          desc: "When someone searches for exactly what you sell and your business does not appear, another business gets that opportunity."
         },
         oldSite: {
-          title: "Old or Non-Existent Site",
-          desc: "A slow or outdated website drives premium customers away. Your digital presence reflects your professionalism."
+          title: "Your website does not turn visits into enquiries",
+          desc: "Customers arrive, but do not quickly understand why they should choose your business or what to do next."
+        },
+        contacts: {
+          title: "Messages go unanswered",
+          desc: "Enquiries come in, questions arise and opportunities lose momentum when no one can reply in time."
         },
         lostClients: {
-          title: "Clients Lost After-Hours",
-          desc: "64% of customers arrive in the evening or on weekends. Without an instant automated response, they go to your competition."
+          title: "Calls go unanswered",
+          desc: "Customers call at night, at the weekend or when your team is busy. If no one answers, they often look elsewhere."
         }
       }
     },
     solution: {
-      title: "The VELKS Framework for Market Dominance",
-      subtitle: "We do not sell code or tech. We deliver fully booked calendars, qualified customers, and automated processes that generate revenue for you.",
+      eyebrow: "FROM SEARCH TO CONTACT",
+      title: "Four touchpoints. One system.",
+      subtitle: "Each solution addresses a different point in the customer journey. Together, they help turn demand into enquiries without losing opportunities along the way.",
       cards: {
         gmaps: {
-          title: "Google Maps Optimization",
-          desc: "We position your business at the very top of local search results to make you the obvious choice in your region."
+          label: "GOOGLE BUSINESS",
+          title: "Be found when customers are already searching.",
+          desc: "We organise and optimise your business presence on Google to improve its information, local relevance and discoverability."
         },
         website: {
-          title: "High-Converting Websites",
-          desc: "Pages designed specifically for smartphones, fully optimized to make visitors click and start a chat instantly."
+          label: "WEBSITES & E-COMMERCE",
+          title: "Turn visits into enquiries and sales.",
+          desc: "Fast, clear websites and online shops designed to guide visitors to the next step."
         },
         bot: {
-          title: "24/7 AI Assistant",
-          desc: "An intelligent web assistant that replies within seconds, answers common questions, and captures customer info."
-        },
-        leads: {
-          title: "Active Customer Capture",
-          desc: "Simple, highly focused systems to gather contact details of potential buyers actively seeking your services."
+          label: "ORION AI CAPTURE",
+          title: "Respond even when no one is available.",
+          desc: "ORION talks by text and voice, answers questions, understands what customers need, captures contact details and passes the context to your team."
         },
         automation: {
-          title: "Frictionless Automation",
-          desc: "Immediate synchronization of inquiries directly to your WhatsApp or Email, without needing to manage complex software."
+          label: "AI RECEPTIONIST",
+          title: "Do not leave important calls unanswered.",
+          desc: "AI answers, understands the request, collects information, qualifies the call and transfers it when a person needs to step in."
         }
-      }
+      },
+      closing: "When these four touchpoints work together, fewer opportunities are lost between search, visit, message and call."
     },
     authority: {
-      title: "Operating across Portugal, Spain, and Luxembourg",
-      subtitle: "We apply methodologies and standards proven in highly demanding European markets to help local businesses scale online reliably.",
+      eyebrow: "INTERNATIONAL PRESENCE",
+      title: "Commercial engineering for European markets.",
+      subtitle: "We create digital systems for businesses that need to be found, build trust and respond to customers without relying on manual processes.",
+      metricsLabel: "OPERATIONAL CAPACITY",
+      metrics: {
+        clients: "LANGUAGES",
+        delivered: "EUROPEAN MARKETS",
+        roi: "COMMERCIAL SOLUTIONS",
+        support: "AI CAPABILITY"
+      },
+      standard: [
+        "Customers do not wait until Monday.",
+        "When they search for your business, ask a question or call at night, at the weekend or while you are with your family, the opportunity still exists.",
+        "VELKS builds the structure to respond to, capture and direct that interest without requiring you to be on the phone all the time.",
+        "Your business keeps working even when you are not there."
+      ],
       luxembourg: {
         name: "Luxembourg",
-        tag: "Global Headquarters",
-        desc: "Where we manage financial strategy, European compliance standards, and core data systems for the VELKS Group."
+        desc: "Business structure and cross-border context."
       },
       portugal: {
         name: "Portugal",
-        tag: "Development Center",
-        desc: "Our design and engineering hub focused entirely on converting web visitors into premium customers."
+        desc: "Development, implementation and digital operations."
       },
       spain: {
         name: "Spain",
-        tag: "Market Expansion",
-        desc: "Operations dedicated to the high-density Iberian market and dynamic local commerce."
-      },
-      metrics: {
-        clients: "+240 Local Clients Served",
-        delivered: "+350 Premium Projects",
-        roi: "+320% Average Estimated ROI",
-        support: "Total Support With Zero Headaches"
+        desc: "Commercial expansion and Iberian market context."
       }
     },
     widget: {
@@ -1196,39 +1276,40 @@ export const translations: Record<Language, TranslationSchema> = {
         {
           name: "Ricardo Silva",
           role: "Restaurant Owner",
-          text: "My restaurant barely showed up in local searches. After VELKS's optimization, we get daily calls and bookings through Google Maps. Today, customers find us instead of going straight to the competition.",
+          text: "My restaurant barely appeared in local searches. After VELKS optimised our presence, we started receiving more calls and bookings through Google Maps. Today, customers find us who used to go to competitors.",
           rating: 5,
           isGoogle: true
         },
         {
           name: "Maria Costa",
           role: "Financial Consultant",
-          text: "I was losing opportunities because my website lacked trust. VELKS built a professional presence that boosted brand credibility. Clients arrive better prepared and our conversions have grown significantly.",
+          text: "My website did not inspire confidence. VELKS created a much more professional presence, and enquiries started coming from better-prepared prospects. Our credibility improved and conversions grew.",
           rating: 5
         },
         {
           name: "Carlos Mendes",
           role: "Commercial Director",
-          text: "We were losing leads after business hours. With VELKS's automation, every message gets an instant reply. Today, we capture opportunities 24/7 without growing our team.",
+          text: "We were losing contacts outside business hours. With VELKS automation, messages get answered and opportunities are recorded. Today, we can capture demand 24/7 without growing our team.",
           rating: 5
         },
         {
           name: "Ana Rodrigues",
           role: "Digital Entrepreneur",
-          text: "Managing sales manually took too much time. VELKS automated our entire online store operations. Sales increased and we scaled effortlessly without adding to our workload.",
+          text: "Managing sales manually took too much time. VELKS automated our online shop operations. We managed to sell more without increasing our workload.",
           rating: 5
         },
         {
           name: "João Ferreira",
           role: "CEO",
-          text: "We knew we had growth potential, but lacked a clear strategy. VELKS's audit found invisible bottlenecks and created a clear expansion plan. Today we make decisions with much more confidence.",
+          text: "We knew there was potential, but lacked direction. The VELKS audit identified bottlenecks and set clear priorities. Today, we make decisions with much more confidence.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Clear Pricing. Zero Surprises. Just Results.",
-      subtitle: "We don't sell websites. We build digital machines engineered to generate real results.",
+      eyebrow: "CHOOSE WHAT YOUR BUSINESS NEEDS",
+      title: "Start now, without asking for a quote first.",
+      subtitle: "See the prices, choose what your business needs and activate it before the next customer chooses a competitor.",
       singlePayment: "CLEAR PRICING · MANAGED OPERATIONS",
       allPlansInclude: "All packages include:",
       allPlansIncludeDesc: "Premium support, full EU GDPR compliance, mobile-first design, and optimization for blazing fast load speeds.",
@@ -1360,28 +1441,44 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Frequently Asked Questions",
       questions: [
         {
-          q: "How long does delivery take?",
-          a: "Google Maps optimization typically takes 3 to 5 business days. Premium professional websites and automated virtual assistants are delivered and tested in 7 to 14 business days."
+          q: "How long does implementation take?",
+          a: "It depends on the solution and the materials available. Before we start, you receive a defined timeline for your project. Google Business tends to be quicker; websites, ORION, e-commerce and AI telephony require configuration and testing."
         },
         {
-          q: "Does the website work well on mobile?",
-          a: "Yes, absolutely. We develop with a total focus on Mobile-First, because over 85% of local searches are done via smartphones. Your site will be lightning-fast and highly responsive on any screen."
+          q: "Do I own the domain, website and data?",
+          a: "The domain, content and business data remain under the client’s control according to the service contracted. Before implementation, we clearly explain what belongs to the client and what depends on infrastructure managed by VELKS."
         },
         {
-          q: "Can I use my current domain?",
-          a: "Yes. If you already have a registered domain (e.g., www.yourbusiness.com), we will configure everything to point to the new premium site at no extra cost. If you don't have one, we will help you choose and register it."
+          q: "What does the monthly fee include?",
+          a: "The monthly fee covers actual ongoing operations: infrastructure, hosting and deployment where applicable, monitoring, maintenance and technical operation of the contracted solution."
         },
         {
-          q: "Does VELKS have other official websites?",
-          a: "Yes.\nIn addition to the VELKS Group institutional website, we develop products and solutions on their own domains to offer a more focused and specialized experience.\nOfficial projects currently operated by VELKS:\n• velks.space — Official platform for ORION AI and intelligent customer service solutions.\n• vgroup.space — Digital portfolio, demos, case studies, and projects developed by the VELKS team.\nAll of the websites above belong to VELKS Group and are maintained by our engineering and development team.\nYou can browse with total confidence."
+          q: "I already have a website. Do I need another one?",
+          a: "Not necessarily. We can implement Google Business, ORION, integrations, e-commerce or improvements on an existing setup where technically appropriate."
         },
         {
-          q: "How do I find out how much it would cost to implement ORION in my company?",
-          a: "The fastest way is to talk directly with ORION.\nThe assistant can analyze your business, answer questions, present features, and recommend the most suitable solution for your case.\nClick on the chat icon in the bottom right corner to receive immediate guidance."
+          q: "What exactly does ORION do?",
+          a: "ORION converses by text and voice, uses your business information, answers questions, understands intent, qualifies opportunities, collects data and passes structured context to your team."
         },
         {
-          q: "What happens if I don't respond to my customers immediately?",
-          a: "In most cases, they will contact another company.\nToday, response speed directly influences the purchasing decision.\nORION helps ensure that every visitor receives immediate attention, even when your team is busy, out of the office, or sleeping."
+          q: "How does the AI Receptionist work?",
+          a: "AI answers calls, understands the request, collects information, qualifies and transfers or escalates the call according to the rules defined for your business."
+        },
+        {
+          q: "What does E-commerce include?",
+          a: "Implementation may include the shop structure, catalogue, checkout, payments, order management and the integrations agreed in the scope. Stock, delivery providers and external systems are defined before work begins."
+        },
+        {
+          q: "Can you put my business first on Google?",
+          a: "We do not promise rankings that no one controls. We work on technical structure, Google Business Profile, relevance, indexability and optimisation to improve discoverability."
+        },
+        {
+          q: "Do you work in several languages?",
+          a: "Yes. Websites, interfaces and agents can be implemented in several languages depending on the project."
+        },
+        {
+          q: "What are the official VELKS domains?",
+          a: "You are on velksgroup.com, our corporate website. We also operate velks.space, velksgroup.cloud and vgroup.space."
         }
       ]
     },
@@ -1393,6 +1490,9 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "No commitment • Instant reply • Free quote"
     },
     footer: {
+      closeDocument: "CLOSE DOCUMENT",
+      corporate: "Corporate Information",
+      followLinkedIn: "Follow VELKS Group",
       trust: {
         paymentTitle: "SECURE PAYMENT",
         cardLabel: "Card",
@@ -1400,7 +1500,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "ASK AI ABOUT VELKS",
         aiDescription: "Find out who we are, what we do and how VELKS works.",
         aiPrompt: "Analyse VELKS Group using public sources and its official domains. Explain what the company is, which solutions it offers, which technologies it uses and what its digital presence looks like. Prioritise velksgroup.com, velks.space and velksgroup.cloud, and clearly distinguish verified information from inferences.",
-        aiCopied: "Question copied.",
+        aiCopied: "QUESTION COPIED · PASTE INTO CHAT",
         aiCopyFailed: "Automatic copying failed. Copy the question below and paste it in the AI service.",
         aiPromptLabel: "Question about VELKS to copy",
       },
@@ -1422,13 +1522,13 @@ export const translations: Record<Language, TranslationSchema> = {
       policyCookies: "Cookies Policy",
       terms: "Terms and Conditions",
       compliance: "European Compliance",
-      legal: "Legal Notices",
-      gdpr: "EU GDPR Compliant",
+      legal: "Legal",
+      gdpr: "GDPR COMPLIANCE · EU",
       rights: "© 2026 VELKS Group. All rights reserved."
     },
   engineering: {
       label: "BEFORE DECIDING, SEE THE TYPE OF TECHNOLOGY WE DEVELOP FOR CLIENTS WHO DEMAND MORE THAN JUST A SIMPLE WEBSITE.",
-      title1: "WE ARE NOT WEB DESIGNERS.",
+      title1: "WE ARE NOT JUST WEB DESIGNERS.",
       title2: "WE ARE PRODUCT ENGINEERS.",
       desc: "While the market sells templates, we develop systems capable of operating applications, automations, intelligent agents, and digital infrastructures built for real growth.",
       metricsLabel: "[ OPERATIONAL METRICS ]",
@@ -1485,89 +1585,99 @@ export const translations: Record<Language, TranslationSchema> = {
       faq: "FAQ",
     },
     hero: {
+      pills: [
+        "Google Maps",
+        "Sites & boutiques",
+        "IA 24/7"
+      ],
+      reinforcement: "Des coûts clairs dès le départ.",
       tracking: "Bonjour. J'ai vu votre infrastructure technologique sur le site et j'aimerais vérifier si mon entreprise est qualifiée pour mettre en œuvre votre système commercial. Pouvez-vous m'envoyer la grille tarifaire ?",
-      badge: "★ DOMINATION ABSOLUE DU MARCHÉ",
-      title: "Votre entreprise mérite d'apparaître avant vos concurrents.",
-      subtitle: "Nous créons des sites web premium, des fiches Google Maps professionnelles et des systèmes de réponse client automatisés pour vous aider à générer plus de leads et fermer plus de ventes au quotidien. Des coûts clairs dès le départ.",
-      ctaPrimary: "ACTIVER LA MACHINE DE VENTE",
+      badge: "★ ÊTRE TROUVÉ N’EST QUE LA PREMIÈRE ÉTAPE",
+      title: "Votre entreprise doit apparaître avant vos concurrents.",
+      subtitle: "Soyez visible sur Google, transformez les visites en demandes et répondez aux clients même lorsque votre équipe n’est pas disponible.",
+      ctaPrimary: "VOIR LES SOLUTIONS ET TARIFS",
       ctaSecondary: "Voir Forfaits",
-      trustPilot: "Excellent 4.9/5 étoiles sur Google & Réseaux Professionnels"
+      trustPilot: "5,0/5 sur Google · 2 avis"
     },
     problem: {
-      title: "La Douleur d'Être Invisible",
-      subtitle: "Si votre entreprise n'est pas trouvée en premier, vous financez la croissance de vos concurrents. Le marché a changé, l'amateurisme digital coûte cher.",
+      eyebrow: "LA RÉALITÉ, SANS DÉTOUR",
+      title: "Là où votre entreprise perd des clients sans s’en rendre compte.",
+      subtitle: "Le problème n’est pas toujours un manque de demande. Souvent, le client trouve une autre entreprise, quitte le site, reste sans réponse ou appelle quand personne ne décroche.",
       cards: {
         invisible: {
-          title: "Invisible sur Google",
-          desc: "92% des clients choisissent une entreprise sur la première page. Si vous n'apparaissez pas, vous n'existez tout simplement pas."
-        },
-        reviews: {
-          title: "Peu d'Avis Clients",
-          desc: "Les entreprises sans avis actifs inspirent la méfiance. Les clients achètent à ceux qui sont recommandés."
-        },
-        contacts: {
-          title: "Manque de Contacts",
-          desc: "Se fier uniquement au 'bouche-à-oreille' est une roulette russe financière. Votre activité a besoin d'un flux régulier de demandes."
+          title: "Vous n’apparaissez pas quand les clients cherchent",
+          desc: "Lorsqu’une personne cherche exactement ce que vous vendez et que votre entreprise n’apparaît pas, une autre entreprise saisit cette opportunité."
         },
         oldSite: {
-          title: "Site Ancien ou Inexistant",
-          desc: "Un site web lent ou dépassé repousse les clients premium. Votre présence digitale est le miroir de votre professionnalisme."
+          title: "Le site ne transforme pas les visites en demandes",
+          desc: "Le client arrive, mais ne comprend pas rapidement pourquoi choisir votre entreprise ni quelle est la prochaine étape."
+        },
+        contacts: {
+          title: "Les messages restent sans réponse",
+          desc: "Des demandes arrivent, des questions se posent et les opportunités s’essoufflent lorsque personne ne peut répondre à temps."
         },
         lostClients: {
-          title: "Prospects Perdus Hors-Horaires",
-          desc: "64% des clients arrivent en soirée ou le week-end. Sans réponse automatisée instantanée, ils se tournent vers vos concurrents."
+          title: "Les appels restent sans réponse",
+          desc: "Le client appelle le soir, le week-end ou lorsque l’équipe est occupée. Si personne ne décroche, il cherche souvent une autre solution."
         }
       }
     },
     solution: {
-      title: "La Méthode VELKS pour Dominer le Marché",
-      subtitle: "Nous ne vendons pas de code ou de technologie. Nous vendons des rendez-vous qualifiés, des clients qualifiés et des processus automatiques qui génèrent du chiffre d'affaires.",
+      eyebrow: "DE LA RECHERCHE AU CONTACT",
+      title: "Quatre points. Un seul système.",
+      subtitle: "Chaque solution répond à un point différent du parcours client. Ensemble, elles aident à transformer la demande en prises de contact sans laisser filer les opportunités.",
       cards: {
         gmaps: {
-          title: "Optimisation Google Maps",
-          desc: "Nous positionnons votre fiche au sommet des recherches locales pour devenir le choix évident dans votre région."
+          label: "GOOGLE BUSINESS",
+          title: "Soyez trouvé lorsque le client est déjà en recherche.",
+          desc: "Nous organisons et optimisons la présence de votre entreprise sur Google pour améliorer ses informations, sa pertinence locale et sa visibilité dans les recherches."
         },
         website: {
-          title: "Sites Web Haute Conversion",
-          desc: "Des pages conçues spécifiquement pour mobiles, optimisées pour inciter immédiatement le visiteur à cliquer et lancer un chat."
+          label: "SITES WEB & E-COMMERCE",
+          title: "Transformez les visites en demandes et en ventes.",
+          desc: "Des sites et boutiques en ligne rapides, clairs et conçus pour guider le visiteur vers l’étape suivante."
         },
         bot: {
-          title: "Assistant IA 24h/24",
-          desc: "Un assistant web intelligent qui répond en quelques secondes, répond aux questions courantes et capture les coordonnées."
-        },
-        leads: {
-          title: "Capture Active de Clients",
-          desc: "Des systèmes simples et directs pour collecter les données des clients intéressés par vos services."
+          label: "ORION AI CAPTURE",
+          title: "Répondez même lorsque personne n’est disponible.",
+          desc: "ORION échange par texte et par voix, répond aux questions, comprend les besoins du client, recueille ses coordonnées et transmet le contexte à votre équipe."
         },
         automation: {
-          title: "Automatisations Fluides",
-          desc: "Synchronisation immédiate des demandes vers votre WhatsApp ou Email, sans devoir gérer de logiciels complexes."
+          label: "RÉCEPTIONNISTE IA",
+          title: "Ne laissez pas les appels importants sans réponse.",
+          desc: "L’IA répond, comprend la demande, recueille les informations, qualifie l’appel et le transfère lorsqu’une personne doit prendre le relais."
         }
-      }
+      },
+      closing: "Lorsque ces quatre points fonctionnent ensemble, moins d’opportunités se perdent entre recherche, visite, message et appel."
     },
     authority: {
-      title: "Présents au Portugal, en Espagne et au Luxembourg",
-      subtitle: "Nous appliquons des méthodes et des standards éprouvés sur les marchés européens les plus exigeants pour propulser les entreprises locales en ligne.",
+      eyebrow: "PRÉSENCE INTERNATIONALE",
+      title: "Ingénierie commerciale pour les marchés européens.",
+      subtitle: "Nous créons des systèmes numériques pour les entreprises qui ont besoin d’être trouvées, d’inspirer confiance et de répondre aux clients sans dépendre de processus manuels.",
+      metricsLabel: "CAPACITÉ OPÉRATIONNELLE",
+      metrics: {
+        clients: "LANGUES",
+        delivered: "MARCHÉS EUROPÉENS",
+        roi: "SOLUTIONS COMMERCIALES",
+        support: "CAPACITÉ IA"
+      },
+      standard: [
+        "Le client n’attend pas le lundi.",
+        "Qu’il cherche votre entreprise, pose une question ou appelle le soir, le week-end ou pendant que vous êtes en famille, l’opportunité existe toujours.",
+        "VELKS crée la structure pour répondre, recueillir et orienter cet intérêt sans vous obliger à rester constamment au téléphone.",
+        "Votre entreprise continue de travailler même lorsque vous n’êtes pas là."
+      ],
       luxembourg: {
         name: "Luxembourg",
-        tag: "Siège Social",
-        desc: "Où nous gérons la stratégie financière, les normes de conformité européennes et l'ingénierie des données du groupe VELKS."
+        desc: "Structure d’entreprise et contexte transfrontalier."
       },
       portugal: {
         name: "Portugal",
-        tag: "Centre de Développement",
-        desc: "Notre pôle de design et développement entièrement axé sur la conversion des visiteurs en clients premium."
+        desc: "Développement, mise en œuvre et exploitation numérique."
       },
       spain: {
         name: "Espagne",
-        tag: "Expansion Commerciale",
-        desc: "Opérations dédiées au marché ibérique à forte densité et au commerce local dynamique."
-      },
-      metrics: {
-        clients: "+240 Clients Locaux Accompagnés",
-        delivered: "+350 Projets Premium Livrés",
-        roi: "+320% ROI Moyen Estimé",
-        support: "Support Complet Sans Aucun Casse-Tête"
+        desc: "Expansion commerciale et contexte ibérique."
       }
     },
     widget: {
@@ -1608,39 +1718,40 @@ export const translations: Record<Language, TranslationSchema> = {
         {
           name: "Ricardo Silva",
           role: "Propriétaire de Restaurant",
-          text: "Mon restaurant était invisible dans les recherches locales. Grâce à l'optimisation de VELKS, nous recevons des appels et réservations tous les jours via Google Maps. Les clients nous trouvent au lieu d'aller chez la concurrence.",
+          text: "Mon restaurant apparaissait à peine dans les recherches locales. Après l’optimisation de VELKS, nous avons commencé à recevoir davantage d’appels et de réservations via Google Maps. Aujourd’hui, des clients qui allaient chez la concurrence nous trouvent.",
           rating: 5,
           isGoogle: true
         },
         {
           name: "Maria Costa",
           role: "Consultante Financière",
-          text: "Je perdais des opportunités car mon site manquait de confiance. VELKS a créé une présence professionnelle qui a boosté notre crédibilité. Les clients arrivent mieux préparés et nos conversions ont fortement augmenté.",
+          text: "Mon site n’inspirait pas confiance. VELKS a créé une présence bien plus professionnelle et les prospects ont commencé à arriver mieux préparés. Notre crédibilité s’est renforcée et les conversions ont augmenté.",
           rating: 5
         },
         {
           name: "Carlos Mendes",
           role: "Directeur Commercial",
-          text: "Nous perdions des contacts en dehors des heures d'ouverture. Avec l'automatisation de VELKS, chaque message reçoit une réponse immédiate. Aujourd'hui, nous captons des opportunités 24h/24 sans agrandir l'équipe.",
+          text: "Nous perdions des contacts en dehors des horaires d’ouverture. Avec l’automatisation de VELKS, les messages reçoivent une réponse et les opportunités sont enregistrées. Aujourd’hui, nous captons la demande 24/7 sans agrandir l’équipe.",
           rating: 5
         },
         {
           name: "Ana Rodrigues",
           role: "Entrepreneuse Digitale",
-          text: "Gérer les ventes manuellement prenait trop de temps. VELKS a automatisé toute notre boutique en ligne. Les ventes ont augmenté et nous avons pu évoluer sans alourdir notre charge de travail.",
+          text: "Gérer les ventes manuellement prenait trop de temps. VELKS a automatisé le fonctionnement de notre boutique en ligne. Nous avons pu vendre davantage sans alourdir notre charge de travail.",
           rating: 5
         },
         {
           name: "João Ferreira",
           role: "PDG",
-          text: "Nous savions qu'il y avait un potentiel de croissance, mais la stratégie manquait. L'audit de VELKS a identifié les blocages invisibles et créé un plan d'expansion clair. Aujourd'hui, nous décidons avec confiance.",
+          text: "Nous savions qu’il y avait du potentiel, mais il manquait une direction. L’audit de VELKS a identifié les blocages et défini des priorités claires. Aujourd’hui, nous prenons nos décisions avec bien plus de confiance.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Tarifs Transparents. Zéro Surprise.",
-      subtitle: "Des coûts clairs dès le départ. Une mise en place transparente et une exploitation gérée lorsque votre infrastructure nécessite un suivi continu. Sans surprise.",
+      eyebrow: "CHOISISSEZ CE DONT VOTRE ENTREPRISE A BESOIN",
+      title: "Commencez maintenant, sans demander de devis au préalable.",
+      subtitle: "Consultez les prix, choisissez ce dont votre entreprise a besoin et activez-le avant que le prochain client ne choisisse un concurrent.",
       singlePayment: "TARIFS CLAIRS · EXPLOITATION GÉRÉE",
       allPlansInclude: "Toutes nos formules incluent :",
       allPlansIncludeDesc: "Support premium, conformité totale RGPD UE, design mobile-first et optimisation pour une vitesse de chargement maximale.",
@@ -1772,28 +1883,44 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Questions Fréquentes",
       questions: [
         {
-          q: "Combien de temps prend la livraison ?",
-          a: "L'optimisation de Google Maps prend généralement 3 à 5 jours ouvrables. Les sites web professionnels premium et les assistants virtuels automatisés sont livrés et testés en 7 à 14 jours ouvrables."
+          q: "Combien de temps prend la mise en œuvre ?",
+          a: "Cela dépend de la solution et des éléments disponibles. Avant de commencer, vous recevez un délai défini pour votre projet. Google Business est généralement plus rapide ; les sites, ORION, l’e-commerce et la téléphonie IA nécessitent une configuration et des tests."
         },
         {
-          q: "Le site fonctionne-t-il bien sur mobile ?",
-          a: "Oui, absolument. Nous développons avec une approche Mobile-First, car plus de 85 % des recherches locales sont effectuées via des smartphones. Votre site sera extrêmement rapide et réactif sur n'importe quel écran."
+          q: "Le domaine, le site et les données m’appartiennent-ils ?",
+          a: "Le domaine, les contenus et les données de l’entreprise restent sous le contrôle du client selon le service souscrit. Avant la mise en œuvre, nous expliquons clairement ce qui appartient au client et ce qui dépend de l’infrastructure gérée par VELKS."
         },
         {
-          q: "Puis-je utiliser mon domaine actuel ?",
-          a: "Oui. Si vous avez déjà un domaine enregistré (ex. : www.votreentreprise.com), nous configurerons tout pour pointer vers le nouveau site premium sans frais supplémentaires. Si vous n'en avez pas, nous vous aiderons à le choisir et à l'enregistrer."
+          q: "Que comprend la mensualité ?",
+          a: "La mensualité correspond à une exploitation continue réelle : infrastructure, hébergement et déploiement le cas échéant, surveillance, maintenance et fonctionnement technique de la solution souscrite."
         },
         {
-          q: "VELKS possède-t-il d'autres sites web officiels ?",
-          a: "Oui.\nOutre le site institutionnel de VELKS Group, nous développons des produits et des solutions sur leurs propres domaines pour offrir une expérience plus ciblée et spécialisée.\nProjets officiels actuellement exploités par VELKS :\n• velks.space — Plateforme officielle pour ORION AI et solutions d'assistance intelligente.\n• vgroup.space — Portfolio numérique, démos, études de cas et projets développés par l'équipe VELKS.\nTous les sites web ci-dessus appartiennent à VELKS Group et sont gérés par notre équipe d'ingénierie et de développement.\nVous pouvez naviguer en toute confiance."
+          q: "J’ai déjà un site. Dois-je en créer un autre ?",
+          a: "Pas nécessairement. Nous pouvons mettre en place Google Business, ORION, des intégrations, de l’e-commerce ou des améliorations sur une structure existante lorsque cela est techniquement adapté."
         },
         {
-          q: "Comment puis-je savoir combien coûterait la mise en œuvre d'ORION dans mon entreprise ?",
-          a: "Le moyen le plus rapide est de parler directement avec ORION.\nL'assistant peut analyser votre activité, clarifier vos doutes, présenter les fonctionnalités et indiquer la solution la plus adaptée à votre cas.\nCliquez sur l'icône de chat dans le coin inférieur droit et recevez des conseils immédiats."
+          q: "Que fait exactement ORION ?",
+          a: "ORION échange par texte et par voix, utilise les informations de votre entreprise, répond aux questions, comprend les intentions, qualifie les opportunités, recueille les données et transmet un contexte structuré à l’équipe."
         },
         {
-          q: "Que se passe-t-il si je ne réponds pas immédiatement à mes clients ?",
-          a: "Dans la plupart des cas, ils contactent une autre entreprise.\nAujourd'hui, la rapidité de réponse influence directement la décision d'achat.\nORION vous aide à garantir que chaque visiteur reçoive une attention immédiate, même lorsque votre équipe est occupée, hors du bureau ou en train de dormir."
+          q: "Comment fonctionne la Réceptionniste IA ?",
+          a: "L’IA répond aux appels, comprend la demande, recueille les informations, qualifie l’appel et le transfère ou le fait remonter selon les règles définies pour l’entreprise."
+        },
+        {
+          q: "Que comprend l’E-commerce ?",
+          a: "La mise en œuvre peut inclure la structure de la boutique, le catalogue, le checkout, les paiements, la gestion des commandes et les intégrations prévues dans le périmètre convenu. Les stocks, transporteurs et systèmes externes sont définis avant le démarrage."
+        },
+        {
+          q: "Pouvez-vous placer mon entreprise en première position sur Google ?",
+          a: "Nous ne promettons pas des positions que personne ne contrôle. Nous travaillons sur la structure technique, Google Business Profile, la pertinence, l’indexabilité et l’optimisation pour faciliter la découverte de votre entreprise."
+        },
+        {
+          q: "Travaillez-vous dans plusieurs langues ?",
+          a: "Oui. Les sites, interfaces et agents peuvent être déployés dans plusieurs langues selon le projet."
+        },
+        {
+          q: "Quels sont les domaines officiels de VELKS ?",
+          a: "Vous êtes sur velksgroup.com, le site institutionnel. Nous exploitons également velks.space, velksgroup.cloud et vgroup.space."
         }
       ]
     },
@@ -1805,6 +1932,9 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sans engagement • Réponse immédiate • Devis gratuit"
     },
     footer: {
+      closeDocument: "FERMER LE DOCUMENT",
+      corporate: "Informations sur l’Entreprise",
+      followLinkedIn: "Suivre VELKS Group",
       trust: {
         paymentTitle: "PAIEMENT SÉCURISÉ",
         cardLabel: "Carte",
@@ -1812,7 +1942,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "INTERROGEZ L’IA SUR VELKS",
         aiDescription: "Découvrez qui nous sommes, ce que nous faisons et comment VELKS travaille.",
         aiPrompt: "Analyse VELKS Group à partir de sources publiques et de ses domaines officiels. Explique ce qu’est l’entreprise, les solutions qu’elle propose, les technologies qu’elle utilise et sa présence numérique. Privilégie velksgroup.com, velks.space et velksgroup.cloud, et distingue clairement les informations vérifiées des déductions.",
-        aiCopied: "Question copiée.",
+        aiCopied: "QUESTION COPIÉE · COLLEZ-LA DANS LE CHAT",
         aiCopyFailed: "La copie automatique a échoué. Copiez la question ci-dessous et collez-la dans l’IA.",
         aiPromptLabel: "Question sur VELKS à copier",
       },
@@ -1834,13 +1964,13 @@ export const translations: Record<Language, TranslationSchema> = {
       policyCookies: "Politique de Cookies",
       terms: "Conditions Générales",
       compliance: "Conformité Européenne",
-      legal: "Mentions Légales",
-      gdpr: "Conforme RGPD UE",
+      legal: "Informations Juridiques",
+      gdpr: "CONFORMITÉ RGPD · UE",
       rights: "© 2026 VELKS Group. Tous droits réservés."
     },
   engineering: {
       label: "AVANT DE DÉCIDER, DÉCOUVREZ LE TYPE DE TECHNOLOGIE QUE NOUS DÉVELOPPONS POUR LES CLIENTS QUI EXIGENT PLUS QU'UN SIMPLE SITE WEB.",
-      title1: "NOUS NE SOMMES PAS DES WEB DESIGNERS.",
+      title1: "NOUS NE SOMMES PAS SEULEMENT DES WEB DESIGNERS.",
       title2: "NOUS SOMMES DES INGÉNIEURS PRODUIT.",
       desc: "Pendant que le marché vend des modèles, nous développons des systèmes capables de faire fonctionner des applications, des automatisations, des agents intelligents et des infrastructures numériques conçues pour une croissance réelle.",
       metricsLabel: "[ MÉTRIQUES OPÉRATIONNELLES ]",
@@ -1897,89 +2027,99 @@ export const translations: Record<Language, TranslationSchema> = {
       faq: "FAQ",
     },
     hero: {
+      pills: [
+        "Google Maps",
+        "Websites & Shops",
+        "KI 24/7"
+      ],
+      reinforcement: "Klare Kosten von Anfang an.",
       tracking: "Hallo. Ich habe Ihre technologische Infrastruktur auf der Website gesehen und möchte prüfen, ob sich mein Unternehmen für die Implementierung Ihres kommerziellen Systems qualifiziert. Können Sie mir die Preistabelle zusenden?",
-      badge: "★ ABSOLUTE MARKTDOMINANZ",
-      title: "Ihr Unternehmen verdient es, vor Ihren Konkurrenten zu erscheinen.",
-      subtitle: "Wir erstellen Premium-Websites, professionelle Google Maps-Einträge und automatische Kundensupport-Systeme, damit Sie täglich mehr Anfragen generieren und mehr Abschlüsse erzielen. Klare Kosten von Anfang an.",
-      ctaPrimary: "UMSATZ STEIGERN",
+      badge: "★ GEFUNDEN ZU WERDEN IST NUR DER ERSTE SCHRITT",
+      title: "Ihr Unternehmen muss vor Ihren Wettbewerbern sichtbar sein.",
+      subtitle: "Werden Sie bei Google gefunden, machen Sie aus Besuchen Anfragen und antworten Sie Kunden auch dann, wenn Ihr Team nicht verfügbar ist.",
+      ctaPrimary: "LÖSUNGEN & PREISE ANSEHEN",
       ctaSecondary: "Pakete ansehen",
-      trustPilot: "Hervorragend 4.9/5 Sterne bei Google & Business Networks"
+      trustPilot: "5,0/5 bei Google · 2 Bewertungen"
     },
     problem: {
-      title: "Der Schmerz, unsichtbar zu sein",
-      subtitle: "Wenn Ihr Unternehmen nicht als erstes gefunden wird, finanzieren Sie das Wachstum Ihrer Konkurrenten. Der Markt hat sich verändert, und digitale Amateurschaft ist teuer.",
+      eyebrow: "KLARTEXT",
+      title: "Wo Ihr Unternehmen Kunden verliert, ohne es zu merken.",
+      subtitle: "Das Problem ist nicht immer fehlende Nachfrage. Oft findet der Kunde ein anderes Unternehmen, verlässt die Website, erhält keine Antwort oder ruft an, wenn niemand erreichbar ist.",
       cards: {
         invisible: {
-          title: "Unsichtbar bei Google",
-          desc: "92 % der Kunden wählen Unternehmen auf der ersten Seite. Wenn Sie dort nicht erscheinen, existieren Sie für sie einfach nicht."
-        },
-        reviews: {
-          title: "Zu wenige Bewertungen",
-          desc: "Unternehmen ohne aktiven sozialen Nachweis erwecken Misstrauen. Kunden kaufen dort, wo andere eine Empfehlung aussprechen."
-        },
-        contacts: {
-          title: "Mangel an Kontakten",
-          desc: "Sich nur auf Mundpropaganda zu verlassen, ist ein finanzielles russisches Roulette. Ihr Unternehmen braucht einen stetigen Fluss an Anfragen."
+          title: "Sie erscheinen nicht, wenn Kunden suchen",
+          desc: "Wenn jemand genau das sucht, was Sie anbieten, und Ihr Unternehmen nicht erscheint, erhält ein anderes Unternehmen diese Chance."
         },
         oldSite: {
-          title: "Alte oder nicht vorhandene Website",
-          desc: "Eine langsame oder veraltete Website vertreibt Premium-Kunden. Ihre digitale Präsenz ist der Spiegel Ihrer Professionalität."
+          title: "Die Website macht aus Besuchen keine Anfragen",
+          desc: "Der Kunde besucht Ihre Seite, erkennt aber nicht schnell, warum er Ihr Unternehmen wählen sollte oder was der nächste Schritt ist."
+        },
+        contacts: {
+          title: "Nachrichten bleiben unbeantwortet",
+          desc: "Anfragen gehen ein, Fragen entstehen und Chancen verlieren an Wirkung, wenn niemand rechtzeitig antworten kann."
         },
         lostClients: {
-          title: "Verlorene Kunden außerhalb der Geschäftszeiten",
-          desc: "64 % der Kunden treffen abends oder am Wochenende ein. Ohne sofortige automatische Beantwortung gehen sie zur Konkurrenz."
+          title: "Anrufe bleiben unbeantwortet",
+          desc: "Der Kunde ruft abends, am Wochenende oder bei ausgelastetem Team an. Wenn niemand abnimmt, sucht er oft nach einer anderen Möglichkeit."
         }
       }
     },
     solution: {
-      title: "Das VELKS-System für Marktbeherrschung",
-      subtitle: "Wir verkaufen keinen Code oder Technologie. Wir verkaufen ausgebuchte Kalender, qualifizierte Kunden und automatische Prozesse, die für Sie Umsatz generieren.",
+      eyebrow: "VON DER SUCHE ZUM KONTAKT",
+      title: "Vier Kontaktpunkte. Ein System.",
+      subtitle: "Jede Lösung greift an einem anderen Punkt des Kundenwegs ein. Gemeinsam helfen sie, aus Nachfrage Anfragen zu machen, ohne unterwegs Chancen zu verlieren.",
       cards: {
         gmaps: {
-          title: "Google Maps-Optimierung",
-          desc: "Wir positionieren Ihr Unternehmen ganz oben in den lokalen Suchergebnissen, damit Sie die logische Wahl in Ihrer Region sind."
+          label: "GOOGLE BUSINESS",
+          title: "Werden Sie gefunden, wenn der Kunde bereits sucht.",
+          desc: "Wir strukturieren und optimieren die Google-Präsenz Ihres Unternehmens, um Informationen, lokale Relevanz und Auffindbarkeit zu verbessern."
         },
         website: {
-          title: "Konversionsstarke Websites",
-          desc: "Speziell für Mobilgeräte optimierte Seiten, die darauf ausgelegt sind, den Besucher sofort zum Klicken und Chatten zu animieren."
+          label: "WEBSITES & E-COMMERCE",
+          title: "Machen Sie aus Besuchen Anfragen und Verkäufe.",
+          desc: "Schnelle, klare Websites und Onlineshops, die Besucher zum nächsten Schritt führen."
         },
         bot: {
-          title: "24/7 KI-Assistent",
-          desc: "Ein intelligenter Web-Assistent, der in Sekundenschnelle antwortet, häufige Fragen klärt und Kontaktdaten automatisch erfasst."
-        },
-        leads: {
-          title: "Aktive Kundenerfassung",
-          desc: "Einfache und direkte Systeme zur Erfassung der Kontaktdaten von potenziellen Kunden, die an Ihren Dienstleistungen interessiert sind."
+          label: "ORION AI CAPTURE",
+          title: "Antworten Sie auch dann, wenn niemand verfügbar ist.",
+          desc: "ORION kommuniziert per Text und Sprache, beantwortet Fragen, versteht Kundenbedürfnisse, erfasst Kontaktdaten und übergibt Ihrem Team den Kontext."
         },
         automation: {
-          title: "Reibungslose Automatisierung",
-          desc: "Sofortige Weiterleitung von Anfragen direkt an Ihr WhatsApp oder Ihre E-Mail, ohne dass Sie komplexe Software bedienen müssen."
+          label: "KI-EMPFANG",
+          title: "Lassen Sie wichtige Anrufe nicht unbeantwortet.",
+          desc: "Die KI nimmt Anrufe an, versteht das Anliegen, erfasst Informationen, qualifiziert den Anruf und leitet ihn weiter, wenn ein persönliches Gespräch erforderlich ist."
         }
-      }
+      },
+      closing: "Wenn diese vier Kontaktpunkte zusammenarbeiten, gehen zwischen Suche, Besuch, Nachricht und Anruf weniger Chancen verloren."
     },
     authority: {
-      title: "Tätig in Portugal, Spanien und Luxemburg",
-      subtitle: "Wir wenden Methoden und Standards an, die in anspruchsvollen europäischen Märkten erprobt sind, um lokalen Unternehmen ein solides Online-Wachstum zu ermöglichen.",
+      eyebrow: "INTERNATIONALE PRÄSENZ",
+      title: "Engineering für den Vertrieb in europäischen Märkten.",
+      subtitle: "Wir entwickeln digitale Systeme für Unternehmen, die gefunden werden, Vertrauen schaffen und Kunden antworten müssen, ohne von manuellen Abläufen abhängig zu sein.",
+      metricsLabel: "BETRIEBLICHE KAPAZITÄT",
+      metrics: {
+        clients: "SPRACHEN",
+        delivered: "EUROPÄISCHE MÄRKTE",
+        roi: "KOMMERZIELLE LÖSUNGEN",
+        support: "KI-KAPAZITÄT"
+      },
+      standard: [
+        "Der Kunde wartet nicht bis Montag.",
+        "Wenn er nach Ihrem Unternehmen sucht, eine Frage stellt oder abends, am Wochenende oder während Ihrer Familienzeit anruft, besteht die Chance weiterhin.",
+        "VELKS schafft die Struktur, um auf dieses Interesse zu reagieren, es zu erfassen und weiterzuleiten, ohne dass Sie ständig am Telefon sein müssen.",
+        "Ihr Unternehmen arbeitet weiter, auch wenn Sie nicht da sind."
+      ],
       luxembourg: {
         name: "Luxemburg",
-        tag: "Hauptsitz",
-        desc: "Hier verwalten wir die Finanzstrategie, europäische Compliance-Standards und die Kern-Datenarchitektur der VELKS Group."
+        desc: "Unternehmensstruktur und grenzüberschreitender Kontext."
       },
       portugal: {
         name: "Portugal",
-        tag: "Entwicklungszentrum",
-        desc: "Unser Design- und Entwicklungsteam konzentriert sich voll und ganz darauf, Website-Besucher in Premium-Kunden zu verwandeln."
+        desc: "Entwicklung, Implementierung und digitaler Betrieb."
       },
       spain: {
         name: "Spanien",
-        tag: "Marktexpansion",
-        desc: "Dienstleistungen für den dicht besiedelten iberischen Markt und den dynamischen lokalen Handel."
-      },
-      metrics: {
-        clients: "+240 Betreute lokale Kunden",
-        delivered: "+350 Gelieferte Premium-Projekte",
-        roi: "+320% Durchschnittlicher geschätzter ROI",
-        support: "Vollständiger Support ohne Kopfschmerzen"
+        desc: "Geschäftliche Expansion und iberischer Marktkontext."
       }
     },
     widget: {
@@ -2020,39 +2160,40 @@ export const translations: Record<Language, TranslationSchema> = {
         {
           name: "Ricardo Silva",
           role: "Restaurantbesitzer",
-          text: "Mein Restaurant war in lokalen Suchen unsichtbar. Nach der Optimierung durch VELKS erhalten wir täglich Anrufe und Buchungen über Google Maps. Heute finden uns Kunden, die früher direkt zur Konkurrenz gingen.",
+          text: "Mein Restaurant erschien kaum in lokalen Suchergebnissen. Nach der Optimierung durch VELKS erhielten wir mehr Anrufe und Reservierungen über Google Maps. Heute finden uns Kunden, die früher bei der Konkurrenz landeten.",
           rating: 5,
           isGoogle: true
         },
         {
           name: "Maria Costa",
           role: "Finanzberaterin",
-          text: "Ich verlor Kunden, weil meine Website nicht vertrauenswürdig wirkte. VELKS schuf eine professionelle Präsenz, die unsere Glaubwürdigkeit steigerte. Kunden sind besser vorbereitet und die Conversions sind deutlich gestiegen.",
+          text: "Meine Website vermittelte kein Vertrauen. VELKS schuf einen deutlich professionelleren Auftritt, und Interessenten kamen besser vorbereitet auf uns zu. Die Glaubwürdigkeit stieg und die Konversionen nahmen zu.",
           rating: 5
         },
         {
           name: "Carlos Mendes",
           role: "Verkaufsleiter",
-          text: "Wir verloren Leads nach Geschäftsschluss. Mit der Automatisierung von VELKS wird jede Nachricht sofort beantwortet. Heute erfassen wir rund um die Uhr Chancen, ohne unser Team aufzustocken.",
+          text: "Außerhalb der Öffnungszeiten verloren wir Kontakte. Mit der Automatisierung von VELKS werden Nachrichten beantwortet und Chancen erfasst. Heute können wir Nachfrage rund um die Uhr aufnehmen, ohne das Team zu vergrößern.",
           rating: 5
         },
         {
           name: "Ana Rodrigues",
           role: "Digitale Unternehmerin",
-          text: "Verkäufe manuell zu verwalten kostete zu viel Zeit. VELKS hat unseren gesamten Onlineshop automatisiert. Die Verkäufe stiegen und wir konnten wachsen, ohne die Arbeitsbelastung zu erhöhen.",
+          text: "Die manuelle Verkaufsverwaltung kostete zu viel Zeit. VELKS automatisierte den Betrieb unseres Onlineshops. Wir konnten mehr verkaufen, ohne unseren Arbeitsaufwand zu erhöhen.",
           rating: 5
         },
         {
           name: "João Ferreira",
           role: "Geschäftsführer",
-          text: "Wir wussten, dass wir Wachstumspotenzial hatten, aber es fehlte an Strategie. Das Audit von VELKS fand unsichtbare Engpässe und schuf einen klaren Expansionsplan. Heute treffen wir Entscheidungen mit viel mehr Vertrauen.",
+          text: "Wir wussten, dass Potenzial vorhanden war, aber die Richtung fehlte. Die VELKS-Analyse zeigte Engpässe auf und setzte klare Prioritäten. Heute treffen wir Entscheidungen mit deutlich mehr Vertrauen.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Transparente Preise. Keine bösen Überraschungen.",
-      subtitle: "Klare Kosten von Anfang an. Transparente Einrichtung und betreuter Betrieb, wenn Ihre Infrastruktur laufende Betreuung benötigt. Keine Überraschungen.",
+      eyebrow: "WÄHLEN SIE, WAS IHR UNTERNEHMEN BRAUCHT",
+      title: "Starten Sie jetzt, ohne zuerst ein Angebot anzufordern.",
+      subtitle: "Sehen Sie die Preise, wählen Sie, was Ihr Unternehmen braucht, und aktivieren Sie es, bevor sich der nächste Kunde für einen Wettbewerber entscheidet.",
       singlePayment: "KLARE PREISE · BETREUTER BETRIEB",
       allPlansInclude: "Alle Pakete beinhalten:",
       allPlansIncludeDesc: "Premium-Support, vollständige EU-DSGVO-Konformität, Mobile-First-Design und Optimierung für maximale Ladegeschwindigkeiten.",
@@ -2184,28 +2325,44 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Häufig gestellte Fragen",
       questions: [
         {
-          q: "Wie lange dauert die Lieferung?",
-          a: "Die Optimierung von Google Maps dauert in der Regel 3 bis 5 Werktage. Premium-Websites und automatisierte virtuelle Assistenten werden in 7 bis 14 Werktagen geliefert und getestet."
+          q: "Wie lange dauert die Implementierung?",
+          a: "Das hängt von der Lösung und den verfügbaren Materialien ab. Vor Beginn erhalten Sie einen festgelegten Zeitplan für Ihr Projekt. Google Business geht meist schneller; Websites, ORION, E-Commerce und KI-Telefonie benötigen Konfiguration und Tests."
         },
         {
-          q: "Funktioniert die Website gut auf dem Handy?",
-          a: "Ja, absolut. Wir entwickeln mit vollem Fokus auf Mobile-First, da über 85 % der lokalen Suchanfragen über Smartphones erfolgen. Ihre Website wird auf jedem Bildschirm extrem schnell und reaktionsschnell sein."
+          q: "Gehören Domain, Website und Daten mir?",
+          a: "Domain, Inhalte und Unternehmensdaten bleiben gemäß der beauftragten Dienstleistung unter der Kontrolle des Kunden. Vor der Implementierung erklären wir klar, was dem Kunden gehört und was von der durch VELKS betreuten Infrastruktur abhängt."
         },
         {
-          q: "Kann ich meine aktuelle Domain nutzen?",
-          a: "Ja. Wenn Sie bereits eine registrierte Domain haben (z. B. www.ihrunternehmen.com), konfigurieren wir alles ohne zusätzliche Kosten so, dass es auf die neue Premium-Website verweist. Wenn Sie noch keine haben, helfen wir Ihnen bei der Auswahl und Registrierung."
+          q: "Was ist in der monatlichen Gebühr enthalten?",
+          a: "Die monatliche Gebühr deckt den tatsächlichen laufenden Betrieb ab: Infrastruktur, gegebenenfalls Hosting und Deployment, Überwachung, Wartung und technischen Betrieb der beauftragten Lösung."
         },
         {
-          q: "Hat VELKS noch andere offizielle Websites?",
-          a: "Ja.\nNeben der Unternehmenswebsite der VELKS Group entwickeln wir Produkte und Lösungen auf eigenen Domains, um ein gezielteres und spezialisierteres Erlebnis zu bieten.\nOffizielle Projekte, die derzeit von VELKS betrieben werden:\n• velks.space — Offizielle Plattform für ORION AI und intelligente Kundendienstlösungen.\n• vgroup.space — Digitales Portfolio, Demos, Fallstudien und von VELKS-Team entwickelte Projekte.\nAlle oben genannten Websites gehören zur VELKS Group und werden von unserem Engineering- und Entwicklungsteam gepflegt.\nSie können mit vollem Vertrauen browsen."
+          q: "Ich habe bereits eine Website. Brauche ich eine neue?",
+          a: "Nicht unbedingt. Wir können Google Business, ORION, Integrationen, E-Commerce oder Verbesserungen auf einer bestehenden Struktur umsetzen, sofern dies technisch sinnvoll ist."
         },
         {
-          q: "Wie finde ich heraus, wie viel die Implementierung von ORION in meinem Unternehmen kosten würde?",
-          a: "Der schnellste Weg ist, direkt mit ORION zu sprechen.\nDer Assistent kann Ihr Unternehmen analysieren, Fragen beantworten, Funktionen präsentieren und die für Sie am besten geeignete Lösung aufzeigen.\nKlicken Sie auf das Chat-Symbol unten rechts, um sofortige Beratung zu erhalten."
+          q: "Was genau macht ORION?",
+          a: "ORION kommuniziert per Text und Sprache, nutzt Ihre Unternehmensinformationen, beantwortet Fragen, erkennt Absichten, qualifiziert Chancen, erfasst Daten und übergibt dem Team strukturierten Kontext."
         },
         {
-          q: "Was passiert, wenn ich meinen Kunden nicht sofort antworte?",
-          a: "In den meisten Fällen kontaktieren sie ein anderes Unternehmen.\nHeute beeinflusst die Reaktionsgeschwindigkeit direkt die Kaufentscheidung.\nORION hilft dabei sicherzustellen, dass jeder Besucher sofortige Aufmerksamkeit erhält, auch wenn Ihr Team beschäftigt, nicht im Büro ist oder schläft."
+          q: "Wie funktioniert der KI-Empfang?",
+          a: "Die KI nimmt Anrufe an, versteht das Anliegen, erfasst Informationen, qualifiziert den Anruf und leitet ihn gemäß den für das Unternehmen festgelegten Regeln weiter oder eskaliert ihn."
+        },
+        {
+          q: "Was ist im E-Commerce enthalten?",
+          a: "Die Implementierung kann Shopstruktur, Katalog, Checkout, Zahlungen, Bestellverwaltung und die vereinbarten Integrationen umfassen. Lagerbestand, Versanddienstleister und externe Systeme werden vor Beginn festgelegt."
+        },
+        {
+          q: "Können Sie mein Unternehmen bei Google auf Platz eins bringen?",
+          a: "Wir versprechen keine Positionen, die niemand kontrollieren kann. Wir arbeiten an technischer Struktur, Google Business Profile, Relevanz, Indexierbarkeit und Optimierung, um die Auffindbarkeit zu verbessern."
+        },
+        {
+          q: "Arbeiten Sie in mehreren Sprachen?",
+          a: "Ja. Websites, Benutzeroberflächen und Agenten können je nach Projekt in mehreren Sprachen umgesetzt werden."
+        },
+        {
+          q: "Welche Domains gehören offiziell zu VELKS?",
+          a: "Sie befinden sich auf velksgroup.com, der Unternehmenswebsite. Wir betreiben außerdem velks.space, velksgroup.cloud und vgroup.space."
         }
       ]
     },
@@ -2217,6 +2374,9 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Unverbindlich • Sofortige Antwort • Kostenloses Angebot"
     },
     footer: {
+      closeDocument: "DOKUMENT SCHLIESSEN",
+      corporate: "Unternehmensinformationen",
+      followLinkedIn: "VELKS Group folgen",
       trust: {
         paymentTitle: "SICHERE ZAHLUNG",
         cardLabel: "Karte",
@@ -2224,7 +2384,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "FRAGEN SIE DIE KI NACH VELKS",
         aiDescription: "Erfahren Sie, wer wir sind, was wir tun und wie VELKS arbeitet.",
         aiPrompt: "Analysiere VELKS Group anhand öffentlicher Quellen und der offiziellen Domains. Erkläre, was das Unternehmen ist, welche Lösungen es anbietet, welche Technologien es nutzt und wie seine digitale Präsenz aussieht. Bevorzuge velksgroup.com, velks.space und velksgroup.cloud und unterscheide klar zwischen überprüften Informationen und Schlussfolgerungen.",
-        aiCopied: "Frage kopiert.",
+        aiCopied: "FRAGE KOPIERT · IM CHAT EINFÜGEN",
         aiCopyFailed: "Automatisches Kopieren fehlgeschlagen. Kopieren Sie die Frage unten und fügen Sie sie in die KI ein.",
         aiPromptLabel: "Frage über VELKS zum Kopieren",
       },
@@ -2246,13 +2406,13 @@ export const translations: Record<Language, TranslationSchema> = {
       policyCookies: "Cookie-Richtlinie",
       terms: "Allgemeine Geschäftsbedingungen",
       compliance: "Europäische Compliance",
-      legal: "Rechtliche Hinweise",
-      gdpr: "EU-DSGVO-konform",
+      legal: "Rechtliche Informationen",
+      gdpr: "DSGVO-KONFORMITÄT · EU",
       rights: "© 2026 VELKS Group. Alle Rechte vorbehalten."
     },
   engineering: {
       label: "BEVOR SIE SICH ENTSCHEIDEN, SEHEN SIE SICH DIE ART DER TECHNOLOGIE AN, DIE WIR FÜR KUNDEN ENTWICKELN, DIE MEHR ALS NUR EINE EINFACHE WEBSITE VERLANGEN.",
-      title1: "WIR SIND KEINE WEB-DESIGNER.",
+      title1: "WIR SIND NICHT NUR WEBDESIGNER.",
       title2: "WIR SIND PRODUKTINGENIEURE.",
       desc: "Während der Markt Vorlagen verkauft, entwickeln wir Systeme, die in der Lage sind, Anwendungen, Automatisierungen, intelligente Agenten und digitale Infrastrukturen zu betreiben, die für echtes Wachstum ausgelegt sind.",
       metricsLabel: "[ OPERATIVE METRIKEN ]",
@@ -2309,89 +2469,99 @@ export const translations: Record<Language, TranslationSchema> = {
       faq: "FAQ",
     },
     hero: {
+      pills: [
+        "Google Maps",
+        "Webs y tiendas",
+        "IA 24/7"
+      ],
+      reinforcement: "Costes claros desde el principio.",
       tracking: "Hola. Vi su infraestructura tecnológica en el sitio web y me gustaría comprobar si mi empresa califica para implementar su sistema comercial. ¿Pueden enviarme la tabla de precios?",
-      badge: "★ DOMINIO ABSOLUTO DEL MERCADO",
-      title: "Tu negocio merece aparecer antes que tus competidores.",
-      subtitle: "Creamos sitios web premium, perfiles profesionales de Google Maps y sistemas automáticos de atención al cliente para ayudarte a generar más contactos y cerrar más clientes a diario. Costes claros desde el principio.",
-      ctaPrimary: "ACTIVAR MÁQUINA DE VENTAS",
+      badge: "★ QUE TE ENCUENTREN ES SOLO EL PRIMER PASO",
+      title: "Tu negocio necesita aparecer antes que tus competidores.",
+      subtitle: "Aparece en Google, convierte visitas en solicitudes y responde a clientes incluso cuando nadie de tu equipo está disponible.",
+      ctaPrimary: "VER SOLUCIONES Y PRECIOS",
       ctaSecondary: "Ver Paquetes",
-      trustPilot: "Excelente 4.9/5 estrellas en Google & Redes de Negocio"
+      trustPilot: "5,0/5 en Google · 2 reseñas"
     },
     problem: {
-      title: "El Dolor de Ser Invisible",
-      subtitle: "Si tu negocio no es el primero en ser encontrado, estás financiando el crecimiento de tus competidores. El mercado ha cambiado y la informalidad digital sale cara.",
+      eyebrow: "REALIDAD SIN RODEOS",
+      title: "Dónde pierde clientes tu negocio sin darse cuenta.",
+      subtitle: "El problema no siempre es la falta de demanda. Muchas veces el cliente encuentra otra empresa, abandona la web, se queda sin respuesta o llama cuando nadie atiende.",
       cards: {
         invisible: {
-          title: "Invisible en Google",
-          desc: "El 92% de los clientes eligen negocios de la primera página. Si no apareces, simplemente no existes para ellos."
-        },
-        reviews: {
-          title: "Pocas Reseñas",
-          desc: "Los negocios sin prueba social activa generan desconfianza. Los clientes compran a quienes recomiendan los demás."
-        },
-        contacts: {
-          title: "Falta de Contactos",
-          desc: "Depender únicamente del 'boca a boca' es una ruleta rusa financiera. Tu negocio necesita un flujo continuo y predecible."
+          title: "No apareces cuando te buscan",
+          desc: "Cuando alguien busca exactamente lo que vendes y tu empresa no aparece, otra empresa recibe esa oportunidad."
         },
         oldSite: {
-          title: "Sitio Web Antiguo o Inexistente",
-          desc: "Un sitio web lento o desactualizado ahuyenta a los clientes premium. Tu presencia digital refleja tu profesionalismo."
+          title: "La web no convierte visitas en solicitudes",
+          desc: "El cliente entra, pero no entiende rápidamente por qué elegir tu empresa ni cuál es el siguiente paso."
+        },
+        contacts: {
+          title: "Los mensajes se quedan sin respuesta",
+          desc: "Llegan solicitudes, surgen dudas y las oportunidades pierden fuerza cuando nadie puede responder a tiempo."
         },
         lostClients: {
-          title: "Clientes Perdidos Fuera de Horario",
-          desc: "El 64% de los clientes llegan por la noche o en el fin de semana. Sin una respuesta automática inmediata, se van a la competencia."
+          title: "Las llamadas se quedan sin atender",
+          desc: "El cliente llama por la noche, el fin de semana o cuando el equipo está ocupado. Si nadie atiende, a menudo busca otra opción."
         }
       }
     },
     solution: {
-      title: "El Método VELKS para Dominar el Mercado",
-      subtitle: "No vendemos código ni tecnología. Te entregamos agendas llenas, clientes calificados y procesos automáticos que facturan por ti.",
+      eyebrow: "DE LA BÚSQUEDA AL CONTACTO",
+      title: "Cuatro puntos. Un solo sistema.",
+      subtitle: "Cada solución resuelve un punto distinto del recorrido del cliente. Juntas, ayudan a convertir búsquedas en solicitudes sin dejar oportunidades por el camino.",
       cards: {
         gmaps: {
-          title: "Optimización de Google Maps",
-          desc: "Posicionamos tu ficha en lo más alto de las búsquedas locales para ser la opción obvia en tu área."
+          label: "GOOGLE BUSINESS",
+          title: "Que te encuentren cuando el cliente ya está buscando.",
+          desc: "Organizamos y optimizamos la presencia de tu empresa en Google para mejorar la información, la relevancia local y la facilidad para encontrarte."
         },
         website: {
-          title: "Sitios Web de Alta Conversión",
-          desc: "Páginas diseñadas específicamente para móviles, enfocadas en hacer que el visitante haga clic e inicie un chat."
+          label: "WEB Y E-COMMERCE",
+          title: "Convierte visitas en solicitudes y ventas.",
+          desc: "Webs y tiendas online rápidas, claras y pensadas para llevar al visitante al siguiente paso."
         },
         bot: {
-          title: "Asistente IA 24/7",
-          desc: "Un asistente inteligente que responde en segundos, resuelve dudas comunes y captura los datos del cliente de forma automática."
-        },
-        leads: {
-          title: "Captura Activa de Clientes",
-          desc: "Sistemas simples y directos para recopilar los datos de los clientes interesados en tus servicios."
+          label: "ORION AI CAPTURE",
+          title: "Responde incluso cuando nadie está disponible.",
+          desc: "ORION conversa por texto y voz, resuelve dudas, entiende lo que necesita el cliente, recoge sus datos de contacto y entrega el contexto a tu equipo."
         },
         automation: {
-          title: "Automatización sin Complicaciones",
-          desc: "Sincronización instantánea de solicitudes directamente en tu WhatsApp o Email, sin necesidad de gestionar paneles complejos."
+          label: "RECEPCIONISTA IA",
+          title: "No dejes llamadas importantes sin respuesta.",
+          desc: "La IA atiende, comprende la solicitud, recoge información, cualifica la llamada y la deriva cuando es necesario hablar con una persona."
         }
-      }
+      },
+      closing: "Cuando estos cuatro puntos trabajan juntos, se pierden menos oportunidades entre búsqueda, visita, mensaje y llamada."
     },
     authority: {
-      title: "Operamos en Portugal, España y Luxemburgo",
-      subtitle: "Aplicamos metodologías y estándares probados en mercados europeos altamente competitivos y exigentes para ayudar a pequeños negocios a crecer de forma sólida.",
+      eyebrow: "PRESENCIA INTERNACIONAL",
+      title: "Ingeniería comercial para mercados europeos.",
+      subtitle: "Creamos sistemas digitales para empresas que necesitan ser encontradas, generar confianza y responder a sus clientes sin depender de procesos manuales.",
+      metricsLabel: "CAPACIDAD OPERATIVA",
+      metrics: {
+        clients: "IDIOMAS",
+        delivered: "MERCADOS EUROPEOS",
+        roi: "SOLUCIONES COMERCIALES",
+        support: "CAPACIDAD IA"
+      },
+      standard: [
+        "El cliente no espera al lunes.",
+        "Si busca tu empresa, hace una pregunta o llama por la noche, el fin de semana o mientras estás con tu familia, la oportunidad sigue existiendo.",
+        "VELKS crea la estructura para responder, captar y canalizar ese interés sin obligarte a estar siempre al teléfono.",
+        "Tu negocio sigue trabajando incluso cuando tú no estás."
+      ],
       luxembourg: {
         name: "Luxemburgo",
-        tag: "Sede Principal",
-        desc: "Donde gestionamos la estrategia financiera, las normas europeas de cumplimiento y la arquitectura de datos del grupo VELKS."
+        desc: "Estructura empresarial y contexto transfronterizo."
       },
       portugal: {
         name: "Portugal",
-        tag: "Centro de Desarrollo",
-        desc: "Nuestro equipo de diseño y desarrollo enfocado en convertir visitantes en clientes premium."
+        desc: "Desarrollo, implementación y operación digital."
       },
       spain: {
         name: "España",
-        tag: "Expansión Comercial",
-        desc: "Operaciones dedicadas al mercado ibérico de alta densidad y al comercio local dinámico."
-      },
-      metrics: {
-        clients: "+240 Clientes Locales Atendidos",
-        delivered: "+350 Proyectos Premium Entregados",
-        roi: "+320% ROI Medio Estimado",
-        support: "Soporte Completo Sin Dolor de Cabeza"
+        desc: "Expansión comercial y contexto ibérico."
       }
     },
     widget: {
@@ -2432,39 +2602,40 @@ export const translations: Record<Language, TranslationSchema> = {
         {
           name: "Ricardo Silva",
           role: "Propietario de Restaurante",
-          text: "Mi restaurante casi no aparecía en búsquedas locales. Tras la optimización de VELKS, recibimos llamadas y reservas a diario por Google Maps. Hoy nos encuentran clientes que antes iban a la competencia.",
+          text: "Mi restaurante casi no aparecía en las búsquedas locales. Tras la optimización de VELKS, empezamos a recibir más llamadas y reservas por Google Maps. Hoy nos encuentran clientes que antes acababan en la competencia.",
           rating: 5,
           isGoogle: true
         },
         {
           name: "Maria Costa",
           role: "Consultora Financiera",
-          text: "Perdía oportunidades porque mi web no transmitía confianza. VELKS creó una presencia profesional que aumentó nuestra credibilidad. Los clientes llegan más preparados y las conversiones crecieron significativamente.",
+          text: "Mi web no transmitía confianza. VELKS creó una presencia mucho más profesional y los contactos empezaron a llegar mejor preparados. La credibilidad aumentó y las conversiones crecieron.",
           rating: 5
         },
         {
           name: "Carlos Mendes",
           role: "Director Comercial",
-          text: "Perdíamos contactos fuera del horario comercial. Con la automatización de VELKS, cada mensaje recibe respuesta inmediata. Hoy captamos oportunidades las 24 horas sin aumentar el equipo.",
+          text: "Perdíamos contactos fuera de horario. Con la automatización de VELKS, los mensajes reciben respuesta y las oportunidades quedan registradas. Hoy podemos captar demanda 24/7 sin ampliar el equipo.",
           rating: 5
         },
         {
           name: "Ana Rodrigues",
           role: "Emprendedora Digital",
-          text: "Gestionar ventas manualmente consumía mucho tiempo. VELKS automatizó toda nuestra tienda online. Las ventas crecieron y logramos escalar sin aumentar nuestra carga de trabajo.",
+          text: "Gestionar las ventas manualmente consumía demasiado tiempo. VELKS automatizó la operación de nuestra tienda online. Conseguimos vender más sin aumentar la carga de trabajo.",
           rating: 5
         },
         {
           name: "João Ferreira",
           role: "CEO",
-          text: "Sabíamos que había potencial de crecimiento, pero faltaba estrategia. La auditoría de VELKS identificó obstáculos invisibles y creó un plan de expansión claro. Hoy tomamos decisiones con más confianza.",
+          text: "Sabíamos que había potencial, pero faltaba dirección. La auditoría de VELKS identificó los obstáculos y definió prioridades claras. Hoy tomamos decisiones con mucha más confianza.",
           rating: 5
         }
       ]
     },
     pricing: {
-      title: "Precios Transparentes. Cero Sorpresas.",
-      subtitle: "Costes claros desde el principio. Configuración inicial transparente y operación gestionada cuando la infraestructura requiere continuidad. Sin sorpresas.",
+      eyebrow: "ELIGE LO QUE NECESITA TU NEGOCIO",
+      title: "Empieza ahora, sin pedir presupuesto primero.",
+      subtitle: "Mira los precios, elige lo que necesita tu negocio y actívalo antes de que el próximo cliente elija a la competencia.",
       singlePayment: "PRECIOS CLAROS · OPERACIÓN GESTIONADA",
       allPlansInclude: "Todos los paquetes incluyen:",
       allPlansIncludeDesc: "Soporte premium, conformidad total con el RGPD de la UE, diseño mobile-first y optimización para la máxima velocidad de carga.",
@@ -2596,28 +2767,44 @@ export const translations: Record<Language, TranslationSchema> = {
       title: "Preguntas Frecuentes",
       questions: [
         {
-          q: "¿Cuánto tiempo tarda la entrega?",
-          a: "La optimización de Google Maps suele tardar entre 3 y 5 días hábiles. Los sitios web profesionales premium y los asistentes virtuales automatizados se entregan y prueban en 7 a 14 días hábiles."
+          q: "¿Cuánto tarda la implementación?",
+          a: "Depende de la solución y del material disponible. Antes de empezar, recibirás un plazo definido para tu proyecto. Google Business suele ser más rápido; las webs, ORION, el e-commerce y la telefonía IA requieren configuración y pruebas."
         },
         {
-          q: "¿El sitio funciona bien en el móvil?",
-          a: "Sí, absolutamente. Desarrollamos con un enfoque total en Mobile-First, ya que más del 85% de las búsquedas locales se realizan a través de teléfonos inteligentes. Su sitio será extremadamente rápido e intuitivo en cualquier pantalla."
+          q: "¿El dominio, la web y los datos son míos?",
+          a: "El dominio, los contenidos y los datos de la empresa permanecen bajo el control del cliente según el servicio contratado. Antes de la implementación explicamos claramente qué pertenece al cliente y qué depende de la infraestructura gestionada por VELKS."
         },
         {
-          q: "¿Puedo usar mi dominio actual?",
-          a: "Sí. Si ya tiene un dominio registrado (por ejemplo, www.suempresa.com), configuraremos todo para apuntar al nuevo sitio premium sin costos adicionales. Si no tiene uno, le ayudaremos a elegirlo y registrarlo."
+          q: "¿Qué incluye la mensualidad?",
+          a: "La mensualidad corresponde a una operación continua real: infraestructura, alojamiento y despliegue cuando proceda, monitorización, mantenimiento y operación técnica de la solución contratada."
         },
         {
-          q: "¿VELKS tiene otros sitios web oficiales?",
-          a: "Sí.\nAdemás del sitio web institucional de VELKS Group, desarrollamos productos y soluciones en dominios propios para ofrecer una experiencia más enfocada y especializada.\nProyectos oficiales operados actualmente por VELKS:\n• velks.space — Plataforma oficial de ORION AI y soluciones de atención inteligente.\n• vgroup.space — Portafolio digital, demostraciones, casos de estudio y proyectos desarrollados por el equipo VELKS.\nTodos los sitios web anteriores pertenecen a VELKS Group y son mantenidos por nuestro equipo de ingeniería y desarrollo.\nPuede navegar con total confianza."
+          q: "Ya tengo una web. ¿Necesito otra?",
+          a: "No necesariamente. Podemos implementar Google Business, ORION, integraciones, e-commerce o mejoras sobre una estructura existente cuando sea técnicamente adecuado."
         },
         {
-          q: "¿Cómo descubro cuánto costaría implementar ORION en mi empresa?",
-          a: "La forma más rápida es hablar directamente con ORION.\nEl asistente puede analizar su negocio, aclarar dudas, presentar características e indicar la solución más adecuada para su caso.\nHaga clic en el icono de chat en la esquina inferior derecha y reciba orientación inmediata."
+          q: "¿Qué hace exactamente ORION?",
+          a: "ORION conversa por texto y voz, utiliza la información de tu empresa, resuelve dudas, entiende la intención, cualifica oportunidades, recoge datos y entrega un contexto estructurado al equipo."
         },
         {
-          q: "¿Qué pasa si no respondo a mis clientes de inmediato?",
-          a: "En la mayoría de los casos, se ponen en contacto con otra empresa.\nHoy en día, la velocidad de respuesta influye directamente en la decisión de compra.\nORION ayuda a garantizar que cada visitante reciba atención inmediata, incluso cuando su equipo está ocupado, fuera de la oficina o durmiendo."
+          q: "¿Cómo funciona la Recepcionista IA?",
+          a: "La IA atiende llamadas, comprende la solicitud, recoge información, cualifica y deriva o escala la llamada según las reglas definidas para la empresa."
+        },
+        {
+          q: "¿Qué incluye el E-commerce?",
+          a: "La implementación puede incluir la estructura de la tienda, el catálogo, el checkout, los pagos, la gestión de pedidos y las integraciones previstas en el alcance. El stock, las empresas de transporte y los sistemas externos se definen antes del inicio."
+        },
+        {
+          q: "¿Podéis poner mi empresa en primer lugar en Google?",
+          a: "No prometemos posiciones que nadie controla. Trabajamos la estructura técnica, Google Business Profile, la relevancia, la indexabilidad y la optimización para mejorar la facilidad para encontrar tu empresa."
+        },
+        {
+          q: "¿Trabajáis en varios idiomas?",
+          a: "Sí. Las webs, las interfaces y los agentes pueden implementarse en varios idiomas según el proyecto."
+        },
+        {
+          q: "¿Cuáles son los dominios oficiales de VELKS?",
+          a: "Estás en velksgroup.com, la web institucional. También operamos velks.space, velksgroup.cloud y vgroup.space."
         }
       ]
     },
@@ -2629,6 +2816,9 @@ export const translations: Record<Language, TranslationSchema> = {
       microcopy: "Sin compromisos • Respuesta inmediata • Presupuesto gratis"
     },
     footer: {
+      closeDocument: "CERRAR DOCUMENTO",
+      corporate: "Información Corporativa",
+      followLinkedIn: "Seguir a VELKS Group",
       trust: {
         paymentTitle: "PAGO SEGURO",
         cardLabel: "Tarjeta",
@@ -2636,7 +2826,7 @@ export const translations: Record<Language, TranslationSchema> = {
         aiTitle: "PREGUNTE A LA IA SOBRE VELKS",
         aiDescription: "Compruebe quiénes somos, qué hacemos y cómo trabaja VELKS.",
         aiPrompt: "Analiza VELKS Group a partir de fuentes públicas y sus dominios oficiales. Explica qué es la empresa, qué soluciones ofrece, qué tecnologías utiliza y cuál es su presencia digital. Prioriza velksgroup.com, velks.space y velksgroup.cloud y distingue claramente la información verificada de las inferencias.",
-        aiCopied: "Pregunta copiada.",
+        aiCopied: "PREGUNTA COPIADA · PÉGALA EN EL CHAT",
         aiCopyFailed: "No se pudo copiar automáticamente. Copie la pregunta de abajo y péguela en la IA.",
         aiPromptLabel: "Pregunta sobre VELKS para copiar",
       },
@@ -2658,13 +2848,13 @@ export const translations: Record<Language, TranslationSchema> = {
       policyCookies: "Política de Cookies",
       terms: "Términos y Condiciones",
       compliance: "Cumplimiento Europeo",
-      legal: "Avisos Legales",
-      gdpr: "Conforme a RGPD de la UE",
+      legal: "Jurídico",
+      gdpr: "CUMPLIMIENTO RGPD · UE",
       rights: "© 2026 VELKS Group. Todos los derechos reservados."
     },
   engineering: {
       label: "ANTES DE DECIDIR, VEA EL TIPO DE TECNOLOGÍA QUE DESARROLLAMOS PARA CLIENTES QUE EXIGEN MÁS QUE UN SIMPLE SITIO WEB.",
-      title1: "NO SOMOS DISEÑADORES WEB.",
+      title1: "NO SOMOS SOLO DISEÑADORES WEB.",
       title2: "SOMOS INGENIEROS DE PRODUCTO.",
       desc: "Mientras el mercado vende plantillas, nosotros desarrollamos sistemas capaces de operar aplicaciones, automatizaciones, agentes inteligentes e infraestructuras digitales preparadas para el crecimiento real.",
       metricsLabel: "[ MÉTRICAS OPERATIVAS ]",

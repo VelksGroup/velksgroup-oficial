@@ -32,7 +32,7 @@ export const TrustFooter: React.FC<{ t: TranslationSchema['footer']['trust'] }> 
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/5 pt-8">
+    <div className="grid grid-cols-1 gap-8 border-t border-white/5 pt-8">
       <div className="min-w-0 flex flex-col gap-4">
         <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{t.paymentTitle}</h4>
         <ul className="flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-gray-200">
@@ -41,14 +41,14 @@ export const TrustFooter: React.FC<{ t: TranslationSchema['footer']['trust'] }> 
             {t.cardLabel}
           </li>
           <li><img src="/payment-icons/apple-pay.svg" alt="Apple Pay" className="h-10 w-auto" /></li>
-          <li>Link</li>
+          <li className="text-[#00d66f]">Link</li>
           <li><img src="/payment-icons/klarna.svg" alt="Klarna" className="h-10 w-auto" /></li>
           <li><img src="/payment-icons/amazon-pay.svg" alt="Amazon Pay" className="h-10 w-auto" /></li>
         </ul>
         <p className="text-xs text-gray-400 font-light leading-relaxed">{t.paymentNote}</p>
       </div>
 
-      <div className="min-w-0 flex flex-col gap-4">
+      <div className="min-w-0 flex flex-col gap-4 border-t border-gold/20 pt-8">
         <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{t.aiTitle}</h4>
         <p className="text-xs text-gray-400 font-light leading-relaxed">{t.aiDescription}</p>
         <div className="flex flex-wrap gap-3">
