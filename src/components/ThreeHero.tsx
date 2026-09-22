@@ -1,29 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowDown, MessageSquare, Play } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { ArrowDown } from 'lucide-react';
 import { Language, TranslationSchema } from '../translations';
 
 interface ThreeHeroProps {
   currentLang: Language;
   t: TranslationSchema;
-  onCtaClick: (trackingMsg: string) => void;
-  onScrollToDemos: () => void;
+  onScrollToPricing: () => void;
 }
 
 export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
   currentLang,
   t,
-  onCtaClick,
-  onScrollToDemos,
+  onScrollToPricing,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   
-  const [showModule, setShowModule] = useState(false);
+  const reducedMotion = useReducedMotion();
   const orbitalRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
 
   // Smooth scroll tracking using LERP
@@ -116,39 +113,6 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
     vGroup.add(leftLeg);
     vGroup.add(rightLeg);
     logoGroup.add(vGroup);
-
-    // 7. Build the Crown points (above the V)
-    const crownGroup = new THREE.Group();
-    crownGroup.position.y = 1.3;
-
-    // Crown base arc
-    const baseGeom = new THREE.TorusGeometry(0.7, 0.06, 8, 32, Math.PI);
-    const baseArc = new THREE.Mesh(baseGeom, copperMaterial);
-    baseArc.rotation.x = Math.PI / 2;
-    crownGroup.add(baseArc);
-
-    // 5 Crown Cones
-    const cones: THREE.Mesh[] = [];
-    for (let i = 0; i < 5; i++) {
-      const angle = (i - 2) * 0.35; // centered
-      const coneGeom = new THREE.ConeGeometry(0.12, 0.5, 16);
-      const cone = new THREE.Mesh(coneGeom, goldMaterial);
-      cone.position.set(Math.sin(angle) * 0.65, Math.cos(angle) * 0.15, -Math.cos(angle) * 0.05);
-      cone.rotation.z = -angle * 0.8;
-      cones.push(cone);
-      crownGroup.add(cone);
-
-      // Spheres on top of cones
-      const sphereGeom = new THREE.SphereGeometry(0.06, 16, 16);
-      const sphere = new THREE.Mesh(sphereGeom, goldMaterial);
-      sphere.position.set(
-        cone.position.x + Math.sin(angle) * 0.28,
-        cone.position.y + Math.cos(angle) * 0.28,
-        cone.position.z
-      );
-      crownGroup.add(sphere);
-    }
-    logoGroup.add(crownGroup);
 
     // 8. Build the Orbital Ring (Torus)
     const orbitalRingGeom = new THREE.TorusGeometry(2.4, 0.04, 12, 64);
@@ -251,24 +215,18 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
       
       // Smooth scroll progress using Lerp
       currentScroll.current += (targetScroll.current - currentScroll.current) * 0.08;
-      const progress = currentScroll.current;
+      const progress = reducedMotion ? 0 : currentScroll.current;
       
       // Disable invisible processing to save battery and performance when off-screen
       if (progress > 1.05) return;
       
-      const time = (Date.now() - startTime) * 0.001;
+      const time = reducedMotion ? 0 : (Date.now() - startTime) * 0.001;
 
       // Update DOM directly to avoid React state re-renders
       if (orbitalRef.current) {
         orbitalRef.current.style.transform = `translate(-150%, -50%) translate3d(${mouseRef.current.x * 20}px, ${-mouseRef.current.y * 20}px, 0) scale(${Math.max(1 - progress * 1.8, 0)})`;
         orbitalRef.current.style.opacity = Math.max(1 - progress * 2.2, 0).toString();
       }
-      if (contentRef.current) {
-        contentRef.current.style.opacity = Math.max(1 - progress * 2.5, 0).toString();
-        contentRef.current.style.transform = `translateY(${-progress * 100}px)`;
-        contentRef.current.style.visibility = progress > 0.4 ? 'hidden' : 'visible';
-      }
-
       // Smooth mouse lerp
       localMouse.x += (mouseRef.current.x - localMouse.x) * 0.05;
       localMouse.y += (mouseRef.current.y - localMouse.y) * 0.05;
@@ -308,7 +266,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
         const idx = i * 3;
         
         // Speed multiplier (slightly faster for more life)
-        const speed = randomSpeeds[i] * 0.02;
+        const speed = reducedMotion ? 0 : randomSpeeds[i] * 0.02;
         
         // Circular rotation
         const posX = positionsArr[idx];
@@ -334,10 +292,8 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
       if (progress > opacityThreshold) {
         const logoScale = Math.max(1 - (progress - opacityThreshold) * 3, 0) * breathingScale;
         logoGroup.scale.set(logoScale, logoScale, logoScale);
-        setShowModule(true);
       } else {
         logoGroup.scale.set(breathingScale, breathingScale, breathingScale);
-        setShowModule(false);
       }
 
       renderer.render(scene, camera);
@@ -345,27 +301,27 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
 
     animate();
 
-    let lastWidth = containerRef.current?.clientWidth || 0;
     const handleResize = () => {
       if (!canvasRef.current || !containerRef.current) return;
       const w = containerRef.current.clientWidth;
-      if (Math.abs(lastWidth - w) > 10) {
-        lastWidth = w;
-        const h = containerRef.current.clientHeight;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
-      }
+      const h = containerRef.current.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
     };
 
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(containerRef.current);
     window.addEventListener('resize', handleResize);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+      observer.disconnect();
+      resizeObserver.disconnect();
       renderer.dispose();
     };
-  }, []);
+  }, [reducedMotion]);
 
   // Translate words for orbital wheel
   const getOrbitalWords = () => {
@@ -382,10 +338,10 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full h-[120vh] bg-obsidian text-white flex flex-col items-center justify-start overflow-hidden"
+      className="relative w-full min-h-screen bg-obsidian text-white flex flex-col items-center justify-start overflow-hidden"
     >
-      {/* Three.js Canvas Container - Sticky to occupy screen while scrolling */}
-      <div className="sticky top-0 left-0 w-full h-screen z-10 pointer-events-none">
+      {/* Existing 3D scene follows the natural hero scroll. */}
+      <div className="absolute inset-0 w-full h-full z-10 pointer-events-none">
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
         
         {/* Subtle radial flashlight gradient behind */}
@@ -403,7 +359,7 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
         ref={orbitalRef} style={{ transform: "translate(-150%, -50%) scale(1)", opacity: 1 }}
       >
         {/* Curved Text Path using SVG */}
-        <svg viewBox="0 0 400 400" className="w-full h-full animate-spin-slow">
+        <svg viewBox="0 0 400 400" className="w-full h-full animate-spin-slow motion-reduce:animate-none">
           <path id="textPath" d="M 200,200 m -150,0 a 150,150 0 1,1 300,0 a 150,150 0 1,1 -300,0" fill="transparent" />
           <text className="font-serif text-[10px] md:text-[11.5px] uppercase tracking-[13px] fill-gold-light/65 font-semibold glow-text">
             <textPath href="#textPath" startOffset="0%">{getOrbitalWords()}</textPath>
@@ -413,68 +369,55 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
 
       {/* Screen 1 CONTENT (Initial Hero Section) */}
       <div 
-        className="absolute top-0 left-0 w-full h-screen z-20 flex flex-col justify-between items-center px-4 py-24 pointer-events-auto"
-        ref={contentRef} style={{ opacity: 1, transform: "translateY(0px)", visibility: "visible" }}
+        className="relative w-full min-h-screen z-20 flex flex-col justify-between items-center gap-8 px-4 pt-28 pb-10 pointer-events-auto"
       >
         {/* Premium Top Badge */}
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="px-4 py-1.5 rounded-full glass-premium border border-gold/30 flex items-center gap-2 text-xs text-gold-light tracking-widest font-display font-medium glow-gold"
+          className="px-4 py-1.5 text-center rounded-full glass-premium border border-gold/30 flex items-center gap-2 text-[10px] sm:text-xs text-gold-light tracking-widest font-display font-medium glow-gold"
         >
-          <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
+          <span className="w-2 h-2 shrink-0 rounded-full bg-gold animate-ping motion-reduce:animate-none" />
           {t.hero.badge}
         </motion.div>
 
         {/* Copywriter Aggressive Headline */}
-        <div className="max-w-4xl text-center flex flex-col gap-6 mt-12 md:mt-0">
+        <div className="max-w-4xl text-center flex flex-col gap-6 mt-4 md:mt-0">
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={reducedMotion ? false : { opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white leading-[1.05]"
           >
             {t.hero.title.split(' ').map((word, i) => (
-              <span key={i} className={word.toLowerCase().includes('concorrentes') || word.toLowerCase().includes('competitors') || word.toLowerCase().includes('concurrents') || word.toLowerCase().includes('concorrenti') ? "text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark font-serif italic drop-shadow-[0_0_12px_rgba(212,175,55,0.6)] font-bold" : ""}>
+              <span key={i} className={word.toLowerCase().includes('concorrentes') || word.toLowerCase().includes('competitors') || word.toLowerCase().includes('concurrents') || word.toLowerCase().includes('concorrenti') || word.toLowerCase().includes('competidores') || word.toLowerCase().includes('wettbewerbern') ? "text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark font-serif italic drop-shadow-[0_0_12px_rgba(212,175,55,0.6)] font-bold" : ""}>
                 {word}{' '}
               </span>
             ))}
           </motion.h1>
           
           <motion.p 
-            initial={{ opacity: 0 }}
+            initial={reducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-base md:text-xl text-white max-w-2xl mx-auto font-sans font-medium leading-relaxed drop-shadow-sm"
           >
-            {t.hero.subtitle.lastIndexOf('. ') !== -1 ? (
-              <>
-                {t.hero.subtitle.substring(0, t.hero.subtitle.lastIndexOf('. ') + 2)}
-                <span className="font-bold text-gold">{t.hero.subtitle.substring(t.hero.subtitle.lastIndexOf('. ') + 2)}</span>
-              </>
-            ) : (
-              t.hero.subtitle
-            )}
+            {t.hero.subtitle}
+            <span className="block mt-3 font-bold text-gold">{t.hero.reinforcement}</span>
           </motion.p>
           
           {/* Authority Badges (Acima da Dobra) */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={reducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col items-center gap-3 mt-2 md:mt-4 mb-8"
           >
-                        <div className="flex flex-wrap justify-center gap-2 text-[10px] md:text-xs font-mono tracking-[0.2em] text-gold-light/80 uppercase">
-              <span>{currentLang === 'pt' ? 'Portugal' : currentLang === 'es' ? 'Portugal' : currentLang === 'it' ? 'Portogallo' : currentLang === 'fr' ? 'Portugal' : currentLang === 'de' ? 'Portugal' : 'Portugal'}</span> <span className="opacity-50">•</span> 
-              <span>{currentLang === 'pt' ? 'Espanha' : currentLang === 'es' ? 'España' : currentLang === 'it' ? 'Spagna' : currentLang === 'fr' ? 'Espagne' : currentLang === 'de' ? 'Spanien' : 'Spain'}</span> <span className="opacity-50">•</span> 
-              <span>{currentLang === 'pt' ? 'Itália' : currentLang === 'es' ? 'Italia' : currentLang === 'it' ? 'Italia' : currentLang === 'fr' ? 'Italie' : currentLang === 'de' ? 'Italien' : 'Italy'}</span> <span className="opacity-50">•</span> 
-              <span>{currentLang === 'pt' ? 'Luxemburgo' : currentLang === 'es' ? 'Luxemburgo' : currentLang === 'it' ? 'Lussemburgo' : currentLang === 'fr' ? 'Luxembourg' : currentLang === 'de' ? 'Luxemburg' : 'Luxembourg'}</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm font-sans font-medium text-white/90">
-              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">{currentLang === 'pt' ? 'Websites Premium' : currentLang === 'es' ? 'Sitios Web Premium' : currentLang === 'it' ? 'Siti Web Premium' : currentLang === 'fr' ? 'Sites Web Premium' : currentLang === 'de' ? 'Premium-Websites' : 'Premium Websites'}</span>
-              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">Google Maps</span>
-              <span className="bg-white/5 px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">{currentLang === 'pt' ? 'Atendimento IA 24/7' : currentLang === 'es' ? 'Atención IA 24/7' : currentLang === 'it' ? 'Assistenza IA 24/7' : currentLang === 'fr' ? 'Support IA 24/7' : currentLang === 'de' ? '24/7 KI-Support' : '24/7 AI Support'}</span>
+            <div className="flex flex-nowrap justify-center gap-1.5 sm:gap-2 md:gap-4 text-[10px] sm:text-xs md:text-sm font-sans font-medium text-white/90">
+              {t.hero.pills.map(pill => (
+                <span key={pill} className="whitespace-nowrap bg-white/5 px-2 sm:px-3 py-1 rounded-full border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.02)]">{pill}</span>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -482,23 +425,14 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
         {/* Action Call Controls */}
         <div className="flex flex-col items-center gap-6 w-full max-w-md">
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-            <motion.button aria-label="Button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => onCtaClick(t.hero.tracking)}
-              className="px-4 py-3 w-full rounded-xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-black font-display font-bold text-xs sm:text-sm md:text-base tracking-wider hover:opacity-100 transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:shadow-[0_0_25px_rgba(212,175,55,0.8)] animate-pulse flex items-center justify-center text-center cursor-pointer group break-words whitespace-normal"
+            <motion.button
+              aria-label={t.hero.ctaPrimary}
+              whileHover={reducedMotion ? undefined : { scale: 1.05 }}
+              whileTap={reducedMotion ? undefined : { scale: 0.95 }}
+              onClick={onScrollToPricing}
+              className="px-4 py-3 w-full rounded-xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-black font-display font-bold text-xs sm:text-sm md:text-base tracking-wider hover:opacity-100 transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(212,175,55,0.5)] hover:shadow-[0_0_25px_rgba(212,175,55,0.8)] animate-pulse motion-reduce:animate-none flex items-center justify-center text-center cursor-pointer group break-words whitespace-normal"
             >
               {t.hero.ctaPrimary}
-            </motion.button>
-
-            <motion.button aria-label="Button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onScrollToDemos}
-              className="px-8 py-4 rounded-xl bg-black/40 border border-gold/30 hover:border-gold text-white font-display font-semibold hover:bg-black/60 hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer group"
-            >
-              <Play size={16} className="text-gold group-hover:text-gold-light group-hover:scale-110 transition-transform" />
-              {t.hero.ctaSecondary}
             </motion.button>
           </div>
 
@@ -520,85 +454,12 @@ export const ThreeHero: React.FC<ThreeHeroProps> = React.memo(({
           </div>
 
           {/* Smooth Scroll Prompt */}
-          <div className="flex flex-col items-center gap-1 animate-bounce mt-4 opacity-75">
-            <span className="text-[10px] uppercase font-mono tracking-widest text-gold">SCROLL TO EXPERIENCE</span>
+          <div className="flex flex-col items-center gap-1 animate-bounce motion-reduce:animate-none mt-4 opacity-75">
             <ArrowDown size={14} className="text-gold" />
           </div>
         </div>
       </div>
 
-      {/* Screen 2 CONTENT (Revealed Cinematic floating Glassmorphism Operational Module) */}
-      <AnimatePresence>
-        {showModule && (
-          <motion.div 
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -50, scale: 0.95 }}
-            transition={{ type: 'spring', damping: 20 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-4xl px-4 z-20"
-          >
-            <div className="glass-premium p-6 md:p-8 rounded-3xl border border-gold/30 relative overflow-hidden flex flex-col md:flex-row gap-6 items-center">
-              {/* Backlight effect inside card */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-gold/10 rounded-full blur-[60px]" />
-              
-              <div className="flex-1 flex flex-col gap-4 text-center md:text-left">
-                <span className="text-xs uppercase font-mono tracking-widest text-gold font-bold">VELKS GROUP CORE</span>
-                <h3 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-white leading-tight">
-                  {currentLang === 'pt' ? 'Não Vendemos Tecnologia. Vendemos Resultados Reais.' :
-                   currentLang === 'es' ? 'No Vendemos Tecnología. Vendemos Resultados Reales.' :
-                   currentLang === 'it' ? 'Non Vendiamo Tecnologia. Vendiamo Risultati Reali.' :
-                   currentLang === 'fr' ? 'Nous ne vendons pas de technologie. Nous vendons du résultat.' :
-                   currentLang === 'de' ? 'Wir verkaufen keine Technologie. Wir verkaufen Ergebnisse.' :
-                   'We Do Not Sell Technology. We Deliver Scalable Growth.'}
-                </h3>
-                <p className="text-sm text-gray-300 leading-relaxed font-light">
-                  {currentLang === 'pt' ? 'O nosso método foi desenhado para negócios locais dominarem a sua região. Criamos uma barreira intransponível entre si e os concorrentes, focando estritamente em atrair contactos diretos para fechar negócio rápido.' :
-                   currentLang === 'es' ? 'Nuestro método fue diseñado para que negocios locales dominen su región. Creamos una barrera intransferible entre usted y sus competidores, enfocándonos estrictamente en atraer contactos directos para cerrar.' :
-                   currentLang === 'it' ? 'Il nostro metodo è progettato per far dominare ai business locali la propria zona. Creiamo una barriera insormontabile tra te e i concorrenti, focalizzandoci sulla cattura di contatti pronti ad acquistare.' :
-                   currentLang === 'fr' ? 'Notre méthode est conçue pour permettre aux commerces locaux de dominer leur secteur. Nous créons une barrière infranchissable entre vous et vos concurrents, en nous concentrant sur les leads chauds.' :
-                   currentLang === 'de' ? 'Unsere Methode wurde entwickelt, damit lokale Unternehmen ihre Region dominieren. Wir schaffen eine unüberwindbare Barriere zwischen Ihnen und Ihren Konkurrenten und fokussieren uns auf direkte Anfragen.' :
-                   'Our framework is engineered to empower local service providers. We establish a massive competitive barrier, focusing aggressively on generating high-intent inquiries directly to your sales channel.'}
-                </p>
-              </div>
-
-              {/* Quick pillars showcase with micro badges */}
-                            <div className="grid grid-cols-2 gap-3 w-full md:w-[320px] shrink-0">
-                <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">
-                    01. GOOGLE
-                  </span>
-                  <span className="text-xs font-semibold text-white">
-                    {currentLang === 'pt' ? 'Monopólio Local' : currentLang === 'es' ? 'Monopolio Local' : currentLang === 'it' ? 'Monopolio Locale' : currentLang === 'fr' ? 'Monopole Local' : currentLang === 'de' ? 'Lokales Monopol' : 'Local Monopoly'}
-                  </span>
-                </div>
-                <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">
-                    {currentLang === 'pt' ? '02. WEBSITES' : currentLang === 'es' ? '02. WEBSITES' : currentLang === 'it' ? '02. SITI WEB' : currentLang === 'fr' ? '02. SITES WEB' : currentLang === 'de' ? '02. WEBSITES' : '02. WEBSITES'}
-                  </span>
-                  <span className="text-xs font-semibold text-white">
-                    {currentLang === 'pt' ? 'Máquina de Vendas' : currentLang === 'es' ? 'Máquina de Ventas' : currentLang === 'it' ? 'Macchina Vendite' : currentLang === 'fr' ? 'Machine de Vente' : currentLang === 'de' ? 'Verkaufsmaschine' : 'Sales Machine'}
-                  </span>
-                </div>
-                <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">03. IA VELKS</span>
-                  <span className="text-xs font-semibold text-white">
-                    {currentLang === 'pt' ? 'Vendedor 24/7' : currentLang === 'es' ? 'Vendedor 24/7' : currentLang === 'it' ? 'Venditore 24/7' : currentLang === 'fr' ? 'Vendeur 24/7' : currentLang === 'de' ? 'Verkäufer 24/7' : '24/7 Salesman'}
-                  </span>
-                </div>
-                <div className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-gold uppercase tracking-widest">
-                    {currentLang === 'pt' ? '04. CLIENTES' : currentLang === 'es' ? '04. CLIENTES' : currentLang === 'it' ? '04. CLIENTI' : currentLang === 'fr' ? '04. CLIENTS' : currentLang === 'de' ? '04. KUNDEN' : '04. CLIENTS'}
-                  </span>
-                  <span className="text-xs font-semibold text-white">
-                    {currentLang === 'pt' ? 'Prontos a Comprar' : currentLang === 'es' ? 'Listos para Comprar' : currentLang === 'it' ? 'Pronti a Comprare' : currentLang === 'fr' ? 'Prêts à Acheter' : currentLang === 'de' ? 'Kaufbereit' : 'Ready to Buy'}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-        )}
-      </AnimatePresence>
     </section>
   );
 });

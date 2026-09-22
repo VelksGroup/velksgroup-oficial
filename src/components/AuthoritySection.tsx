@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'motion/react';
+import { motion, useScroll, useTransform, useInView, useReducedMotion } from 'motion/react';
 import { Language } from '../translations';
 import { Globe, ShieldCheck } from 'lucide-react';
 
@@ -13,10 +13,12 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }: { from?: n
   const [count, setCount] = useState(from);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !reduceMotion) {
       let startTime: number;
+      let frameId: number;
       const animateCount = (timestamp: number) => {
         if (!startTime) startTime = timestamp;
         const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
@@ -27,17 +29,18 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }: { from?: n
         setCount(Math.floor(easeProgress * (to - from) + from));
         
         if (progress < 1) {
-          requestAnimationFrame(animateCount);
+          frameId = requestAnimationFrame(animateCount);
         }
       };
-      requestAnimationFrame(animateCount);
+      frameId = requestAnimationFrame(animateCount);
+      return () => cancelAnimationFrame(frameId);
     }
-  }, [isInView, from, to, duration]);
+  }, [isInView, from, to, duration, reduceMotion]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span ref={ref}>{reduceMotion ? to : count}{suffix}</span>;
 };
 
-export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t, currentLang }) => {
+export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -107,7 +110,7 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t
             >
               <span className="text-xs font-mono uppercase tracking-[4px] text-gold font-bold flex items-center gap-3">
                 <Globe size={16} className="text-gold animate-spin-slow drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
-                {currentLang === 'pt' ? 'PRESENÇA INTERNACIONAL REGULADA' : currentLang === 'es' ? 'PRESENCIA INTERNACIONAL REGULADA' : currentLang === 'it' ? 'PRESENZA INTERNAZIONALE REGOLAMENTATA' : currentLang === 'fr' ? 'PRÉSENCE INTERNATIONALE RÉGLEMENTÉE' : currentLang === 'de' ? 'REGULIERTE INTERNATIONALE PRÄSENZ' : 'REGULATED EUROPEAN STATUS'}
+                {t.authority.eyebrow}
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-[1.1] drop-shadow-lg">
                 {t.authority.title}
@@ -139,7 +142,6 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
                       <h4 className="font-display font-bold text-white text-lg group-hover:text-gold-light transition-colors">{country.data.name}</h4>
-                      <span className="text-[10px] uppercase font-mono tracking-wider bg-white/5 group-hover:bg-gold/10 group-hover:text-gold text-gray-400 px-2 py-1 rounded transition-colors">{country.data.tag}</span>
                     </div>
                     <p className="text-sm text-gray-400 mt-2 font-light leading-relaxed group-hover:text-gray-300 transition-colors">{country.data.desc}</p>
                   </div>
@@ -163,34 +165,32 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t
               
               <span className="text-xs md:text-sm font-mono tracking-widest text-gold uppercase flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-                {currentLang === 'pt' ? 'MÉTRICAS AUDITADAS EM PORTAL CONSOLIDADO' : currentLang === 'es' ? 'MÉTRICAS AUDITADAS EN PORTAL CONSOLIDADO' : currentLang === 'it' ? 'METRICHE CERTIFICATE IN PORTALE CONSOLIDATO' : currentLang === 'fr' ? 'MÉTRIQUES AUDITÉES SUR PORTAIL CONSOLIDÉ' : currentLang === 'de' ? 'GEPRÜFTE METRIKEN IN EINEM KONSOLIDIERTEN PORTAL' : 'AUDITED PERFORMANCE METRICS'}
+                {t.authority.metricsLabel}
               </span>
               
               <div className="grid grid-cols-2 gap-4 md:gap-5">
                 <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col gap-2 md:gap-3 group">
                   <span className="text-3xl md:text-4xl font-display font-black text-white glow-text group-hover:scale-105 transition-transform origin-left">
-                    <AnimatedCounter to={240} suffix="+" />
+                    <AnimatedCounter to={6} />
                   </span>
-                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed">{t.authority.metrics.clients}</span>
+                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed break-words">{t.authority.metrics.clients}</span>
                 </div>
                 <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col gap-2 md:gap-3 group">
                   <span className="text-3xl md:text-4xl font-display font-black text-white glow-text group-hover:scale-105 transition-transform origin-left">
-                    <AnimatedCounter to={350} suffix="+" />
+                    <AnimatedCounter to={3} />
                   </span>
-                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed">{t.authority.metrics.delivered}</span>
+                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed break-words">{t.authority.metrics.delivered}</span>
                 </div>
                 <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/30 transition-colors flex flex-col gap-2 md:gap-3 group relative overflow-hidden">
                   <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <span className="text-3xl md:text-4xl font-display font-black text-gold glow-text group-hover:scale-105 transition-transform origin-left drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]">
-                    <AnimatedCounter to={320} suffix="%" />
+                    <AnimatedCounter to={5} />
                   </span>
-                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed relative z-10">{t.authority.metrics.roi}</span>
+                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed break-words relative z-10">{t.authority.metrics.roi}</span>
                 </div>
                 <div className="p-4 md:p-6 rounded-2xl bg-[#0b0b0d]/60 sm:backdrop-blur-md border border-white/5 hover:border-gold/20 transition-colors flex flex-col justify-center gap-2 md:gap-3 group">
-                  <div className="flex gap-1.5 text-gold text-base md:text-lg drop-shadow-[0_0_5px_rgba(212,175,55,0.5)]">
-                    ★★★★★
-                  </div>
-                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed">{t.authority.metrics.support}</span>
+                  <span className="text-3xl md:text-4xl font-display font-black text-gold glow-text group-hover:scale-105 transition-transform origin-left drop-shadow-[0_0_5px_rgba(212,175,55,0.5)]">24/7</span>
+                  <span className="text-xs md:text-sm text-gray-400 tracking-tight leading-relaxed break-words">{t.authority.metrics.support}</span>
                 </div>
               </div>
 
@@ -209,14 +209,11 @@ export const AuthoritySection: React.FC<AuthoritySectionProps> = React.memo(({ t
                     <span className="text-[11px] md:text-xs font-mono text-gold tracking-[0.2em] uppercase font-semibold">The VELKS Standard</span>
                   </div>
                   
-                  <p className="text-[15px] md:text-[17px] text-gray-300 font-light leading-relaxed md:leading-[1.8]">
-                    {currentLang === 'pt' ? 'Aplicamos engenharia europeia para blindar as suas vendas. Intercetamos quem pesquisa no Google, convertemos num site implacável e usamos IA para fechar o negócio 24/7. Clientes fechados de madrugada e aos fins de semana, enquanto descansa com a sua família. Uma solução de ponta a ponta que nenhuma outra agência consegue fazer.' :
-                   currentLang === 'en' ? 'We apply European engineering to bulletproof your sales. We intercept Google searchers, convert them with a ruthless website, and use AI to close deals 24/7. Customers closed at dawn and on weekends, while you rest with your family. An end-to-end solution no other agency can match.' :
-                   currentLang === 'es' ? 'Aplicamos ingeniería europea para blindar tus ventas. Interceptamos a quienes buscan en Google, los convertimos con un sitio web implacable y usamos IA para cerrar el trato 24/7. Clientes cerrados de madrugada y los fines de semana, mientras descansas con tu familia. Una solución de principio a fin que ninguna otra agencia puede ofrecer.' :
-                   currentLang === 'fr' ? 'Nous appliquons l\'ingénierie européenne pour blinder vos ventes. Nous interceptons les recherches Google, les convertissons avec un site web implacable et utilisons l\'IA pour conclure l\'affaire 24/7. Des clients signés à l\'aube et le week-end, pendant que vous vous reposez en famille. Une solution de bout en bout qu\'aucune autre agence ne peut égaler.' :
-                   currentLang === 'de' ? 'Wir wenden europäische Ingenieurskunst an, um Ihre Verkäufe abzusichern. Wir fangen Google-Sucher ab, konvertieren sie mit einer kompromisslosen Website und nutzen KI, um den Deal rund um die Uhr abzuschließen. Kunden, die nachts und am Wochenende gewonnen werden, während Sie sich mit Ihrer Familie ausruhen. Eine End-to-End-Lösung, die keine andere Agentur bieten kann.' :
-                   'Applichiamo l\'ingegneria europea per blindare le tue vendite. Intercettiamo chi cerca su Google, lo convertiamo con un sito web implacabile e usiamo l\'IA per chiudere l\'affare 24/7. Clienti acquisiti all\'alba e nei fine settimana, mentre riposi con la tua famiglia. Una soluzione end-to-end che nessun\'altra agenzia può eguagliare.'}
-                  </p>
+                  {t.authority.standard.map((paragraph: string, index: number) => (
+                    <p key={index} className="text-[15px] md:text-[17px] text-gray-300 font-light leading-relaxed md:leading-[1.8]">
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>

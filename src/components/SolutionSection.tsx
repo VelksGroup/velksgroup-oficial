@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { Language } from '../translations';
-import { MapPin, Globe, Bot, Users, Zap } from 'lucide-react';
+import { MapPin, Globe, Bot, Phone } from 'lucide-react';
 
 interface SolutionSectionProps {
   t: any;
@@ -9,8 +9,9 @@ interface SolutionSectionProps {
   solutionRef: React.RefObject<HTMLDivElement>;
 }
 
-export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, currentLang, solutionRef }) => {
+export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, solutionRef }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -22,15 +23,11 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, 
   const bgOpacityAmber = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
   const bgOpacityGold = useTransform(scrollYProgress, [0.5, 1], [0, 1]);
 
-  const yBg = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const yLogo = useTransform(scrollYProgress, [0.8, 1], ["0%", "50%"]);
-  
   const cards = [
-    { id: "gmaps", title: t.solution.cards.gmaps.title, desc: t.solution.cards.gmaps.desc, icon: MapPin, col: "col-span-1" },
-    { id: "website", title: t.solution.cards.website.title, desc: t.solution.cards.website.desc, icon: Globe, col: "col-span-1" },
-    { id: "bot", title: t.solution.cards.bot.title, desc: t.solution.cards.bot.desc, icon: Bot, col: "col-span-1" },
-    { id: "leads", title: t.solution.cards.leads.title, desc: t.solution.cards.leads.desc, icon: Users, col: "lg:col-span-1" },
-    { id: "automation", title: t.solution.cards.automation.title, desc: t.solution.cards.automation.desc, icon: Zap, col: "md:col-span-2 lg:col-span-2" }
+    { id: "gmaps", ...t.solution.cards.gmaps, icon: MapPin },
+    { id: "website", ...t.solution.cards.website, icon: Globe },
+    { id: "bot", ...t.solution.cards.bot, icon: Bot },
+    { id: "automation", ...t.solution.cards.automation, icon: Phone }
   ];
 
   return (
@@ -130,7 +127,7 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, 
             viewport={{ once: true, margin: "-100px" }}
             className="text-[10px] sm:text-xs font-mono uppercase tracking-[4px] text-gold font-bold px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 sm:backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.15)]"
           >
-            {currentLang === 'pt' ? 'O MAPA DA MINERAÇÃO DE OURO' : currentLang === 'es' ? 'LA ESTRATEGIA DE LA MINA DE ORO' : currentLang === 'it' ? 'LA STRATEGIA DELLA MINIERA D\'ORO' : currentLang === 'fr' ? 'LA STRATÉGIE DE LA MINE D\'OR' : currentLang === 'de' ? 'DIE GOLDMINE-STRATEGIE' : 'THE GOLDMINE STRATEGY'}
+            {t.solution.eyebrow}
           </motion.span>
           
           <motion.h2 
@@ -169,22 +166,33 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, 
         </div>
 
         {/* --- CARDS GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-          
-          {/* Decorative Connecting Lines Behind Cards (Desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent -translate-y-1/2 pointer-events-none" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+          {/* Thin shared path remains behind the existing card surfaces. */}
+          <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 bottom-0 left-1/2 md:left-1/4 w-px bg-gold/25" />
+            <div className="hidden md:block absolute top-0 bottom-0 left-3/4 w-px bg-gold/25" />
+            <div className="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-px bg-gold/25" />
+          </div>
 
           {cards.map((card, idx) => {
             const Icon = card.icon;
             return (
               <motion.div 
                 key={card.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className={`p-8 md:p-10 rounded-3xl bg-[#0b0b0d]/80 sm:backdrop-blur-xl border border-gold/15 hover:border-gold/40 active:border-gold/50 transition-all duration-500 flex flex-col gap-6 relative overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:-translate-y-3 active:-translate-y-3 active:scale-[1.02] cursor-pointer ${card.col}`}
+                transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : idx * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="p-8 md:p-10 rounded-3xl bg-[#0b0b0d]/80 sm:backdrop-blur-xl border border-gold/15 hover:border-gold/40 active:border-gold/50 transition-all duration-500 flex flex-col gap-6 relative overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:-translate-y-3 active:-translate-y-3 active:scale-[1.02] cursor-pointer"
               >
+                <motion.span
+                  aria-hidden="true"
+                  initial={reduceMotion ? false : { opacity: 0.3, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: reduceMotion ? 0 : 0.6 }}
+                  className="absolute top-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.3)]"
+                />
                 {/* Glow effects inside card */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full blur-[40px]" />
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -199,6 +207,7 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, 
                 </div>
                 
                 <div className="flex flex-col gap-3 relative z-10">
+                  <span className="text-[10px] sm:text-xs font-mono tracking-[0.15em] text-gold uppercase">{card.label}</span>
                   <h3 className="text-2xl font-display font-bold text-white group-hover:text-gold-light transition-colors drop-shadow-md">
                     {card.title}
                   </h3>
@@ -210,15 +219,24 @@ export const SolutionSection: React.FC<SolutionSectionProps> = React.memo(({ t, 
             );
           })}
         </div>
+        <p className="text-center text-sm md:text-base text-gray-400 font-light leading-relaxed max-w-3xl mx-auto mt-8">
+          {t.solution.closing}
+        </p>
       </div>
       
       {/* Minimal Premium Transition */}
-      <div className="w-full mt-16 md:mt-24 flex items-center justify-center relative z-10">
-        <div className="w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent relative">
+      <div aria-hidden="true" className="w-full h-8 mt-8 md:mt-10 flex items-center justify-center relative z-10 pointer-events-none">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0.3, scaleX: 0.85, filter: 'blur(2px)' }}
+          whileInView={{ opacity: 1, scaleX: 1, filter: 'blur(0px)' }}
+          viewport={{ once: true }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, ease: 'easeOut' }}
+          className="w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent relative"
+        >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rotate-45 border border-gold/40 bg-obsidian z-10 flex items-center justify-center">
             <div className="w-1 h-1 bg-gold rounded-full" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
