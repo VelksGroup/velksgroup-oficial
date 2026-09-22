@@ -239,7 +239,6 @@ export default function App() {
               <div className="w-10 h-10 rounded flex items-center justify-center bg-transparent relative">
                 <img src="/logo-oficial.png" alt="VELKS Logo" className="w-full h-full object-contain z-10" />
               </div>
-              <span className="absolute -top-1.5 -right-0.5 text-[10px] text-gold animate-bounce drop-shadow-[0_0_5px_rgba(212,175,55,0.8)] z-20">👑</span>
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold tracking-widest text-white text-base leading-none group-hover:text-gold-light transition-colors">VELKS</span>
@@ -590,9 +589,12 @@ export default function App() {
                         transition={{ duration: 0.3 }}
                       >
                         <div className="p-6 pt-0 text-sm text-gray-300 font-light leading-relaxed border-t border-white/5 bg-black/20 whitespace-pre-line">
-                          {faq.a.split(/(velks\.space|vgroup\.space)/g).map((part, i) => {
+                          {faq.a.split(/(velks\.space|velksgroup\.cloud|vgroup\.space)/g).map((part, i) => {
                             if (part === 'velks.space') {
                               return <a key={i} href="https://velks.space" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">{part}</a>;
+                            }
+                            if (part === 'velksgroup.cloud') {
+                              return <a key={i} href="https://velksgroup.cloud" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">{part}</a>;
                             }
                             if (part === 'vgroup.space') {
                               return <a key={i} href="https://vgroup.space" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">{part}</a>;

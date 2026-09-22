@@ -41,7 +41,7 @@ export const TrustFooter: React.FC<{ t: TranslationSchema['footer']['trust'] }> 
             {t.cardLabel}
           </li>
           <li><img src="/payment-icons/apple-pay.svg" alt="Apple Pay" className="h-10 w-auto" /></li>
-          <li className="text-[#00d66f]">Link</li>
+          <li><img src="/payment-icons/link.svg" alt="Link" className="h-7 w-auto" /></li>
           <li><img src="/payment-icons/klarna.svg" alt="Klarna" className="h-10 w-auto" /></li>
           <li><img src="/payment-icons/amazon-pay.svg" alt="Amazon Pay" className="h-10 w-auto" /></li>
         </ul>
