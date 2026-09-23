@@ -378,10 +378,10 @@ export default function App() {
               </div>
               <button aria-label="Button" 
                 onClick={() => window.open('https://buy.stripe.com/00w14n1gq365d6U2al2cg01', '_blank', 'noopener,noreferrer')}
-                className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="pricing-cta pricing-cta-dark w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.18)] motion-reduce:hover:translate-y-0"
               >
-                <MessageSquare size={14} />
-                {t.pricing.plans.gmaps.cta}
+                <span className="relative z-10">{t.pricing.plans.gmaps.cta}</span>
+                <ArrowUpRight size={14} aria-hidden="true" className="relative z-10 shrink-0" />
               </button>
             </div>
 
@@ -411,10 +411,10 @@ export default function App() {
               </div>
               <button aria-label="Button" 
                 onClick={() => window.open('https://buy.stripe.com/4gMdR93oy4a9aYM9CN2cg05', '_blank', 'noopener,noreferrer')}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold to-gold-dark text-black font-display font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 hover:opacity-90 shadow-[0_4px_15px_rgba(212,175,55,0.3)]"
+                className="pricing-cta pricing-cta-gold w-full py-3.5 rounded-xl bg-gradient-to-r from-gold to-gold-dark text-black font-display font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 hover:opacity-90 hover:-translate-y-0.5 shadow-[0_4px_15px_rgba(212,175,55,0.3)] hover:shadow-[0_8px_24px_rgba(212,175,55,0.32)] motion-reduce:hover:translate-y-0"
               >
-                <MessageSquare size={14} />
-                {t.pricing.plans.website.cta}
+                <span className="relative z-10">{t.pricing.plans.website.cta}</span>
+                <ArrowUpRight size={14} aria-hidden="true" className="relative z-10 shrink-0" />
               </button>
             </div>
 
@@ -441,10 +441,10 @@ export default function App() {
               </div>
               <button aria-label="Button" 
                 onClick={() => window.open('https://buy.stripe.com/9B68wP4sC4a9aYM5mx2cg07', '_blank', 'noopener,noreferrer')}
-                className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="pricing-cta pricing-cta-dark w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.18)] motion-reduce:hover:translate-y-0"
               >
-                <MessageSquare size={14} />
-                {t.pricing.plans.automacao.cta}
+                <span className="relative z-10">{t.pricing.plans.automacao.cta}</span>
+                <ArrowUpRight size={14} aria-hidden="true" className="relative z-10 shrink-0" />
               </button>
             </div>
 
@@ -471,10 +471,10 @@ export default function App() {
               </div>
               <button aria-label="Button" 
                 onClick={() => window.open('https://buy.stripe.com/aFa28r7EO9ut6Iw02d2cg06', '_blank', 'noopener,noreferrer')}
-                className="w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="pricing-cta pricing-cta-dark w-full py-3.5 rounded-xl bg-white/5 hover:bg-gold hover:text-black border border-gold/20 hover:border-gold font-display font-bold text-xs uppercase tracking-widest text-gold transition-all cursor-pointer flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.18)] motion-reduce:hover:translate-y-0"
               >
-                <MessageSquare size={14} />
-                {t.pricing.plans.ecommerce.cta}
+                <span className="relative z-10">{t.pricing.plans.ecommerce.cta}</span>
+                <ArrowUpRight size={14} aria-hidden="true" className="relative z-10 shrink-0" />
               </button>
             </div>
 
@@ -504,10 +504,10 @@ export default function App() {
               </div>
               <button aria-label="Button" 
                 onClick={() => window.open('https://buy.stripe.com/eVqaEX8ISfSRgj6cOZ2cg08', '_blank', 'noopener,noreferrer')}
-                className="w-full py-3.5 rounded-xl bg-gold text-black hover:opacity-90 font-display font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg"
+                className="pricing-cta pricing-cta-gold w-full py-3.5 rounded-xl bg-gold text-black hover:opacity-90 font-display font-bold text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 shadow-lg hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(212,175,55,0.32)] motion-reduce:hover:translate-y-0"
               >
-                <MessageSquare size={14} />
-                {t.pricing.plans.custom.cta}
+                <span className="relative z-10">{t.pricing.plans.custom.cta}</span>
+                <ArrowUpRight size={14} aria-hidden="true" className="relative z-10 shrink-0" />
               </button>
             </div>
 
