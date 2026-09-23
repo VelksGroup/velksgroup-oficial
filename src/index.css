@@ -81,6 +81,46 @@ canvas {
   animation: shine 2s linear infinite;
 }
 
+@keyframes pricing-cta-sheen {
+  0%, 54% { transform: translateX(-260%) skewX(-20deg); }
+  72%, 100% { transform: translateX(520%) skewX(-20deg); }
+}
+
+.pricing-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.pricing-cta::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -35%;
+  bottom: -35%;
+  left: -45%;
+  width: 32%;
+  pointer-events: none;
+  animation: pricing-cta-sheen 8s ease-in-out infinite;
+}
+
+.pricing-cta-dark::before {
+  background: linear-gradient(90deg, transparent, rgba(243, 229, 171, 0.22), transparent);
+}
+
+.pricing-cta-gold::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-cta::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 @keyframes shimmer {
   100% {
     transform: translateX(200%);

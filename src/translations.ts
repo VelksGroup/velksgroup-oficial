@@ -426,7 +426,7 @@ export const translations: Record<Language, TranslationSchema> = {
       eyebrow: "ESCOLHA O QUE O SEU NEGÓCIO PRECISA",
       title: "Comece agora, sem pedir orçamento primeiro.",
       subtitle: "Veja os preços, escolha o que o seu negócio precisa e ative antes que o próximo cliente escolha a concorrência.",
-      singlePayment: "PREÇOS CLAROS · OPERAÇÃO GERIDA",
+      singlePayment: "PREÇOS CLAROS · TUDO GERIDO",
       allPlansInclude: "Todos os pacotes incluem:",
       allPlansIncludeDesc: "Suporte premium, total conformidade com o RGPD, design focado em telemóveis e otimização de velocidade máxima.",
       plans: {
@@ -868,7 +868,7 @@ export const translations: Record<Language, TranslationSchema> = {
       eyebrow: "SCEGLI CIÒ CHE SERVE ALLA TUA AZIENDA",
       title: "Inizia ora, senza dover chiedere prima un preventivo.",
       subtitle: "Consulta i prezzi, scegli ciò che serve alla tua azienda e attivalo prima che il prossimo cliente scelga un concorrente.",
-      singlePayment: "PREZZI CHIARI · GESTIONE CONTINUATIVA",
+      singlePayment: "PREZZI CHIARI · TUTTO CURATO",
       allPlansInclude: "Tutti i pacchetti includono:",
       allPlansIncludeDesc: "Supporto premium, conformità totale GDPR, design mobile-first e ottimizzazione per la massima velocità di caricamento.",
       plans: {
@@ -1310,7 +1310,7 @@ export const translations: Record<Language, TranslationSchema> = {
       eyebrow: "CHOOSE WHAT YOUR BUSINESS NEEDS",
       title: "Start now, without asking for a quote first.",
       subtitle: "See the prices, choose what your business needs and activate it before the next customer chooses a competitor.",
-      singlePayment: "CLEAR PRICING · MANAGED OPERATIONS",
+      singlePayment: "CLEAR PRICES · FULLY MANAGED",
       allPlansInclude: "All packages include:",
       allPlansIncludeDesc: "Premium support, full EU GDPR compliance, mobile-first design, and optimization for blazing fast load speeds.",
       plans: {
@@ -1752,7 +1752,7 @@ export const translations: Record<Language, TranslationSchema> = {
       eyebrow: "CHOISISSEZ CE DONT VOTRE ENTREPRISE A BESOIN",
       title: "Commencez maintenant, sans demander de devis au préalable.",
       subtitle: "Consultez les prix, choisissez ce dont votre entreprise a besoin et activez-le avant que le prochain client ne choisisse un concurrent.",
-      singlePayment: "TARIFS CLAIRS · EXPLOITATION GÉRÉE",
+      singlePayment: "TARIFS CLAIRS · TOUT GÉRÉ",
       allPlansInclude: "Toutes nos formules incluent :",
       allPlansIncludeDesc: "Support premium, conformité totale RGPD UE, design mobile-first et optimisation pour une vitesse de chargement maximale.",
       plans: {
@@ -2194,7 +2194,7 @@ export const translations: Record<Language, TranslationSchema> = {
       eyebrow: "WÄHLEN SIE, WAS IHR UNTERNEHMEN BRAUCHT",
       title: "Starten Sie jetzt, ohne zuerst ein Angebot anzufordern.",
       subtitle: "Sehen Sie die Preise, wählen Sie, was Ihr Unternehmen braucht, und aktivieren Sie es, bevor sich der nächste Kunde für einen Wettbewerber entscheidet.",
-      singlePayment: "KLARE PREISE · BETREUTER BETRIEB",
+      singlePayment: "KLARE PREISE · ALLES BETREUT",
       allPlansInclude: "Alle Pakete beinhalten:",
       allPlansIncludeDesc: "Premium-Support, vollständige EU-DSGVO-Konformität, Mobile-First-Design und Optimierung für maximale Ladegeschwindigkeiten.",
       plans: {
@@ -2636,7 +2636,7 @@ export const translations: Record<Language, TranslationSchema> = {
       eyebrow: "ELIGE LO QUE NECESITA TU NEGOCIO",
       title: "Empieza ahora, sin pedir presupuesto primero.",
       subtitle: "Mira los precios, elige lo que necesita tu negocio y actívalo antes de que el próximo cliente elija a la competencia.",
-      singlePayment: "PRECIOS CLAROS · OPERACIÓN GESTIONADA",
+      singlePayment: "PRECIO CLARO · GESTIÓN TOTAL",
       allPlansInclude: "Todos los paquetes incluyen:",
       allPlansIncludeDesc: "Soporte premium, conformidad total con el RGPD de la UE, diseño mobile-first y optimización para la máxima velocidad de carga.",
       plans: {
