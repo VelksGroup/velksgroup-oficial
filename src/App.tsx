@@ -848,15 +848,10 @@ export default function App() {
           </div>
 
           {/* RGPD declaration stamp */}
-          <div className="flex justify-center md:justify-end gap-2 items-center text-[9px] font-mono text-gray-600 tracking-widest uppercase">
+          <div className="flex justify-center md:justify-end lg:justify-center gap-2 items-center text-[9px] font-mono text-gray-600 tracking-widest uppercase">
             <Lock size={10} />
             <span>{t.footer.gdpr}</span>
-            <svg viewBox="0 0 40 40" width="18" height="18" aria-hidden="true" className="text-gold shrink-0">
-              {Array.from({ length: 12 }, (_, i) => {
-                const angle = i * Math.PI / 6 - Math.PI / 2;
-                return <path key={i} d="M0 -2.5L.56 -.77L2.38 -.77L.91 .29L1.47 2.02L0 .95L-1.47 2.02L-.91 .29L-2.38 -.77L-.56 -.77Z" fill="currentColor" transform={`translate(${20 + Math.cos(angle) * 15} ${20 + Math.sin(angle) * 15})`} />;
-              })}
-            </svg>
+            <img src="/eu-flag.svg" alt="" aria-hidden="true" className="h-3 w-auto shrink-0" />
           </div>
 
         </div>

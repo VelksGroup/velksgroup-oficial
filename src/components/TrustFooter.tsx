@@ -11,6 +11,8 @@ const aiServices = [
 export const TrustFooter: React.FC<{ t: TranslationSchema['footer']['trust'] }> = ({ t }) => {
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
   const feedbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const stripeName = 'Stripe';
+  const stripeIndex = t.paymentNote.lastIndexOf(stripeName);
 
   useEffect(() => () => {
     if (feedbackTimer.current) clearTimeout(feedbackTimer.current);
@@ -35,17 +37,29 @@ export const TrustFooter: React.FC<{ t: TranslationSchema['footer']['trust'] }> 
     <div className="grid grid-cols-1 gap-8 border-t border-white/5 pt-8">
       <div className="min-w-0 flex flex-col gap-4">
         <h4 className="font-display font-bold text-white uppercase tracking-wider text-xs">{t.paymentTitle}</h4>
-        <ul className="flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-gray-200">
-          <li className="flex items-center gap-2">
+        <ul className="grid grid-cols-6 items-center gap-x-3 gap-y-4 text-sm text-gray-200 md:flex md:flex-nowrap md:gap-x-6">
+          <li className="col-span-2 flex items-center gap-2 justify-self-start">
             <CreditCard size={20} className="text-gold shrink-0" aria-hidden="true" />
             {t.cardLabel}
           </li>
-          <li><img src="/payment-icons/apple-pay.svg" alt="Apple Pay" className="h-10 w-auto" /></li>
-          <li><img src="/payment-icons/link.svg" alt="Link" className="h-7 w-auto" /></li>
-          <li><img src="/payment-icons/klarna.svg" alt="Klarna" className="h-10 w-auto" /></li>
-          <li><img src="/payment-icons/amazon-pay.svg" alt="Amazon Pay" className="h-10 w-auto" /></li>
+          <li className="col-span-2 justify-self-center"><img src="/payment-icons/apple-pay.svg" alt="Apple Pay" className="h-10 w-auto" /></li>
+          <li className="col-span-2 justify-self-end"><img src="/payment-icons/link.svg" alt="Link" className="h-7 w-auto" /></li>
+          <li className="col-span-3 justify-self-center"><img src="/payment-icons/klarna.svg" alt="Klarna" className="h-10 w-auto" /></li>
+          <li className="col-span-3 justify-self-center"><img src="/payment-icons/amazon-pay.svg" alt="Amazon Pay" className="h-8 w-auto" /></li>
         </ul>
-        <p className="text-xs text-gray-400 font-light leading-relaxed">{t.paymentNote}</p>
+        <p className="text-xs text-gray-400 font-light leading-relaxed">
+          {stripeIndex >= 0 ? (
+            <>
+              {t.paymentNote.slice(0, stripeIndex)}
+              <img
+                src="/payment-icons/stripe-wordmark-white.svg"
+                alt="Stripe"
+                className="mx-0.5 inline-block h-3 w-auto align-[-0.15em]"
+              />
+              {t.paymentNote.slice(stripeIndex + stripeName.length)}
+            </>
+          ) : t.paymentNote}
+        </p>
       </div>
 
       <div className="min-w-0 flex flex-col gap-4 border-t border-gold/20 pt-8">
